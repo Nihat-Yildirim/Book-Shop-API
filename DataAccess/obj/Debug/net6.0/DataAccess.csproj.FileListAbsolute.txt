@@ -10,3 +10,8 @@ D:\Projeler\Book-Shop-API\DataAccess\obj\Debug\net6.0\DataAccess.dll
 D:\Projeler\Book-Shop-API\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\Projeler\Book-Shop-API\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\Projeler\Book-Shop-API\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\Projeler\Book-Shop-API\DataAccess\bin\Debug\net6.0\Core.dll
+D:\Projeler\Book-Shop-API\DataAccess\bin\Debug\net6.0\Core.pdb
+D:\Projeler\Book-Shop-API\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+D:\Projeler\Book-Shop-API\DataAccess\bin\Debug\net6.0\Entities.dll
+D:\Projeler\Book-Shop-API\DataAccess\bin\Debug\net6.0\Entities.pdb
