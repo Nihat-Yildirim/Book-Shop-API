@@ -10,3 +10,10 @@ D:\Projeler\Book-Shop-API\Business\obj\Debug\net6.0\Business.dll
 D:\Projeler\Book-Shop-API\Business\obj\Debug\net6.0\refint\Business.dll
 D:\Projeler\Book-Shop-API\Business\obj\Debug\net6.0\Business.pdb
 D:\Projeler\Book-Shop-API\Business\obj\Debug\net6.0\ref\Business.dll
+D:\Projeler\Book-Shop-API\Business\bin\Debug\net6.0\Core.dll
+D:\Projeler\Book-Shop-API\Business\bin\Debug\net6.0\DataAccess.dll
+D:\Projeler\Book-Shop-API\Business\bin\Debug\net6.0\Entities.dll
+D:\Projeler\Book-Shop-API\Business\bin\Debug\net6.0\Core.pdb
+D:\Projeler\Book-Shop-API\Business\bin\Debug\net6.0\DataAccess.pdb
+D:\Projeler\Book-Shop-API\Business\bin\Debug\net6.0\Entities.pdb
+D:\Projeler\Book-Shop-API\Business\obj\Debug\net6.0\Business.csproj.CopyComplete
