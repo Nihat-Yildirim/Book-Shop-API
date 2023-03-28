@@ -26,14 +26,14 @@ namespace BookShopAPI.Controllers
                 return BadRequest("Hatalı mail adersi yada parola");
             }
 
-            var result = _authService.CreateCustomerAccessToken(customerToLogin.Data);
+            var resultAccessToken = _authService.CreateCustomerAccessToken(customerToLogin.Data);
 
-            if (!result.Success)
+            if (!resultAccessToken.Success)
             {
                 return BadRequest("Token Oluşturulamadı");
             }
 
-            return Ok(result.Data);
+            return Ok(resultAccessToken.Data);
         }
 
         [HttpPost("customerregister")]
@@ -43,17 +43,56 @@ namespace BookShopAPI.Controllers
 
             if(!userExists.Success)
             {
-                return BadRequest("Böyle bir kullanıcı zaten var");
+                return BadRequest("Bu email adresine ait zaten aktif bir kullanıcı var !!");
             }
 
             var registerResult = _authService.CustomerRegister(userForRegisterDto);
-            var accessTokenResult = _authService.CreateCustomerAccessToken(registerResult.Data);
+            var resultAccessToken = _authService.CreateCustomerAccessToken(registerResult.Data);
 
-            if(!accessTokenResult.Success)
+            if(!resultAccessToken.Success)
             {
                 return BadRequest("Token Üretilemedi");
             }
-            return Ok(accessTokenResult.Data);
+            return Ok(resultAccessToken.Data);
+        }
+
+        [HttpPost("dealerlogin")]
+        public IActionResult DealerLogin(UserForLoginDto userForLoginDto)
+        {
+            var dealerLogin = _authService.DealerLogin(userForLoginDto);
+
+            if(!dealerLogin.Success)
+            {
+                return BadRequest("Hatalı Email veya parola");
+            }
+
+            var resultAccessToken = _authService.CreateDealerAccessToken(dealerLogin.Data);
+            
+            if(!resultAccessToken.Success)
+            {
+                return BadRequest("Tokan üretilemedi");
+            }
+            return Ok(resultAccessToken.Data);
+        }
+
+        [HttpPost("dealerregister")]
+        public IActionResult DealerRegister(UserForRegisterDto userForRegisterDto)
+        {
+            var dealerExists = _authService.DealerExists(userForRegisterDto.Email);
+
+            if(!dealerExists.Success)
+            {
+                return BadRequest("Bu email adresine ait zaten aktif bir kullanıcı var !!");
+            }
+
+            var registerResult = _authService.DealerRegister(userForRegisterDto);
+            var resultAccessToken = _authService.CreateDealerAccessToken(registerResult.Data);
+
+            if(!resultAccessToken.Success)
+            {
+                return BadRequest("Tokan üretilemedi");
+            }
+            return Ok(resultAccessToken.Data);
         }
     }
 }

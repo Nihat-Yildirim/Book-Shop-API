@@ -37,9 +37,9 @@ namespace Business.Concrete
             var result = _customerDal.Get(c => c.Email == email);
             if(result == null)
             {
-                return new SuccessDataResult<Customer>(result);
+                return new ErrorDataResult<Customer>();
             }
-            return new ErrorDataResult<Customer>();
+            return new SuccessDataResult<Customer>(result);
         }
 
         public IResult Update(Customer customer)

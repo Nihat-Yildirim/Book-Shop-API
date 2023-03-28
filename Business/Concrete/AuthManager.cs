@@ -18,11 +18,13 @@ namespace Business.Concrete
     {
         ICustomerService _customerService;
         ITokenHelper _tokenHelper;
+        IDealerService _dealerService;
 
-        public AuthManager(ICustomerService customerService, ITokenHelper tokenHelper)
+        public AuthManager(ICustomerService customerService, ITokenHelper tokenHelper, IDealerService dealerService)
         {
             _customerService = customerService;
             _tokenHelper = tokenHelper;
+            _dealerService = dealerService;
         }
 
         public IDataResult<AccessToken> CreateCustomerAccessToken(Customer customer)
@@ -31,13 +33,19 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accessToken);
         }
 
+        public IDataResult<AccessToken> CreateDealerAccessToken(Dealer dealer)
+        {
+            var accessToken = _tokenHelper.CreateToken(dealer);
+            return new SuccessDataResult<AccessToken>(accessToken);
+        }
+
         public IResult CustomerExists(string email)
         {
             if (!_customerService.GetByMail(email).Success)
             {
-                return new ErrorResult();
+                return new SuccessResult();
             }
-            return new SuccessResult();
+            return new ErrorResult();
         }
 
         public IDataResult<Customer> CustomerLogin(UserForLoginDto userForLoginDto)
@@ -71,11 +79,58 @@ namespace Business.Concrete
                 PasswordHash= passwordHash,
                 PasswordSalt= passwordSalt,
                 CreatedDate= DateTime.Now,
+                ProfilePicture = "NULL",
                 Status = true,
             };
 
             _customerService.Add(customer);
             return new SuccessDataResult<Customer>(customer);
+        }
+
+        public IResult DealerExists(string email)
+        {
+            if (!_dealerService.GetByMail(email).Success)
+            {
+                return new SuccessResult();
+            }
+            return new ErrorResult();
+        }
+
+        public IDataResult<Dealer> DealerLogin(UserForLoginDto userForLoginDto)
+        {
+            var dealerToCheck = _dealerService.GetByMail(userForLoginDto.Email).Data;
+
+            if(dealerToCheck == null)
+            {
+                return new ErrorDataResult<Dealer>();
+            }
+
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, dealerToCheck.PasswordHash, dealerToCheck.PasswordSalt))
+            {
+                return new ErrorDataResult<Dealer>();
+            }
+            return new SuccessDataResult<Dealer>(dealerToCheck);
+        }
+
+        public IDataResult<Dealer> DealerRegister(UserForRegisterDto userForRegisterDto)
+        {
+            byte[] passwordHash, passwordSalt;
+
+            HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
+
+            var dealer = new Dealer
+            {
+                FirstName= userForRegisterDto.FirstName,
+                LastName= userForRegisterDto.LastName,
+                Email= userForRegisterDto.Email,
+                PasswordHash= passwordHash,
+                PasswordSalt= passwordSalt,
+                Status = true,
+                CreatedDate = DateTime.Now,
+            };
+
+            _dealerService.Add(dealer);
+            return new SuccessDataResult<Dealer>(dealer);
         }
     }
 }

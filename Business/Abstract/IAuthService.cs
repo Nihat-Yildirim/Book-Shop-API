@@ -13,9 +13,13 @@ namespace Business.Abstract
 {
     public interface IAuthService
     {
+        IResult CustomerExists(string email);
         IDataResult<Customer> CustomerRegister(UserForRegisterDto userForRegisterDto);
         IDataResult<Customer> CustomerLogin(UserForLoginDto userForLoginDto);
-        IResult CustomerExists(string email);
         IDataResult<AccessToken> CreateCustomerAccessToken(Customer customer);
+        IResult DealerExists(string email);
+        IDataResult<Dealer> DealerRegister(UserForRegisterDto userForRegisterDto);
+        IDataResult<Dealer> DealerLogin(UserForLoginDto userForLoginDto);
+        IDataResult<AccessToken> CreateDealerAccessToken(Dealer dealer);
     }
 }
