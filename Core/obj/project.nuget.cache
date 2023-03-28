@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Ia2YfpdTrsnsLTNHSQ21maWHPqgVV5h7CPe+6FCW0fmnosI4EN6YmkB28OSfg13ckipPWlDkkvgS5BqPZHYmBA==",
+  "dgSpecHash": "98zd+WClBUvbiPywcZ2chgrXGXtKUiq0ZGGeZuiFQKEbMM7vKXQSaEZJvVq0nqifZb5YIcbjDiRvvjm7qrcItg==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\Book-Shop-API\\Core\\Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nihat\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -28,6 +30,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0\\microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\7.0.0\\microsoft.extensions.fileproviders.physical.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\7.0.0\\microsoft.extensions.filesystemglobbing.7.0.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\7.0.0\\microsoft.extensions.hosting.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",

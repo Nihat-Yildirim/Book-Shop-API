@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("@"+Connection.ConnectionString);
+            optionsBuilder.UseSqlServer(@Connection.ConnectionString);
         }
 
         public DbSet<Customer> Customers { get; set; }

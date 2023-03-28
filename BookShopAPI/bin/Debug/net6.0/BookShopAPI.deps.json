@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "BookShopAPI/1.0.0": {
         "dependencies": {
+          "Business": "1.0.0",
           "Core": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.15",
           "Microsoft.Extensions.Configuration": "7.0.0",
@@ -16,6 +17,41 @@
         },
         "runtime": {
           "BookShopAPI.dll": {}
+        }
+      },
+      "Autofac/7.0.0": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "5.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/8.0.0": {
+        "dependencies": {
+          "Autofac": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "Autofac.Extras.DynamicProxy/6.0.1": {
+        "dependencies": {
+          "Autofac": "7.0.0",
+          "Castle.Core": "5.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Autofac.Extras.DynamicProxy.dll": {
+            "assemblyVersion": "6.0.1.0",
+            "fileVersion": "6.0.1.0"
+          }
         }
       },
       "Azure.Core/1.24.0": {
@@ -333,6 +369,19 @@
       "Microsoft.Extensions.FileSystemGlobbing/7.0.0": {
         "runtime": {
           "lib/net6.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
             "assemblyVersion": "7.0.0.0",
             "fileVersion": "7.0.22.51805"
           }
@@ -801,19 +850,51 @@
           }
         }
       },
+      "Business/1.0.0": {
+        "dependencies": {
+          "Autofac": "7.0.0",
+          "Autofac.Extras.DynamicProxy": "6.0.1",
+          "Core": "1.0.0",
+          "DataAccess": "1.0.0",
+          "Entities": "1.0.0"
+        },
+        "runtime": {
+          "Business.dll": {}
+        }
+      },
       "Core/1.0.0": {
         "dependencies": {
+          "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Castle.Core": "5.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Microsoft.Extensions.Configuration.Binder": "7.0.4",
           "Microsoft.Extensions.Configuration.Json": "7.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
           "Microsoft.IdentityModel.Tokens": "6.27.0",
           "System.IdentityModel.Tokens.Jwt": "6.27.0"
         },
         "runtime": {
           "Core.dll": {}
+        }
+      },
+      "DataAccess/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0",
+          "Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4"
+        },
+        "runtime": {
+          "DataAccess.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "runtime": {
+          "Entities.dll": {}
         }
       }
     }
@@ -823,6 +904,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-phR/GEk5h2kQWbMl70cZzCW5ysGxmz2ClaX5CuTw9qc3wtdDu3l9GAhWiWmZLltCytEIxIw98NtAraiOxazqLg==",
+      "path": "autofac/7.0.0",
+      "hashPath": "autofac.7.0.0.nupkg.sha512"
+    },
+    "Autofac.Extensions.DependencyInjection/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nGrXNpQX2FiZpIBydK9cxZnnoqP/cUd3k/53uRERYEqLtWzKtE15R6L+j5q5ax5Rv/+3wAIkOaPePkahfqrwjg==",
+      "path": "autofac.extensions.dependencyinjection/8.0.0",
+      "hashPath": "autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512"
+    },
+    "Autofac.Extras.DynamicProxy/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+ulCOXUjbJ5dljBPZf3gRxQNPRGqg/h1cNTZ4SpXK3qiamTfRsW3gXs2w/IJ+CIDmHrFGYXLqzNd5etvzwB8kA==",
+      "path": "autofac.extras.dynamicproxy/6.0.1",
+      "hashPath": "autofac.extras.dynamicproxy.6.0.1.nupkg.sha512"
     },
     "Azure.Core/1.24.0": {
       "type": "package",
@@ -1005,6 +1107,13 @@
       "sha512": "sha512-2jONjKHiF+E92ynz2ZFcr9OvxIw+rTGMPEH+UZGeHTEComVav93jQUWGkso8yWwVBcEJGcNcZAaqY01FFJcj7w==",
       "path": "microsoft.extensions.filesystemglobbing/7.0.0",
       "hashPath": "microsoft.extensions.filesystemglobbing.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-43n9Je09z0p/7ViPxfRqs5BUItRLNVh5b6JH40F2Agkh2NBsY/jpNYTtbCcxrHCsA3oRmbR6RJBzUutB4VZvNQ==",
+      "path": "microsoft.extensions.hosting.abstractions/7.0.0",
+      "hashPath": "microsoft.extensions.hosting.abstractions.7.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/7.0.0": {
       "type": "package",
@@ -1370,7 +1479,22 @@
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
+    "Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

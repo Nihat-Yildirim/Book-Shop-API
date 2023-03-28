@@ -1,16 +1,17 @@
+using BookShopAPI.Extensions;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+builder.Host.ConfigureAutofacProviderFactory();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -25,6 +26,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
         };
     });
+
 
 var app = builder.Build();
 

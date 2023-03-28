@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GT7kk1E3s6B/4ajfFqrxxuQsK1NwImVUmt9vdTGhAs8S9SZPg/nHPvbVK1ocAdpSUEVpkjf2zhEloL1YOslb/Q==",
+  "dgSpecHash": "PuK5fZ5+6leeYU+N/OtG2J623/xVlBsICFA4uMUFZlDFwWmu4r6vDs/+RsrMLNGrhLvV+XPV5wW81o8eQGqOKA==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\Book-Shop-API\\Business\\Business.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nihat\\.nuget\\packages\\autofac\\7.0.0\\autofac.7.0.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.1\\autofac.extras.dynamicproxy.6.0.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -28,6 +31,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0\\microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\7.0.0\\microsoft.extensions.fileproviders.physical.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\7.0.0\\microsoft.extensions.filesystemglobbing.7.0.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\7.0.0\\microsoft.extensions.hosting.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",

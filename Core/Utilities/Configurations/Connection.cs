@@ -14,7 +14,7 @@ namespace Core.Utilities.Configurations
             get
             {
                 ConfigurationManager configurationManager = new ConfigurationManager();
-                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../../BookShopAPI"));
+                configurationManager.SetBasePath("D:\\Projeler\\Book-Shop-API\\BookShopAPI\\");
                 configurationManager.AddJsonFile("appsettings.json");
                 return configurationManager.GetConnectionString("MSSQL");
             }
