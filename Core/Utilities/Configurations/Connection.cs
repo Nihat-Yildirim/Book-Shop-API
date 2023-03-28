@@ -11,6 +11,7 @@ namespace Core.Utilities.Configurations
     {
         public static string ConnectionString 
         {
+            //TODO refactoring
             get
             {
                 ConfigurationManager configurationManager = new ConfigurationManager();
