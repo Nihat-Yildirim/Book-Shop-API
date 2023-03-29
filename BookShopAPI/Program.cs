@@ -1,4 +1,7 @@
 using BookShopAPI.Extensions;
+using Core.DepedencyResolvers;
+using Core.Extensions;
+using Core.Utilities.IOC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,6 +12,7 @@ var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOpt
 
 
 builder.Services.AddControllers();
+builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Host.ConfigureAutofacProviderFactory();

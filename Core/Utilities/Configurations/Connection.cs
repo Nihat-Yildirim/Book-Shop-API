@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core.Utilities.IOC;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +11,15 @@ namespace Core.Utilities.Configurations
 {
     public class Connection
     {
+        static ConfigurationManager _configurationManager = ServiceTool.ServiceProvider.GetService<ConfigurationManager>();
+        
         public static string ConnectionString 
         {
-            //TODO refactoring
             get
             {
-                ConfigurationManager configurationManager = new ConfigurationManager();
-                configurationManager.SetBasePath("D:\\Projeler\\Book-Shop-API\\BookShopAPI\\");
-                configurationManager.AddJsonFile("appsettings.json");
-                return configurationManager.GetConnectionString("MSSQL");
+                _configurationManager.SetBasePath("D:\\Projeler\\Book-Shop-API\\BookShopAPI\\");
+                _configurationManager.AddJsonFile("appsettings.json");
+                return _configurationManager.GetConnectionString("MSSQL");
             }
         }
     }
