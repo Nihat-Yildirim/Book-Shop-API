@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Business.Abstract
     {
         IDataResult<Customer> GetByMail(string email);
         IResult Add(Customer customer);
-        IResult Update(Customer customer);
+        IResult Update(int id,IFormFile formFile);
         IResult Delete(Customer customer);
     }
 }

@@ -15,8 +15,8 @@ builder.Services.AddControllers();
 builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Host.ConfigureAutofacProviderFactory();
 builder.Services.ConfigureAuthentication(tokenOptions);
+builder.Host.ConfigureAutofacProviderFactory();
 
 
 var app = builder.Build();

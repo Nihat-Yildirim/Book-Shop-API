@@ -79,7 +79,6 @@ namespace Business.Concrete
                 PasswordHash= passwordHash,
                 PasswordSalt= passwordSalt,
                 CreatedDate= DateTime.Now,
-                ProfilePicture = "NULL",
                 Status = true,
             };
 

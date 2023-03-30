@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{4FBA1D32-224C-474F-B773-74B871156462}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{4FBA1D32-224C-474F-B773-74B871156462}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F870CD22-D5C7-4AF4-A558-A40F674EBB3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F870CD22-D5C7-4AF4-A558-A40F674EBB3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8C112B5D-72A8-4032-9008-59D49B23FF73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{8C112B5D-72A8-4032-9008-59D49B23FF73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{4338A593-D267-4F25-A900-E6E98623413B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{4338A593-D267-4F25-A900-E6E98623413B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShopAPI", "BookShopAPI\BookShopAPI.csproj", "{37323388-1570-4201-8C36-3E6E9252B94B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShopAPI", "BookShopAPI\BookShopAPI.csproj", "{37323388-1570-4201-8C36-3E6E9252B94B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

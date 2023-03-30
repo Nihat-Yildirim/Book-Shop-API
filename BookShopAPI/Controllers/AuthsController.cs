@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.FileHelpers.Concrete;
 using Core.Entities.Abstract;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
@@ -93,6 +94,14 @@ namespace BookShopAPI.Controllers
                 return BadRequest("Tokan üretilemedi");
             }
             return Ok(resultAccessToken.Data);
+        }
+
+        [HttpGet("delete")]
+        public IActionResult Delete()
+        {
+            CustomerAvatarFileService customerAvatarFileService = new CustomerAvatarFileService();
+            customerAvatarFileService.DeleteCustomerAvatar("3110b310-0aa6-48d5-88f3-0144dc3b5e41.png");
+            return Ok();
         }
     }
 }

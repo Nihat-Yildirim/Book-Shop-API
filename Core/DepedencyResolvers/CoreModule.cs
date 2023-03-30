@@ -13,7 +13,8 @@ namespace Core.DepedencyResolvers
     {
         public void Load(IServiceCollection services)
         {
-            services.AddSingleton<ConfigurationManager, ConfigurationManager>();
+            services.AddSingleton<ConfigurationManager>();
+            services.AddSingleton<Random>();
         }
     }
 }

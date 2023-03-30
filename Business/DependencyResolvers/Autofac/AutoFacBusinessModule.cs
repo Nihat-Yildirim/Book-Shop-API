@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Business.Abstract;
 using Business.Concrete;
+using Business.FileHelpers.Abstract;
+using Business.FileHelpers.Concrete;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -24,6 +26,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<DealerManager>().As<IDealerService>().SingleInstance();
             builder.RegisterType<EfDealerDal>().As<IDealerDal>().SingleInstance();
+
+            builder.RegisterType<CustomerAvatarFileService>().As<ICustomerAvatarFileService>().SingleInstance();
+
         }
     }
 }

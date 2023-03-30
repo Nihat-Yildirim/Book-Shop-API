@@ -101,3 +101,4 @@ D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\Entities.dll
 D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\Business.pdb
 D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\DataAccess.pdb
 D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\Entities.pdb
+D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\BookShopAPI.staticwebassets.runtime.json
