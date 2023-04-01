@@ -18,9 +18,9 @@ namespace Business.Concrete
 {
     public class CustomerAvatarManager : ICustomerAvatarService
     {
-        IStrogeService _strogeService;
+        IStorageService _strogeService;
         ICustomerAvatarDal _customerAvatarDal;
-        public CustomerAvatarManager(IStrogeService strogeService,ICustomerAvatarDal customerAvatarDal)
+        public CustomerAvatarManager(IStorageService strogeService,ICustomerAvatarDal customerAvatarDal)
         {
             _strogeService= strogeService;  
             _customerAvatarDal= customerAvatarDal;

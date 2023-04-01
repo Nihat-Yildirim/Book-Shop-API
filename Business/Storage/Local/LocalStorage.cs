@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Stroge.Local
 {
-    public class LocalStroge : IStroge
+    public class LocalStorage : IStorage
     {
         public void Delete(string fileName, string path)
         {

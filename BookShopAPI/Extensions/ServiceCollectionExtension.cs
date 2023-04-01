@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BookShopAPI.Extensions
 {
-    public static class ConfigureAuthenticationExtension
+    public static class ServiceCollectionExtension
     {
         public static void ConfigureAuthentication(this IServiceCollection services,TokenOptions tokenOptions)
         {

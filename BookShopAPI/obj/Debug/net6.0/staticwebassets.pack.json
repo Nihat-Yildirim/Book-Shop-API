@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatar\\Avatars\\48e75819-6649-4a03-bd1e-573ac4ca4af6.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatar\\Avatars\\48e75819-6649-4a03-bd1e-573ac4ca4af6.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatar\\Avatars\\cf37e6a5-e09b-4e66-bbfc-5fdc3afbe269.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatar\\Avatars\\cf37e6a5-e09b-4e66-bbfc-5fdc3afbe269.jpg"
+    },
+    {
       "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatar\\DefaultAvatars\\3110b310-0aa6-48d5-88f3-0144dc3b5e41.png",
       "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatar\\DefaultAvatars\\3110b310-0aa6-48d5-88f3-0144dc3b5e41.png"
     },

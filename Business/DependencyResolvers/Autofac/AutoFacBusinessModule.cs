@@ -28,8 +28,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<DealerManager>().As<IDealerService>().SingleInstance();
             builder.RegisterType<EfDealerDal>().As<IDealerDal>().SingleInstance();
 
-            builder.RegisterType<StrogeManager>().As<IStrogeService>().SingleInstance();
-            builder.RegisterType<LocalStroge>().As<IStroge>().SingleInstance(); 
+            builder.RegisterType<StorageManager>().As<IStorageService>().SingleInstance();
+            builder.RegisterType<LocalStorage>().As<IStorage>().SingleInstance(); 
 
             builder.RegisterType<EfCustomerAvatarDal>().As<ICustomerAvatarDal>().SingleInstance();
             builder.RegisterType<CustomerAvatarManager>().As<ICustomerAvatarService>().SingleInstance();

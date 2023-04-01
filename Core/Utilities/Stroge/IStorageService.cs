@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Stroge
 {
-    public interface IStrogeService : IStroge
+    public interface IStorageService : IStorage
     {
         string StrogeName { get; }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Stroge
 {
-    public interface IStroge
+    public interface IStorage
     {
         List<(string fileName, string filePathOrContainerName, string fileExtension)> UploadFiles(IFormFileCollection files, string pathOrContainerName);
         (string fileName, string filePathOrContainerName, string fileExtension) UploadFile(IFormFile file, string pathOrContainerName);

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Business.Stroge
 {
-    public class StrogeManager : IStrogeService
+    public class StorageManager : IStorageService
     {
-        IStroge _stroge;
+        IStorage _stroge;
 
-        public StrogeManager(IStroge stroge)
+        public StorageManager(IStorage stroge)
         {
             _stroge = stroge;
         }

@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Entities.Abstract;
+using Core.Exceptions;
+using Core.Exceptions.Abstract;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,19 +45,20 @@ namespace BookShopAPI.Controllers
         {
             var userExists = _authService.CustomerExists(userForRegisterDto.Email);
 
-            if(!userExists.Success)
+            if (!userExists.Success)
             {
                 return BadRequest("Bu email adresine ait zaten aktif bir kullanıcı var !!");
             }
 
             var registerResult = _authService.CustomerRegister(userForRegisterDto);
-            _customerAvatarService.SetDefaultCustomerAvatar(registerResult.Data);   
+            _customerAvatarService.SetDefaultCustomerAvatar(registerResult.Data);
             var resultAccessToken = _authService.CreateCustomerAccessToken(registerResult.Data);
 
-            if(!resultAccessToken.Success)
+            if (!resultAccessToken.Success)
             {
                 return BadRequest("Token Üretilemedi");
             }
+
             return Ok(resultAccessToken.Data);
         }
 
