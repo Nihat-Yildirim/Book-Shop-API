@@ -9,6 +9,5 @@ namespace Core.Entities.Concrete
 {
     public class Customer : User
     {
-        public string ProfilePicture { get; set; }
     }
 }

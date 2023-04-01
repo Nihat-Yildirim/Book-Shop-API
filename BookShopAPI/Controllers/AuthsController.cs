@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using Business.FileHelpers.Concrete;
 using Core.Entities.Abstract;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
@@ -12,9 +11,11 @@ namespace BookShopAPI.Controllers
     public class AuthsController : ControllerBase
     {
         IAuthService _authService;
-        public AuthsController(IAuthService authService)
+        ICustomerAvatarService _customerAvatarService;
+        public AuthsController(IAuthService authService, ICustomerAvatarService customerAvatarService)
         {
-            _authService= authService;
+            _authService = authService;
+            _customerAvatarService = customerAvatarService;
         }
 
         [HttpPost("customerlogin")]
@@ -48,6 +49,7 @@ namespace BookShopAPI.Controllers
             }
 
             var registerResult = _authService.CustomerRegister(userForRegisterDto);
+            _customerAvatarService.SetDefaultCustomerAvatar(registerResult.Data);   
             var resultAccessToken = _authService.CreateCustomerAccessToken(registerResult.Data);
 
             if(!resultAccessToken.Success)
@@ -99,8 +101,6 @@ namespace BookShopAPI.Controllers
         [HttpGet("delete")]
         public IActionResult Delete()
         {
-            CustomerAvatarFileService customerAvatarFileService = new CustomerAvatarFileService();
-            customerAvatarFileService.DeleteCustomerAvatar("3110b310-0aa6-48d5-88f3-0144dc3b5e41.png");
             return Ok();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Configurations;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Dealer> Dealers { get; set; }
+        public DbSet<CustomerAvatar> CustomerAvatars { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,7 +32,6 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 c.Property(p => p.Email).HasColumnName("Email");
                 c.Property(p => p.PasswordHash).HasColumnName("PasswordHash");
                 c.Property(p => p.PasswordSalt).HasColumnName("PasswordSalt");
-                c.Property(p => p.ProfilePicture).HasColumnName("ProfilePicture");
                 c.Property(p => p.CreatedDate).HasColumnName("CreatedDate");
                 c.Property(p => p.Status).HasColumnName("Status");
             });
@@ -47,6 +48,18 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 d.Property(p => p.PasswordSalt).HasColumnName("PasswordSalt");
                 d.Property(p => p.CreatedDate).HasColumnName("CreatedDate");
                 d.Property(p => p.Status).HasColumnName("Status");
+            });
+
+            modelBuilder.Entity<CustomerAvatar>(c =>
+            {
+                c.ToTable("CustomerAvatars").HasKey(c => c.Id);
+                c.Property(p => p.Id).HasColumnName("Id");
+                c.Property(p => p.CustomerId).HasColumnName("CustomerId");
+                c.Property(p => p.AvatarFileName).HasColumnName("AvatarFileName");
+                c.Property(p => p.AvatarFilePath).HasColumnName("AvatarFilePath");
+                c.Property(p => p.AvatarFileExtension).HasColumnName("AvatarFileExtension");
+                c.Property(p => p.StrogeName).HasColumnName("StrogeName");
+                c.Property(p => p.UploadDate).HasColumnName("UploadDate");
             });
         }
     }

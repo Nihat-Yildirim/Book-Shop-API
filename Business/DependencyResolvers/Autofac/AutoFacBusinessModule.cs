@@ -1,9 +1,10 @@
 ﻿using Autofac;
 using Business.Abstract;
 using Business.Concrete;
-using Business.FileHelpers.Abstract;
-using Business.FileHelpers.Concrete;
+using Business.Stroge;
+using Business.Stroge.Local;
 using Core.Utilities.Security.JWT;
+using Core.Utilities.Stroge;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using System;
@@ -27,8 +28,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<DealerManager>().As<IDealerService>().SingleInstance();
             builder.RegisterType<EfDealerDal>().As<IDealerDal>().SingleInstance();
 
-            builder.RegisterType<CustomerAvatarFileService>().As<ICustomerAvatarFileService>().SingleInstance();
+            builder.RegisterType<StrogeManager>().As<IStrogeService>().SingleInstance();
+            builder.RegisterType<LocalStroge>().As<IStroge>().SingleInstance(); 
 
+            builder.RegisterType<EfCustomerAvatarDal>().As<ICustomerAvatarDal>().SingleInstance();
+            builder.RegisterType<CustomerAvatarManager>().As<ICustomerAvatarService>().SingleInstance();
         }
     }
 }

@@ -10,21 +10,34 @@ namespace BookShopAPI.Controllers
     public class CustomersController : ControllerBase
     {
         ICustomerService _customerService;
-        public CustomersController(ICustomerService customerService)
+        ICustomerAvatarService _customerAvatarService;
+        public CustomersController(ICustomerService customerService, ICustomerAvatarService customerAvatarService)
         {
-            _customerService= customerService;
+            _customerService = customerService;
+            _customerAvatarService = customerAvatarService;
         }
 
-        //ToDo Kullanıcı Güncelleme işlemi için mantıklı bir sistem bul
         [HttpPost("update")]
-        public IActionResult Update([FromForm(Name = "image")] IFormFile file,int id)
+        public IActionResult Update(Customer customer)
         {
-            var result = _customerService.Update(5, file);
+            var result = _customerService.Update(customer);
             if (result.Success)
             {
                 return Ok(result.Message);
             }
             return BadRequest(result.Message);
+        }
+
+        [HttpPost("updateavatar")]
+        public IActionResult UpdateAvatar([FromForm(Name = "id")] int customerId,[FromForm(Name = "avatar")] IFormFile avatar) 
+        {
+            var resultCustomer = _customerService.GetById(customerId);
+            if(resultCustomer.Success)
+            {
+                var result = _customerAvatarService.UpdateCustomerAvatar(avatar,resultCustomer.Data);
+                return Ok(result.Message);
+            }
+            return BadRequest("Kullanıcı avatarı güncellenemedi");
         }
 
         [HttpPost("delete")]

@@ -12,8 +12,9 @@ namespace Business.Abstract
     public interface ICustomerService
     {
         IDataResult<Customer> GetByMail(string email);
+        IDataResult<Customer> GetById(int id);
         IResult Add(Customer customer);
-        IResult Update(int id,IFormFile formFile);
+        IResult Update(Customer customer);
         IResult Delete(Customer customer);
     }
 }
