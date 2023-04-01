@@ -4,7 +4,7 @@ using Core.Entities.Concrete;
 using Core.Utilities.Helpers.RandomHelper;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
-using Core.Utilities.Stroge;
+using Core.Utilities.Storage;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;

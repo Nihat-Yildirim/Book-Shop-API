@@ -10,11 +10,11 @@ namespace Core.Exceptions.Abstract
 {
     public class ExceptionBase : Exception
     {
-        public HttpStatusCode StatusCodes { get; private set; }
+        public HttpStatusCode StatusCode { get; private set; }
 
-        public ExceptionBase(HttpStatusCode statusCodes,string message) : base(message)
+        public ExceptionBase(HttpStatusCode statusCode,string message) : base(message)
         {
-            StatusCodes = statusCodes;
+            StatusCode = statusCode;
         }
     }
 }

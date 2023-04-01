@@ -27,19 +27,19 @@ namespace Core.Middlewares
             }
             catch (ExceptionBase exception)
             {
-                HandleExceptionAsync(context, exception.Message, exception.StackTrace,exception.StatusCodes);
+                await HandleExceptionAsync(context, exception.Message, exception.StackTrace,exception.StatusCode);
             }
             catch(Exception exception) 
             {
-                HandleExceptionAsync(context,exception.Message, exception.StackTrace);
+                await HandleExceptionAsync(context,exception.Message, exception.StackTrace);
             }
         }
 
-        public Task HandleExceptionAsync(HttpContext context,string message, string stackTrace,HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
+        public Task HandleExceptionAsync(HttpContext context,string message, string? stackTrace,HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
         {
             HttpStatusCode httpStatus = httpStatusCode;
 
-            if (httpStatusCode == null)
+            if (httpStatusCode == default)
                 httpStatus = HttpStatusCode.InternalServerError;
 
             var resultException = JsonSerializer.Serialize(new 

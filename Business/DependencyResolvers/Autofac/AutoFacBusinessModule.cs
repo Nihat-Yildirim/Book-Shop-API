@@ -4,7 +4,7 @@ using Business.Concrete;
 using Business.Stroge;
 using Business.Stroge.Local;
 using Core.Utilities.Security.JWT;
-using Core.Utilities.Stroge;
+using Core.Utilities.Storage;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using System;
