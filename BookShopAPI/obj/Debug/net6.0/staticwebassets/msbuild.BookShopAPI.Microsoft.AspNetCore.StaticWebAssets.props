@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\48e75819-6649-4a03-bd1e-573ac4ca4af6.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\63be1186-f3a9-4fc0-83c4-97b61d0447e8.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>BookShopAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/BookShopAPI</BasePath>
-      <RelativePath>Uploads/Images/CustomerAvatar/Avatars/48e75819-6649-4a03-bd1e-573ac4ca4af6.jpg</RelativePath>
+      <RelativePath>Uploads/Images/CustomerAvatar/Avatars/63be1186-f3a9-4fc0-83c4-97b61d0447e8.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\48e75819-6649-4a03-bd1e-573ac4ca4af6.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\63be1186-f3a9-4fc0-83c4-97b61d0447e8.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\cf37e6a5-e09b-4e66-bbfc-5fdc3afbe269.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\dbaec690-a84f-4bd6-9232-6cfd1ecb90d3.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>BookShopAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/BookShopAPI</BasePath>
-      <RelativePath>Uploads/Images/CustomerAvatar/Avatars/cf37e6a5-e09b-4e66-bbfc-5fdc3afbe269.jpg</RelativePath>
+      <RelativePath>Uploads/Images/CustomerAvatar/Avatars/dbaec690-a84f-4bd6-9232-6cfd1ecb90d3.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,7 +30,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\cf37e6a5-e09b-4e66-bbfc-5fdc3afbe269.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\Avatars\dbaec690-a84f-4bd6-9232-6cfd1ecb90d3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\Images\CustomerAvatar\DefaultAvatars\3110b310-0aa6-48d5-88f3-0144dc3b5e41.png))">
       <SourceType>Package</SourceType>

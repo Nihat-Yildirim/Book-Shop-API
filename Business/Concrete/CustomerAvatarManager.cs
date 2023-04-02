@@ -44,7 +44,7 @@ namespace Business.Concrete
                 AvatarFileExtension = currentAvatar.Extension,
                 AvatarFileName = currentAvatar.Name,
                 AvatarFilePath = currentAvatar.FullName,
-                StrogeName = _strogeService.StrogeName,
+                StorageName = _strogeService.StrogeName,
                 UploadDate = DateTime.Now,
             };
 
@@ -62,7 +62,7 @@ namespace Business.Concrete
                 resultAvatar.AvatarFileExtension = resultFileInfo.fileExtension;
                 resultAvatar.AvatarFileName = resultFileInfo.fileName;
                 resultAvatar.AvatarFilePath = resultFileInfo.filePathOrContainerName;
-                resultAvatar.StrogeName = _strogeService.StrogeName;
+                resultAvatar.StorageName = _strogeService.StrogeName;
                 resultAvatar.UploadDate = DateTime.Now;
 
                 _customerAvatarDal.Update(resultAvatar);

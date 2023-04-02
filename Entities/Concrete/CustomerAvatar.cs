@@ -14,7 +14,7 @@ namespace Entities.Concrete
         public string AvatarFileName { get; set; }
         public string AvatarFilePath { get; set; }
         public string AvatarFileExtension { get; set; }
-        public string StrogeName { get; set; }
+        public string StorageName { get; set; }
         public DateTime UploadDate { get; set; }
     }
 }

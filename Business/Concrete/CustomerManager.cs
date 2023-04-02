@@ -5,6 +5,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ namespace Business.Concrete
     public class CustomerManager : ICustomerService
     {
         ICustomerDal _customerDal;
-        ICustomerAvatarService _customerAvatarService;
         public CustomerManager(ICustomerDal customerDal)
         {
             _customerDal = customerDal;
@@ -26,7 +26,6 @@ namespace Business.Concrete
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
-
             return new SuccessResult();
         }
 
@@ -46,14 +45,9 @@ namespace Business.Concrete
             return new ErrorDataResult<Customer>();
         }
 
-        public IDataResult<Customer> GetByMail(string email)
+        public IDataResult<CustomerDetailDto> GetCustomerDetails(string email)
         {
-            var result = _customerDal.Get(c => c.Email == email);
-            if(result == null)
-            {
-                return new ErrorDataResult<Customer>();
-            }
-            return new SuccessDataResult<Customer>(result);
+            return new SuccessDataResult<CustomerDetailDto>(_customerDal.GetByEmail(email));
         }
 
         public IResult Update(Customer customer)

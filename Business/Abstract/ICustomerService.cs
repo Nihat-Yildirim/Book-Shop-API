@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Business.Abstract
 {
     public interface ICustomerService
     {
-        IDataResult<Customer> GetByMail(string email);
+        IDataResult<CustomerDetailDto> GetCustomerDetails(string email);
         IDataResult<Customer> GetById(int id);
         IResult Add(Customer customer);
         IResult Update(Customer customer);

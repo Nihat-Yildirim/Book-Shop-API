@@ -10,7 +10,6 @@ namespace Business.Abstract
 {
     public interface IDealerService
     {
-        IDataResult<Dealer> GetByMail(string email);
         IResult Add(Dealer dealer);
         IResult Update(Dealer dealer);
         IResult Delete(Dealer dealer);

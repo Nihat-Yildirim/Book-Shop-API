@@ -35,7 +35,8 @@ namespace Core.Middlewares
             }
         }
 
-        public Task HandleExceptionAsync(HttpContext context,string message, string? stackTrace,HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
+        public Task HandleExceptionAsync(HttpContext context,string message, string? stackTrace,
+            HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
         {
             HttpStatusCode httpStatus = httpStatusCode;
 

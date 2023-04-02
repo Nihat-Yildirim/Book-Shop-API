@@ -20,91 +20,54 @@ namespace BookShopAPI.Controllers
             _customerAvatarService = customerAvatarService;
         }
 
-        [HttpPost("customerlogin")]
-        public IActionResult CustomerLogin(UserForLoginDto userForLoginDto)
+        [HttpPost("login")]
+        public IActionResult Login(UserForLoginDto userForLoginDto)
         {
-            var customerToLogin = _authService.CustomerLogin(userForLoginDto);
+            var userToLogin = _authService.Login(userForLoginDto);
 
-            if (!customerToLogin.Success)
-            {
+            if (!userToLogin.Success)
                 return BadRequest("Hatalı mail adersi yada parola");
-            }
 
-            var resultAccessToken = _authService.CreateCustomerAccessToken(customerToLogin.Data);
+            var resultAccessToken = _authService.CreateAccessToken(userToLogin.Data);
 
             if (!resultAccessToken.Success)
-            {
                 return BadRequest("Token Oluşturulamadı");
-            }
 
             return Ok(resultAccessToken.Data);
         }
 
         [HttpPost("customerregister")]
-        public IActionResult CustomerRegister(UserForRegisterDto userForRegisterDto)
+        public IActionResult CustomerRegister(CustomerForRegisterDto customerForRegisterDto)
         {
-            var userExists = _authService.CustomerExists(userForRegisterDto.Email);
+            var userExists = _authService.UserExists(customerForRegisterDto.Email);
 
             if (!userExists.Success)
-            {
                 return BadRequest("Bu email adresine ait zaten aktif bir kullanıcı var !!");
-            }
 
-            var registerResult = _authService.CustomerRegister(userForRegisterDto);
-            _customerAvatarService.SetDefaultCustomerAvatar(registerResult.Data);
-            var resultAccessToken = _authService.CreateCustomerAccessToken(registerResult.Data);
+            var registerResult = _authService.CustomerRegister(customerForRegisterDto);
+            var resultAccessToken = _authService.CreateAccessToken(registerResult.Data);
 
             if (!resultAccessToken.Success)
-            {
                 return BadRequest("Token Üretilemedi");
-            }
 
-            return Ok(resultAccessToken.Data);
-        }
-
-        [HttpPost("dealerlogin")]
-        public IActionResult DealerLogin(UserForLoginDto userForLoginDto)
-        {
-            var dealerLogin = _authService.DealerLogin(userForLoginDto);
-
-            if(!dealerLogin.Success)
-            {
-                return BadRequest("Hatalı Email veya parola");
-            }
-
-            var resultAccessToken = _authService.CreateDealerAccessToken(dealerLogin.Data);
-            
-            if(!resultAccessToken.Success)
-            {
-                return BadRequest("Tokan üretilemedi");
-            }
             return Ok(resultAccessToken.Data);
         }
 
         [HttpPost("dealerregister")]
-        public IActionResult DealerRegister(UserForRegisterDto userForRegisterDto)
+        public IActionResult DealerRegister(DealerForRegisterDto dealerForRegisterDto)
         {
-            var dealerExists = _authService.DealerExists(userForRegisterDto.Email);
+            var userExists = _authService.UserExists(dealerForRegisterDto.Email);
 
-            if(!dealerExists.Success)
-            {
+            if (!userExists.Success)
                 return BadRequest("Bu email adresine ait zaten aktif bir kullanıcı var !!");
-            }
 
-            var registerResult = _authService.DealerRegister(userForRegisterDto);
-            var resultAccessToken = _authService.CreateDealerAccessToken(registerResult.Data);
+            var registerResult = _authService.DealerRegister(dealerForRegisterDto);
+            var resultAccessToken = _authService.CreateAccessToken(registerResult.Data);
 
-            if(!resultAccessToken.Success)
-            {
+            if (!resultAccessToken.Success)
                 return BadRequest("Tokan üretilemedi");
-            }
-            return Ok(resultAccessToken.Data);
-        }
 
-        [HttpGet("delete")]
-        public IActionResult Delete()
-        {
-            return Ok();
+            return Ok(resultAccessToken.Data);
         }
     }
 }

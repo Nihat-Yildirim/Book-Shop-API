@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Abstract;
 using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -16,120 +17,96 @@ namespace Business.Concrete
 {
     public class AuthManager : IAuthService
     {
-        ICustomerService _customerService;
-        ITokenHelper _tokenHelper;
         IDealerService _dealerService;
-
-        public AuthManager(ICustomerService customerService, ITokenHelper tokenHelper, IDealerService dealerService)
+        ICustomerService _customerService;
+        IUserService _userService;
+        ITokenHelper _tokenHelper;
+        ICustomerAvatarService _customerAvatarService;
+        public AuthManager(
+            ICustomerService customerService, 
+            ITokenHelper tokenHelper, 
+            IDealerService dealerService,
+            IUserService userService, 
+            ICustomerAvatarService customerAvatarService)
         {
             _customerService = customerService;
+            _userService = userService;
             _tokenHelper = tokenHelper;
             _dealerService = dealerService;
+            _customerAvatarService = customerAvatarService;
         }
 
-        public IDataResult<AccessToken> CreateCustomerAccessToken(Customer customer)
+        public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            var accessToken = _tokenHelper.CreateToken(customer);
+            var accessToken = _tokenHelper.CreateToken(user);
             return new SuccessDataResult<AccessToken>(accessToken);
         }
 
-        public IDataResult<AccessToken> CreateDealerAccessToken(Dealer dealer)
+        public IDataResult<User> CustomerRegister(CustomerForRegisterDto customerForRegisterDto)
         {
-            var accessToken = _tokenHelper.CreateToken(dealer);
-            return new SuccessDataResult<AccessToken>(accessToken);
-        }
-
-        public IResult CustomerExists(string email)
-        {
-            if (!_customerService.GetByMail(email).Success)
-            {
-                return new SuccessResult();
-            }
-            return new ErrorResult();
-        }
-
-        public IDataResult<Customer> CustomerLogin(UserForLoginDto userForLoginDto)
-        {
-            var customerToCheck = _customerService.GetByMail(userForLoginDto.Email).Data;
-
-            if(customerToCheck == null)
-            {
-                return new ErrorDataResult<Customer>();
-            }
-
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, customerToCheck.PasswordHash, customerToCheck.PasswordSalt))
-            {
-                return new ErrorDataResult<Customer>();
-            }
-
-            return new SuccessDataResult<Customer>(customerToCheck);
-        }
-
-        public IDataResult<Customer> CustomerRegister(UserForRegisterDto userForRegisterDto)
-        {
-            byte[] passwordHash,passwordSalt;
-
-            HashingHelper.CreatePasswordHash(userForRegisterDto.Password,out passwordHash,out passwordSalt);
-
+            var result = Register(customerForRegisterDto).Data;
             var customer = new Customer
             {
-                FirstName= userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName,
-                Email = userForRegisterDto.Email,
-                PasswordHash= passwordHash,
-                PasswordSalt= passwordSalt,
-                CreatedDate= DateTime.Now,
-                Status = true,
+                UserId = result.Id
             };
-
             _customerService.Add(customer);
-            return new SuccessDataResult<Customer>(customer);
+            _customerAvatarService.SetDefaultCustomerAvatar(customer);
+            return new SuccessDataResult<User>(result);
         }
 
-        public IResult DealerExists(string email)
+        public IResult UserExists(string email)
         {
-            if (!_dealerService.GetByMail(email).Success)
-            {
-                return new SuccessResult();
-            }
-            return new ErrorResult();
+            var resultUser = _userService.GetByMail(email);
+
+            if (resultUser.Data != null)
+                return new ErrorResult();
+
+            return new SuccessResult();
         }
 
-        public IDataResult<Dealer> DealerLogin(UserForLoginDto userForLoginDto)
-        {
-            var dealerToCheck = _dealerService.GetByMail(userForLoginDto.Email).Data;
-
-            if(dealerToCheck == null)
-            {
-                return new ErrorDataResult<Dealer>();
-            }
-
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, dealerToCheck.PasswordHash, dealerToCheck.PasswordSalt))
-            {
-                return new ErrorDataResult<Dealer>();
-            }
-            return new SuccessDataResult<Dealer>(dealerToCheck);
-        }
-
-        public IDataResult<Dealer> DealerRegister(UserForRegisterDto userForRegisterDto)
+        private IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
-
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
 
+            var user = new User
+            {
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName,
+                Email = userForRegisterDto.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                CreatedDate = DateTime.Now,
+                Status = true
+            };
+            _userService.Add(user);
+            var resultUser = _userService.GetByMail(user.Email).Data;
+            return new SuccessDataResult<User>(resultUser);
+        }
+
+        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
+        {
+            var userToCheck = _userService.GetByMail(userForLoginDto.Email);
+
+            if (!userToCheck.Success)
+                return new ErrorDataResult<User>("Bu Email Adresine Kayıtlı Kullanıcı Bulunamadı");
+
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
+                return new ErrorDataResult<User>("Şifre hatalı");
+
+            return new SuccessDataResult<User>();
+        }
+
+        public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto)
+        {
+            var result = Register(dealerForRegisterDto).Data;
             var dealer = new Dealer
             {
-                FirstName= userForRegisterDto.FirstName,
-                LastName= userForRegisterDto.LastName,
-                Email= userForRegisterDto.Email,
-                PasswordHash= passwordHash,
-                PasswordSalt= passwordSalt,
-                Status = true,
-                CreatedDate = DateTime.Now,
+                UserId = result.Id
             };
 
             _dealerService.Add(dealer);
-            return new SuccessDataResult<Dealer>(dealer);
+            return new SuccessDataResult<User>(result); 
         }
     }
 }

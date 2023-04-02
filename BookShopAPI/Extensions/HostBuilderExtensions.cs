@@ -10,7 +10,7 @@ using Business.DependencyResolvers.Autofac;
 
 namespace BookShopAPI.Extensions
 {
-    public static class HostBuilderExtension
+    public static class HostBuilderExtensions
     {
         public static void ConfigureAutofacProviderFactory(this IHostBuilder host)
         {

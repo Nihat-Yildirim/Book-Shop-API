@@ -31,17 +31,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<Dealer> GetByMail(string email)
-        {
-            var result = _dealerDal.Get(d => d.Email == email);
-            if (result == null)
-            {
-                return new ErrorDataResult<Dealer>();
-            }
-            return new SuccessDataResult<Dealer>(result);
-
-        }
-
         public IResult Update(Dealer dealer)
         {
             _dealerDal.Update(dealer);

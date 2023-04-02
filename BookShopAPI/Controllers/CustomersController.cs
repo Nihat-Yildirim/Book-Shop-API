@@ -7,25 +7,17 @@ namespace BookShopAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //TODO Kullanıcıya mantıklı hesap bilgileri güncelleme sistemi yaz
     public class CustomersController : ControllerBase
     {
+        IUserService _userService;
         ICustomerService _customerService;
         ICustomerAvatarService _customerAvatarService;
-        public CustomersController(ICustomerService customerService, ICustomerAvatarService customerAvatarService)
+        public CustomersController(ICustomerService customerService, ICustomerAvatarService customerAvatarService, IUserService userService)
         {
             _customerService = customerService;
             _customerAvatarService = customerAvatarService;
-        }
-
-        [HttpPost("update")]
-        public IActionResult Update(Customer customer)
-        {
-            var result = _customerService.Update(customer);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            return BadRequest(result.Message);
+            _userService = userService;
         }
 
         [HttpPost("updateavatar")]
