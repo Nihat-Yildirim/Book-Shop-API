@@ -36,6 +36,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<EfCustomerAvatarDal>().As<ICustomerAvatarDal>().SingleInstance();
             builder.RegisterType<CustomerAvatarManager>().As<ICustomerAvatarService>().SingleInstance();
+
+            builder.RegisterType<FileManager>().As<IFileService>().SingleInstance();
+            builder.RegisterType<EfFileDal>().As<IFileDal>().SingleInstance();  
         }
     }
 }

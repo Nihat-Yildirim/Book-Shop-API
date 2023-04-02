@@ -21,6 +21,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<Dealer> Dealers { get; set; }
         public DbSet<CustomerAvatar> CustomerAvatars { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Entities.Concrete.File> Files { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,11 +57,18 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 c.ToTable("CustomerAvatars").HasKey(c => c.Id);
                 c.Property(p => p.Id).HasColumnName("Id");
                 c.Property(p => p.CustomerId).HasColumnName("CustomerId");
-                c.Property(p => p.AvatarFileName).HasColumnName("AvatarFileName");
-                c.Property(p => p.AvatarFilePath).HasColumnName("AvatarFilePath");
-                c.Property(p => p.AvatarFileExtension).HasColumnName("AvatarFileExtension");
-                c.Property(p => p.StorageName).HasColumnName("StorageName");
-                c.Property(p => p.UploadDate).HasColumnName("UploadDate");
+                c.Property(p => p.FileId).HasColumnName("FileId");
+            });
+
+            modelBuilder.Entity<Entities.Concrete.File>(f =>
+            {
+                f.ToTable("Files").HasKey(f => f.Id);
+                f.Property(f => f.Id).HasColumnName("Id");
+                f.Property(f => f.FileName).HasColumnName("FileName");
+                f.Property(f => f.FilePath).HasColumnName("FilePath");
+                f.Property(f => f.FileExtension).HasColumnName("FileExtension");
+                f.Property(f => f.StorageName).HasColumnName("StorageName");
+                f.Property(f => f.UploadDate).HasColumnName("UploadDate");
             });
         }
     }

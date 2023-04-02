@@ -13,39 +13,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using File = Entities.Concrete.File;
 
 namespace Business.Concrete
 {
     public class CustomerAvatarManager : ICustomerAvatarService
     {
+        IFileService _fileService;
         IStorageService _strogeService;
         ICustomerAvatarDal _customerAvatarDal;
-        public CustomerAvatarManager(IStorageService strogeService,ICustomerAvatarDal customerAvatarDal)
+        public CustomerAvatarManager(
+            IStorageService strogeService,
+            ICustomerAvatarDal customerAvatarDal,
+            IFileService fileService)
         {
-            _strogeService= strogeService;  
-            _customerAvatarDal= customerAvatarDal;
+            _strogeService = strogeService;
+            _customerAvatarDal = customerAvatarDal;
+            _fileService = fileService;
         }
 
         public IResult DeleteCustomerAvatar(Customer customer)
         {
-            var resultAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
-            _customerAvatarDal.Delete(resultAvatar);
+            var resultCustomerAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
+            _fileService.Delete(resultCustomerAvatar.FileId);
             return new SuccessResult();
         }
 
         public IResult SetDefaultCustomerAvatar(Customer customer)
         {
-            var defaultAvatars = _strogeService.GetFiles(LocalStrogePathConstants.CustomerDefaultAvatarsPath);
-            var currentAvatar = defaultAvatars[RandomTool.GenerateRandomNumberInRange(0, defaultAvatars.Count)];
+            var resultFiles = _strogeService.GetFiles(LocalStrogePathConstants.CustomerDefaultAvatarsPath);
+            var resultFile = resultFiles[RandomTool.GenerateRandomNumberInRange(0, resultFiles.Count)];
+            var file = new File
+            {
+                FileName = resultFile.Name,
+                FilePath = resultFile.FullName,
+                FileExtension = resultFile.Extension,
+                StorageName = _strogeService.StrogeName,
+                UploadDate = DateTime.Now,
+            };
+            var result = _fileService.Add(file);
 
             var customerAvatar = new CustomerAvatar
             {
-                CustomerId= customer.Id,
-                AvatarFileExtension = currentAvatar.Extension,
-                AvatarFileName = currentAvatar.Name,
-                AvatarFilePath = currentAvatar.FullName,
-                StorageName = _strogeService.StrogeName,
-                UploadDate = DateTime.Now,
+                CustomerId = customer.Id,
+                FileId = result.Data.Id
             };
 
             _customerAvatarDal.Add(customerAvatar);
@@ -54,21 +65,11 @@ namespace Business.Concrete
 
         public IResult UpdateCustomerAvatar(IFormFile avatar, Customer customer)
         {
-            var resultAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
-            var resultFileInfo = _strogeService.UploadFile(avatar, LocalStrogePathConstants.CustomerAvatarsPath);
-
-            if(resultFileInfo != default)
-            {
-                resultAvatar.AvatarFileExtension = resultFileInfo.fileExtension;
-                resultAvatar.AvatarFileName = resultFileInfo.fileName;
-                resultAvatar.AvatarFilePath = resultFileInfo.filePathOrContainerName;
-                resultAvatar.StorageName = _strogeService.StrogeName;
-                resultAvatar.UploadDate = DateTime.Now;
-
-                _customerAvatarDal.Update(resultAvatar);
-                return new SuccessResult("Kullanıcı avatarı güncellendi");
-            }
-            return new ErrorResult("Kullanıcı avatarı güncellenemedi");
+            var beforeAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
+            var beforeFile = _fileService.GetFileByFileId(beforeAvatar.FileId).Data;
+            _fileService.Update(avatar, beforeFile, LocalStrogePathConstants.CustomerAvatarsPath);
+            
+            return new SuccessResult();
         }
     }
 }

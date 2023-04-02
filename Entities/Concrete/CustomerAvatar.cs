@@ -11,10 +11,6 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
-        public string AvatarFileName { get; set; }
-        public string AvatarFilePath { get; set; }
-        public string AvatarFileExtension { get; set; }
-        public string StorageName { get; set; }
-        public DateTime UploadDate { get; set; }
+        public int FileId { get; set; }
     }
 }
