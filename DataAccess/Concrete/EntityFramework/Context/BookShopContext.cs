@@ -22,19 +22,20 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<CustomerAvatar> CustomerAvatars { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Entities.Concrete.File> Files { get; set; }
+        public DbSet<Store> Stores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(u =>
             {
                 u.ToTable("Users").HasKey(u => u.Id);
-                u.Property("FirstName").HasColumnName("FirstName");
-                u.Property("LastName").HasColumnName("LastName");
-                u.Property("Email").HasColumnName("Email");
-                u.Property("PasswordHash").HasColumnName("PasswordHash");
-                u.Property("PasswordSalt").HasColumnName("PasswordSalt");
-                u.Property("Status").HasColumnName("Status");
-                u.Property("CreatedDate").HasColumnName("CreatedDate");
+                u.Property(p => p.FirstName).HasColumnName("FirstName");
+                u.Property(p => p.LastName).HasColumnName("LastName");
+                u.Property(p => p.Email).HasColumnName("Email");
+                u.Property(p => p.PasswordHash).HasColumnName("PasswordHash");
+                u.Property(p => p.PasswordSalt).HasColumnName("PasswordSalt");
+                u.Property(p => p.Status).HasColumnName("Status");
+                u.Property(p => p.CreatedDate).HasColumnName("CreatedDate");
             });
 
             modelBuilder.Entity<Customer>(c =>
@@ -63,12 +64,21 @@ namespace DataAccess.Concrete.EntityFramework.Context
             modelBuilder.Entity<Entities.Concrete.File>(f =>
             {
                 f.ToTable("Files").HasKey(f => f.Id);
-                f.Property(f => f.Id).HasColumnName("Id");
-                f.Property(f => f.FileName).HasColumnName("FileName");
-                f.Property(f => f.FilePath).HasColumnName("FilePath");
-                f.Property(f => f.FileExtension).HasColumnName("FileExtension");
-                f.Property(f => f.StorageName).HasColumnName("StorageName");
-                f.Property(f => f.UploadDate).HasColumnName("UploadDate");
+                f.Property(p => p.Id).HasColumnName("Id");
+                f.Property(p => p.FileName).HasColumnName("FileName");
+                f.Property(p => p.FilePath).HasColumnName("FilePath");
+                f.Property(p => p.FileExtension).HasColumnName("FileExtension");
+                f.Property(p => p.StorageName).HasColumnName("StorageName");
+                f.Property(p => p.UploadDate).HasColumnName("UploadDate");
+            });
+
+            modelBuilder.Entity<Store>(s =>
+            {
+                s.ToTable("Stores").HasKey(s => s.Id);
+                s.Property(p => p.Id).HasColumnName("Id");
+                s.Property(p => p.FileId).HasColumnName("FileId");
+                s.Property(p => p.Name).HasColumnName("Name");
+                s.Property(p => p.Description).HasColumnName("Description");
             });
         }
     }

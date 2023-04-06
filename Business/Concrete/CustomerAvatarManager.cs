@@ -10,6 +10,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace Business.Concrete
 
         public IResult SetDefaultCustomerAvatar(Customer customer)
         {
-            var resultFiles = _strogeService.GetFiles(LocalStrogePathConstants.CustomerDefaultAvatarsPath);
+            var resultFiles = _strogeService.GetFiles(LocalStoragePathConstants.CustomerDefaultAvatarsPath);
             var resultFile = resultFiles[RandomTool.GenerateRandomNumberInRange(0, resultFiles.Count)];
             var file = new File
             {
@@ -67,7 +68,38 @@ namespace Business.Concrete
         {
             var beforeAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
             var beforeFile = _fileService.GetFileByFileId(beforeAvatar.FileId).Data;
-            _fileService.Update(avatar, beforeFile, LocalStrogePathConstants.CustomerAvatarsPath);
+            var defaultAvatars = _strogeService.GetFiles(LocalStoragePathConstants.CustomerDefaultAvatarsPath).Select(a => a.Name);
+            
+            if(defaultAvatars.Contains(beforeFile.FileName))
+            {
+                var resultFile = _strogeService.UploadFile(avatar,LocalStoragePathConstants.CustomerAvatarsPath);
+                var file = new File
+                {
+                    FileName = resultFile.fileName,
+                    FilePath = resultFile.filePathOrContainerName,
+                    FileExtension = resultFile.fileExtension,
+                    StorageName = _strogeService.StrogeName,
+                    UploadDate = DateTime.Now,
+                    Id = beforeFile.Id
+                };
+                
+                _fileService.Update(file);
+            }
+            else
+            {
+                var resultFile = _strogeService.UpdateFile(avatar,beforeFile.FilePath,LocalStoragePathConstants.CustomerAvatarsPath);
+                var file = new File
+                {
+                    FileName = resultFile.fileName,
+                    FilePath = resultFile.filePathOrContainerName,
+                    FileExtension = resultFile.fileExtension,
+                    StorageName = _strogeService.StrogeName,
+                    UploadDate = DateTime.Now,
+                    Id = beforeFile.Id
+                };
+                
+                _fileService.Update(file);
+            }
             
             return new SuccessResult();
         }

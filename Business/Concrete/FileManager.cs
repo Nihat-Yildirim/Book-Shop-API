@@ -16,28 +16,9 @@ namespace Business.Concrete
     public class FileManager : IFileService
     {
         IFileDal _fileDal;
-        IStorageService _storageService;
-        public FileManager(IFileDal fileDal,IStorageService storageService)
+        public FileManager(IFileDal fileDal)
         {
             _fileDal= fileDal;
-            _storageService= storageService;
-        }
-
-        public IDataResult<File> Add(IFormFile formFile, string pathOrContainerName)
-        {
-            var result = _storageService.UploadFile(formFile, pathOrContainerName);
-            var file = new File
-            {
-                FileName = result.fileName,
-                FileExtension = result.fileExtension,
-                FilePath = result.filePathOrContainerName,
-                StorageName = _storageService.StrogeName,
-                UploadDate = DateTime.Now
-            };
-            _fileDal.Add(file);
-            var returnFile = GetFileByFilePath(result.fileName);
-
-            return new SuccessDataResult<File>(returnFile.Data);
         }
 
         public IDataResult<File> Add(File file)
@@ -50,7 +31,6 @@ namespace Business.Concrete
         public IResult Delete(File file)
         {
             _fileDal.Delete(file);
-            _storageService.Delete(file.FilePath);
             return new SuccessResult();
         }
 
@@ -79,16 +59,10 @@ namespace Business.Concrete
             return new SuccessDataResult<File>(result);
         }
 
-        public IDataResult<File> Update(IFormFile formFile, File file, string pathOrContainerName)
+        public IResult Update(File file)
         {
-            var result = _storageService.UpdateFile(formFile,file.FilePath,pathOrContainerName);
-            file.FilePath = result.filePathOrContainerName;
-            file.FileName = result.fileName;
-            file.StorageName = _storageService.StrogeName;
-            file.FileExtension = result.fileExtension;
             _fileDal.Update(file);
-
-            return new SuccessDataResult<File>(file);
+            return new SuccessResult();
         }
     }
 }

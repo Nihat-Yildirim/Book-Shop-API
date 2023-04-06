@@ -9,5 +9,7 @@ namespace Entities.DTOs
 {
     public class DealerForRegisterDto : UserForRegisterDto
     {
+        public string StoreName { get; set; }
+        public string StoreDescription { get; set; }
     }
 }

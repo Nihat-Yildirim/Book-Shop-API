@@ -5,7 +5,9 @@ using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
+using Entities.Concrete;
 using Entities.DTOs;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,18 +24,21 @@ namespace Business.Concrete
         IUserService _userService;
         ITokenHelper _tokenHelper;
         ICustomerAvatarService _customerAvatarService;
+        IStoreService _storeService;
         public AuthManager(
             ICustomerService customerService, 
             ITokenHelper tokenHelper, 
             IDealerService dealerService,
             IUserService userService, 
-            ICustomerAvatarService customerAvatarService)
+            ICustomerAvatarService customerAvatarService,
+            IStoreService storeService)
         {
             _customerService = customerService;
             _userService = userService;
             _tokenHelper = tokenHelper;
             _dealerService = dealerService;
             _customerAvatarService = customerAvatarService;
+            _storeService= storeService;    
         }
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
@@ -97,16 +102,36 @@ namespace Business.Concrete
             return new SuccessDataResult<User>();
         }
 
-        public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto)
+        public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto,IFormFile formFile)
         {
-            var result = Register(dealerForRegisterDto).Data;
+            var resultUser = Register(dealerForRegisterDto).Data;
+            var store = new Store
+            {
+                Name = dealerForRegisterDto.StoreName,
+                Description = dealerForRegisterDto.StoreDescription,
+            };
+
+            _storeService.Add(store,formFile);
+            var resultStore = _storeService.GetByStoreName(store.Name).Data;
+
             var dealer = new Dealer
             {
-                UserId = result.Id
+                StoreId = resultStore.Id,
+                UserId = resultUser.Id,
             };
 
             _dealerService.Add(dealer);
-            return new SuccessDataResult<User>(result); 
+            return new SuccessDataResult<User>(resultUser); 
+        }
+
+        public IResult StoreExists(string storeName)
+        {
+            var resultStore = _storeService.GetByStoreName(storeName);
+
+            if (resultStore != null)
+                return new SuccessResult();
+
+            return new ErrorResult();
         }
     }
 }

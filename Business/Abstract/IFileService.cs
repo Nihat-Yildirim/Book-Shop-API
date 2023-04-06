@@ -14,10 +14,9 @@ namespace Business.Abstract
         IDataResult<File> GetFileByFileId(int fileId);
         IDataResult<File> GetFileByFilePath(string filePathOrContainerName);
         IDataResult<File> GetFileByFileName(string fileName);
-        IDataResult<File> Add(IFormFile formFile, string pathOrContainerName);
         IDataResult<File> Add(File file);
         IResult Delete(File file);
         IResult Delete(int fileId); 
-        IDataResult<File> Update(IFormFile formFile,File file, string pathOrContainerName);
+        IResult Update(File file);
     }
 }

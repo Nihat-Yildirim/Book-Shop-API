@@ -54,14 +54,18 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("dealerregister")]
-        public IActionResult DealerRegister(DealerForRegisterDto dealerForRegisterDto)
+        public IActionResult DealerRegister([FromForm(Name = "dealerforregister")] DealerForRegisterDto dealerForRegisterDto, [FromForm(Name = "logo")] IFormFile logo)
         {
             var userExists = _authService.UserExists(dealerForRegisterDto.Email);
+            var storeExists = _authService.StoreExists(dealerForRegisterDto.StoreName);
 
             if (!userExists.Success)
                 return BadRequest("Bu email adresine ait zaten aktif bir kullanıcı var !!");
 
-            var registerResult = _authService.DealerRegister(dealerForRegisterDto);
+            if (!storeExists.Success)
+                return BadRequest("Bu mağaza ismine sahip zaten bir mağaza var !!");
+
+            var registerResult = _authService.DealerRegister(dealerForRegisterDto,logo);
             var resultAccessToken = _authService.CreateAccessToken(registerResult.Data);
 
             if (!resultAccessToken.Success)
