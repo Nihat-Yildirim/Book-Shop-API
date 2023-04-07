@@ -26,7 +26,7 @@ namespace BookShopAPI.Controllers
             var userToLogin = _authService.Login(userForLoginDto);
 
             if (!userToLogin.Success)
-                return BadRequest("Hatalı mail adersi yada parola");
+                return BadRequest(userToLogin.Message);
 
             var resultAccessToken = _authService.CreateAccessToken(userToLogin.Data);
 

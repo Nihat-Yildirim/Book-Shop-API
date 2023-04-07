@@ -96,6 +96,9 @@ namespace Business.Concrete
             if (!userToCheck.Success)
                 return new ErrorDataResult<User>("Bu Email Adresine Kayıtlı Kullanıcı Bulunamadı");
 
+            if (userToCheck.Data.Status == false)
+                return new ErrorDataResult<User>("Böyle bir kullanıcı yok !");
+
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
                 return new ErrorDataResult<User>("Şifre hatalı");
 

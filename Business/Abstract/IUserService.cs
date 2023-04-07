@@ -12,5 +12,7 @@ namespace Business.Abstract
     {
         IDataResult<User> Add(User user);
         IDataResult<User> GetByMail(string mail);
+        IDataResult<User> GetById(int Id);
+        IResult Update(User user);
     }
 }

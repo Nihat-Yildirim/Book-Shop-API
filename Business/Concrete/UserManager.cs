@@ -25,10 +25,22 @@ namespace Business.Concrete
             return new SuccessDataResult<User>();
         }
 
+        public IDataResult<User> GetById(int Id)
+        {
+            var resultUser = _userDal.Get(u => u.Id == Id);
+            return new SuccessDataResult<User>(resultUser); 
+        }
+
         public IDataResult<User> GetByMail(string mail)
         {
             var resultUser = _userDal.Get(u => u.Email == mail);
             return new SuccessDataResult<User>(resultUser); 
+        }
+
+        public IResult Update(User user)
+        {
+            _userDal.Update(user);  
+            return new SuccessResult();
         }
     }
 }

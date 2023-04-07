@@ -2,6 +2,7 @@
 using Core.Utilities.Configurations;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using File = Entities.Concrete.File;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<Dealer> Dealers { get; set; }
         public DbSet<CustomerAvatar> CustomerAvatars { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Entities.Concrete.File> Files { get; set; }
+        public DbSet<File> Files { get; set; }
         public DbSet<Store> Stores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -61,7 +62,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 c.Property(p => p.FileId).HasColumnName("FileId");
             });
 
-            modelBuilder.Entity<Entities.Concrete.File>(f =>
+            modelBuilder.Entity<File>(f =>
             {
                 f.ToTable("Files").HasKey(f => f.Id);
                 f.Property(p => p.Id).HasColumnName("Id");
@@ -79,6 +80,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 s.Property(p => p.FileId).HasColumnName("FileId");
                 s.Property(p => p.Name).HasColumnName("Name");
                 s.Property(p => p.Description).HasColumnName("Description");
+                s.Property(p => p.Status).HasColumnName("Status");
             });
         }
     }

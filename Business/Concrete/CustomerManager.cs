@@ -35,13 +35,12 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<Customer> GetById(int id)
+        public IDataResult<Customer> GetByUserId(int userId)
         {
-            var result = _customerDal.Get(c => c.Id == id);
+            var result = _customerDal.Get(c => c.UserId == userId);
             if(result != null)
-            {
                 return new SuccessDataResult<Customer>(result);
-            }
+            
             return new ErrorDataResult<Customer>();
         }
 

@@ -53,6 +53,7 @@ namespace Business.Concrete
                 Name = store.Name,
                 Description = store.Description,
                 FileId= resultFile.Data.Id,
+                Status = true
             };
 
             _storeDal.Add(addedStore);
@@ -83,7 +84,6 @@ namespace Business.Concrete
             return new SuccessDataResult<Store>(resultStore);
         }
 
-        //TODO logo değiştirmeden önce dosyanın gerçek olup olmadığına bakacak sistem yaz
         public IResult UpdateLogo(Store store, IFormFile formFile)
         {
             var resultBeforeFile = _fileService.GetFileByFileId(store.FileId).Data;
