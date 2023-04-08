@@ -127,10 +127,10 @@ namespace Business.Concrete
         {
             var resultStore = _storeService.GetByStoreName(storeName);
 
-            if (resultStore != null)
-                return new SuccessResult();
+            if (resultStore.Data != null)
+                return new ErrorResult();
 
-            return new ErrorResult();
+            return new SuccessResult();
         }
     }
 }

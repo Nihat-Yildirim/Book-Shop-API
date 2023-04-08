@@ -15,6 +15,8 @@ namespace Business.Abstract
         IDataResult<Store> GetById(int id);
         IResult Add(Store store, IFormFile file);
         IResult UpdateLogo(Store store, IFormFile file);
-        IResult UpdateStoreInformation(Store store);
+        IResult UpdateStoreName(int storeId,string name);
+        IResult UpdateStoreDescription(int storeId,string newDescription);
+        IResult Delete(int storeId);
     }
 }

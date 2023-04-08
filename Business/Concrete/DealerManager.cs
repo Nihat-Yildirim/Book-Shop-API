@@ -26,10 +26,10 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult Delete(Dealer dealer)
+        public IDataResult<Dealer> GetByUserId(int userId)
         {
-            _dealerDal.Delete(dealer);
-            return new SuccessResult();
+            var resultDealer = _dealerDal.Get(d => d.UserId == userId);
+            return new SuccessDataResult<Dealer>(resultDealer);
         }
 
         public IResult Update(Dealer dealer)

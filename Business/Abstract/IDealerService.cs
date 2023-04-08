@@ -10,8 +10,8 @@ namespace Business.Abstract
 {
     public interface IDealerService
     {
+        IDataResult<Dealer> GetByUserId(int userId);
         IResult Add(Dealer dealer);
         IResult Update(Dealer dealer);
-        IResult Delete(Dealer dealer);
     }
 }

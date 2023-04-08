@@ -44,6 +44,7 @@ namespace Business.Concrete
                 FilePath = result.filePathOrContainerName,
                 StorageName = _storageService.StrogeName,
                 UploadDate = DateTime.Now,
+                Status = true
             };
 
             var resultFile = _fileService.Add(file);
@@ -58,6 +59,18 @@ namespace Business.Concrete
 
             _storeDal.Add(addedStore);
             
+            return new SuccessResult();
+        }
+
+        public IResult Delete(int storeId)
+        {
+            var resultStore = _storeDal.Get(s => s.Id == storeId);
+            var resultFile = _fileService.GetFileByFileId(resultStore.FileId).Data;  
+            resultStore.Status = false;
+            
+            _storeDal.Update(resultStore);
+            _fileService.Delete(resultFile);
+
             return new SuccessResult();
         }
 
@@ -92,14 +105,26 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult UpdateStoreInformation(Store store)
+        public IResult UpdateStoreDescription(int storeId, string newDescription)
         {
-            var result = BusinessRules.Run(CheckIfStoreNameExists(store.Name));
-            if (!result.Success)
-                return new ErrorResult();
+            var resultStore = _storeDal.Get(s => s.Id == storeId);
+            resultStore.Description = newDescription;
+            _storeDal.Update(resultStore);
 
-            _storeDal.Update(store);
             return new SuccessResult();
+        }
+
+        public IResult UpdateStoreName(int storeId, string name)
+        {
+            var result = BusinessRules.Run(CheckIfStoreNameExists(name));
+            if (!result.Success)
+                return new ErrorResult("Bu mağaza ismine ait zaten bir mağaza var !");
+
+            var resultStore = _storeDal.Get(s => s.Id == storeId);
+            resultStore.Name = name;
+            _storeDal.Update(resultStore);
+
+            return new SuccessResult("Mağaza ismi başarıyla güncellendi !");
         }
 
         private IResult CheckIfStoreNameExists(string storeName)

@@ -1,31 +1,28 @@
 ﻿using Business.Abstract;
-using Core.Entities.Concrete;
-using Core.Utilities.Security.Hashing;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class DealerController : ControllerBase
     {
-        IUserService _userService;
         IAuthService _authService;
-        ICustomerAvatarService _customerAvatarService;
-        ICustomerService _customerService;
-        public CustomersController(
-            IUserService userService, 
+        IUserService _userService;
+        IStoreService _storeService;
+        IDealerService _dealerService;
+        public DealerController(
             IAuthService authService, 
-            ICustomerAvatarService customerAvatarService,
-            ICustomerService customerService)
+            IUserService userService, 
+            IStoreService storeService, 
+            IDealerService dealerService)
         {
-            _userService = userService;
             _authService = authService;
-            _customerAvatarService = customerAvatarService;
-            _customerService = customerService;
+            _userService = userService;
+            _storeService = storeService;
+            _dealerService = dealerService;
         }
 
         [HttpPost("updatepassword")]
@@ -41,19 +38,23 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete([FromForm(Name ="email")] string email)
+        public IActionResult Delete(UserForLoginDto loginDto)
         {
-            var resultUser = _userService.GetByMail(email).Data;
-            var resultCustomer = _customerService.GetByUserId(resultUser.Id).Data;  
-            
-            _userService.Delete(resultUser);
-            _customerAvatarService.DeleteCustomerAvatar(resultCustomer.Id);
+            var resultUser = _authService.Login(loginDto).Data;
 
-            return Ok("Kullanıcı başarıyla silindi !");
+            if (resultUser == null)
+                return BadRequest("Lütfen Email ve Şifre değerlerini doğru giriniz !");
+
+            var resultDealer = _dealerService.GetByUserId(resultUser.Id).Data;
+
+            _userService.Delete(resultUser);
+            _storeService.Delete(resultDealer.StoreId);
+
+            return Ok("Satıcı başarıyla silindi !");
         }
 
         [HttpPost("updateprofile")]
-        public IActionResult UpdateProfile(CustomerForUpdateDto profile) 
+        public IActionResult UpdateProfile(DealerForUpdateDto profile)
         {
             _userService.Update(profile);
             return Ok("Kullanıcı bilgileri başarıyla güncellendi");

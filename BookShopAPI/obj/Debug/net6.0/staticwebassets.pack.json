@@ -1,8 +1,20 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatar\\Avatars\\464059ff-9b37-4f6c-8dba-ac9f21ecf7a0.jpg",
-      "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatar\\Avatars\\464059ff-9b37-4f6c-8dba-ac9f21ecf7a0.jpg"
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\1968ea32-cd80-4ca6-8710-5402bb686d08.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\1968ea32-cd80-4ca6-8710-5402bb686d08.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\310b3336-3291-41fe-8332-e8fda2571e7a.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\310b3336-3291-41fe-8332-e8fda2571e7a.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\d7cda121-6b46-41e2-baf9-b808ede5fb60.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\d7cda121-6b46-41e2-baf9-b808ede5fb60.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\e36c47ce-a5c2-4378-a573-e018b04f0e47.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\e36c47ce-a5c2-4378-a573-e018b04f0e47.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BookShopAPI.Microsoft.AspNetCore.StaticWebAssets.props",
