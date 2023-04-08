@@ -33,30 +33,34 @@ namespace Business.Concrete
             _fileService = fileService;
         }
 
-        public IResult DeleteCustomerAvatar(Customer customer)
+        public IResult DeleteCustomerAvatar(int customerId)
         {
-            var resultCustomerAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
-            _fileService.Delete(resultCustomerAvatar.FileId);
+            var resultCustomerAvatar = _customerAvatarDal.Get(a => a.CustomerId == customerId);
+            var deletedAvatarFile = _fileService.GetFileByFileId(resultCustomerAvatar.FileId).Data;
+
+            _fileService.Delete(deletedAvatarFile.Id);
+            _customerAvatarDal.Delete(resultCustomerAvatar);
+            _strogeService.Delete(deletedAvatarFile.FilePath);
             return new SuccessResult();
         }
 
-        public IResult SetDefaultCustomerAvatar(Customer customer)
+        public IResult AddCustomerAvatar(IFormFile avatar,int customerId)
         {
-            var resultFiles = _strogeService.GetFiles(LocalStoragePathConstants.CustomerDefaultAvatarsPath);
-            var resultFile = resultFiles[RandomTool.GenerateRandomNumberInRange(0, resultFiles.Count)];
+            var resultFile = _strogeService.UploadFile(avatar, LocalStoragePathConstants.CustomerAvatarsPath);
             var file = new File
             {
-                FileName = resultFile.Name,
-                FilePath = resultFile.FullName,
-                FileExtension = resultFile.Extension,
+                FileName = resultFile.fileName,
+                FilePath = resultFile.filePathOrContainerName,
+                FileExtension = resultFile.fileExtension,
                 StorageName = _strogeService.StrogeName,
                 UploadDate = DateTime.Now,
+                Status = true
             };
             var result = _fileService.Add(file);
 
             var customerAvatar = new CustomerAvatar
             {
-                CustomerId = customer.Id,
+                CustomerId = customerId,
                 FileId = result.Data.Id
             };
 
@@ -64,44 +68,33 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult UpdateCustomerAvatar(IFormFile avatar, Customer customer)
+        public IResult UpdateCustomerAvatar(IFormFile avatar, int customerId)
         {
-            var beforeAvatar = _customerAvatarDal.Get(a => a.CustomerId == customer.Id);
+            var beforeAvatar = _customerAvatarDal.Get(a => a.CustomerId == customerId);
             var beforeFile = _fileService.GetFileByFileId(beforeAvatar.FileId).Data;
-            var defaultAvatars = _strogeService.GetFiles(LocalStoragePathConstants.CustomerDefaultAvatarsPath).Select(a => a.Name);
+
+            var resultFile = _strogeService.UpdateFile(avatar, beforeFile.FilePath, LocalStoragePathConstants.CustomerAvatarsPath);
             
-            if(defaultAvatars.Contains(beforeFile.FileName))
+            var file = new File
             {
-                var resultFile = _strogeService.UploadFile(avatar,LocalStoragePathConstants.CustomerAvatarsPath);
-                var file = new File
-                {
-                    FileName = resultFile.fileName,
-                    FilePath = resultFile.filePathOrContainerName,
-                    FileExtension = resultFile.fileExtension,
-                    StorageName = _strogeService.StrogeName,
-                    UploadDate = DateTime.Now,
-                    Id = beforeFile.Id
-                };
-                
-                _fileService.Update(file);
-            }
-            else
-            {
-                var resultFile = _strogeService.UpdateFile(avatar,beforeFile.FilePath,LocalStoragePathConstants.CustomerAvatarsPath);
-                var file = new File
-                {
-                    FileName = resultFile.fileName,
-                    FilePath = resultFile.filePathOrContainerName,
-                    FileExtension = resultFile.fileExtension,
-                    StorageName = _strogeService.StrogeName,
-                    UploadDate = DateTime.Now,
-                    Id = beforeFile.Id
-                };
-                
-                _fileService.Update(file);
-            }
-            
+                FileName = resultFile.fileName,
+                FilePath = resultFile.filePathOrContainerName,
+                FileExtension = resultFile.fileExtension,
+                StorageName = _strogeService.StrogeName,
+                UploadDate = DateTime.Now,
+                Status = true,
+                Id = beforeFile.Id
+            };
+
+            _fileService.Update(file);
+
             return new SuccessResult();
+        }
+
+        public IDataResult<CustomerAvatar> GetByCustomerId(int customerId)
+        {
+            var resultCustomerAvatar = _customerAvatarDal.Get(a => a.CustomerId == customerId);
+            return new SuccessDataResult<CustomerAvatar>(resultCustomerAvatar);
         }
     }
 }

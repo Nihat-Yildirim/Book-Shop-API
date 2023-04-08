@@ -61,17 +61,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult Delete(Store store)
-        {
-            var resultStore = _storeDal.Get(s => s.Name == store.Name); 
-            _storeDal.Delete(resultStore);
-
-            var resultFile = _fileService.GetFileByFileId(resultStore.FileId);
-            _fileService.Delete(resultFile.Data);
-
-            return new SuccessResult();
-        }
-
         public IDataResult<Store> GetById(int id)
         {
             var resultStore = _storeDal.Get(s=>s.Id == id);
@@ -116,6 +105,7 @@ namespace Business.Concrete
         private IResult CheckIfStoreNameExists(string storeName)
         {
             var resultStore = _storeDal.Get(s => s.Name == storeName);
+            
             if (resultStore == null)
                 return new SuccessResult();
 

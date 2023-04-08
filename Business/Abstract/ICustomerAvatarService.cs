@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,9 @@ namespace Business.Abstract
 {
     public interface ICustomerAvatarService
     {
-        IResult SetDefaultCustomerAvatar(Customer customer);
-        IResult UpdateCustomerAvatar(IFormFile avatar, Customer customer);
-        IResult DeleteCustomerAvatar(Customer customer);
+        IDataResult<CustomerAvatar> GetByCustomerId(int customerId);
+        IResult UpdateCustomerAvatar(IFormFile avatar, int customerId);
+        IResult AddCustomerAvatar(IFormFile avatar, int customerId);
+        IResult DeleteCustomerAvatar(int customerId);
     }
 }

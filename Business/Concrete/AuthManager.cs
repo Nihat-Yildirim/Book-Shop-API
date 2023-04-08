@@ -23,21 +23,18 @@ namespace Business.Concrete
         ICustomerService _customerService;
         IUserService _userService;
         ITokenHelper _tokenHelper;
-        ICustomerAvatarService _customerAvatarService;
         IStoreService _storeService;
         public AuthManager(
             ICustomerService customerService, 
             ITokenHelper tokenHelper, 
             IDealerService dealerService,
             IUserService userService, 
-            ICustomerAvatarService customerAvatarService,
             IStoreService storeService)
         {
             _customerService = customerService;
             _userService = userService;
             _tokenHelper = tokenHelper;
             _dealerService = dealerService;
-            _customerAvatarService = customerAvatarService;
             _storeService= storeService;    
         }
 
@@ -55,7 +52,6 @@ namespace Business.Concrete
                 UserId = result.Id
             };
             _customerService.Add(customer);
-            _customerAvatarService.SetDefaultCustomerAvatar(customer);
             return new SuccessDataResult<User>(result);
         }
 
@@ -102,7 +98,7 @@ namespace Business.Concrete
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
                 return new ErrorDataResult<User>("Şifre hatalı");
 
-            return new SuccessDataResult<User>();
+            return new SuccessDataResult<User>(userToCheck.Data);
         }
 
         public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto,IFormFile formFile)

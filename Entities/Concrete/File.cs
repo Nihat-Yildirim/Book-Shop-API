@@ -15,5 +15,6 @@ namespace Entities.Concrete
         public string FileExtension { get; set; }
         public string StorageName { get; set; }
         public DateTime UploadDate { get; set; }
+        public bool Status { get; set; }
     }
 }

@@ -9,9 +9,9 @@ namespace Core.Entities.Concrete
 {
     public abstract class UserForUpdateDto : IDto
     {
+        public int UserId { get; set; }
         public string FirtName { get; set; }
         public string LastName { get; set; }
         public string EMail { get; set; }
-        public string Password { get; set; }
     }
 }

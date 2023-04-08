@@ -7,54 +7,45 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
         IUserService _userService;
-        ICustomerService _customerService;
-        ICustomerAvatarService _customerAvatarService;
-        public CustomersController(ICustomerService customerService, ICustomerAvatarService customerAvatarService, IUserService userService)
+        IAuthService _authService;
+        public CustomersController(IUserService userService, IAuthService authService)
         {
-            _customerService = customerService;
-            _customerAvatarService = customerAvatarService;
             _userService = userService;
+            _authService = authService;
         }
 
-        [HttpPost("updateavatar")]
-        public IActionResult UpdateAvatar([FromForm(Name = "updatedcustomer")] CustomerForUpdateDto updatedCustomer,[FromForm(Name = "avatar")] IFormFile avatar) 
+        [HttpPost("updatepassword")]
+        public IActionResult UpdatePassword([FromForm(Name = "userForLoginDto")] UserForLoginDto userForLoginDto, [FromForm(Name = "newPassword")] string newPassword)
         {
-            var resultUser = _userService.GetByMail(updatedCustomer.EMail);
+            var resultUser = _authService.Login(userForLoginDto);
 
             if (!resultUser.Success)
-                return BadRequest("Kullanıcı bilgileri hatalı !!");
+                return BadRequest("Lütfen önceki şifre değerini doğru giriniz !");
 
-            if (!HashingHelper.VerifyPasswordHash(updatedCustomer.Password, resultUser.Data.PasswordHash, resultUser.Data.PasswordSalt))
-                return BadRequest("Kullanıcı bilgikeri hatalı !!");
-
-            var resultCustomer = _customerService.GetByUserId(resultUser.Data.Id).Data;
-            
-            _customerAvatarService.UpdateCustomerAvatar(avatar, resultCustomer);
-            
-            return Ok("Kullanıcı avatarı başarıyla güncellendi !!");
+            _userService.UpdatePassword(resultUser.Data, newPassword);
+            return Ok("Kullanıcı şifresi başarıyle güncellendi !");
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(CustomerForUpdateDto deletedCustomer)
+        public IActionResult Delete([FromForm(Name ="email")] string email)
         {
-            var resultUpdatedUser = _userService.GetByMail(deletedCustomer.EMail);
+            var resultUser = _userService.GetByMail(email).Data;
+            _userService.Delete(resultUser);
 
-            if (!resultUpdatedUser.Success)
-                return BadRequest("Gerçekte böyle bir kullanıcı yok lütfen gerçek hesap bilgilerini giriniz !!");
+            return Ok("Kullanıcı başarıyla silindi !");
+        }
 
-            if (!HashingHelper.VerifyPasswordHash(deletedCustomer.Password, resultUpdatedUser.Data.PasswordHash, resultUpdatedUser.Data.PasswordSalt))
-                return BadRequest("Kullanıcı şifresi yanlış lütfen silme işlemi gerçekleşmesi için şifrenizi doğru giriniz !!");
-
-            var deletedUser = resultUpdatedUser.Data;
-            deletedUser.Status = false;
-
-            _userService.Update(deletedUser);
-            return Ok();
+        [HttpPost("updateprofile")]
+        public IActionResult UpdateProfile(CustomerForUpdateDto profile) 
+        {
+            _userService.Update(profile);
+            return Ok("Kullanıcı bilgileri başarıyla güncellendi");
         }
     }
 }

@@ -71,6 +71,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 f.Property(p => p.FileExtension).HasColumnName("FileExtension");
                 f.Property(p => p.StorageName).HasColumnName("StorageName");
                 f.Property(p => p.UploadDate).HasColumnName("UploadDate");
+                f.Property(p => p.Status).HasColumnName("Status");
             });
 
             modelBuilder.Entity<Store>(s =>

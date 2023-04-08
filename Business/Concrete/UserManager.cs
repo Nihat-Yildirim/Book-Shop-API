@@ -2,6 +2,7 @@
 using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
+using Core.Utilities.Security.Hashing;
 using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,14 @@ namespace Business.Concrete
             return new SuccessDataResult<User>();
         }
 
+        public IResult Delete(User user)
+        {
+            user.Status = false;
+            _userDal.Update(user);
+
+            return new SuccessResult();
+        }
+
         public IDataResult<User> GetById(int Id)
         {
             var resultUser = _userDal.Get(u => u.Id == Id);
@@ -37,9 +46,27 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(resultUser); 
         }
 
-        public IResult Update(User user)
+        public IResult Update(UserForUpdateDto userForUpdateDto)
         {
-            _userDal.Update(user);  
+            var resultUser = _userDal.Get(u => u.Id == userForUpdateDto.UserId);
+
+            resultUser.FirstName = userForUpdateDto.FirtName;
+            resultUser.LastName = userForUpdateDto.LastName;
+            resultUser.Email = userForUpdateDto.EMail;
+
+            _userDal.Update(resultUser);
+            return new SuccessResult();
+        }
+
+        public IResult UpdatePassword(User user, string password)
+        {
+            byte[] passwordHash, passwordSalt;
+
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            user.PasswordHash = passwordHash;   
+            user.PasswordSalt = passwordSalt;
+            
+            _userDal.Update(user);
             return new SuccessResult();
         }
     }

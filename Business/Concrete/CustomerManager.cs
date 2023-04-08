@@ -29,12 +29,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult Delete(Customer customer)
-        {
-            _customerDal.Delete(customer);
-            return new SuccessResult();
-        }
-
         public IDataResult<Customer> GetByUserId(int userId)
         {
             var result = _customerDal.Get(c => c.UserId == userId);
@@ -47,12 +41,6 @@ namespace Business.Concrete
         public IDataResult<CustomerDetailDto> GetCustomerDetails(string email)
         {
             return new SuccessDataResult<CustomerDetailDto>(_customerDal.GetByEmail(email));
-        }
-
-        public IResult Update(Customer customer)
-        {
-            _customerDal.Update(customer);
-            return new SuccessResult();
         }
     }
 }
