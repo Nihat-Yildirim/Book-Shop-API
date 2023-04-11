@@ -43,7 +43,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpGet("getactiveuseraddresses")]
-        public IActionResult GetUserAddresses([FromForm(Name = "userId")] int userId)
+        public IActionResult GetActiveUserAddresses([FromForm(Name = "userId")] int userId)
         {
             var resultUserAddresses = _userAddressService.GetActiveUserAddressByUserId(userId);
 

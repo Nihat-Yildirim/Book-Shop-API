@@ -46,6 +46,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<UserAddressManager>().As<IUserAddressService>().SingleInstance();
             builder.RegisterType<EfUserAddressDal>().As<IUserAddressDal>().SingleInstance();
+
+            builder.RegisterType<UserPhoneNumberManager>().As<IUserPhoneNumberService>().SingleInstance();
+            builder.RegisterType<EfUserPhoneNumberDal>().As<IUserPhoneNumberDal>().SingleInstance();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<File> Files { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
+        public DbSet<UserPhoneNumber> UserPhoneNumbers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -97,6 +98,16 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 u.Property(p => p.Neighbourhood).HasColumnName("Neighbourhood");
                 u.Property(p => p.Address).HasColumnName("Address");
                 u.Property(p => p.Status).HasColumnName("Status");
+            });
+
+            modelBuilder.Entity<UserPhoneNumber>(n =>
+            {
+                n.ToTable("UserPhoneNumbers").HasKey(n => n.Id);
+                n.Property(p => p.Id).HasColumnName("Id");
+                n.Property(p => p.UserId).HasColumnName("UserId");
+                n.Property(p => p.PhoneTitle).HasColumnName("PhoneTitle");
+                n.Property(p => p.PhoneNumber).HasColumnName("PhoneNumber");
+                n.Property(p => p.Status).HasColumnName("Status");
             });
         }
     }
