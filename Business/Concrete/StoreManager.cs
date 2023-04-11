@@ -21,28 +21,28 @@ namespace Business.Concrete
         IStoreDal _storeDal;
         IFileService _fileService;
         IStorageService _storageService;
-        public StoreManager(IStoreDal storeDal,IStorageService storageService,IFileService fileService)
+        public StoreManager(IStoreDal storeDal, IStorageService storageService, IFileService fileService)
         {
-            _storageService= storageService;
+            _storageService = storageService;
             _storeDal = storeDal;
-            _fileService= fileService;
+            _fileService = fileService;
         }
 
         public IResult Add(Store store, IFormFile formfile)
         {
             var businessResult = BusinessRules.Run(CheckIfStoreNameExists(store.Name));
-            
+
             if (!businessResult.Success)
                 return new ErrorResult();
 
             var result = _storageService.UploadFile(formfile, LocalStoragePathConstants.StoreLogoPath);
-            
+
             var file = new File
             {
                 FileName = result.fileName,
                 FileExtension = result.fileExtension,
                 FilePath = result.filePathOrContainerName,
-                StorageName = _storageService.StrogeName,
+                StorageName = _storageService.StorageName,
                 UploadDate = DateTime.Now,
                 Status = true
             };
@@ -53,30 +53,32 @@ namespace Business.Concrete
             {
                 Name = store.Name,
                 Description = store.Description,
-                FileId= resultFile.Data.Id,
+                FileId = resultFile.Data.Id,
                 Status = true
             };
 
             _storeDal.Add(addedStore);
-            
+
             return new SuccessResult();
         }
 
         public IResult Delete(int storeId)
         {
             var resultStore = _storeDal.Get(s => s.Id == storeId);
-            var resultFile = _fileService.GetFileByFileId(resultStore.FileId).Data;  
-            resultStore.Status = false;
+            var resultFile = _fileService.GetFileByFileId(resultStore.FileId).Data;
             
+            resultStore.Status = false;
+            resultFile.Status = false;
+
             _storeDal.Update(resultStore);
-            _fileService.Delete(resultFile);
+            _fileService.Update(resultFile);
 
             return new SuccessResult();
         }
 
         public IDataResult<Store> GetById(int id)
         {
-            var resultStore = _storeDal.Get(s=>s.Id == id);
+            var resultStore = _storeDal.Get(s => s.Id == id);
             return new SuccessDataResult<Store>(resultStore);
         }
 
@@ -90,17 +92,17 @@ namespace Business.Concrete
         {
             var resultBeforeFile = _fileService.GetFileByFileId(store.FileId).Data;
             var resultFile = _storageService.UpdateFile(formFile, resultBeforeFile.FilePath, LocalStoragePathConstants.StoreLogoPath);
-            
+
             var file = new File
             {
-                Id= store.FileId,
+                Id = store.FileId,
                 FileExtension = resultFile.fileExtension,
                 FileName = resultFile.fileName,
                 FilePath = resultFile.filePathOrContainerName,
-                StorageName = _storageService.StrogeName,
+                StorageName = _storageService.StorageName,
                 UploadDate = DateTime.Now,
             };
-            
+
             _fileService.Update(file);
             return new SuccessResult();
         }
@@ -130,7 +132,7 @@ namespace Business.Concrete
         private IResult CheckIfStoreNameExists(string storeName)
         {
             var resultStore = _storeDal.Get(s => s.Name == storeName);
-            
+
             if (resultStore == null)
                 return new SuccessResult();
 

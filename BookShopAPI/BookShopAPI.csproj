@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Uploads\Images\CustomerAvatar\Avatars\" />
+    <Folder Include="wwwroot\Uploads\Images\CustomerAvatars\" />
     <Folder Include="wwwroot\Uploads\Images\StoreLogos\" />
   </ItemGroup>
 

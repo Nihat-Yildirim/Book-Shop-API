@@ -30,15 +30,7 @@ namespace Business.Concrete
 
         public IResult Delete(File file)
         {
-            file.Status = false;
-            _fileDal.Update(file);
-            return new SuccessResult();
-        }
-
-        public IResult Delete(int fileId)
-        {
-            var result = GetFileByFileId(fileId);
-            _fileDal.Delete(result.Data);
+            _fileDal.Delete(file);
             return new SuccessResult();
         }
 

@@ -47,7 +47,9 @@ namespace BookShopAPI.Controllers
 
             var resultDealer = _dealerService.GetByUserId(resultUser.Id).Data;
 
-            _userService.Delete(resultUser);
+            resultUser.Status = false;
+
+            _userService.Update(resultUser);
             _storeService.Delete(resultDealer.StoreId);
 
             return Ok("Satıcı başarıyla silindi !");

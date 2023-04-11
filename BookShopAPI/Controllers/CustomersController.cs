@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Entities.Concrete;
 using Core.Utilities.Security.Hashing;
+using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,9 +45,11 @@ namespace BookShopAPI.Controllers
         public IActionResult Delete([FromForm(Name ="email")] string email)
         {
             var resultUser = _userService.GetByMail(email).Data;
-            var resultCustomer = _customerService.GetByUserId(resultUser.Id).Data;  
+            var resultCustomer = _customerService.GetByUserId(resultUser.Id).Data;
             
-            _userService.Delete(resultUser);
+            resultUser.Status = false;
+
+            _userService.Update(resultUser);
             _customerAvatarService.DeleteCustomerAvatar(resultCustomer.Id);
 
             return Ok("Kullanıcı başarıyla silindi !");

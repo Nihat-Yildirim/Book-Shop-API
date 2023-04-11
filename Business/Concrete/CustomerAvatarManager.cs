@@ -21,14 +21,14 @@ namespace Business.Concrete
     public class CustomerAvatarManager : ICustomerAvatarService
     {
         IFileService _fileService;
-        IStorageService _strogeService;
+        IStorageService _storageService;
         ICustomerAvatarDal _customerAvatarDal;
         public CustomerAvatarManager(
-            IStorageService strogeService,
+            IStorageService storageService,
             ICustomerAvatarDal customerAvatarDal,
             IFileService fileService)
         {
-            _strogeService = strogeService;
+            _storageService = storageService;
             _customerAvatarDal = customerAvatarDal;
             _fileService = fileService;
         }
@@ -38,21 +38,21 @@ namespace Business.Concrete
             var resultCustomerAvatar = _customerAvatarDal.Get(a => a.CustomerId == customerId);
             var deletedAvatarFile = _fileService.GetFileByFileId(resultCustomerAvatar.FileId).Data;
 
-            _fileService.Delete(deletedAvatarFile.Id);
+            _fileService.Delete(deletedAvatarFile);
             _customerAvatarDal.Delete(resultCustomerAvatar);
-            _strogeService.Delete(deletedAvatarFile.FilePath);
+            _storageService.Delete(deletedAvatarFile.FilePath);
             return new SuccessResult();
         }
 
         public IResult AddCustomerAvatar(IFormFile avatar,int customerId)
         {
-            var resultFile = _strogeService.UploadFile(avatar, LocalStoragePathConstants.CustomerAvatarsPath);
+            var resultFile = _storageService.UploadFile(avatar, LocalStoragePathConstants.CustomerAvatarsPath);
             var file = new File
             {
                 FileName = resultFile.fileName,
                 FilePath = resultFile.filePathOrContainerName,
                 FileExtension = resultFile.fileExtension,
-                StorageName = _strogeService.StrogeName,
+                StorageName = _storageService.StorageName,
                 UploadDate = DateTime.Now,
                 Status = true
             };
@@ -73,14 +73,14 @@ namespace Business.Concrete
             var beforeAvatar = _customerAvatarDal.Get(a => a.CustomerId == customerId);
             var beforeFile = _fileService.GetFileByFileId(beforeAvatar.FileId).Data;
 
-            var resultFile = _strogeService.UpdateFile(avatar, beforeFile.FilePath, LocalStoragePathConstants.CustomerAvatarsPath);
+            var resultFile = _storageService.UpdateFile(avatar, beforeFile.FilePath, LocalStoragePathConstants.CustomerAvatarsPath);
             
             var file = new File
             {
                 FileName = resultFile.fileName,
                 FilePath = resultFile.filePathOrContainerName,
                 FileExtension = resultFile.fileExtension,
-                StorageName = _strogeService.StrogeName,
+                StorageName = _storageService.StorageName,
                 UploadDate = DateTime.Now,
                 Status = true,
                 Id = beforeFile.Id

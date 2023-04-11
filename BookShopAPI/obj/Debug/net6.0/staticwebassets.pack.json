@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\469dd750-06e6-479c-894f-cfda78e9f0e4.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatars\\469dd750-06e6-479c-894f-cfda78e9f0e4.jpg"
+    },
+    {
       "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\1968ea32-cd80-4ca6-8710-5402bb686d08.jpg",
       "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\1968ea32-cd80-4ca6-8710-5402bb686d08.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\24d73fb5-9652-4c70-b9e4-017b52526f47.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\24d73fb5-9652-4c70-b9e4-017b52526f47.jpg"
     },
     {
       "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\310b3336-3291-41fe-8332-e8fda2571e7a.jpg",

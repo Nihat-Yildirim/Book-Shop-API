@@ -16,7 +16,6 @@ namespace Business.Abstract
         IDataResult<File> GetFileByFileName(string fileName);
         IDataResult<File> Add(File file);
         IResult Delete(File file);
-        IResult Delete(int fileId); 
         IResult Update(File file);
     }
 }

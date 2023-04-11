@@ -7,6 +7,7 @@ using Core.Utilities.Security.JWT;
 using Core.Utilities.Storage;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,8 +41,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<FileManager>().As<IFileService>().SingleInstance();
             builder.RegisterType<EfFileDal>().As<IFileDal>().SingleInstance();
 
-            builder.RegisterType<EfStoreDal>().As<IStoreDal>().SingleInstance();
             builder.RegisterType<StoreManager>().As<IStoreService>().SingleInstance();
+            builder.RegisterType<EfStoreDal>().As<IStoreDal>().SingleInstance();
+
+            builder.RegisterType<UserAddressManager>().As<IUserAddressService>().SingleInstance();
+            builder.RegisterType<EfUserAddressDal>().As<IUserAddressDal>().SingleInstance();
         }
     }
 }

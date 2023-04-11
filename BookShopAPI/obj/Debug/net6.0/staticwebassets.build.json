@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zOSyLoiVokRiKOzXucYkklOPN+kT4Tk9XrwWlCPw3lc=",
+  "Hash": "Aei18WStrHiiwKdallWCk3R6GrmIoiz/EUSVjxxTP+A=",
   "Source": "BookShopAPI",
   "BasePath": "_content/BookShopAPI",
   "Mode": "Default",
@@ -17,6 +17,23 @@
   ],
   "Assets": [
     {
+      "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\469dd750-06e6-479c-894f-cfda78e9f0e4.jpg",
+      "SourceId": "BookShopAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI",
+      "RelativePath": "Uploads/Images/CustomerAvatars/469dd750-06e6-479c-894f-cfda78e9f0e4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\CustomerAvatars\\469dd750-06e6-479c-894f-cfda78e9f0e4.jpg"
+    },
+    {
       "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\1968ea32-cd80-4ca6-8710-5402bb686d08.jpg",
       "SourceId": "BookShopAPI",
       "SourceType": "Discovered",
@@ -32,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Images\\StoreLogos\\1968ea32-cd80-4ca6-8710-5402bb686d08.jpg"
+    },
+    {
+      "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\24d73fb5-9652-4c70-b9e4-017b52526f47.jpg",
+      "SourceId": "BookShopAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI",
+      "RelativePath": "Uploads/Images/StoreLogos/24d73fb5-9652-4c70-b9e4-017b52526f47.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\StoreLogos\\24d73fb5-9652-4c70-b9e4-017b52526f47.jpg"
     },
     {
       "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\310b3336-3291-41fe-8332-e8fda2571e7a.jpg",

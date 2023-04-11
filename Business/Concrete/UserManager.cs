@@ -26,9 +26,8 @@ namespace Business.Concrete
             return new SuccessDataResult<User>();
         }
 
-        public IResult Delete(User user)
+        public IResult Update(User user)
         {
-            user.Status = false;
             _userDal.Update(user);
 
             return new SuccessResult();

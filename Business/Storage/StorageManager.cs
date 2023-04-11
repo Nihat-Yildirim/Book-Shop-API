@@ -17,7 +17,7 @@ namespace Business.Stroge
             _stroge = stroge;
         }
 
-        public string StrogeName { get { return _stroge.GetType().Name; } }
+        public string StorageName { get { return _stroge.GetType().Name; } }
 
         public void Delete(string fileName, string pathOrContainerName)
         {
