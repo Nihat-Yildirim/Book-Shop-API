@@ -38,7 +38,7 @@ namespace Business.Concrete
             if (!businessResult.Success)
                 return new ErrorResult();
 
-            var result = _storageService.UploadFile(formfile, LocalStoragePathConstants.StoreLogoPath);
+            var result = _storageService.UploadFile(formfile, LocalStoragePathConstants.StoreLogosPath);
 
             var file = new File
             {
@@ -96,7 +96,7 @@ namespace Business.Concrete
         public IResult UpdateLogo(Store store, IFormFile formFile)
         {
             var resultBeforeFile = _fileService.GetFileByFileId(store.FileId).Data;
-            var resultFile = _storageService.UpdateFile(formFile, resultBeforeFile.FilePath, LocalStoragePathConstants.StoreLogoPath);
+            var resultFile = _storageService.UpdateFile(formFile, resultBeforeFile.FilePath, LocalStoragePathConstants.StoreLogosPath);
 
             var file = new File
             {

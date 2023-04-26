@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Storage;
+﻿using Castle.Components.DictionaryAdapter.Xml;
+using Core.Utilities.Storage;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Business.Stroge
             _stroge = stroge;
         }
 
-        public string StorageName { get { return _stroge.GetType().Name; } }
+        public string StorageName { get { return "LocalStorage"; } }
 
         public void Delete(string fileName, string pathOrContainerName)
         {

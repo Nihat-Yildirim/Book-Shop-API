@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -19,9 +21,18 @@ namespace Business.Concrete
             _userPhoneNumberDal = userPhoneNumberDal;
         }
 
+        [ValidationAspect(typeof(UserPhoneNumberValidator))]
         public IResult Add(UserPhoneNumber userPhoneNumber)
         {
             _userPhoneNumberDal.Add(userPhoneNumber);
+
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(UserPhoneNumberValidator))]
+        public IResult Update(UserPhoneNumber userPhoneNumber)
+        {
+            _userPhoneNumberDal.Update(userPhoneNumber);
 
             return new SuccessResult();
         }
@@ -38,13 +49,6 @@ namespace Business.Concrete
             var resultUserPhoneNumber = _userPhoneNumberDal.GetAll(n => n.UserId == userId);
 
             return new SuccessDataResult<List<UserPhoneNumber>>(resultUserPhoneNumber);
-        }
-
-        public IResult Update(UserPhoneNumber userPhoneNumber)
-        {
-            _userPhoneNumberDal.Update(userPhoneNumber);
-
-            return new SuccessResult();
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(r => r.LastName).NotEmpty();
             RuleFor(r => r.LastName).NotNull();
             RuleFor(r => r.LastName).MinimumLength(3);
+            RuleFor(r => r.LastName).MaximumLength(100);
 
             RuleFor(r => r.Email).NotEmpty();
             RuleFor(r => r.Email).NotNull();

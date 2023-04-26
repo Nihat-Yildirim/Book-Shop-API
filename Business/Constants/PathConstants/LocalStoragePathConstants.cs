@@ -10,6 +10,8 @@ namespace Business.Constants.PathConstants
     {
         public readonly static string CustomerAvatarsPath = "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\";
 
-        public readonly static string StoreLogoPath = "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\";
+        public readonly static string StoreLogosPath = "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\";
+
+        public readonly static string AuthorPicturesPath = "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\AuthorPictures\\";
     }
 }
