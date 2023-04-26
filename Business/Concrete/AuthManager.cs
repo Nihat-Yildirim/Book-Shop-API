@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Entities.Abstract;
 using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
@@ -44,6 +46,7 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accessToken);
         }
 
+        [ValidationAspect(typeof(CustomerForRegisterDtoValidator))]
         public IDataResult<User> CustomerRegister(CustomerForRegisterDto customerForRegisterDto)
         {
             var result = Register(customerForRegisterDto).Data;
@@ -55,36 +58,8 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(result);
         }
 
-        public IResult UserExists(string email)
-        {
-            var resultUser = _userService.GetByMail(email);
 
-            if (resultUser.Data != null)
-                return new ErrorResult();
-
-            return new SuccessResult();
-        }
-
-        private IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
-        {
-            byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
-
-            var user = new User
-            {
-                FirstName = userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName,
-                Email = userForRegisterDto.Email,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                CreatedDate = DateTime.Now,
-                Status = true
-            };
-            _userService.Add(user);
-            var resultUser = _userService.GetByMail(user.Email).Data;
-            return new SuccessDataResult<User>(resultUser);
-        }
-
+        [ValidationAspect(typeof(UserForLoginDtoValidator))]
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
@@ -101,6 +76,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(userToCheck.Data);
         }
 
+        [ValidationAspect(typeof(DealerForRegisterDtoValidator))]
         public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto,IFormFile formFile)
         {
             var resultUser = Register(dealerForRegisterDto).Data;
@@ -125,9 +101,38 @@ namespace Business.Concrete
 
         public IResult StoreExists(string storeName)
         {
-            var resultStore = _storeService.GetByStoreName(storeName);
+            var resultStore = _storeService.CheckStoreNameExists(storeName);
 
-            if (resultStore.Data != null)
+            if (resultStore.Success == true)
+                return new ErrorResult();
+
+            return new SuccessResult();
+        }
+
+        private IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
+        {
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
+
+            var user = new User
+            {
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName,
+                Email = userForRegisterDto.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                CreatedDate = DateTime.Now,
+                Status = true
+            };
+            _userService.Add(user);
+            var resultUser = _userService.GetByMail(user.Email).Data;
+            return new SuccessDataResult<User>(resultUser);
+        }
+        public IResult UserExists(string email)
+        {
+            var resultUser = _userService.GetByMail(email);
+
+            if (resultUser.Data != null)
                 return new ErrorResult();
 
             return new SuccessResult();

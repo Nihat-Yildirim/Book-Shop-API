@@ -12,6 +12,5 @@ namespace Business.Abstract
     {
         IDataResult<Dealer> GetByUserId(int userId);
         IResult Add(Dealer dealer);
-        IResult Update(Dealer dealer);
     }
 }

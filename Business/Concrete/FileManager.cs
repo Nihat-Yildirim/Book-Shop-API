@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using Core.Utilities.Storage;
@@ -21,6 +23,7 @@ namespace Business.Concrete
             _fileDal= fileDal;
         }
 
+        [ValidationAspect(typeof(FileValidator))]
         public IDataResult<File> Add(File file)
         {
             _fileDal.Add(file);
@@ -28,9 +31,17 @@ namespace Business.Concrete
             return new SuccessDataResult<File>(result.Data);
         }
 
+        [ValidationAspect(typeof(FileValidator))]
         public IResult Delete(File file)
         {
             _fileDal.Delete(file);
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(FileValidator))]
+        public IResult Update(File file)
+        {
+            _fileDal.Update(file);
             return new SuccessResult();
         }
 
@@ -50,12 +61,6 @@ namespace Business.Concrete
         {
             var result = _fileDal.Get(f => f.FilePath == filePathOrContainerName);
             return new SuccessDataResult<File>(result);
-        }
-
-        public IResult Update(File file)
-        {
-            _fileDal.Update(file);
-            return new SuccessResult();
         }
     }
 }

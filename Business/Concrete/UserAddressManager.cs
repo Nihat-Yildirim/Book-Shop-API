@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -20,9 +22,18 @@ namespace Business.Concrete
             _userAddressDal = userAddressDal;
         }
 
+        [ValidationAspect(typeof(UserAddressValidator))]
         public IResult Add(UserAddress userAddress)
         {
             _userAddressDal.Add(userAddress);
+
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(UserAddressValidator))]
+        public IResult Update(UserAddress userAddress)
+        {
+            _userAddressDal.Update(userAddress);
 
             return new SuccessResult();
         }
@@ -41,11 +52,5 @@ namespace Business.Concrete
             return new SuccessDataResult<List<UserAddress>>(resultUserAddress);
         }
 
-        public IResult Update(UserAddress userAddress)
-        {
-            _userAddressDal.Update(userAddress);
-
-            return new SuccessResult();
-        }
     }
 }

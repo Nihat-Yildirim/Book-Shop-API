@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Exceptions.Abstract
 {
-    public class ExceptionBase : Exception
+    public abstract class ExceptionBase : Exception
     {
         public HttpStatusCode StatusCode { get; private set; }
 

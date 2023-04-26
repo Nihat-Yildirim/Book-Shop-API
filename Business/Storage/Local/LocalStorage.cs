@@ -30,7 +30,7 @@ namespace Business.Stroge.Local
         {
             var result = GetFiles(path);
             var file = result.FirstOrDefault(f => f.Name == fileName);
-            
+
             if (file != null)
             {
                 return file;

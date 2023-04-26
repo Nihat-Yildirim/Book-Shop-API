@@ -1,12 +1,15 @@
 ﻿using Autofac;
+using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrete;
 using Business.Stroge;
 using Business.Stroge.Local;
+using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using Core.Utilities.Storage;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Castle.DynamicProxy;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -49,6 +52,13 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<UserPhoneNumberManager>().As<IUserPhoneNumberService>().SingleInstance();
             builder.RegisterType<EfUserPhoneNumberDal>().As<IUserPhoneNumberDal>().SingleInstance();
+
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
+                {
+                    Selector = new AspectInterceptorSelector()
+                }).SingleInstance();
         }
     }
 }

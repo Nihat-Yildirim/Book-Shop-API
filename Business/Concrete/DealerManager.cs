@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -20,6 +22,7 @@ namespace Business.Concrete
             _dealerDal = dealerDal;
         }
 
+        [ValidationAspect(typeof(DealerValidator))]
         public IResult Add(Dealer dealer)
         {
             _dealerDal.Add(dealer);
@@ -30,12 +33,6 @@ namespace Business.Concrete
         {
             var resultDealer = _dealerDal.Get(d => d.UserId == userId);
             return new SuccessDataResult<Dealer>(resultDealer);
-        }
-
-        public IResult Update(Dealer dealer)
-        {
-            _dealerDal.Update(dealer);
-            return new SuccessResult();
         }
     }
 }

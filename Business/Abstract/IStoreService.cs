@@ -17,6 +17,7 @@ namespace Business.Abstract
         IResult UpdateLogo(Store store, IFormFile file);
         IResult UpdateStoreName(int storeId,string name);
         IResult UpdateStoreDescription(int storeId,string newDescription);
+        IResult CheckStoreNameExists(string storeName);
         IResult Delete(int storeId);
     }
 }

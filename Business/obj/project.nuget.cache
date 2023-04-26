@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2j6Jv3HHcBEWJwC556eZpaOhQKddXikmPG5U8J8opiiGXtMpNqxjydwHt3SHSndVI+jFwoH9RxKUEaiVP+Devw==",
+  "dgSpecHash": "kB4hLChq56tIlTXXoz+Z/IAT0yzvLNdYPTsf/oWO4vClsVh2RukJjcEK81CpG01pfKmi5IhS2ZFNs5n11bXBfw==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\Book-Shop-API\\Business\\Business.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

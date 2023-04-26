@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3LykIvRcyOkfmD/ROVKz25lqxL3NqVfjYWubfxKSL47P8ML4fVDDeEinIKq2WSjol0CiLOACzCTl2+YdRQz9cA==",
+  "dgSpecHash": "BL6fSM1Nn/8ZaJqaBXOt/e+X8YOXzHaRNlmjr2F/HlUYrH9/CCm/hEf97OWrz8o9KllKumdP1SsDtExFj7YP+Q==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\BookShopAPI.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.15\\microsoft.aspnetcore.authentication.jwtbearer.6.0.15.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

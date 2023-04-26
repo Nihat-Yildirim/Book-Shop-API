@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Utilities.Results.Concrete;
 using Core.Utilities.Business;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -28,9 +30,10 @@ namespace Business.Concrete
             _fileService = fileService;
         }
 
+        [ValidationAspect(typeof(StoreValidator))]
         public IResult Add(Store store, IFormFile formfile)
         {
-            var businessResult = BusinessRules.Run(CheckIfStoreNameExists(store.Name));
+            var businessResult = BusinessRules.Run(CheckStoreNameExists(store.Name));
 
             if (!businessResult.Success)
                 return new ErrorResult();
@@ -62,6 +65,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [ValidationAspect(typeof(StoreValidator))]
         public IResult Delete(int storeId)
         {
             var resultStore = _storeDal.Get(s => s.Id == storeId);
@@ -88,6 +92,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Store>(resultStore);
         }
 
+        [ValidationAspect(typeof(StoreValidator))]
         public IResult UpdateLogo(Store store, IFormFile formFile)
         {
             var resultBeforeFile = _fileService.GetFileByFileId(store.FileId).Data;
@@ -107,6 +112,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [ValidationAspect(typeof(StoreValidator))]
         public IResult UpdateStoreDescription(int storeId, string newDescription)
         {
             var resultStore = _storeDal.Get(s => s.Id == storeId);
@@ -116,9 +122,10 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [ValidationAspect(typeof(StoreValidator))]
         public IResult UpdateStoreName(int storeId, string name)
         {
-            var result = BusinessRules.Run(CheckIfStoreNameExists(name));
+            var result = BusinessRules.Run(CheckStoreNameExists(name));
             if (!result.Success)
                 return new ErrorResult("Bu mağaza ismine ait zaten bir mağaza var !");
 
@@ -129,7 +136,7 @@ namespace Business.Concrete
             return new SuccessResult("Mağaza ismi başarıyla güncellendi !");
         }
 
-        private IResult CheckIfStoreNameExists(string storeName)
+        public IResult CheckStoreNameExists(string storeName)
         {
             var resultStore = _storeDal.Get(s => s.Name == storeName);
 
