@@ -34,7 +34,7 @@ namespace BookShopAPI.Controllers
         [HttpGet("gettallauthor")]
         public IActionResult GetAllAuthor()
         {
-            var resultAuthor = _authorService.GetAll().Data;
+            var resultAuthor = _authorService.GetAll();
 
             return Ok(resultAuthor);
         }

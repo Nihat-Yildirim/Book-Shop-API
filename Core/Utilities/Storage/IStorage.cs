@@ -14,7 +14,6 @@ namespace Core.Utilities.Storage
         List<(string fileName, string filePathOrContainerName, string fileExtension)> UpdateFiles(IFormFileCollection files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName);
         (string fileName, string filePathOrContainerName, string fileExtension) UpdateFile(IFormFile file, string beforeFilePathOrContainerName, string pathOrContainerName);
         bool HasFile(string fileName,string pathOrContainerName);
-        void Delete(string fileName, string pathOrContainerName);
         void Delete(string beforeFilePathOrContainerName);
         List<string> GetFileNames(string pathOrContainerName);
         List<FileInfo> GetFiles(string pathOrContainerName);

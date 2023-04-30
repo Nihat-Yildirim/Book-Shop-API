@@ -38,8 +38,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<StorageManager>().As<IStorageService>().SingleInstance();
             builder.RegisterType<LocalStorage>().As<IStorage>().SingleInstance(); 
 
-            builder.RegisterType<EfCustomerAvatarDal>().As<ICustomerAvatarDal>().SingleInstance();
             builder.RegisterType<CustomerAvatarManager>().As<ICustomerAvatarService>().SingleInstance();
+            builder.RegisterType<EfCustomerAvatarDal>().As<ICustomerAvatarDal>().SingleInstance();
 
             builder.RegisterType<FileManager>().As<IFileService>().SingleInstance();
             builder.RegisterType<EfFileDal>().As<IFileDal>().SingleInstance();
@@ -55,6 +55,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthorManager>().As<IAuthorService>().SingleInstance();
             builder.RegisterType<EfAuthorDal>().As<IAuthorDal>().SingleInstance();
+
+            builder.RegisterType<PublisherManager>().As<IPublisherService>().SingleInstance();
+            builder.RegisterType<EfPublisherDal>().As<IPublisherDal>().SingleInstance();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

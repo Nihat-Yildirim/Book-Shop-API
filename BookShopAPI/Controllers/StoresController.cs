@@ -34,7 +34,7 @@ namespace BookShopAPI.Controllers
         }   
 
         [HttpPost("updatestorelogo")]
-        public IActionResult UpdateLogo([FromForm(Name ="storeId")] int storeId, [FromForm(Name = "logo")] IFormFile logo)
+        public IActionResult UpdateStoreLogo([FromForm(Name ="storeId")] int storeId, [FromForm(Name = "logo")] IFormFile logo)
         {
             var resultStore = _storeService.GetById(storeId);
             _storeService.UpdateLogo(resultStore.Data,logo);

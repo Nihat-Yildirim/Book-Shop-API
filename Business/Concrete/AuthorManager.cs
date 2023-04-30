@@ -60,10 +60,13 @@ namespace Business.Concrete
         [ValidationAspect(typeof(AuthorValidator))]
         public IResult Delete(Author author)
         {
-            var fileResut = _fileService.GetFileByFileId(author.FileId);
+            var fileResult = _fileService.GetFileByFileId(author.FileId).Data;
 
-            _storageService.Delete(fileResut.Data.FilePath);
-            _authorDal.Delete(author);  
+            fileResult.Status = false;
+            author.Status = false;
+
+            _fileService.Update(fileResult);
+            _authorDal.Update(author);
 
             return new SuccessResult();
         }
@@ -84,6 +87,8 @@ namespace Business.Concrete
                 UploadDate = DateTime.Now,
                 Status = true
             };
+
+            author.Status = true;
 
             _fileService.Update(file);
             _authorDal.Update(author);

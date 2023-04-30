@@ -61,5 +61,26 @@ namespace BookShopAPI.Controllers
             _userService.Update(profile);
             return Ok("Kullanıcı bilgileri başarıyla güncellendi");
         }
+
+        [HttpPost("updatecustomeravatar")]
+        public IActionResult UpdateCustomerAvatar([FromForm(Name = "customerId")] int customerId, [FromForm(Name = "avatar")] IFormFile avatar)
+        {
+            var resultCustomerAvatar = _customerAvatarService.GetByCustomerId(customerId);
+
+            if (resultCustomerAvatar.Data == null)
+                _customerAvatarService.AddCustomerAvatar(avatar, customerId);
+            else
+                _customerAvatarService.UpdateCustomerAvatar(avatar, customerId);
+
+            return Ok("Kullanıcının avatar resmi başarıyla güncellendi");
+        }
+
+        [HttpPost("deletecustomeravatar")]
+        public IActionResult DeleteCustomerAvatar([FromForm(Name = "customerId")] int customerId)
+        {
+            _customerAvatarService.DeleteCustomerAvatar(customerId);
+
+            return Ok("Kullanıcı avatarı başarıyla silindi !");
+        }
     }
 }

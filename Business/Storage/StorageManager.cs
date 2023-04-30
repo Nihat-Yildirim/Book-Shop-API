@@ -13,17 +13,12 @@ namespace Business.Stroge
     {
         IStorage _stroge;
 
-        public StorageManager(IStorage stroge)
+        public StorageManager(IStorage storage)
         {
-            _stroge = stroge;
+            _stroge = storage;
         }
 
         public string StorageName { get { return "LocalStorage"; } }
-
-        public void Delete(string fileName, string pathOrContainerName)
-        {
-            _stroge.Delete(fileName, pathOrContainerName);
-        }
 
         public void Delete(string beforeFilePathOrContainerName)
         {

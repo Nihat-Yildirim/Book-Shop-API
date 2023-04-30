@@ -1,0 +1,146 @@
+﻿using Business.Abstract;
+using Business.Constants.PathConstants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using Core.Utilities.Storage;
+using DataAccess.Abstract;
+using Entities.Concrete;
+using Entities.DTOs;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using File = Entities.Concrete.File;
+
+namespace Business.Concrete
+{
+    public class PublisherManager : IPublisherService
+    {
+        IPublisherDal _publisherDal;
+        IFileService _fileService;
+        IStorageService _storageService;
+        public PublisherManager(IPublisherDal publisherDal, IFileService fileService,IStorageService storageService)
+        {
+            _publisherDal = publisherDal;
+            _fileService = fileService;
+            _storageService = storageService;
+        }
+
+        [ValidationAspect(typeof(AddedPublisherDtoValidator))]
+        public IResult Add(AddedPublisherDto addedPublisher)
+        {
+            var businessResult = BusinessRules.Run(CheckIfPublisherNameExists(addedPublisher.Name));
+
+            if (businessResult.Success != true)
+                return new ErrorResult();
+
+            var storageResult = _storageService.UploadFile(addedPublisher.Logo, LocalStoragePathConstants.PublisherLogosPath);
+
+            var file = new File
+            {
+                FileName = storageResult.fileName,
+                FileExtension = storageResult.fileExtension,
+                FilePath = storageResult.filePathOrContainerName,
+                StorageName = _storageService.StorageName,
+                Status = true,
+                UploadDate = DateTime.Now,
+            };
+
+            var fileResult = _fileService.Add(file);
+
+            var publisher = new Publisher
+            {
+                FileId = fileResult.Data.Id,
+                Name = addedPublisher.Name,
+                Status = true
+            };
+
+            _publisherDal.Add(publisher);
+
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(PublisherValidator))]
+        public IResult Update(UpdatedPublisherDto updatedPublisher)
+        {
+            var beforePublisher = _publisherDal.Get(p => p.Id ==  updatedPublisher.Id);
+            var beforeFile = _fileService.GetFileByFileId(beforePublisher.FileId).Data;
+
+            var storageResult = _storageService.UpdateFile(updatedPublisher.Logo, beforeFile.FilePath, LocalStoragePathConstants.PublisherLogosPath);
+
+            var file = new File
+            {
+                Id = beforeFile.Id,
+                FileName = storageResult.fileName,
+                FileExtension = storageResult.fileExtension,
+                FilePath = storageResult.filePathOrContainerName,
+                Status = beforeFile.Status,
+                StorageName = _storageService.StorageName,
+                UploadDate = DateTime.Now,
+            };
+
+            var publisher = new Publisher
+            {
+                Id = beforePublisher.Id,
+                Name = updatedPublisher.Name,
+                Status = true,
+                FileId = file.Id,
+            };
+
+            _fileService.Update(file);
+            _publisherDal.Update(publisher);
+
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(PublisherValidator))]
+        public IResult Delete(Publisher publisher)
+        {
+            var resultFile = _fileService.GetFileByFileId(publisher.FileId).Data;
+
+            resultFile.Status = false;
+            publisher.Status = false;
+
+            _fileService.Update(resultFile);
+            _publisherDal.Update(publisher);
+
+            return new SuccessResult();
+        }
+
+        public IDataResult<List<PublisherDetailDto>> GetAll()
+        {
+            var result = _publisherDal.GetAllPublisherDetails();
+
+            return new SuccessDataResult<List<PublisherDetailDto>>(result);
+        }
+
+        public IDataResult<PublisherDetailDto> GetByName(string name)
+        {
+            var result = _publisherDal.GetPublisherDetail(p => p.Name == name);
+
+            return new SuccessDataResult<PublisherDetailDto>(result);
+        }
+
+        public IDataResult<PublisherDetailDto> GetById(int id)
+        {
+            var result = _publisherDal.GetPublisherDetail(p => p.Id == id);
+
+            return new SuccessDataResult<PublisherDetailDto>(result);
+        }
+
+        private IResult CheckIfPublisherNameExists(string publisherName)
+        {
+            var resultPublisher = _publisherDal.Get(p => p.Name == publisherName);
+
+            if (resultPublisher != null)
+                return new ErrorResult();
+
+            return new SuccessResult();
+        }
+    }
+}

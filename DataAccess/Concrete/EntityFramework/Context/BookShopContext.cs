@@ -27,6 +27,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<UserAddress> UserAddresses { get; set; }
         public DbSet<UserPhoneNumber> UserPhoneNumbers { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -119,6 +120,16 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 a.Property(p => p.FirstName).HasColumnName("FirstName");
                 a.Property(p => p.LastName).HasColumnName("LastName");
                 a.Property(p => p.Autobiography).HasColumnName("Autobiography");
+                a.Property(p => p.Status).HasColumnName("Status");
+            });
+
+            modelBuilder.Entity<Publisher>(p =>
+            {
+                p.ToTable("Publishers").HasKey(p => p.Id);
+                p.Property(p => p.Id).HasColumnName("Id");
+                p.Property(p => p.FileId).HasColumnName("FileId");
+                p.Property(p => p.Name).HasColumnName("Name");
+                p.Property(p => p.Status).HasColumnName("Status");
             });
         }
     }

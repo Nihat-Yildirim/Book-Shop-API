@@ -31,6 +31,8 @@ app.AddGlobalExceptionHandler();
 
 app.UseAuthentication();
 
+app.UseStaticFiles();
+
 app.UseAuthorization();
 
 app.MapControllers();

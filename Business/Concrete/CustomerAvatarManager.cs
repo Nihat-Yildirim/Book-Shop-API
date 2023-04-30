@@ -38,9 +38,9 @@ namespace Business.Concrete
             var resultCustomerAvatar = _customerAvatarDal.Get(a => a.CustomerId == customerId);
             var deletedAvatarFile = _fileService.GetFileByFileId(resultCustomerAvatar.FileId).Data;
 
+            _storageService.Delete(deletedAvatarFile.FilePath);
             _fileService.Delete(deletedAvatarFile);
             _customerAvatarDal.Delete(resultCustomerAvatar);
-            _storageService.Delete(deletedAvatarFile.FilePath);
             return new SuccessResult();
         }
 

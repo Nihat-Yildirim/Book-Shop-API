@@ -12,12 +12,6 @@ namespace Business.Stroge.Local
 {
     public class LocalStorage : IStorage
     {
-        public void Delete(string fileName, string path)
-        {
-            string filePath = Path.Combine(path, fileName);
-            Delete(filePath);
-        }
-
         public void Delete(string beforeFilePath)
         {
             if (File.Exists(beforeFilePath))
