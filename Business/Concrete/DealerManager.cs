@@ -29,6 +29,12 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IDataResult<Dealer> GetByDealerId(int dealerId)
+        {
+            var resultDealer = _dealerDal.Get(d => d.Id == dealerId);
+            return new SuccessDataResult<Dealer>(resultDealer);
+        }
+
         public IDataResult<Dealer> GetByUserId(int userId)
         {
             var resultDealer = _dealerDal.Get(d => d.UserId == userId);

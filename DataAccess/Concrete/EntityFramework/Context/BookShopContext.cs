@@ -20,7 +20,6 @@ namespace DataAccess.Concrete.EntityFramework.Context
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Dealer> Dealers { get; set; }
-        public DbSet<CustomerAvatar> CustomerAvatars { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Store> Stores { get; set; }
@@ -48,6 +47,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 c.ToTable("Customers").HasKey(c => c.Id);
                 c.Property(p => p.Id).HasColumnName("Id");
                 c.Property(p => p.UserId).HasColumnName("UserId");
+                c.Property(p => p.FileId).HasColumnName("FileId");
             });
 
             modelBuilder.Entity<Dealer>(d =>
@@ -56,14 +56,6 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 d.Property(p => p.Id).HasColumnName("Id");
                 d.Property(p => p.StoreId).HasColumnName("StoreId");
                 d.Property(p => p.UserId).HasColumnName("UserId");
-            });
-
-            modelBuilder.Entity<CustomerAvatar>(c =>
-            {
-                c.ToTable("CustomerAvatars").HasKey(c => c.Id);
-                c.Property(p => p.Id).HasColumnName("Id");
-                c.Property(p => p.CustomerId).HasColumnName("CustomerId");
-                c.Property(p => p.FileId).HasColumnName("FileId");
             });
 
             modelBuilder.Entity<File>(f =>

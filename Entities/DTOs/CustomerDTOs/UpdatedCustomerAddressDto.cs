@@ -1,16 +1,16 @@
 ﻿using Core.Entities.Abstract;
+using Entities.DTOs.UserAddressDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.DTOs.CustomerDTOs
 {
-    public class CustomerAvatar : IEntity
+    public class UpdatedCustomerAddressDto : BaseUserAddressDto
     {
-        public int Id { get; set; }
+        public int AddressId { get; set; }
         public int CustomerId { get; set; }
-        public int FileId { get; set; }
     }
 }

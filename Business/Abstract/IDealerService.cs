@@ -11,6 +11,7 @@ namespace Business.Abstract
     public interface IDealerService
     {
         IDataResult<Dealer> GetByUserId(int userId);
+        IDataResult<Dealer> GetByDealerId(int dealerId);
         IResult Add(Dealer dealer);
     }
 }

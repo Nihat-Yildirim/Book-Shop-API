@@ -1,6 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Utilities.Helpers.MailHelper;
-using Entities.DTOs;
+using Entities.DTOs.CustomerDTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

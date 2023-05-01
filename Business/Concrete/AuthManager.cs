@@ -9,6 +9,8 @@ using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;
 using Entities.Concrete;
 using Entities.DTOs;
+using Entities.DTOs.CustomerDTOs;
+using Entities.DTOs.DealerDTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -104,9 +106,9 @@ namespace Business.Concrete
             var resultStore = _storeService.CheckStoreNameExists(storeName);
 
             if (resultStore.Success == true)
-                return new ErrorResult();
-
-            return new SuccessResult();
+                return new SuccessResult();
+            
+            return new ErrorResult();
         }
 
         private IDataResult<User> Register(UserForRegisterDto userForRegisterDto)

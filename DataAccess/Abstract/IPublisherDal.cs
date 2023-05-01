@@ -1,7 +1,7 @@
 ﻿using Core.DataAccess.Abstract;
 using Core.Entities.Abstract;
 using Entities.Concrete;
-using Entities.DTOs;
+using Entities.DTOs.PublisherDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

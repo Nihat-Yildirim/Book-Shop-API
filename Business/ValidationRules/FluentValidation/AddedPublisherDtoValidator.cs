@@ -1,4 +1,4 @@
-﻿using Entities.DTOs;
+﻿using Entities.DTOs.PublisherDTOs;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using System;

@@ -3,6 +3,8 @@ using Core.Entities.Abstract;
 using Core.Exceptions;
 using Core.Exceptions.Abstract;
 using Entities.DTOs;
+using Entities.DTOs.CustomerDTOs;
+using Entities.DTOs.DealerDTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +15,9 @@ namespace BookShopAPI.Controllers
     public class AuthsController : ControllerBase
     {
         IAuthService _authService;
-        ICustomerAvatarService _customerAvatarService;
-        public AuthsController(IAuthService authService, ICustomerAvatarService customerAvatarService)
+        public AuthsController(IAuthService authService, ICustomerService customerService)
         {
             _authService = authService;
-            _customerAvatarService = customerAvatarService;
         }
 
         [HttpPost("login")]

@@ -1,6 +1,6 @@
 ﻿using Core.Utilities.Results.Abstract;
 using Entities.Concrete;
-using Entities.DTOs;
+using Entities.DTOs.PublisherDTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

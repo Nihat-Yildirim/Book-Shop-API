@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.DTOs
+namespace Entities.DTOs.CustomerDTOs
 {
     public class CustomerDetailDto : IDto
     {
@@ -13,9 +13,8 @@ namespace Entities.DTOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
         public bool Status { get; set; }
+        public string AvatarFileAddress { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

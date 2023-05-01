@@ -32,7 +32,7 @@ namespace Business.ValidationRules.FluentValidation
 
             RuleFor(r => r.Neighbourhood).NotNull();
             RuleFor(r => r.Neighbourhood).NotEmpty();
-            RuleFor(r => r.Neighbourhood).MinimumLength(15);
+            RuleFor(r => r.Neighbourhood).MinimumLength(4);
             RuleFor(r => r.Neighbourhood).MaximumLength(100);
 
             RuleFor(r => r.Address).NotNull();

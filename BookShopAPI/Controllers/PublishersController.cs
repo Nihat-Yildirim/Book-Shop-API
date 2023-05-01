@@ -2,10 +2,10 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Entities.DTOs;
 using Business.Concrete;
 using System.Net;
 using Core.Utilities.Helpers.FileAddressHelper;
+using Entities.DTOs.PublisherDTOs;
 
 namespace BookShopAPI.Controllers
 {

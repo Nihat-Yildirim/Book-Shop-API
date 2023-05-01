@@ -3,7 +3,7 @@ using Core.Utilities.Helpers.FileAddressHelper;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Context;
 using Entities.Concrete;
-using Entities.DTOs;
+using Entities.DTOs.PublisherDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,16 +19,16 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using(BookShopContext context = new BookShopContext())
             {
-                var result = from p in context.Publishers
-                             join f in context.Files
-                             on p.FileId equals f.Id
+                var result = from publisher in context.Publishers
+                             join file in context.Files
+                             on publisher.FileId equals file.Id
                              select new PublisherDetailDto
                              {
-                                 Id = p.Id,
-                                 FileId = p.FileId,
-                                 Name = p.Name,
-                                 Status = p.Status,
-                                 LogoAddress = FileAddressTool.CreateFileAddress(f.FilePath)
+                                 Id = publisher.Id,
+                                 FileId = publisher.FileId,
+                                 Name = publisher.Name,
+                                 Status = publisher.Status,
+                                 LogoAddress = FileAddressTool.CreateFileAddress(file.FilePath)
                              };
 
                 return filter == null
@@ -41,16 +41,16 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (BookShopContext context = new BookShopContext())
             {
-                var result = from p in context.Publishers
-                             join f in context.Files
-                             on p.FileId equals f.Id
+                var result = from publisher in context.Publishers
+                             join file in context.Files
+                             on publisher.FileId equals file.Id
                              select new PublisherDetailDto
                              {
-                                 Id = p.Id,
-                                 FileId = p.FileId,
-                                 Name = p.Name,
-                                 Status = p.Status,
-                                 LogoAddress = FileAddressTool.CreateFileAddress(f.FilePath)
+                                 Id = publisher.Id,
+                                 FileId = publisher.FileId,
+                                 Name = publisher.Name,
+                                 Status = publisher.Status,
+                                 LogoAddress = FileAddressTool.CreateFileAddress(file.FilePath)
                              };
 
                 return result.SingleOrDefault(filter);

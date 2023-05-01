@@ -15,9 +15,7 @@ namespace Business.Stroge.Local
         public void Delete(string beforeFilePath)
         {
             if (File.Exists(beforeFilePath))
-            {
                 File.Delete(beforeFilePath);
-            }
         }
 
         public FileInfo GetFile(string fileName, string path)
@@ -26,9 +24,7 @@ namespace Business.Stroge.Local
             var file = result.FirstOrDefault(f => f.Name == fileName);
 
             if (file != null)
-            {
                 return file;
-            }
 
             return null;
         }
@@ -36,9 +32,8 @@ namespace Business.Stroge.Local
         public List<string> GetFileNames(string path)
         {
             if (Directory.Exists(path))
-            {
                 return Directory.GetFiles(path).ToList();
-            }
+           
             return null;
         }
 
@@ -47,9 +42,8 @@ namespace Business.Stroge.Local
             DirectoryInfo directoryInfo = new DirectoryInfo(path);
             var resultFiles = directoryInfo.GetFiles();
             if (resultFiles.Length != 0)
-            {
                 return resultFiles.ToList();
-            }
+           
             return null;
         }
 
@@ -58,9 +52,8 @@ namespace Business.Stroge.Local
             var resultFileNames = GetFileNames(path);
 
             if (resultFileNames != null && resultFileNames.Contains(Path.Combine(path, fileName)))
-            {
                 return true;
-            }
+           
             return false;
         }
 
@@ -81,9 +74,7 @@ namespace Business.Stroge.Local
                     var result = UpdateFile(files[i], beforeFilePaths[i], path);
 
                     if (result != default)
-                    {
                         values.Add(result);
-                    }
                 }
                 return values;
             }
@@ -98,9 +89,7 @@ namespace Business.Stroge.Local
             if (file.Length > 0)
             {
                 if (!Directory.Exists(path))
-                {
                     Directory.CreateDirectory(path);
-                }
 
                 string extension = Path.GetExtension(file.FileName);
                 string guid = GuidTool.CreateNewGuid();
@@ -126,9 +115,7 @@ namespace Business.Stroge.Local
                 var result = UploadFile(file, path);
 
                 if (result != default)
-                {
                     values.Add(result);
-                }
             }
 
             return values;

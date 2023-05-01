@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Entities.DTOs;
+using Entities.DTOs.CustomerDTOs;
+using Entities.DTOs.DealerDTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,17 +16,20 @@ namespace BookShopAPI.Controllers
         IUserService _userService;
         IStoreService _storeService;
         IDealerService _dealerService;
+        IUserAddressService _userAddressService;
         public DealerController(
             IAuthService authService, 
-            IUserService userService, 
-            IStoreService storeService, 
-            IDealerService dealerService)
+            IUserService userService,
+            IStoreService storeService,
+            IDealerService dealerService,
+            IUserAddressService userAddressService)
         {
             _authService = authService;
             _userService = userService;
             _storeService = storeService;
             _dealerService = dealerService;
-        }
+            _userAddressService = userAddressService;
+            }
 
         [HttpPost("updatepassword")]
         public IActionResult UpdatePassword([FromForm(Name = "userForLoginDto")] UserForLoginDto userForLoginDto, [FromForm(Name = "newPassword")] string newPassword)
@@ -60,6 +66,70 @@ namespace BookShopAPI.Controllers
         {
             _userService.Update(profile);
             return Ok("Kullanıcı bilgileri başarıyla güncellendi");
+        }
+
+        [HttpPost("adddealeraddress")]
+        public IActionResult AddDealerAddress(AddedDealerAddressDto addedDealerAdress)
+        {
+            var resultDealer = _dealerService.GetByDealerId(addedDealerAdress.DealerId).Data;
+
+            if (resultDealer == null)
+                return BadRequest("Kullanıcı adresi eklenemedi, lütfen parametreleri kontrol edin !");
+
+            var address = new UserAddress
+            {
+                UserId = resultDealer.UserId,
+                Province = addedDealerAdress.Province,
+                District = addedDealerAdress.District,
+                Address = addedDealerAdress.Address,
+                AddressTitle = addedDealerAdress.AddressTitle,
+                Neighbourhood = addedDealerAdress.Neighbourhood,
+                Description = addedDealerAdress.Description,
+                Status = true
+            };
+
+            var result = _userAddressService.Add(address);
+
+            return Ok(result);
+        }
+
+        [HttpPost("getalldealeraddress")]
+        public IActionResult GetAllDealerAddress([FromForm(Name = "dealerId")] int dealerId)
+        {
+            var resultDealer = _dealerService.GetByDealerId(dealerId).Data;
+
+            if (resultDealer == null)
+                return BadRequest("Kullanıcı adresi getirilemedi, lütfen parametreleri kontrol edin !");
+
+            var resultUserAddresses = _userAddressService.GetActiveUserAddressByUserId(resultDealer.UserId);
+
+            return Ok(resultUserAddresses.Data);
+        }
+
+        [HttpPost("updatedealeraddress")]
+        public IActionResult UpdateDealerAddress(UpdatedDealerAddressDto updatedDealerAddress)
+        {
+            var resultDealer = _dealerService.GetByDealerId(updatedDealerAddress.DealerId).Data;
+
+            if (resultDealer == null)
+                return BadRequest("Kullanıcı adresi güncellenemedi, lütfen parametreleri kontrol edin !");
+
+            var updatedAddress = new UserAddress
+            {
+                Id = updatedDealerAddress.AddressId,
+                UserId = resultDealer.UserId,
+                Address = updatedDealerAddress.Address,
+                AddressTitle = updatedDealerAddress.AddressTitle,
+                Description = updatedDealerAddress.Description,
+                District = updatedDealerAddress.District,
+                Neighbourhood = updatedDealerAddress.Neighbourhood,
+                Province = updatedDealerAddress.Province,
+                Status = true
+            };
+
+            _userAddressService.Update(updatedAddress);
+
+            return Ok("Kullanıcı adresi başarıyla güncellendi !");
         }
     }
 }

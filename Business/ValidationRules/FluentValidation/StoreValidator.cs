@@ -20,12 +20,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(r => r.Description).NotEmpty();
             RuleFor(r => r.Description).NotNull();
             RuleFor(r => r.Description).MinimumLength(25);
-
-            RuleFor(r => r.FileId).NotEmpty();
-            RuleFor(r => r.FileId).NotNull();
-            
-            RuleFor(r => r.Status).NotNull();
-            RuleFor(r => r.Status).NotEmpty();
         }
     }
 }

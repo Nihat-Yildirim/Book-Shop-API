@@ -1,5 +1,5 @@
 ﻿using Core.Utilities.Helpers.MailHelper;
-using Entities.DTOs;
+using Entities.DTOs.DealerDTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

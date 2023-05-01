@@ -3,6 +3,8 @@ using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Security.JWT;
 using Entities.DTOs;
+using Entities.DTOs.CustomerDTOs;
+using Entities.DTOs.DealerDTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
