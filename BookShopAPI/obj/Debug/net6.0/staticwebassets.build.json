@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DPM8CURlmPe6ltd796+/+ngy3wpXLcACbbiHC8HdrTw=",
+  "Hash": "DztrVbHROeJ7XQqExIblqNQCZ/8pHzYJbrP8EiFXDqY=",
   "Source": "BookShopAPI",
   "BasePath": "_content/BookShopAPI",
   "Mode": "Default",
@@ -32,6 +32,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Images\\CustomerAvatars\\7ea16ac5-2e92-4d24-a5a6-7d72b17f1273.jpg"
+    },
+    {
+      "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg",
+      "SourceId": "BookShopAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI",
+      "RelativePath": "Uploads/Images/CustomerAvatars/a9507818-087c-43ee-a3ed-731044b40914.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg"
+    },
+    {
+      "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\cf085c7d-d447-4850-b8ce-6e67cd9d8b69.jpg",
+      "SourceId": "BookShopAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI",
+      "RelativePath": "Uploads/Images/StoreLogos/cf085c7d-d447-4850-b8ce-6e67cd9d8b69.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\StoreLogos\\cf085c7d-d447-4850-b8ce-6e67cd9d8b69.jpg"
     }
   ]
 }

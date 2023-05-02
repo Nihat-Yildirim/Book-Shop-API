@@ -1,4 +1,5 @@
 ﻿using Castle.Components.DictionaryAdapter.Xml;
+using Core.DTOs.StorageDTOs;
 using Core.Utilities.Storage;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -45,22 +46,22 @@ namespace Business.Stroge
             return _stroge.HasFile(fileName, pathOrContainerName);
         }
 
-        public (string fileName, string filePathOrContainerName, string fileExtension) UpdateFile(IFormFile file, string beforeFilePathOrContainerName, string pathOrContainerName)
+        public ResultFileInfoDto UpdateFile(IFormFile file, string beforeFilePathOrContainerName, string pathOrContainerName)
         {
             return _stroge.UpdateFile(file, beforeFilePathOrContainerName, pathOrContainerName);
         }
 
-        public List<(string fileName, string filePathOrContainerName, string fileExtension)> UpdateFiles(IFormFileCollection files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName)
+        public List<ResultFileInfoDto> UpdateFiles(IFormFileCollection files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName)
         {
             return _stroge.UpdateFiles(files, beforeFilePathOrContainerNames, pathOrContainerName);
         }
 
-        public (string fileName, string filePathOrContainerName, string fileExtension) UploadFile(IFormFile file, string pathOrContainerName)
+        public ResultFileInfoDto UploadFile(IFormFile file, string pathOrContainerName)
         {
             return _stroge.UploadFile(file, pathOrContainerName);
         }
 
-        public List<(string fileName, string filePathOrContainerName, string fileExtension)> UploadFiles(IFormFileCollection files, string pathOrContainerName)
+        public List<ResultFileInfoDto> UploadFiles(IFormFileCollection files, string pathOrContainerName)
         {
             return _stroge.UploadFiles(files, pathOrContainerName);
         }

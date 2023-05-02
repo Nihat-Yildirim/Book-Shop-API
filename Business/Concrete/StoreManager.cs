@@ -15,6 +15,7 @@ using Core.Utilities.Results.Concrete;
 using Core.Utilities.Business;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
+using AutoMapper;
 
 namespace Business.Concrete
 {
@@ -23,11 +24,17 @@ namespace Business.Concrete
         IStoreDal _storeDal;
         IFileService _fileService;
         IStorageService _storageService;
-        public StoreManager(IStoreDal storeDal, IStorageService storageService, IFileService fileService)
+        IMapper _mapper;
+        public StoreManager(
+            IStoreDal storeDal, 
+            IStorageService storageService, 
+            IFileService fileService,
+            IMapper mapper)
         {
             _storageService = storageService;
             _storeDal = storeDal;
             _fileService = fileService;
+            _mapper = mapper;
         }
 
         [ValidationAspect(typeof(StoreValidator))]
@@ -38,17 +45,12 @@ namespace Business.Concrete
             if (!businessResult.Success)
                 return new ErrorResult();
 
-            var result = _storageService.UploadFile(formfile, LocalStoragePathConstants.StoreLogosPath);
+            var storageResult = _storageService.UploadFile(formfile, LocalStoragePathConstants.StoreLogosPath);
 
-            var file = new File
-            {
-                FileName = result.fileName,
-                FileExtension = result.fileExtension,
-                FilePath = result.filePathOrContainerName,
-                StorageName = _storageService.StorageName,
-                UploadDate = DateTime.Now,
-                Status = true
-            };
+            var file = _mapper.Map<File>(storageResult);
+            file.Status = true;
+            file.StorageName = _storageService.StorageName;
+            file.UploadDate = DateTime.Now;
 
             var resultFile = _fileService.Add(file);
 
@@ -96,17 +98,13 @@ namespace Business.Concrete
         public IResult UpdateLogo(Store store, IFormFile formFile)
         {
             var resultBeforeFile = _fileService.GetFileByFileId(store.FileId).Data;
-            var resultFile = _storageService.UpdateFile(formFile, resultBeforeFile.FilePath, LocalStoragePathConstants.StoreLogosPath);
+            var storageResult = _storageService.UpdateFile(formFile, resultBeforeFile.FilePath, LocalStoragePathConstants.StoreLogosPath);
 
-            var file = new File
-            {
-                Id = store.FileId,
-                FileExtension = resultFile.fileExtension,
-                FileName = resultFile.fileName,
-                FilePath = resultFile.filePathOrContainerName,
-                StorageName = _storageService.StorageName,
-                UploadDate = DateTime.Now,
-            };
+            var file = _mapper.Map<File>(storageResult);
+            file.Status = true;
+            file.StorageName = _storageService.StorageName;
+            file.UploadDate = DateTime.Now;
+            file.Id = store.FileId;
 
             _fileService.Update(file);
             return new SuccessResult();
@@ -131,6 +129,7 @@ namespace Business.Concrete
 
             var resultStore = _storeDal.Get(s => s.Id == storeId);
             resultStore.Name = name;
+
             _storeDal.Update(resultStore);
 
             return new SuccessResult("Mağaza ismi başarıyla güncellendi !");

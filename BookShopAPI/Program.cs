@@ -4,6 +4,7 @@ using Core.Extensions;
 using Core.Utilities.IOC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
+using Entities.MapperProfiles;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -16,6 +17,7 @@ builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureAuthentication(tokenOptions);
+builder.Services.ConfigureAutoMapper();
 builder.Host.ConfigureAutofacProviderFactory();
 
 

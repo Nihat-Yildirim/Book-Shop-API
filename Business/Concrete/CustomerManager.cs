@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Castle.Core.Resource;
 using Entities.DTOs.CustomerDTOs;
+using AutoMapper;
 
 namespace Business.Concrete
 {
@@ -25,11 +26,13 @@ namespace Business.Concrete
         ICustomerDal _customerDal;
         IFileService _fileService;
         IStorageService _storageService;
-        public CustomerManager(ICustomerDal customerDal, IFileService fileService, IStorageService storageService)
+        IMapper _mapper;
+        public CustomerManager(ICustomerDal customerDal, IFileService fileService, IStorageService storageService,IMapper mapper)
         {
             _customerDal = customerDal;
             _fileService = fileService;
             _storageService = storageService;
+            _mapper = mapper;
         }
 
         [ValidationAspect(typeof(CustomerValidator))]
@@ -72,15 +75,10 @@ namespace Business.Concrete
             var resultCustomer = _customerDal.Get(c => c.Id == customerId);
             var resultStorage = _storageService.UploadFile(avatar, LocalStoragePathConstants.CustomerAvatarsPath);
 
-            var file = new File
-            {
-                FileName = resultStorage.fileName,
-                FileExtension = resultStorage.fileExtension,
-                FilePath = resultStorage.filePathOrContainerName,
-                Status = true,
-                StorageName = _storageService.StorageName,
-                UploadDate = DateTime.Now
-            };
+            var file = _mapper.Map<File>(resultStorage);
+            file.Status = true;
+            file.StorageName = _storageService.StorageName;
+            file.UploadDate = DateTime.Now;
 
             var resultFile = _fileService.Add(file);
 
@@ -97,16 +95,11 @@ namespace Business.Concrete
             var resultFile = _fileService.GetFileByFileId(resultCustomer.FileId).Data;
             var resultStorage = _storageService.UpdateFile(avatar, resultFile.FilePath, LocalStoragePathConstants.CustomerAvatarsPath);
 
-            var file = new File
-            {
-                Id = resultFile.Id,
-                FilePath = resultStorage.filePathOrContainerName,
-                FileName = resultStorage.fileName,
-                FileExtension = resultStorage.fileExtension,
-                Status = resultFile.Status,
-                StorageName = _storageService.StorageName,
-                UploadDate = DateTime.Now
-            };
+            var file = _mapper.Map<File>(resultStorage);
+            file.Id = resultFile.Id;
+            file.Status = resultFile.Status;
+            file.StorageName = _storageService.StorageName;
+            file.UploadDate = DateTime.Now;
 
             _fileService.Update(file);
 

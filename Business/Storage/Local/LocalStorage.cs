@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Helpers.GuidHelper;
+﻿using Core.DTOs.StorageDTOs;
+using Core.Utilities.Helpers.GuidHelper;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Storage;
 using Microsoft.AspNetCore.Http;
@@ -57,15 +58,15 @@ namespace Business.Stroge.Local
             return false;
         }
 
-        public (string fileName, string filePathOrContainerName, string fileExtension) UpdateFile(IFormFile file, string beforeFilePath, string path)
+        public ResultFileInfoDto UpdateFile(IFormFile file, string beforeFilePath, string path)
         {
             Delete(beforeFilePath);
             return UploadFile(file, path);
         }
 
-        public List<(string fileName, string filePathOrContainerName, string fileExtension)> UpdateFiles(IFormFileCollection files, List<string> beforeFilePaths, string path)
+        public List<ResultFileInfoDto> UpdateFiles(IFormFileCollection files, List<string> beforeFilePaths, string path)
         {
-            List<(string fileName, string filePathOrContainerName, string fileExtension)> values = new();
+            List<ResultFileInfoDto> values = new();
 
             if (files.Count == beforeFilePaths.Count)
             {
@@ -84,7 +85,7 @@ namespace Business.Stroge.Local
             }
         }
 
-        public (string fileName, string filePathOrContainerName, string fileExtension) UploadFile(IFormFile file, string path)
+        public ResultFileInfoDto UploadFile(IFormFile file, string path)
         {
             if (file.Length > 0)
             {
@@ -100,15 +101,23 @@ namespace Business.Stroge.Local
                     file.CopyTo(fileStream);
                     fileStream.Flush();
                 }
-                return (newFileName, Path.Combine(path, newFileName), extension);
+
+                var resultFileInfo = new ResultFileInfoDto
+                {
+                    FileName = newFileName,
+                    FileExtension = extension,
+                    FilePathOrContainerName = Path.Combine(path, newFileName)
+                };
+
+                return resultFileInfo;
             }
 
             return default;
         }
 
-        public List<(string fileName, string filePathOrContainerName, string fileExtension)> UploadFiles(IFormFileCollection files, string path)
+        public List<ResultFileInfoDto> UploadFiles(IFormFileCollection files, string path)
         {
-            List<(string fileName, string filePathOrContainerName, string fileExtension)> values = new();
+            List<ResultFileInfoDto> values = new();
 
             foreach (IFormFile file in files)
             {

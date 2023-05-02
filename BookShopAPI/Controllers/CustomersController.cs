@@ -1,4 +1,5 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
 using Core.Entities.Concrete;
 using Core.Utilities.Security.Hashing;
 using Entities.Concrete;
@@ -18,16 +19,19 @@ namespace BookShopAPI.Controllers
         IAuthService _authService;
         ICustomerService _customerService;
         IUserAddressService _userAddressService;
+        IMapper _mapper;
         public CustomersController(
             IUserService userService,
             IAuthService authService,
             ICustomerService customerService,
-            IUserAddressService userAddressService)
+            IUserAddressService userAddressService,
+            IMapper mapper)
         {
             _userService = userService;
             _authService = authService;
             _customerService = customerService;
             _userAddressService = userAddressService;
+            _mapper = mapper;
         }
 
         [HttpPost("updatepassword")]
@@ -100,17 +104,9 @@ namespace BookShopAPI.Controllers
             if (resultCustomer == null)
                 return BadRequest("Kullanıcı adresi eklenemedi, lütfen parametreleri kontrol edin !");
 
-            var address = new UserAddress
-            {
-                UserId = resultCustomer.UserId,
-                Province = addedCustomerAdress.Province,
-                District = addedCustomerAdress.District,
-                Address = addedCustomerAdress.Address,
-                AddressTitle = addedCustomerAdress.AddressTitle,
-                Neighbourhood = addedCustomerAdress.Neighbourhood,
-                Description = addedCustomerAdress.Description,
-                Status = true
-            };
+            var address = _mapper.Map<UserAddress>(addedCustomerAdress);
+            address.Status = true;
+            address.UserId = resultCustomer.UserId;
 
             var result = _userAddressService.Add(address);
 
@@ -138,18 +134,9 @@ namespace BookShopAPI.Controllers
             if (resultCustomer == null)
                 return BadRequest("Kullanıcı adresi güncellenemedi, lütfen parametreleri kontrol edin !");
 
-            var updatedAddress = new UserAddress
-            {
-                Id = updatedCustomerAddress.AddressId,
-                UserId = resultCustomer.UserId,
-                Address = updatedCustomerAddress.Address,
-                AddressTitle = updatedCustomerAddress.AddressTitle,
-                Description = updatedCustomerAddress.Description,
-                District = updatedCustomerAddress.District,
-                Neighbourhood = updatedCustomerAddress.Neighbourhood,
-                Province = updatedCustomerAddress.Province,
-                Status = true
-            };
+            var updatedAddress = _mapper.Map<UserAddress>(updatedCustomerAddress);
+            updatedAddress.Status = true;
+            updatedAddress.UserId = resultCustomer.UserId;
 
             _userAddressService.Update(updatedAddress);
 

@@ -1,4 +1,5 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Abstract;
@@ -28,18 +29,21 @@ namespace Business.Concrete
         IUserService _userService;
         ITokenHelper _tokenHelper;
         IStoreService _storeService;
+        IMapper _mapper;
         public AuthManager(
             ICustomerService customerService, 
             ITokenHelper tokenHelper, 
             IDealerService dealerService,
             IUserService userService, 
-            IStoreService storeService)
+            IStoreService storeService,
+            IMapper mapper)
         {
             _customerService = customerService;
             _userService = userService;
             _tokenHelper = tokenHelper;
             _dealerService = dealerService;
-            _storeService= storeService;    
+            _storeService= storeService;  
+            _mapper = mapper;
         }
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
@@ -82,11 +86,8 @@ namespace Business.Concrete
         public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto,IFormFile formFile)
         {
             var resultUser = Register(dealerForRegisterDto).Data;
-            var store = new Store
-            {
-                Name = dealerForRegisterDto.StoreName,
-                Description = dealerForRegisterDto.StoreDescription,
-            };
+
+            var store = _mapper.Map<Store>(dealerForRegisterDto);
 
             _storeService.Add(store,formFile);
             var resultStore = _storeService.GetByStoreName(store.Name).Data;
@@ -116,17 +117,14 @@ namespace Business.Concrete
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
 
-            var user = new User
-            {
-                FirstName = userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName,
-                Email = userForRegisterDto.Email,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                CreatedDate = DateTime.Now,
-                Status = true
-            };
+            var user = _mapper.Map<User>(userForRegisterDto);
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+            user.CreatedDate = DateTime.Now;
+            user.Status = true;
+
             _userService.Add(user);
+
             var resultUser = _userService.GetByMail(user.Email).Data;
             return new SuccessDataResult<User>(resultUser);
         }

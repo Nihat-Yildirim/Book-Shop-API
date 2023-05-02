@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities.Abstract
+namespace Entities.DTOs.UserAddressDTOs
 {
-    public interface IDto
+    public abstract class BaseAddedUserAddressDto : BaseUserAddressDto
     {
     }
 }

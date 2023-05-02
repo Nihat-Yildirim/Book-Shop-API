@@ -103,3 +103,5 @@ D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\DataAccess.pdb
 D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\Entities.pdb
 D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\BookShopAPI.staticwebassets.runtime.json
 D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\FluentValidation.dll
+D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\AutoMapper.dll
+D:\Projeler\Book-Shop-API\BookShopAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
+using Entities.MapperProfiles;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -23,6 +24,20 @@ namespace BookShopAPI.Extensions
                     IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                 };
             });
+        }
+
+        public static void ConfigureAutoMapper(this IServiceCollection services)
+        {
+            List<Type> profiles = new List<Type>
+            {
+                typeof(FileProfile),
+                typeof(UserAddressProfile),
+                typeof(StoreProfile),
+                typeof(UserProfile)
+            };
+
+            foreach(var profile in profiles)
+                services.AddAutoMapper(profile);
         }
     }
 }

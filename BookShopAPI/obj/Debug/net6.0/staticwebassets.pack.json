@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatars\\7ea16ac5-2e92-4d24-a5a6-7d72b17f1273.jpg"
     },
     {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\cf085c7d-d447-4850-b8ce-6e67cd9d8b69.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\cf085c7d-d447-4850-b8ce-6e67cd9d8b69.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BookShopAPI.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

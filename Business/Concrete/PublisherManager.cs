@@ -1,4 +1,5 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
 using Business.Constants.PathConstants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -24,8 +25,14 @@ namespace Business.Concrete
         IPublisherDal _publisherDal;
         IFileService _fileService;
         IStorageService _storageService;
-        public PublisherManager(IPublisherDal publisherDal, IFileService fileService,IStorageService storageService)
+        IMapper _mapper;
+        public PublisherManager(
+            IPublisherDal publisherDal, 
+            IFileService fileService,
+            IStorageService storageService,
+            IMapper mapper)
         {
+            _mapper = mapper;
             _publisherDal = publisherDal;
             _fileService = fileService;
             _storageService = storageService;
@@ -41,15 +48,10 @@ namespace Business.Concrete
 
             var storageResult = _storageService.UploadFile(addedPublisher.Logo, LocalStoragePathConstants.PublisherLogosPath);
 
-            var file = new File
-            {
-                FileName = storageResult.fileName,
-                FileExtension = storageResult.fileExtension,
-                FilePath = storageResult.filePathOrContainerName,
-                StorageName = _storageService.StorageName,
-                Status = true,
-                UploadDate = DateTime.Now,
-            };
+            var file = _mapper.Map<File>(storageResult);
+            file.Status = true;
+            file.StorageName = _storageService.StorageName;
+            file.UploadDate = DateTime.Now;
 
             var fileResult = _fileService.Add(file);
 
@@ -73,16 +75,11 @@ namespace Business.Concrete
 
             var storageResult = _storageService.UpdateFile(updatedPublisher.Logo, beforeFile.FilePath, LocalStoragePathConstants.PublisherLogosPath);
 
-            var file = new File
-            {
-                Id = beforeFile.Id,
-                FileName = storageResult.fileName,
-                FileExtension = storageResult.fileExtension,
-                FilePath = storageResult.filePathOrContainerName,
-                Status = beforeFile.Status,
-                StorageName = _storageService.StorageName,
-                UploadDate = DateTime.Now,
-            };
+            var file = _mapper.Map<File>(storageResult);
+            file.Status = beforeFile.Status;
+            file.StorageName = _storageService.StorageName;
+            file.UploadDate = DateTime.Now;
+            file.Id = beforeFile.Id;
 
             var publisher = new Publisher
             {
