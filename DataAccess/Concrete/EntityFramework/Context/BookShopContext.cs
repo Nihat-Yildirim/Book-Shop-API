@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace DataAccess.Concrete.EntityFramework.Context
 {
@@ -27,6 +28,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<UserPhoneNumber> UserPhoneNumbers { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -122,6 +124,14 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 p.Property(p => p.FileId).HasColumnName("FileId");
                 p.Property(p => p.Name).HasColumnName("Name");
                 p.Property(p => p.Status).HasColumnName("Status");
+            });
+
+            modelBuilder.Entity<Category>(c =>
+            {
+                c.ToTable("Categories").HasKey(p => p.Id);
+                c.Property(p => p.Id).HasColumnName("Id");
+                c.Property(p => p.ParentId).HasColumnName("ParentId");
+                c.Property(p => p.CategoryName).HasColumnName("CategoryName");
             });
         }
     }

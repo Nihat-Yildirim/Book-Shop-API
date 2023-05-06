@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results.Abstract;
 using Entities.Concrete;
+using Entities.DTOs.StoreDTOs;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Business.Abstract
     public interface IStoreService
     {
         IDataResult<Store> GetByStoreName(string storeName);
+        IDataResult<List<StoreDetailDto>> GetAllStoreDetail();
         IDataResult<Store> GetById(int id);
         IResult Add(Store store, IFormFile file);
         IResult UpdateLogo(Store store, IFormFile file);

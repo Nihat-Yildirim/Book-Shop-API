@@ -16,6 +16,7 @@ using Core.Utilities.Business;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
 using AutoMapper;
+using Entities.DTOs.StoreDTOs;
 
 namespace Business.Concrete
 {
@@ -143,6 +144,13 @@ namespace Business.Concrete
                 return new SuccessResult();
 
             return new ErrorResult();
+        }
+
+        public IDataResult<List<StoreDetailDto>> GetAllStoreDetail()
+        {
+            var resultStoreDetailDto = _storeDal.GetAllStoreDetail();
+
+            return new SuccessDataResult<List<StoreDetailDto>>(resultStoreDetailDto);
         }
     }
 }

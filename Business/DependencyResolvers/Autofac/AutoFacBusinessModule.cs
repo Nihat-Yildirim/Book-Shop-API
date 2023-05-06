@@ -56,6 +56,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PublisherManager>().As<IPublisherService>().SingleInstance();
             builder.RegisterType<EfPublisherDal>().As<IPublisherDal>().SingleInstance();
 
+            builder.RegisterType<CategoryManager>().As<ICategorService>().SingleInstance();
+            builder.RegisterType<EfCategoryDal>().As<ICategoryDal>().SingleInstance();
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()

@@ -49,5 +49,13 @@ namespace BookShopAPI.Controllers
 
             return Ok("Mağaza açıklaması başarıyla değiştirildi !");
         }
+
+        [HttpGet("getallstores")]
+        public IActionResult GetAllStores()
+        {
+            var resultStoreDetail = _storeService.GetAllStoreDetail();
+
+            return Ok(resultStoreDetail);
+        }
     }
 }

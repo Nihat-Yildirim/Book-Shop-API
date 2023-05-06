@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DztrVbHROeJ7XQqExIblqNQCZ/8pHzYJbrP8EiFXDqY=",
+  "Hash": "2Bv81lJ5227xeDssU7BZzLw5wT5jW+KNfctgy1MPpf0=",
   "Source": "BookShopAPI",
   "BasePath": "_content/BookShopAPI",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg"
+    },
+    {
+      "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\a5a5636c-8f6a-4a94-9fad-c2d22f329993.jpg",
+      "SourceId": "BookShopAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI",
+      "RelativePath": "Uploads/Images/StoreLogos/a5a5636c-8f6a-4a94-9fad-c2d22f329993.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\StoreLogos\\a5a5636c-8f6a-4a94-9fad-c2d22f329993.jpg"
     },
     {
       "Identity": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\cf085c7d-d447-4850-b8ce-6e67cd9d8b69.jpg",
