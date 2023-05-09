@@ -29,6 +29,9 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<BookOfCategory> BookOfCategories { get; set; }
+        public DbSet<BookPicture> BookPictures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -132,6 +135,45 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 c.Property(p => p.Id).HasColumnName("Id");
                 c.Property(p => p.ParentId).HasColumnName("ParentId");
                 c.Property(p => p.CategoryName).HasColumnName("CategoryName");
+            });
+
+            modelBuilder.Entity<Book>(b =>
+            {
+                b.ToTable("Books").HasKey(p => p.Id);
+                b.Property(p => p.Id).HasColumnName("Id");
+                b.Property(p => p.PublisherId).HasColumnName("PublisherId");
+                b.Property(p => p.StoreId).HasColumnName("StoreId");
+                b.Property(p => p.AuthorId).HasColumnName("AuthorId");
+                b.Property(p => p.BookName).HasColumnName("BookName");
+                b.Property(p => p.Language).HasColumnName("Language");
+                b.Property(p => p.ReleaseDate).HasColumnName("ReleaseDate");
+                b.Property(p => p.ISBN).HasColumnName("ISBN");
+                b.Property(p => p.PaperType).HasColumnName("PaperType");
+                b.Property(p => p.SkinType).HasColumnName("SkinType");
+                b.Property(p => p.PageOfNumber).HasColumnName("PageOfNumber");
+                b.Property(p => p.Dimension).HasColumnName("Dimension");
+                b.Property(p => p.BookDescription).HasColumnName("BookDescription");
+                b.Property(p => p.Stock).HasColumnName("Stock");
+                b.Property(p => p.Price).HasColumnName("Price");
+                b.Property(p => p.CreatedDate).HasColumnName("CreatedDate");
+                b.Property(p => p.Status).HasColumnName("Status");
+            });
+
+            modelBuilder.Entity<BookOfCategory>(b =>
+            {
+                b.ToTable("BookOfCategories").HasKey(p => p.Id);
+                b.Property(p => p.Id).HasColumnName("Id");
+                b.Property(p => p.BookId).HasColumnName("BookId");
+                b.Property(p => p.CategoryId).HasColumnName("CategoryId");
+            });
+
+            modelBuilder.Entity<BookPicture>(b =>
+            {
+                b.ToTable("BookPictures").HasKey(p => p.Id);
+                b.Property(p => p.Id).HasColumnName("Id");
+                b.Property(p => p.BookId).HasColumnName("BookId");
+                b.Property(p => p.FileId).HasColumnName("FileId");
+                b.Property(p => p.Show).HasColumnName("Show");
             });
         }
     }

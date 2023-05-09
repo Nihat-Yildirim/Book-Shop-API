@@ -59,6 +59,15 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CategoryManager>().As<ICategorService>().SingleInstance();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>().SingleInstance();
 
+            builder.RegisterType<BookManager>().As<IBookService>().SingleInstance();
+            builder.RegisterType<EfBookDal>().As<IBookDal>().SingleInstance();
+
+            builder.RegisterType<BookOfCategoryManager>().As<IBookOfCategoryService>().SingleInstance();
+            builder.RegisterType<EfBookOfCategoryDal>().As<IBookOfCategoryDal>().SingleInstance();
+
+            builder.RegisterType<BookPictureManager>().As<IBookPictureService>().SingleInstance();
+            builder.RegisterType<EfBookPictureDal>().As<IBookPictureDal>().SingleInstance();
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()

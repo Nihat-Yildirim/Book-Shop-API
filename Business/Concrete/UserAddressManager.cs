@@ -16,7 +16,6 @@ namespace Business.Concrete
     public class UserAddressManager : IUserAddressService
     {
         IUserAddressDal _userAddressDal;
-
         public UserAddressManager(IUserAddressDal userAddressDal)
         {
             _userAddressDal = userAddressDal;

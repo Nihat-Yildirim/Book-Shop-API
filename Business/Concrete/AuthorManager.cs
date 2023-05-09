@@ -54,6 +54,7 @@ namespace Business.Concrete
 
             var resultFile = _fileService.Add(file);
             author.FileId = resultFile.Data.Id;
+            author.Status = true;
 
             _authorDal.Add(author);
             return new SuccessResult();

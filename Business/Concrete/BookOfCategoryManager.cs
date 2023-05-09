@@ -1,0 +1,38 @@
+﻿using AutoMapper;
+using Business.Abstract;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using DataAccess.Abstract;
+using Entities.Concrete;
+using Entities.DTOs.BookOfCategoryDTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business.Concrete
+{
+    public class BookOfCategoryManager : IBookOfCategoryService
+    {
+        IBookOfCategoryDal _bookOfCategoryDal;
+        IMapper _mapper;
+        public BookOfCategoryManager(IBookOfCategoryDal bookOfCategoryDal,IMapper mapper)
+        {
+            _bookOfCategoryDal = bookOfCategoryDal;
+            _mapper = mapper;
+        }
+
+        public IResult Add(AddedBookOfCategoryDto addedBookOfCategories)
+        {
+            foreach (var categoryId in addedBookOfCategories.CategoryIds)
+            {
+                var addedBookCategory = _mapper.Map<BookOfCategory>(addedBookOfCategories);
+                addedBookCategory.CategoryId = categoryId;
+
+                _bookOfCategoryDal.Add(addedBookCategory);
+            }
+            return new SuccessResult();
+        }
+    }
+}

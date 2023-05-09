@@ -22,6 +22,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\Uploads\Images\CustomerAvatars\" />
     <Folder Include="wwwroot\Uploads\Images\AuthorPictures\" />
+    <Folder Include="wwwroot\Uploads\Images\BookPictures\" />
     <Folder Include="wwwroot\Uploads\Images\PublisherLogos\" />
     <Folder Include="wwwroot\Uploads\Images\StoreLogos\" />
   </ItemGroup>

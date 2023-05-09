@@ -1,12 +1,32 @@
 {
   "Files": [
     {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\AuthorPictures\\12daf88a-7fcc-4d5a-a192-ac29629c4771.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\AuthorPictures\\12daf88a-7fcc-4d5a-a192-ac29629c4771.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\BookPictures\\4bbcdbae-a472-461b-bfa6-4779ec98928e.jpeg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\BookPictures\\4bbcdbae-a472-461b-bfa6-4779ec98928e.jpeg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\BookPictures\\aeb1aeca-5da2-4143-838a-a57ab722d614.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\BookPictures\\aeb1aeca-5da2-4143-838a-a57ab722d614.jpg"
+    },
+    {
       "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\7ea16ac5-2e92-4d24-a5a6-7d72b17f1273.jpg",
       "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatars\\7ea16ac5-2e92-4d24-a5a6-7d72b17f1273.jpg"
     },
     {
       "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg",
       "PackagePath": "staticwebassets\\Uploads\\Images\\CustomerAvatars\\a9507818-087c-43ee-a3ed-731044b40914.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\PublisherLogos\\37d20b67-8435-4d94-8fca-790004193b29.png",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\PublisherLogos\\37d20b67-8435-4d94-8fca-790004193b29.png"
+    },
+    {
+      "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\4fd08a83-07dd-4f69-a4bf-bc4872043c14.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\Images\\StoreLogos\\4fd08a83-07dd-4f69-a4bf-bc4872043c14.jpg"
     },
     {
       "Id": "D:\\Projeler\\Book-Shop-API\\BookShopAPI\\wwwroot\\Uploads\\Images\\StoreLogos\\a5a5636c-8f6a-4a94-9fad-c2d22f329993.jpg",
