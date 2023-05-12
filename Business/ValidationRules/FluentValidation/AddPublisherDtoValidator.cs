@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class AddedPublisherDtoValidator : AbstractValidator<AddedPublisherDto>
+    public class AddPublisherDtoValidator : AbstractValidator<AddPublisherDto>
     {
-        public AddedPublisherDtoValidator()
+        public AddPublisherDtoValidator()
         {
             RuleFor(r => r.Name).NotEmpty();
             RuleFor(r => r.Name).NotNull();

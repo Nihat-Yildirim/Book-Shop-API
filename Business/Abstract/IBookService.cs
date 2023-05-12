@@ -11,6 +11,10 @@ namespace Business.Abstract
 {
     public interface IBookService
     {
-        IDataResult<Book> Add(AddedBookDto addedBook);
+        IResult UpdateBook(UpdateBookDto updatedBookDto);
+        IDataResult<Book> Add(AddBookDto addedBook);
+        IDataResult<Book> GetBookById(int id);
+        IDataResult<List<BookDetailDto>> GetAllBookDetail();
+        IDataResult<List<BookDetailDto>> GetAllBookDetailByStoreName(string storeName);
     }
 }

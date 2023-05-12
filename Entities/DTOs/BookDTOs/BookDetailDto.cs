@@ -1,5 +1,5 @@
 ﻿using Core.DTOs;
-using Microsoft.AspNetCore.Http;
+using Entities.DTOs.BookPictureDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.BookDTOs
 {
-    public class AddedBookDto : IDto
+    public class BookDetailDto : IDto
     {
-        public int PublisherId { get; set; }
-        public int StoreId { get; set; }
-        public int AuthorId { get; set; }
+        public int BookId { get; set; }
+        public string PublisherName { get; set; }
+        public string StoreName { get; set; }
+        public string Author { get; set; }
         public string BookName { get; set; }
         public string Language { get; set; }
         public string ReleaseDate { get; set; }
@@ -24,7 +25,7 @@ namespace Entities.DTOs.BookDTOs
         public string BookDescription { get; set; }
         public int Stock { get; set; }
         public double Price { get; set; }
-        public List<int> CategoryIds { get; set; }
-        public IFormFileCollection BookPictures { get; set; }
+        public List<BookPictureDetailDto> BookPictureAddresses { get; set; }
+        public List<string> BookCategories { get; set; }
     }
 }

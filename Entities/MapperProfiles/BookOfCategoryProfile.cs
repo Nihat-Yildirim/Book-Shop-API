@@ -15,10 +15,10 @@ namespace Entities.MapperProfiles
     {
         public BookOfCategoryProfile()
         {
-            CreateMap<AddedBookDto, AddedBookOfCategoryDto>()
+            CreateMap<AddBookDto, AddBookOfCategoryDto>()
                 .ForMember(destination => destination.CategoryIds, operation => operation.MapFrom(source => source.CategoryIds));
 
-            CreateMap<AddedBookOfCategoryDto, BookOfCategory>()
+            CreateMap<AddBookOfCategoryDto, BookOfCategory>()
                 .ForMember(destination => destination.BookId, operation => operation.MapFrom(source => source.BookId));
         }
     }

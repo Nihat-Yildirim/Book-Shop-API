@@ -14,11 +14,11 @@ namespace Entities.MapperProfiles
     {
         public CategoryProfile()
         {
-            CreateMap<AddedCategoryDto, Category>()
+            CreateMap<AddCategoryDto, Category>()
                 .ForMember(destination => destination.CategoryName, operation => operation.MapFrom(source => source.CategoryName))
                 .ForMember(destination => destination.ParentId, operation => operation.MapFrom(source => source.ParentCategoryId));
 
-            CreateMap<UpdatedCategoryDto, Category>()
+            CreateMap<UpdateCategoryDto, Category>()
                 .ForMember(destination => destination.CategoryName, operation => operation.MapFrom(source => source.NewCategoryName))
                 .ForMember(destination => destination.Id, operation => operation.MapFrom(source => source.CategoryId));
         }

@@ -10,6 +10,8 @@ namespace Business.Abstract
 {
     public interface IBookPictureService
     {
-        IResult Add(AddedBookPictureDto addedBookPicture);
+        IResult Add(AddBookPictureDto addedBookPicture);
+        IResult Update(UpdateBookPictureDto updatedBookPicture);
+        IResult UpdateBookPictureOrderOfAppearance(UpdateBookPictureOrderOfAppearanceDto updateBookPictureOrderOfAppearanceDto);
     }
 }

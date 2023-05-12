@@ -51,7 +51,7 @@ namespace Business.Stroge
             return _stroge.UpdateFile(file, beforeFilePathOrContainerName, pathOrContainerName);
         }
 
-        public List<ResultFileInfoDto> UpdateFiles(IFormFileCollection files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName)
+        public List<ResultFileInfoDto> UpdateFiles(List<IFormFile> files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName)
         {
             return _stroge.UpdateFiles(files, beforeFilePathOrContainerNames, pathOrContainerName);
         }
@@ -61,7 +61,7 @@ namespace Business.Stroge
             return _stroge.UploadFile(file, pathOrContainerName);
         }
 
-        public List<ResultFileInfoDto> UploadFiles(IFormFileCollection files, string pathOrContainerName)
+        public List<ResultFileInfoDto> UploadFiles(List<IFormFile> files, string pathOrContainerName)
         {
             return _stroge.UploadFiles(files, pathOrContainerName);
         }

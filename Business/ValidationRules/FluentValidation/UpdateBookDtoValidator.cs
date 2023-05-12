@@ -1,6 +1,5 @@
 ﻿using Entities.DTOs.BookDTOs;
 using FluentValidation;
-using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +8,15 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class AddedBookDtoValidator : AbstractValidator<AddedBookDto>
+    public class UpdateBookDtoValidator : AbstractValidator<UpdateBookDto>
     {
-        public AddedBookDtoValidator()
+        public UpdateBookDtoValidator()
         {
-            RuleFor(r => r.PublisherId).NotEmpty();
+            RuleFor(r => r.BookId).NotNull();
+            RuleFor(r => r.BookId).NotEmpty();
+
             RuleFor(r => r.PublisherId).NotNull();
-
-            RuleFor(r => r.StoreId).NotEmpty();
-            RuleFor(r => r.StoreId).NotNull();
-
-            RuleFor(r => r.AuthorId).NotEmpty();
-            RuleFor(r => r.AuthorId).NotNull();
+            RuleFor(r => r.PublisherId).NotEmpty();
 
             RuleFor(r => r.BookName).NotEmpty();
             RuleFor(r => r.BookName).NotNull();
@@ -57,15 +53,6 @@ namespace Business.ValidationRules.FluentValidation
 
             RuleFor(r => r.Price).NotEmpty();
             RuleFor(r => r.Price).NotEmpty();
-
-            RuleFor(r => r.CategoryIds).NotEmpty();
-            RuleFor(r => r.CategoryIds.Count).NotNull();
-
-            RuleFor(r => r.BookPictures).NotEmpty();
-            RuleFor(r => r.BookPictures).NotNull();
-            RuleFor(r => r.BookPictures.Count).NotEqual(0);
-            RuleFor(r => r.BookPictures.Count).NotEqual(6);
-
         }
     }
 }

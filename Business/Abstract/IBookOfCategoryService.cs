@@ -10,6 +10,6 @@ namespace Business.Abstract
 {
     public interface IBookOfCategoryService
     {
-        IResult Add(AddedBookOfCategoryDto addedBookOfCategory);
+        IResult Add(AddBookOfCategoryDto addedBookOfCategory);
     }
 }

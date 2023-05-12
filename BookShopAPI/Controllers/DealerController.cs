@@ -1,4 +1,5 @@
-﻿using Business.Abstract;
+﻿using AutoMapper;
+using Business.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using Entities.DTOs.CustomerDTOs;
@@ -12,24 +13,27 @@ namespace BookShopAPI.Controllers
     [ApiController]
     public class DealerController : ControllerBase
     {
+        IMapper _mapper;
         IAuthService _authService;
         IUserService _userService;
         IStoreService _storeService;
         IDealerService _dealerService;
         IUserAddressService _userAddressService;
         public DealerController(
+            IMapper mapper,
             IAuthService authService, 
             IUserService userService,
             IStoreService storeService,
             IDealerService dealerService,
             IUserAddressService userAddressService)
         {
+            _mapper = mapper;
             _authService = authService;
             _userService = userService;
             _storeService = storeService;
             _dealerService = dealerService;
             _userAddressService = userAddressService;
-            }
+        }
 
         [HttpPost("updatepassword")]
         public IActionResult UpdatePassword([FromForm(Name = "userForLoginDto")] UserForLoginDto userForLoginDto, [FromForm(Name = "newPassword")] string newPassword)
@@ -69,24 +73,16 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("adddealeraddress")]
-        public IActionResult AddDealerAddress(AddedDealerAddressDto addedDealerAdress)
+        public IActionResult AddDealerAddress(AddDealerAddressDto addedDealerAdress)
         {
             var resultDealer = _dealerService.GetByDealerId(addedDealerAdress.DealerId).Data;
 
             if (resultDealer == null)
                 return BadRequest("Kullanıcı adresi eklenemedi, lütfen parametreleri kontrol edin !");
 
-            var address = new UserAddress
-            {
-                UserId = resultDealer.UserId,
-                Province = addedDealerAdress.Province,
-                District = addedDealerAdress.District,
-                Address = addedDealerAdress.Address,
-                AddressTitle = addedDealerAdress.AddressTitle,
-                Neighbourhood = addedDealerAdress.Neighbourhood,
-                Description = addedDealerAdress.Description,
-                Status = true
-            };
+            var address = _mapper.Map<UserAddress>(addedDealerAdress);
+            address.UserId = resultDealer.UserId;
+            address.Status = true;
 
             var result = _userAddressService.Add(address);
 
@@ -107,25 +103,16 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("updatedealeraddress")]
-        public IActionResult UpdateDealerAddress(UpdatedDealerAddressDto updatedDealerAddress)
+        public IActionResult UpdateDealerAddress(UpdateDealerAddressDto updatedDealerAddress)
         {
             var resultDealer = _dealerService.GetByDealerId(updatedDealerAddress.DealerId).Data;
 
             if (resultDealer == null)
                 return BadRequest("Kullanıcı adresi güncellenemedi, lütfen parametreleri kontrol edin !");
 
-            var updatedAddress = new UserAddress
-            {
-                Id = updatedDealerAddress.AddressId,
-                UserId = resultDealer.UserId,
-                Address = updatedDealerAddress.Address,
-                AddressTitle = updatedDealerAddress.AddressTitle,
-                Description = updatedDealerAddress.Description,
-                District = updatedDealerAddress.District,
-                Neighbourhood = updatedDealerAddress.Neighbourhood,
-                Province = updatedDealerAddress.Province,
-                Status = true
-            };
+            var updatedAddress = _mapper.Map<UserAddress>(updatedDealerAddress);
+            updatedAddress.UserId = resultDealer.UserId;
+            updatedAddress.Status = true;
 
             _userAddressService.Update(updatedAddress);
 

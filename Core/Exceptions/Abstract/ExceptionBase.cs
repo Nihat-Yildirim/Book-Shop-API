@@ -11,6 +11,7 @@ namespace Core.Exceptions.Abstract
     public abstract class ExceptionBase : Exception
     {
         public HttpStatusCode StatusCode { get; private set; }
+        public string Title { get; set; }
 
         public ExceptionBase(HttpStatusCode statusCode,string message) : base(message)
         {

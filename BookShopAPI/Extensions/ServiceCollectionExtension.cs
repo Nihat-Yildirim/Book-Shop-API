@@ -37,6 +37,7 @@ namespace BookShopAPI.Extensions
                 typeof(CategoryProfile),
                 typeof(BookOfCategoryProfile),
                 typeof(BookProfile),
+                typeof(BookPictureProfile),
             };
 
             foreach(var profile in profiles)

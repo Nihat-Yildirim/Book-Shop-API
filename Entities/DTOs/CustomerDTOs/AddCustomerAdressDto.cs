@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.CustomerDTOs
 {
-    public class AddedCustomerAdressDto : BaseAddedUserAddressDto
+    public class AddCustomerAdressDto : BaseAddedUserAddressDto
     {
         public int CustomerId { get; set; }
     }

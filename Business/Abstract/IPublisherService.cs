@@ -12,8 +12,8 @@ namespace Business.Abstract
 {
     public interface IPublisherService
     {
-        IResult Add(AddedPublisherDto addedPublisher);
-        IResult Update(UpdatedPublisherDto updatedPublisher);
+        IResult Add(AddPublisherDto addedPublisher);
+        IResult Update(UpdatePublisherDto updatedPublisher);
         IResult Delete(Publisher publisher);
         IDataResult<List<PublisherDetailDto>> GetAll();
         IDataResult<PublisherDetailDto> GetByName(string name);

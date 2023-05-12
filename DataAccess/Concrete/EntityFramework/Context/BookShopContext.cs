@@ -173,7 +173,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 b.Property(p => p.Id).HasColumnName("Id");
                 b.Property(p => p.BookId).HasColumnName("BookId");
                 b.Property(p => p.FileId).HasColumnName("FileId");
-                b.Property(p => p.Show).HasColumnName("Show");
+                b.Property(p => p.OrderOfAppearance).HasColumnName("OrderOfAppearance");
             });
         }
     }

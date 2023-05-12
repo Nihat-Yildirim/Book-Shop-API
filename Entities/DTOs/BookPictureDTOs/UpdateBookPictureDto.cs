@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.BookPictureDTOs
 {
-    public class AddedBookPictureDto : IDto
+    public class UpdateBookPictureDto : IDto
     {
         public int BookId { get; set; }
-        public IFormFileCollection BookPictures { get; set; }
+        public int BookPictureId { get; set; }
+        public IFormFile NewBookPicture { get; set; }
     }
 }

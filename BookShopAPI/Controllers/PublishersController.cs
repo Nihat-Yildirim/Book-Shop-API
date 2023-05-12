@@ -20,7 +20,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("addpublisher")]
-        public IActionResult AddPublisher([FromForm(Name = "addedPublisher")] AddedPublisherDto addedPublisher)
+        public IActionResult AddPublisher([FromForm(Name = "addedPublisher")] AddPublisherDto addedPublisher)
         {
             _publisherService.Add(addedPublisher);
 
@@ -28,7 +28,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("updatepublisher")]
-        public IActionResult UpdatePublisher([FromForm(Name ="updatedPublisher")] UpdatedPublisherDto updatedPublisher)
+        public IActionResult UpdatePublisher([FromForm(Name ="updatedPublisher")] UpdatePublisherDto updatedPublisher)
         {
             _publisherService.Update(updatedPublisher);
 

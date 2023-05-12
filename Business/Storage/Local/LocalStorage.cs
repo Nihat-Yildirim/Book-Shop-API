@@ -64,7 +64,7 @@ namespace Business.Stroge.Local
             return UploadFile(file, path);
         }
 
-        public List<ResultFileInfoDto> UpdateFiles(IFormFileCollection files, List<string> beforeFilePaths, string path)
+        public List<ResultFileInfoDto> UpdateFiles(List<IFormFile> files, List<string> beforeFilePaths, string path)
         {
             List<ResultFileInfoDto> values = new();
 
@@ -115,7 +115,7 @@ namespace Business.Stroge.Local
             return default;
         }
 
-        public List<ResultFileInfoDto> UploadFiles(IFormFileCollection files, string path)
+        public List<ResultFileInfoDto> UploadFiles(List<IFormFile> files, string path)
         {
             List<ResultFileInfoDto> values = new();
 

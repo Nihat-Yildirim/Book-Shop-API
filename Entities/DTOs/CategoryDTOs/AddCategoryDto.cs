@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.CategoryDTOs
 {
-    public class AddedCategoryDto : IDto
+    public class AddCategoryDto : IDto
     {
-        public AddedCategoryDto()
+        public AddCategoryDto()
         {
             ParentCategoryId = 0;
         }

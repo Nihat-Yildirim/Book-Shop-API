@@ -12,6 +12,7 @@ namespace Core.Exceptions.Concrete
     {
         public ValidatorException(string message) : base(HttpStatusCode.InternalServerError, message)
         {
+            Title = "Validasyon Hatası";
         }
     }
 }

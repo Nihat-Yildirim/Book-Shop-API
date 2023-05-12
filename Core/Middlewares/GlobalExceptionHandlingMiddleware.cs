@@ -27,27 +27,27 @@ namespace Core.Middlewares
             }
             catch (ExceptionBase exception)
             {
-                await HandleExceptionAsync(context, exception.Message, exception.StackTrace,exception.StatusCode);
+                await HandleExceptionAsync(context, exception.Message, exception.StackTrace, exception.Title, exception.StatusCode);
             }
-            catch(Exception exception) 
+            catch (Exception exception)
             {
-                await HandleExceptionAsync(context,exception.Message, exception.StackTrace);
+                await HandleExceptionAsync(context, exception.Message, exception.StackTrace);
             }
         }
 
-        public Task HandleExceptionAsync(HttpContext context,string message, string? stackTrace,
-            HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
+        public Task HandleExceptionAsync(HttpContext context, string message, string? stackTrace,
+            string title = "Beklenmeyen Hata Oluştu", HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
         {
             HttpStatusCode httpStatus = httpStatusCode;
 
             if (httpStatusCode == default)
                 httpStatus = HttpStatusCode.InternalServerError;
 
-            var resultException = JsonSerializer.Serialize(new 
-            { 
+            var resultException = JsonSerializer.Serialize(new
+            {
                 Error = message,
                 StatusCode = (int)httpStatus,
-                Title = "Beklenmeyen Hata Oluştu"
+                Title = title
             });
 
             context.Response.StatusCode = (int)httpStatus;

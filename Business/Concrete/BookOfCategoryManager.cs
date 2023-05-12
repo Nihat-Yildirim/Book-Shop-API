@@ -23,7 +23,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
-        public IResult Add(AddedBookOfCategoryDto addedBookOfCategories)
+        public IResult Add(AddBookOfCategoryDto addedBookOfCategories)
         {
             foreach (var categoryId in addedBookOfCategories.CategoryIds)
             {

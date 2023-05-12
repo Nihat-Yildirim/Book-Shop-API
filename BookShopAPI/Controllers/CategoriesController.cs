@@ -20,7 +20,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("addcategory")]
-        public IActionResult AddCategory(AddedCategoryDto addedCategory)
+        public IActionResult AddCategory(AddCategoryDto addedCategory)
         {
             var category = _mapper.Map<Category>(addedCategory);
 
@@ -30,7 +30,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("updatecategoryname")]
-        public IActionResult UpdateCategoryName(UpdatedCategoryDto updatedCategory)
+        public IActionResult UpdateCategoryName(UpdateCategoryDto updatedCategory)
         {
             var category = _mapper.Map<Category>(updatedCategory);
             

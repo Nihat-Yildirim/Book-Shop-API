@@ -12,6 +12,6 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int BookId { get; set; }
         public int FileId { get; set; }
-        public bool Show { get; set; }
+        public int OrderOfAppearance { get; set; }
     }
 }

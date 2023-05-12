@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.PublisherDTOs
 {
-    public class UpdatedPublisherDto : IDto
+    public class UpdatePublisherDto : IDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

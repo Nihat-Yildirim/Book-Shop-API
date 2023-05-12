@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.PublisherDTOs
 {
-    public class AddedPublisherDto
+    public class AddPublisherDto
     {
         public string Name { get; set; }
         public IFormFile Logo { get; set; }

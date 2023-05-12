@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs.BookOfCategoryDTOs
 {
-    public class AddedBookOfCategoryDto : IDto
+    public class AddBookOfCategoryDto : IDto
     {
         public int BookId { get; set; }
         public List<int> CategoryIds { get; set; }

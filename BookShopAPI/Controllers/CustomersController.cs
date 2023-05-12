@@ -97,7 +97,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("addcustomeraddress")]
-        public IActionResult AddCustomerAddress(AddedCustomerAdressDto addedCustomerAdress)
+        public IActionResult AddCustomerAddress(AddCustomerAdressDto addedCustomerAdress)
         {
             var resultCustomer = _customerService.GetCustomerById(addedCustomerAdress.CustomerId).Data;
 
@@ -127,7 +127,7 @@ namespace BookShopAPI.Controllers
         }
 
         [HttpPost("updatecustomeraddress")]
-        public IActionResult UpdateCustomerAddress(UpdatedCustomerAddressDto updatedCustomerAddress)
+        public IActionResult UpdateCustomerAddress(UpdateCustomerAddressDto updatedCustomerAddress)
         {
             var resultCustomer = _customerService.GetCustomerById(updatedCustomerAddress.CustomerId).Data;
 

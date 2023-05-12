@@ -10,9 +10,9 @@ namespace Core.Utilities.Storage
 {
     public interface IStorage
     {
-        List<ResultFileInfoDto> UploadFiles(IFormFileCollection files, string pathOrContainerName);
+        List<ResultFileInfoDto> UploadFiles(List<IFormFile> files, string pathOrContainerName);
         ResultFileInfoDto UploadFile(IFormFile file, string pathOrContainerName);
-        List<ResultFileInfoDto> UpdateFiles(IFormFileCollection files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName);
+        List<ResultFileInfoDto> UpdateFiles(List<IFormFile> files, List<string> beforeFilePathOrContainerNames, string pathOrContainerName);
         ResultFileInfoDto UpdateFile(IFormFile file, string beforeFilePathOrContainerName, string pathOrContainerName);
         bool HasFile(string fileName,string pathOrContainerName);
         void Delete(string beforeFilePathOrContainerName);

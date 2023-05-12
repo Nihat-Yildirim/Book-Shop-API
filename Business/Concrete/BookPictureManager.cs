@@ -14,29 +14,101 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Utilities.Results.Concrete;
 using Microsoft.AspNetCore.Http;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
+using Core.Utilities.Business;
+using System.Text.RegularExpressions;
+using Core.DTOs.StorageDTOs;
 
 namespace Business.Concrete
 {
     public class BookPictureManager : IBookPictureService
     {
-        IBookPictureDal _bookPictureDal;
-        IFileService _fileService;
-        IStorageService _storageService;
         IMapper _mapper;
+        IFileService _fileService;
+        IBookPictureDal _bookPictureDal;
+        IStorageService _storageService;
         public BookPictureManager(IBookPictureDal bookPictureDal, IFileService fileService, IStorageService storageService, IMapper mapper)
         {
-            _bookPictureDal = bookPictureDal;
-            _fileService = fileService;
-            _storageService = storageService;
             _mapper = mapper;
+            _fileService = fileService;
+            _bookPictureDal = bookPictureDal;
+            _storageService = storageService;
         }
 
-        public IResult Add(AddedBookPictureDto addedBookPictureDto)
+        [ValidationAspect(typeof(AddBookPictureDtoValidator))]
+        public IResult Add(AddBookPictureDto addedBookPictureDto)
         {
-            bool isShow = true;
-            var storageResults = _storageService.UploadFiles(addedBookPictureDto.BookPictures, LocalStoragePathConstants.BookPicturesPath);
+            var businessResult = BusinessRules.Run(CheckBookPictures(addedBookPictureDto.BookId));
 
-            foreach(var storageResult in storageResults)
+            if (!businessResult.Success)
+                return new ErrorResult("Kitap resim sınırına ulaşıldı lütfen resimlerinizi güncellemeyi deneyiniz !");
+
+
+            var bookPictures = _bookPictureDal.GetAll(p => p.BookId == addedBookPictureDto.BookId);
+            int addedPictureLenght = 5 - bookPictures.Count;
+            var addedPictures = addedBookPictureDto.BookPictures.ToList();
+
+            addedPictures.Reverse();
+            addedPictures.RemoveRange(0, addedPictures.Count - addedPictureLenght);
+            addedPictures.Reverse();
+
+            var storageResults = _storageService.UploadFiles(addedPictures, LocalStoragePathConstants.BookPicturesPath);
+            if (bookPictures.Count == 0)
+                Add(storageResults, addedBookPictureDto.BookId);
+            else if (bookPictures.Count != 5)
+                Add(storageResults, addedBookPictureDto.BookId, bookPictures.Count);
+
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(UpdateBookPictureDtoValidator))]
+        public IResult Update(UpdateBookPictureDto updatedBookPictureDto)
+        {
+            var beforeBookPicture = _bookPictureDal.Get(p => p.Id == updatedBookPictureDto.BookPictureId);
+
+            var updatedPicture = _mapper.Map<BookPicture>(updatedBookPictureDto);
+            updatedPicture.OrderOfAppearance = beforeBookPicture.OrderOfAppearance;
+            updatedPicture.FileId = beforeBookPicture.FileId;
+
+            var beforeBookPictureFile = _fileService.GetFileByFileId(beforeBookPicture.FileId).Data;
+
+            var storageResult = _storageService.UpdateFile(updatedBookPictureDto.NewBookPicture, beforeBookPictureFile.FilePath, LocalStoragePathConstants.BookPicturesPath);
+
+            var updatedFile = _mapper.Map<File>(storageResult);
+            updatedFile.Status = beforeBookPictureFile.Status;
+            updatedFile.UploadDate = DateTime.Now;
+            updatedFile.StorageName = _storageService.StorageName;
+            updatedFile.Id = beforeBookPictureFile.Id;
+
+            _fileService.Update(updatedFile);
+
+            return new SuccessResult();
+        }
+
+        [ValidationAspect(typeof(UpdateBookPictureOrderOfAppearanceDtoValidator))]
+        public IResult UpdateBookPictureOrderOfAppearance(UpdateBookPictureOrderOfAppearanceDto updateBookPictureOrderOfAppearance)
+        {
+            var resultBeforeBookPicture = _bookPictureDal.Get(
+                p => p.BookId == updateBookPictureOrderOfAppearance.BookId &&
+                p.Id == updateBookPictureOrderOfAppearance.PictureId);
+
+            var resultGoalBookPicture = _bookPictureDal.Get(
+                p => p.BookId == updateBookPictureOrderOfAppearance.BookId &&
+                p.OrderOfAppearance == updateBookPictureOrderOfAppearance.OrderOfAppearance);
+
+            resultGoalBookPicture.OrderOfAppearance = resultBeforeBookPicture.OrderOfAppearance;
+            resultBeforeBookPicture.OrderOfAppearance = updateBookPictureOrderOfAppearance.OrderOfAppearance;
+
+            _bookPictureDal.Update(resultGoalBookPicture);
+            _bookPictureDal.Update(resultBeforeBookPicture);
+
+            return new SuccessResult();
+        }
+
+        private void Add(List<ResultFileInfoDto> storageResults, int bookId, int orderOfAppearance = 1)
+        {
+            foreach (var storageResult in storageResults)
             {
                 var file = _mapper.Map<File>(storageResult);
                 file.Status = true;
@@ -47,23 +119,28 @@ namespace Business.Concrete
 
                 BookPicture addedBookPicture = new()
                 {
-                    BookId = addedBookPictureDto.BookId,
+                    BookId = bookId,
                     FileId = resultFile.Data.Id,
+                    OrderOfAppearance = orderOfAppearance
                 };
 
-                addedBookPicture.Show = false;
-
-                if(isShow)
-                {
-                    isShow = false;
-                    addedBookPicture.Show = true;
-                }
-
                 _bookPictureDal.Add(addedBookPicture);
+
+                if (orderOfAppearance == 5)
+                    break;
+
+                orderOfAppearance++;
             }
-            
-            return new SuccessResult();
         }
 
+        private IResult CheckBookPictures(int bookId)
+        {
+            var resultPictures = _bookPictureDal.GetAll(p => p.BookId == bookId);
+
+            if (resultPictures.Count == 5)
+                return new ErrorResult();
+
+            return new SuccessResult();
+        }
     }
 }

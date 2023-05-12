@@ -38,8 +38,8 @@ namespace Business.Concrete
             _storageService = storageService;
         }
 
-        [ValidationAspect(typeof(AddedPublisherDtoValidator))]
-        public IResult Add(AddedPublisherDto addedPublisher)
+        [ValidationAspect(typeof(AddPublisherDtoValidator))]
+        public IResult Add(AddPublisherDto addedPublisher)
         {
             var businessResult = BusinessRules.Run(CheckIfPublisherNameExists(addedPublisher.Name));
 
@@ -68,7 +68,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(PublisherValidator))]
-        public IResult Update(UpdatedPublisherDto updatedPublisher)
+        public IResult Update(UpdatePublisherDto updatedPublisher)
         {
             var beforePublisher = _publisherDal.Get(p => p.Id ==  updatedPublisher.Id);
             var beforeFile = _fileService.GetFileByFileId(beforePublisher.FileId).Data;
