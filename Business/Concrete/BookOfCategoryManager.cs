@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -23,6 +24,8 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
+        [CacheRemoveAspect("IBookOfCategoryService.Get")]
+        [CacheRemoveAspect("IBookService.Get")]
         public IResult Add(AddBookOfCategoryDto addedBookOfCategories)
         {
             foreach (var categoryId in addedBookOfCategories.CategoryIds)

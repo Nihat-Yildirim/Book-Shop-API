@@ -19,6 +19,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Business;
 using System.Text.RegularExpressions;
 using Core.DTOs.StorageDTOs;
+using Core.Aspects.Autofac.Caching;
 
 namespace Business.Concrete
 {
@@ -37,6 +38,8 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AddBookPictureDtoValidator))]
+        [CacheRemoveAspect("IBookService.Get")]
+        [CacheRemoveAspect("IBookPictureService.Get")]
         public IResult Add(AddBookPictureDto addedBookPictureDto)
         {
             var businessResult = BusinessRules.Run(CheckBookPictures(addedBookPictureDto.BookId));
@@ -63,6 +66,8 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UpdateBookPictureDtoValidator))]
+        [CacheRemoveAspect("IBookService.Get")]
+        [CacheRemoveAspect("IBookPictureService.Get")]
         public IResult Update(UpdateBookPictureDto updatedBookPictureDto)
         {
             var beforeBookPicture = _bookPictureDal.Get(p => p.Id == updatedBookPictureDto.BookPictureId);
@@ -87,6 +92,8 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UpdateBookPictureOrderOfAppearanceDtoValidator))]
+        [CacheRemoveAspect("IBookService.Get")]
+        [CacheRemoveAspect("IBookPictureService.Get")]
         public IResult UpdateBookPictureOrderOfAppearance(UpdateBookPictureOrderOfAppearanceDto updateBookPictureOrderOfAppearance)
         {
             var resultBeforeBookPicture = _bookPictureDal.Get(

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.CrossCuttingConcerns.Caching;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 
 namespace Core.DepedencyResolvers
 {
@@ -13,8 +15,10 @@ namespace Core.DepedencyResolvers
     {
         public void Load(IServiceCollection services)
         {
+            services.AddMemoryCache();
             services.AddSingleton<ConfigurationManager>();
             services.AddSingleton<Random>();
+            services.AddSingleton<ICacheManager, MemoryCacheManager>();
         }
     }
 }

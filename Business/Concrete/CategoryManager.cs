@@ -1,6 +1,7 @@
 ﻿using AutoMapper.Configuration.Annotations;
 using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -26,6 +27,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CategoryValidator))]
+        [CacheRemoveAspect("ICategorService.Get")]
         public IResult Add(Category category)
         {
             var businessResult = BusinessRules.Run(CheckIfCategoryNameExists(category.CategoryName));
@@ -38,6 +40,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [CacheAspect]
         public IDataResult<List<Category>> GetAllCategories()
         {
             var resultCategories = _categoryDal.GetAll();
@@ -46,6 +49,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CategoryValidator))]
+        [CacheRemoveAspect("ICategorService.Get")]
         public IResult UpdateCategoryName(Category category)
         {
             var businessResult = BusinessRules.Run(CheckIfCategoryNameExists(category.CategoryName));

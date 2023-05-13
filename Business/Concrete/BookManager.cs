@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -28,6 +29,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AddBookDtoValidator))]
+        [CacheRemoveAspect("IBookService.Get")]
         public IDataResult<Book> Add(AddBookDto addedBookDto)
         {
             var businessResult = BusinessRules.Run(CheckBookNameExistInTheStore(addedBookDto.BookName, addedBookDto.StoreId));
@@ -45,6 +47,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Book>(addedBookResult);
         }
 
+        [CacheAspect]
         public IDataResult<List<BookDetailDto>> GetAllBookDetail()
         {
             var resultBookDetails = _bookDal.GetAllBookDetail();
@@ -52,6 +55,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<BookDetailDto>>(resultBookDetails);
         }
 
+        [CacheAspect]
         public IDataResult<List<BookDetailDto>> GetAllBookDetailByStoreName(string storeName)
         {
             var resultBookDetails = _bookDal.GetAllBookDetail(b => b.StoreName == storeName);
@@ -59,6 +63,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<BookDetailDto>>(resultBookDetails);
         }
 
+        [CacheAspect]
         public IDataResult<Book> GetBookById(int id)
         {
             var resultBook = _bookDal.Get(b => b.Id == id);
@@ -67,6 +72,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UpdateBookDtoValidator))]
+        [CacheRemoveAspect("IBookService.Get")]
         public IResult UpdateBook(UpdateBookDto updatedBookDto)
         {
             var beforeBook = GetBookById(updatedBookDto.BookId);

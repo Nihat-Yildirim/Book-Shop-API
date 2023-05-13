@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Constants.PathConstants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -39,6 +40,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AddPublisherDtoValidator))]
+        [CacheRemoveAspect("IPublisherService.Get")]
         public IResult Add(AddPublisherDto addedPublisher)
         {
             var businessResult = BusinessRules.Run(CheckIfPublisherNameExists(addedPublisher.Name));
@@ -68,6 +70,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(PublisherValidator))]
+        [CacheRemoveAspect("IPublisherService.Get")]
         public IResult Update(UpdatePublisherDto updatedPublisher)
         {
             var beforePublisher = _publisherDal.Get(p => p.Id ==  updatedPublisher.Id);
@@ -96,6 +99,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(PublisherValidator))]
+        [CacheRemoveAspect("IPublisherService.Get")]
         public IResult Delete(Publisher publisher)
         {
             var resultFile = _fileService.GetFileByFileId(publisher.FileId).Data;
@@ -109,6 +113,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [CacheAspect]
         public IDataResult<List<PublisherDetailDto>> GetAll()
         {
             var result = _publisherDal.GetAllPublisherDetails();
@@ -116,6 +121,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<PublisherDetailDto>>(result);
         }
 
+        [CacheAspect]
         public IDataResult<PublisherDetailDto> GetByName(string name)
         {
             var result = _publisherDal.GetPublisherDetail(p => p.Name == name);
@@ -123,6 +129,7 @@ namespace Business.Concrete
             return new SuccessDataResult<PublisherDetailDto>(result);
         }
 
+        [CacheAspect]
         public IDataResult<PublisherDetailDto> GetById(int id)
         {
             var result = _publisherDal.GetPublisherDetail(p => p.Id == id);
