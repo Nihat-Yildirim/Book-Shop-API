@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
@@ -23,6 +24,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [PerformanceAspect(15)]
         public IDataResult<User> Add(User user)
         {
             _userDal.Add(user);
@@ -30,6 +32,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [PerformanceAspect(15)]
         public IResult Update(User user)
         {
             _userDal.Update(user);
@@ -38,6 +41,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [PerformanceAspect(15)]
         public IResult Update(UserForUpdateDto userForUpdateDto)
         {
             var resultUser = _userDal.Get(u => u.Id == userForUpdateDto.UserId);
@@ -51,6 +55,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [PerformanceAspect(15)]
         public IResult UpdatePassword(User user, string password)
         {
             byte[] passwordHash, passwordSalt;
@@ -63,12 +68,14 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<User> GetById(int Id)
         {
             var resultUser = _userDal.Get(u => u.Id == Id);
             return new SuccessDataResult<User>(resultUser); 
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<User> GetByMail(string mail)
         {
             var resultUser = _userDal.Get(u => u.Email == mail);

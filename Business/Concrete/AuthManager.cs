@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Abstract;
 using Core.Entities.Concrete;
@@ -46,6 +47,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
             var accessToken = _tokenHelper.CreateToken(user);
@@ -53,6 +55,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CustomerForRegisterDtoValidator))]
+        [PerformanceAspect(20)]
         public IDataResult<User> CustomerRegister(CustomerForRegisterDto customerForRegisterDto)
         {
             var result = Register(customerForRegisterDto).Data;
@@ -66,6 +69,7 @@ namespace Business.Concrete
 
 
         [ValidationAspect(typeof(UserForLoginDtoValidator))]
+        [PerformanceAspect(20)]
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
@@ -83,6 +87,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(DealerForRegisterDtoValidator))]
+        [PerformanceAspect(20)]
         public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto,IFormFile formFile)
         {
             var resultUser = Register(dealerForRegisterDto).Data;
@@ -102,6 +107,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(resultUser); 
         }
 
+        [PerformanceAspect(15)]
         public IResult StoreExists(string storeName)
         {
             var resultStore = _storeService.CheckStoreNameExists(storeName);

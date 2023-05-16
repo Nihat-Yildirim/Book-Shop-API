@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -26,6 +27,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(FileValidator))]
         [CacheRemoveAspect("IFileService.Get")]
+        [PerformanceAspect(20)]
         public IDataResult<File> Add(File file)
         {
             _fileDal.Add(file);
@@ -35,6 +37,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(FileValidator))]
         [CacheRemoveAspect("IFileService.Get")]
+        [PerformanceAspect(20)]
         public IResult Delete(File file)
         {
             _fileDal.Delete(file);
@@ -43,6 +46,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(FileValidator))]
         [CacheRemoveAspect("IFileService.Get")]
+        [PerformanceAspect(20)]
         public IResult Update(File file)
         {
             _fileDal.Update(file);
@@ -50,6 +54,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(20)]
         public IDataResult<File> GetFileByFileId(int fileId)
         {
             var result = _fileDal.Get(f => f.Id == fileId);
@@ -57,6 +62,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(20)]
         public IDataResult<File> GetFileByFileName(string fileName)
         {
             var result = _fileDal.Get(f => f.FileName == fileName); 
@@ -64,6 +70,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(20)]
         public IDataResult<File> GetFileByFilePath(string filePathOrContainerName)
         {
             var result = _fileDal.Get(f => f.FilePath == filePathOrContainerName);

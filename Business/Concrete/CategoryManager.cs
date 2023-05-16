@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -28,6 +29,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(CategoryValidator))]
         [CacheRemoveAspect("ICategorService.Get")]
+        [PerformanceAspect(15)]
         public IResult Add(Category category)
         {
             var businessResult = BusinessRules.Run(CheckIfCategoryNameExists(category.CategoryName));
@@ -41,6 +43,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<List<Category>> GetAllCategories()
         {
             var resultCategories = _categoryDal.GetAll();
@@ -50,6 +53,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(CategoryValidator))]
         [CacheRemoveAspect("ICategorService.Get")]
+        [PerformanceAspect(15)]
         public IResult UpdateCategoryName(Category category)
         {
             var businessResult = BusinessRules.Run(CheckIfCategoryNameExists(category.CategoryName));

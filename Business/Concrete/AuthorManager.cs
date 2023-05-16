@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 
 namespace Business.Concrete
 {
@@ -41,6 +42,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(AuthorValidator))]
         [CacheRemoveAspect("IAuthorService.Get")]
+        [PerformanceAspect(15)]
         public IResult Add(Author author, IFormFile formFile)
         {
             var businessResult = BusinessRules.Run(CheckIfAuthorExists(author.FirstName, author.LastName));
@@ -64,6 +66,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(AuthorValidator))]
         [CacheRemoveAspect("IAuthorService.Get")]
+        [PerformanceAspect(15)]
         public IResult Delete(Author author)
         {
             var fileResult = _fileService.GetFileByFileId(author.FileId).Data;
@@ -79,6 +82,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(AuthorValidator))]
         [CacheRemoveAspect("IAuthorService.Get")]
+        [PerformanceAspect(15)]
         public IResult Update(Author author,IFormFile formFile)
         {
             var beforeFile = _fileService.GetFileByFileId(author.FileId).Data;
@@ -98,6 +102,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<List<Author>> GetAll()
         {
             var result = _authorDal.GetAll();
@@ -105,6 +110,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<Author> GetById(int Id)
         {
             var result = _authorDal.Get(a => a.Id == Id);
@@ -112,6 +118,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<Author> GetByName(string name)
         {
             var result = _authorDal.Get(a => a.FirstName == name);

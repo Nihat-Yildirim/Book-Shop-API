@@ -1,4 +1,5 @@
-﻿using Core.Exceptions.Concrete;
+﻿using Core.CrossCuttingConcerns.Logging;
+using Core.Exceptions.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

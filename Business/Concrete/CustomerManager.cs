@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using Castle.Core.Resource;
 using Entities.DTOs.CustomerDTOs;
 using AutoMapper;
+using Core.Aspects.Autofac.Performance;
 
 namespace Business.Concrete
 {
@@ -36,12 +37,14 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CustomerValidator))]
+        [PerformanceAspect(15)]
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
             return new SuccessResult();
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<Customer> GetByUserId(int userId)
         {
             var resultCustomer = _customerDal.Get(c => c.UserId == userId);
@@ -49,6 +52,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(resultCustomer);
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<Customer> GetCustomerById(int customerId)
         {
             var resultCustomer = _customerDal.Get(c => c.Id == customerId);
@@ -56,6 +60,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(resultCustomer);
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<CustomerDetailDto> GetCustomerDetailById(int customerId)
         {
             var resultCustomerDetail = _customerDal.GetCustomerDetail(c => c.CustomerId == customerId);
@@ -63,6 +68,7 @@ namespace Business.Concrete
             return new SuccessDataResult<CustomerDetailDto>(resultCustomerDetail);
         }
 
+        [PerformanceAspect(15)]
         public IDataResult<CustomerDetailDto> GetCustomerDetailsByEmail(string email)
         {
             var resultCustomerDetail = _customerDal.GetCustomerDetail(c => c.Email == email);
@@ -70,6 +76,7 @@ namespace Business.Concrete
             return new SuccessDataResult<CustomerDetailDto>(resultCustomerDetail);
         }
 
+        [PerformanceAspect(20)]
         public IResult AddCustomerAvatar(int customerId, IFormFile avatar)
         {
             var resultCustomer = _customerDal.Get(c => c.Id == customerId);
@@ -89,6 +96,7 @@ namespace Business.Concrete
 
         }
 
+        [PerformanceAspect(20)]
         public IResult UpdateCustomerAvatar(int customerId, IFormFile avatar)
         {
             var resultCustomer = _customerDal.Get(c => c.Id == customerId);
@@ -106,6 +114,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [PerformanceAspect(15)]
         public IResult DeleteCustomerAvatar(int customerId)
         {
             var resultCustomer = _customerDal.Get(c => c.Id == customerId);

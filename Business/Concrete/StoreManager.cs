@@ -18,6 +18,7 @@ using Business.ValidationRules.FluentValidation;
 using AutoMapper;
 using Entities.DTOs.StoreDTOs;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 
 namespace Business.Concrete
 {
@@ -41,6 +42,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(StoreValidator))]
         [CacheRemoveAspect("IStoreService.Get")]
+        [PerformanceAspect(20)]
         public IResult Add(Store store, IFormFile formfile)
         {
             var businessResult = BusinessRules.Run(CheckStoreNameExists(store.Name));
@@ -72,6 +74,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(StoreValidator))]
         [CacheRemoveAspect("IStoreService.Get")]
+        [PerformanceAspect(20)]
         public IResult Delete(int storeId)
         {
             var resultStore = _storeDal.Get(s => s.Id == storeId);
@@ -87,6 +90,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<Store> GetById(int id)
         {
             var resultStore = _storeDal.Get(s => s.Id == id);
@@ -94,6 +98,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<Store> GetByStoreName(string storeName)
         {
             var resultStore = _storeDal.Get(s => s.Name == storeName);
@@ -102,6 +107,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(StoreValidator))]
         [CacheRemoveAspect("IStoreService.Get")]
+        [PerformanceAspect(15)]
         public IResult UpdateLogo(Store store, IFormFile formFile)
         {
             var resultBeforeFile = _fileService.GetFileByFileId(store.FileId).Data;
@@ -119,6 +125,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(StoreValidator))]
         [CacheRemoveAspect("IStoreService.Get")]
+        [PerformanceAspect(15)]
         public IResult UpdateStoreDescription(int storeId, string newDescription)
         {
             var resultStore = _storeDal.Get(s => s.Id == storeId);
@@ -130,6 +137,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(StoreValidator))]
         [CacheRemoveAspect("IStoreService.Get")]
+        [PerformanceAspect(15)]
         public IResult UpdateStoreName(int storeId, string name)
         {
             var result = BusinessRules.Run(CheckStoreNameExists(name));
@@ -144,6 +152,7 @@ namespace Business.Concrete
             return new SuccessResult("Mağaza ismi başarıyla güncellendi !");
         }
 
+        [PerformanceAspect(15)]
         public IResult CheckStoreNameExists(string storeName)
         {
             var resultStore = _storeDal.Get(s => s.Name == storeName);
@@ -155,6 +164,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<List<StoreDetailDto>> GetAllStoreDetail()
         {
             var resultStoreDetailDto = _storeDal.GetAllStoreDetail();

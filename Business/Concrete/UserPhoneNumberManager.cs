@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -24,6 +25,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(UserPhoneNumberValidator))]
         [CacheRemoveAspect("IUserPhoneNumberService.Get")]
+        [PerformanceAspect(15)]
         public IResult Add(UserPhoneNumber userPhoneNumber)
         {
             _userPhoneNumberDal.Add(userPhoneNumber);
@@ -33,6 +35,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(UserPhoneNumberValidator))]
         [CacheRemoveAspect("IUserPhoneNumberService.Get")]
+        [PerformanceAspect(15)]
         public IResult Update(UserPhoneNumber userPhoneNumber)
         {
             _userPhoneNumberDal.Update(userPhoneNumber);
@@ -41,6 +44,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<List<UserPhoneNumber>> GetActiveUserPhoneNumbers(int userId)
         {
             var resultUserPhoneNumber = _userPhoneNumberDal.GetAll(n => n.UserId == userId && n.Status == true);
@@ -49,6 +53,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(15)]
         public IDataResult<List<UserPhoneNumber>> GetAllUserPhoneNumber(int userId)
         {
             var resultUserPhoneNumber = _userPhoneNumberDal.GetAll(n => n.UserId == userId);

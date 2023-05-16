@@ -38,8 +38,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog
             LogContext.PushProperty("ExceptionStackTrace", logDetailWithException.ExceptionStackTrace);
             LogContext.PushProperty("Message", logDetailWithException.Message);
 
-            _logger.Error(exception: logDetailWithException.Exception, "");
-
+            _logger.Error(exception: logDetailWithException.Exception, messageTemplate: logDetailWithException.Message);
         }
 
         public void LogFatal(LogDetailWithException logDetailWithException)
@@ -47,9 +46,8 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog
             LogContext.PushProperty("MethodName", logDetailWithException.MethodName);
             LogContext.PushProperty("SimpleMessage", logDetailWithException.SimpleMessage);
             LogContext.PushProperty("ExceptionStackTrace", logDetailWithException.ExceptionStackTrace);
-            LogContext.PushProperty("Message", logDetailWithException.Message);
 
-            _logger.Fatal(exception: logDetailWithException.Exception, "");
+            _logger.Fatal(exception: logDetailWithException.Exception, messageTemplate: logDetailWithException.Message);
         }
 
         public void LogInfo(LogDetail logDetail)
@@ -65,9 +63,8 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog
             LogContext.PushProperty("MethodName", logDetailWithException.MethodName);
             LogContext.PushProperty("SimpleMessage", logDetailWithException.SimpleMessage);
             LogContext.PushProperty("ExceptionStackTrace", logDetailWithException.ExceptionStackTrace);
-            LogContext.PushProperty("Message", logDetailWithException.Message);
 
-            _logger.Warning(exception: logDetailWithException.Exception, "");
+            _logger.Warning(exception : logDetailWithException.Exception,messageTemplate : logDetailWithException.Message);
         }
     }
 }

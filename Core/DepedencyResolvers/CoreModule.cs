@@ -13,6 +13,7 @@ using Core.CrossCuttingConcerns.Logging.Serilog;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Core;
+using System.Diagnostics;
 
 namespace Core.DepedencyResolvers
 {
@@ -21,6 +22,7 @@ namespace Core.DepedencyResolvers
         public void Load(IServiceCollection services)
         {
             services.AddMemoryCache();
+            services.AddSingleton<Stopwatch>();
             services.AddSingleton<ConfigurationManager>();
             services.AddSingleton<Random>();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
