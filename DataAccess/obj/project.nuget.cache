@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "e/6REnLeuMnHN1sWg6HCCz5ulzrwdF4P0VQFnEBph8sGnFCpsZ9ah3sukFg2lpePfLsWwCrHy//fpzms6OHSGg==",
+  "dgSpecHash": "fyfha9WAVBz1K7eF042oAPHtg8nPZJeqD9Lbiu9W0X9mtQeOGI2zumNTXMAeQOuuGzt01H6UvzQw7gha1QzCcA==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\Book-Shop-API\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
@@ -57,6 +57,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",

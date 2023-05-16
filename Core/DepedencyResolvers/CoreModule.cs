@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.CrossCuttingConcerns.Caching;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.CrossCuttingConcerns.Logging;
+using Core.CrossCuttingConcerns.Logging.Serilog;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Core;
 
 namespace Core.DepedencyResolvers
 {
@@ -19,6 +24,7 @@ namespace Core.DepedencyResolvers
             services.AddSingleton<ConfigurationManager>();
             services.AddSingleton<Random>();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
+            services.AddSingleton<ILoggerService, SerilogLogger>();
         }
     }
 }

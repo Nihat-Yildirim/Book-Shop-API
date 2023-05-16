@@ -14,5 +14,10 @@ namespace Core.Extensions
         {
             return builder.UseMiddleware<GlobalExceptionHandlingMiddleware>();
         }
+
+        public static void AddApiUserHandlingMiddleware(this IApplicationBuilder builder)
+        {
+            builder.UseMiddleware<ApiUserHandlingMiddleware>();
+        }
     }
 }

@@ -10,8 +10,11 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.15" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,11 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Uploads\Images\CustomerAvatars\" />
-    <Folder Include="wwwroot\Uploads\Images\AuthorPictures\" />
-    <Folder Include="wwwroot\Uploads\Images\BookPictures\" />
-    <Folder Include="wwwroot\Uploads\Images\PublisherLogos\" />
-    <Folder Include="wwwroot\Uploads\Images\StoreLogos\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

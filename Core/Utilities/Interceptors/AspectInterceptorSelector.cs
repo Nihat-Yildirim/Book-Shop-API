@@ -1,4 +1,5 @@
 ﻿using Castle.DynamicProxy;
+using Core.Aspects.Autofac.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace Core.Utilities.Interceptors
 
             var methodAttributes = type.GetMethod(method.Name) ?
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
+
+            classAttributes.Add(new LogAspect());
 
             if(methodAttributes != null)
             {

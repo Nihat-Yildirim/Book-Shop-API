@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Core.CrossCuttingConcerns.Logging.Serilog;
 using Entities.Concrete;
 using Entities.DTOs.BookDTOs;
 using Entities.DTOs.BookOfCategoryDTOs;
