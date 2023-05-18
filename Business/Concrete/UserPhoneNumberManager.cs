@@ -2,6 +2,7 @@
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -24,6 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserPhoneNumberValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IUserPhoneNumberService.Get")]
         [PerformanceAspect(15)]
         public IResult Add(UserPhoneNumber userPhoneNumber)
@@ -34,6 +36,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserPhoneNumberValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IUserPhoneNumberService.Get")]
         [PerformanceAspect(15)]
         public IResult Update(UserPhoneNumber userPhoneNumber)

@@ -19,6 +19,7 @@ using Castle.Core.Resource;
 using Entities.DTOs.CustomerDTOs;
 using AutoMapper;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -37,6 +38,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CustomerValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IResult Add(Customer customer)
         {
@@ -76,6 +78,7 @@ namespace Business.Concrete
             return new SuccessDataResult<CustomerDetailDto>(resultCustomerDetail);
         }
 
+        [TransactionScopeAspect]
         [PerformanceAspect(20)]
         public IResult AddCustomerAvatar(int customerId, IFormFile avatar)
         {
@@ -96,6 +99,7 @@ namespace Business.Concrete
 
         }
 
+        [TransactionScopeAspect]
         [PerformanceAspect(20)]
         public IResult UpdateCustomerAvatar(int customerId, IFormFile avatar)
         {
@@ -114,6 +118,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IResult DeleteCustomerAvatar(int customerId)
         {

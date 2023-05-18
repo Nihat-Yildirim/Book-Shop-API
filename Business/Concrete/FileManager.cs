@@ -2,6 +2,7 @@
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -26,6 +27,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(FileValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IFileService.Get")]
         [PerformanceAspect(20)]
         public IDataResult<File> Add(File file)
@@ -36,6 +38,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(FileValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IFileService.Get")]
         [PerformanceAspect(20)]
         public IResult Delete(File file)
@@ -45,6 +48,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(FileValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IFileService.Get")]
         [PerformanceAspect(20)]
         public IResult Update(File file)

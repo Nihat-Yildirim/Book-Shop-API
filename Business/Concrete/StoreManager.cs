@@ -19,6 +19,7 @@ using AutoMapper;
 using Entities.DTOs.StoreDTOs;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -41,6 +42,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(StoreValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
         [PerformanceAspect(20)]
         public IResult Add(Store store, IFormFile formfile)
@@ -73,6 +75,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(StoreValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
         [PerformanceAspect(20)]
         public IResult Delete(int storeId)
@@ -106,6 +109,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(StoreValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
         [PerformanceAspect(15)]
         public IResult UpdateLogo(Store store, IFormFile formFile)
@@ -124,6 +128,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(StoreValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
         [PerformanceAspect(15)]
         public IResult UpdateStoreDescription(int storeId, string newDescription)
@@ -136,6 +141,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(StoreValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
         [PerformanceAspect(15)]
         public IResult UpdateStoreName(int storeId, string name)

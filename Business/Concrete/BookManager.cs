@@ -3,6 +3,7 @@ using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -30,6 +31,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AddBookDtoValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
         [PerformanceAspect(15)]
         public IDataResult<Book> Add(AddBookDto addedBookDto)
@@ -77,6 +79,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UpdateBookDtoValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
         [PerformanceAspect(15)]
         public IResult UpdateBook(UpdateBookDto updatedBookDto)

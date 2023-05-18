@@ -1,5 +1,6 @@
 ﻿using Castle.DynamicProxy;
 using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -41,6 +42,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AuthorValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IAuthorService.Get")]
         [PerformanceAspect(15)]
         public IResult Add(Author author, IFormFile formFile)
@@ -65,6 +67,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AuthorValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IAuthorService.Get")]
         [PerformanceAspect(15)]
         public IResult Delete(Author author)
@@ -81,6 +84,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AuthorValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IAuthorService.Get")]
         [PerformanceAspect(15)]
         public IResult Update(Author author,IFormFile formFile)

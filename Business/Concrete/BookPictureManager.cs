@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Core.DTOs.StorageDTOs;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -39,6 +40,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AddBookPictureDtoValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
         [CacheRemoveAspect("IBookPictureService.Get")]
         [PerformanceAspect(20)]
@@ -68,6 +70,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UpdateBookPictureDtoValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
         [CacheRemoveAspect("IBookPictureService.Get")]
         [PerformanceAspect(20)]
@@ -95,6 +98,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UpdateBookPictureOrderOfAppearanceDtoValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
         [CacheRemoveAspect("IBookPictureService.Get")]
         [PerformanceAspect(20)]

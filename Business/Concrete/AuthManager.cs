@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Abstract;
 using Core.Entities.Concrete;
@@ -55,6 +56,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CustomerForRegisterDtoValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(20)]
         public IDataResult<User> CustomerRegister(CustomerForRegisterDto customerForRegisterDto)
         {
@@ -87,6 +89,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(DealerForRegisterDtoValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(20)]
         public IDataResult<User> DealerRegister(DealerForRegisterDto dealerForRegisterDto,IFormFile formFile)
         {
@@ -134,6 +137,7 @@ namespace Business.Concrete
             var resultUser = _userService.GetByMail(user.Email).Data;
             return new SuccessDataResult<User>(resultUser);
         }
+
         public IResult UserExists(string email)
         {
             var resultUser = _userService.GetByMail(email);

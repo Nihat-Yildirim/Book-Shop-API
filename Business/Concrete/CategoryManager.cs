@@ -3,6 +3,7 @@ using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -28,6 +29,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CategoryValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("ICategorService.Get")]
         [PerformanceAspect(15)]
         public IResult Add(Category category)
@@ -52,6 +54,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CategoryValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("ICategorService.Get")]
         [PerformanceAspect(15)]
         public IResult UpdateCategoryName(Category category)

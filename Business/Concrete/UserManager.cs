@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
@@ -24,6 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IDataResult<User> Add(User user)
         {
@@ -32,6 +34,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IResult Update(User user)
         {
@@ -41,6 +44,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IResult Update(UserForUpdateDto userForUpdateDto)
         {
@@ -55,6 +59,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IResult UpdatePassword(User user, string password)
         {

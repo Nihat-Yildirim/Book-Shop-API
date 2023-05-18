@@ -1,5 +1,8 @@
-﻿using Core.Exceptions.Abstract;
+﻿using Core.CrossCuttingConcerns.Logging;
+using Core.Exceptions.Abstract;
+using Core.Utilities.IOC;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +16,12 @@ namespace Core.Middlewares
     public class GlobalExceptionHandlingMiddleware
     {
         RequestDelegate _next;
+        ILoggerService _loggerService;
 
         public GlobalExceptionHandlingMiddleware(RequestDelegate next)
         {
             _next = next;
+            _loggerService = ServiceTool.ServiceProvider.GetService<ILoggerService>();
         }
 
         public async Task Invoke(HttpContext context)
@@ -32,6 +37,13 @@ namespace Core.Middlewares
             catch (Exception exception)
             {
                 await HandleExceptionAsync(context, exception.Message, exception.StackTrace);
+                
+                LogDetailWithException logDetailWithException = new();
+                logDetailWithException.Exception = exception;
+                logDetailWithException.ExceptionStackTrace = exception.StackTrace;
+                logDetailWithException.SimpleMessage = "Hata Logu !";
+                logDetailWithException.MethodName = exception.Message;
+                _loggerService.LogError(logDetailWithException);
             }
         }
 

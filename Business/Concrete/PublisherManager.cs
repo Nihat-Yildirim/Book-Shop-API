@@ -4,6 +4,7 @@ using Business.Constants.PathConstants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -41,6 +42,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AddPublisherDtoValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IPublisherService.Get")]
         [PerformanceAspect(15)]
         public IResult Add(AddPublisherDto addedPublisher)
@@ -72,6 +74,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(PublisherValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IPublisherService.Get")]
         [PerformanceAspect(20)]
         public IResult Update(UpdatePublisherDto updatedPublisher)
@@ -102,6 +105,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(PublisherValidator))]
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IPublisherService.Get")]
         [PerformanceAspect(20)]
         public IResult Delete(Publisher publisher)
