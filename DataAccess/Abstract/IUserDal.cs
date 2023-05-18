@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IUserDal : IEntityRepository<User>
     {
+        List<Claim> GetUserClaims(User user);
     }
 }

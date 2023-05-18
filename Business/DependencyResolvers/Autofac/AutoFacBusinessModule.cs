@@ -68,6 +68,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BookPictureManager>().As<IBookPictureService>().SingleInstance();
             builder.RegisterType<EfBookPictureDal>().As<IBookPictureDal>().SingleInstance();
 
+            builder.RegisterType<UserClaimManager>().As<IUserClaimService>().SingleInstance();  
+            builder.RegisterType<EfUserClaimDal>().As<IUserClaimDal>().SingleInstance();
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()

@@ -19,6 +19,7 @@ using AutoMapper;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -41,6 +42,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(AuthorValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IAuthorService.Get")]
@@ -66,6 +68,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(AuthorValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IAuthorService.Get")]
@@ -83,6 +86,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(AuthorValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IAuthorService.Get")]

@@ -51,7 +51,8 @@ namespace Business.Concrete
         [PerformanceAspect(15)]
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            var accessToken = _tokenHelper.CreateToken(user);
+            var userClaims = _userService.GetClaims(user).Data;
+            var accessToken = _tokenHelper.CreateToken(user,userClaims);
             return new SuccessDataResult<AccessToken>(accessToken);
         }
 

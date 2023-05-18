@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
@@ -26,6 +27,7 @@ namespace Business.Concrete
             _mapper = mapper;
         }
 
+        [SecuredOperation("Dealer")]
         [CacheRemoveAspect("IBookOfCategoryService.Get")]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]

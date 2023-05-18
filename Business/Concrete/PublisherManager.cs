@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants.PathConstants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
@@ -41,6 +42,7 @@ namespace Business.Concrete
             _storageService = storageService;
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(AddPublisherDtoValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IPublisherService.Get")]
@@ -73,6 +75,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(PublisherValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IPublisherService.Get")]
@@ -104,6 +107,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(PublisherValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IPublisherService.Get")]

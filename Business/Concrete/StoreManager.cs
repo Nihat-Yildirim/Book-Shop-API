@@ -20,6 +20,7 @@ using Entities.DTOs.StoreDTOs;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -74,6 +75,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(StoreValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
@@ -108,6 +110,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Store>(resultStore);
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(StoreValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
@@ -127,6 +130,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(StoreValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]
@@ -140,6 +144,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(StoreValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IStoreService.Get")]

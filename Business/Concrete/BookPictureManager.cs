@@ -22,6 +22,7 @@ using Core.DTOs.StorageDTOs;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -39,6 +40,7 @@ namespace Business.Concrete
             _storageService = storageService;
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(AddBookPictureDtoValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
@@ -69,6 +71,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(UpdateBookPictureDtoValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
@@ -97,6 +100,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(UpdateBookPictureOrderOfAppearanceDtoValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]

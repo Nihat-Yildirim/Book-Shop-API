@@ -34,9 +34,9 @@ app.AddApiUserHandlingMiddleware();
 
 app.AddGlobalExceptionHandler();
 
-app.UseAuthentication();
-
 app.UseStaticFiles();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

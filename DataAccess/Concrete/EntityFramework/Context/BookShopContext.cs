@@ -22,6 +22,8 @@ namespace DataAccess.Concrete.EntityFramework.Context
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Dealer> Dealers { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Claim> Claims { get; set; }
+        public DbSet<UserClaim> UserClaims { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
@@ -174,6 +176,21 @@ namespace DataAccess.Concrete.EntityFramework.Context
                 b.Property(p => p.BookId).HasColumnName("BookId");
                 b.Property(p => p.FileId).HasColumnName("FileId");
                 b.Property(p => p.OrderOfAppearance).HasColumnName("OrderOfAppearance");
+            });
+
+            modelBuilder.Entity<Claim>(c =>
+            {
+                c.ToTable("Claims").HasKey(p => p.Id);
+                c.Property(p => p.Id).HasColumnName("Id");
+                c.Property(p => p.Name).HasColumnName("Name");
+            });
+
+            modelBuilder.Entity<UserClaim>(u =>
+            {
+                u.ToTable("UserClaims").HasKey(c => c.Id);
+                u.Property(p => p.Id).HasColumnName("Id");
+                u.Property(p => p.UserId).HasColumnName("UserId");
+                u.Property(p => p.ClaimId).HasColumnName("ClaimId");
             });
         }
     }

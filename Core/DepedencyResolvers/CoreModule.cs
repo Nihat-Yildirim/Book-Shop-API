@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Core;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 
 namespace Core.DepedencyResolvers
 {
@@ -26,6 +27,7 @@ namespace Core.DepedencyResolvers
             services.AddSingleton<ConfigurationManager>();
             services.AddSingleton<Random>();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<ILoggerService, SerilogLogger>();
         }
     }

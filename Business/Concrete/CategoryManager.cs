@@ -1,5 +1,6 @@
 ﻿using AutoMapper.Configuration.Annotations;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
@@ -28,6 +29,7 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CategoryValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("ICategorService.Get")]
@@ -53,6 +55,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Category>>(resultCategories);
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CategoryValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("ICategorService.Get")]

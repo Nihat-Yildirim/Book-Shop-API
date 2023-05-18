@@ -20,6 +20,8 @@ using Entities.DTOs.CustomerDTOs;
 using AutoMapper;
 using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
+using Business.BusinessAspects.Autofac;
+using Core.Utilities.Claims;
 
 namespace Business.Concrete
 {
@@ -28,9 +30,16 @@ namespace Business.Concrete
         ICustomerDal _customerDal;
         IFileService _fileService;
         IStorageService _storageService;
+        IUserClaimService _userClaimService;
         IMapper _mapper;
-        public CustomerManager(ICustomerDal customerDal, IFileService fileService, IStorageService storageService,IMapper mapper)
+        public CustomerManager(
+            IUserClaimService userClaimService,
+            ICustomerDal customerDal, 
+            IFileService fileService, 
+            IStorageService storageService,
+            IMapper mapper)
         {
+            _userClaimService = userClaimService;
             _customerDal = customerDal;
             _fileService = fileService;
             _storageService = storageService;
@@ -43,6 +52,8 @@ namespace Business.Concrete
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
+            _userClaimService.Add(customer.UserId, Claims.Customer);
+            
             return new SuccessResult();
         }
 
@@ -78,6 +89,7 @@ namespace Business.Concrete
             return new SuccessDataResult<CustomerDetailDto>(resultCustomerDetail);
         }
 
+        [SecuredOperation("Customer")]
         [TransactionScopeAspect]
         [PerformanceAspect(20)]
         public IResult AddCustomerAvatar(int customerId, IFormFile avatar)
@@ -99,6 +111,7 @@ namespace Business.Concrete
 
         }
 
+        [SecuredOperation("Customer")]
         [TransactionScopeAspect]
         [PerformanceAspect(20)]
         public IResult UpdateCustomerAvatar(int customerId, IFormFile avatar)
@@ -118,6 +131,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        [SecuredOperation("Customer")]
         [TransactionScopeAspect]
         [PerformanceAspect(15)]
         public IResult DeleteCustomerAvatar(int customerId)

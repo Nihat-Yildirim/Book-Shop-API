@@ -4,6 +4,7 @@ using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
+using Core.Utilities.Claims;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -19,9 +20,11 @@ namespace Business.Concrete
     public class DealerManager : IDealerService
     {
         IDealerDal _dealerDal;
-        public DealerManager(IDealerDal dealerDal)
+        IUserClaimService _userClaimService;
+        public DealerManager(IDealerDal dealerDal, IUserClaimService userClaimService)
         {
             _dealerDal = dealerDal;
+            _userClaimService = userClaimService;
         }
 
         [ValidationAspect(typeof(DealerValidator))]
@@ -30,6 +33,8 @@ namespace Business.Concrete
         public IResult Add(Dealer dealer)
         {
             _dealerDal.Add(dealer);
+            _userClaimService.Add(dealer.UserId, Claims.Dealer);
+
             return new SuccessResult();
         }
 

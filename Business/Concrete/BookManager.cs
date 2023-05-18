@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
@@ -30,6 +31,7 @@ namespace Business.Concrete
             _bookDal = bookDal;
         }
 
+        [SecuredOperation("Dealer")]
         [ValidationAspect(typeof(AddBookDtoValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect("IBookService.Get")]
@@ -49,6 +51,28 @@ namespace Business.Concrete
             var addedBookResult = _bookDal.Get(b => b.StoreId == addedBookDto.StoreId && b.BookName == addedBookDto.BookName);
             
             return new SuccessDataResult<Book>(addedBookResult);
+        }
+
+        [SecuredOperation("Dealer")]
+        [ValidationAspect(typeof(UpdateBookDtoValidator))]
+        [TransactionScopeAspect]
+        [CacheRemoveAspect("IBookService.Get")]
+        [PerformanceAspect(15)]
+        public IResult UpdateBook(UpdateBookDto updatedBookDto)
+        {
+            var beforeBook = GetBookById(updatedBookDto.BookId);
+
+            if (!beforeBook.Success)
+                return new ErrorResult("Kitap bilgileri güncellenemedi !");
+
+            var updatedBook = _mapper.Map<Book>(updatedBookDto);
+            updatedBook.Status = beforeBook.Data.Status;
+            updatedBook.StoreId = beforeBook.Data.StoreId;
+            updatedBook.CreatedDate = beforeBook.Data.CreatedDate;
+
+            _bookDal.Update(updatedBook);
+
+            return new SuccessResult();
         }
 
         [CacheAspect]
@@ -76,27 +100,6 @@ namespace Business.Concrete
             var resultBook = _bookDal.Get(b => b.Id == id);
 
             return new SuccessDataResult<Book>(resultBook);
-        }
-
-        [ValidationAspect(typeof(UpdateBookDtoValidator))]
-        [TransactionScopeAspect]
-        [CacheRemoveAspect("IBookService.Get")]
-        [PerformanceAspect(15)]
-        public IResult UpdateBook(UpdateBookDto updatedBookDto)
-        {
-            var beforeBook = GetBookById(updatedBookDto.BookId);
-
-            if (!beforeBook.Success)
-                return new ErrorResult("Kitap bilgileri güncellenemedi !");
-
-            var updatedBook = _mapper.Map<Book>(updatedBookDto);
-            updatedBook.Status = beforeBook.Data.Status;
-            updatedBook.StoreId = beforeBook.Data.StoreId;
-            updatedBook.CreatedDate = beforeBook.Data.CreatedDate;
-
-            _bookDal.Update(updatedBook);
-
-            return new SuccessResult();
         }
 
         private IResult CheckBookNameExistInTheStore(string bookName, int storeId)
