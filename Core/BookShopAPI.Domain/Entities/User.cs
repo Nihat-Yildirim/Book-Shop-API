@@ -20,7 +20,7 @@ namespace BookShopAPI.Domain.Entities
         public byte[]? PasswordHash { get; set; }
         public byte[]? PasswordSalt { get; set; }
         public AuthenticatorType AuthenticatorType { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public File? File { get; set; }
         public UserClaim? UserClaim { get; set; }

@@ -22,13 +22,13 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasMaxLength(25)
                 .IsRequired();
 
-            builder.Property(x => x.FirstName)
+            builder.Property(x => x.LastName)
                 .HasColumnType(SqlServerColumnType.VarChar)
                 .HasMaxLength(50)
                 .IsRequired();
 
             builder.Property(x => x.Autobiography)
-                .HasColumnType(SqlServerColumnType.VarChar)
+                .HasColumnType(SqlServerColumnType.VarChar + "(MAX)")
                 .IsRequired();
 
             builder.Property(x => x.CreatedDate)
@@ -38,11 +38,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.Property(x => x.UpdatedDate)
                 .HasColumnType(SqlServerColumnType.DateTime2)
-                .HasDefaultValue(null);
+                .IsRequired(false);
 
             builder.Property(x => x.DeletedDate)
                 .HasColumnType(SqlServerColumnType.DateTime2)
-                .HasDefaultValue(null);
+                .IsRequired(false);
         }
     }
 }

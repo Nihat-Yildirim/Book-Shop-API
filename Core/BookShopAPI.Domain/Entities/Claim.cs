@@ -10,7 +10,7 @@ namespace BookShopAPI.Domain.Entities
         }
 
         public string? Name { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public ICollection<UserClaim> UserClaims { get; set; }
     }

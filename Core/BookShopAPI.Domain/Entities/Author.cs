@@ -8,7 +8,7 @@ namespace BookShopAPI.Domain.Entities
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Autobiography { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public File? File { get; set; }
         public ICollection<Book>? Books { get; set; }

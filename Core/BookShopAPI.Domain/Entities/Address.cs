@@ -12,7 +12,7 @@ namespace BookShopAPI.Domain.Entities
         public string? Neighbourhood { get; set; }
         public string? OpenAddress { get; set; }
         public bool Selected { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public User? User { get; set; }
     }

@@ -23,12 +23,12 @@ namespace BookShopAPI.Domain.Entities
         public int PageOfNumber { get; set; }
         public int Stock { get; set; }
         public float Price { get; set; }
-        public DateTime DeletedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public Publisher? Publisher { get; set; }
-        public ICollection<BasketItem> BasketItems { get; set; }
         public ICollection<Author> Authors { get; set; }
-        public ICollection<BookPicture> BookPictures { get; set; }
         public ICollection<Category> Categories { get; set; }
+        public ICollection<BasketItem> BasketItems { get; set; }
+        public ICollection<BookPicture> BookPictures { get; set; }
     }
 }

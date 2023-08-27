@@ -25,11 +25,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.Property(x => x.UpdatedDate)
                 .HasColumnType(SqlServerColumnType.DateTime2)
-                .HasDefaultValue(null);
+                .IsRequired(false);
 
             builder.Property(x => x.DeletedDate)
                 .HasColumnType(SqlServerColumnType.DateTime2)
-                .HasDefaultValue(null);
+                .IsRequired(false);
         }
     }
 }

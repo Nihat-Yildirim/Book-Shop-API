@@ -15,7 +15,12 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.HasOne(x => x.File)
                 .WithOne(x => x.BookPicture)
-                .HasForeignKey<BookPicture>(x => x.BookPictureFileId);
+                .HasForeignKey<BookPicture>(x => x.BookPictureFileId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Book)
+                .WithMany(x => x.BookPictures)
+                .HasForeignKey(x => x.BookId);
 
             builder.Property(x => x.ShowOrder)
                 .HasColumnType(SqlServerColumnType.TinyInt)
@@ -28,7 +33,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.Property(x => x.UpdatedDate)
                 .HasColumnType(SqlServerColumnType.DateTime2)
-                .HasDefaultValue(null);
+                .IsRequired(false);
         }
     }
 }
