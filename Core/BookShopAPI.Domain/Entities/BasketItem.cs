@@ -8,6 +8,7 @@ namespace BookShopAPI.Domain.Entities
         public int BookId { get; set; }
         public int Quantity { get; set; }
 
+        public Book? Book { get; set; }
         public Basket? Basket { get; set; }
     }
 }

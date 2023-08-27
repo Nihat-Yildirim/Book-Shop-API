@@ -23,7 +23,6 @@ namespace BookShopAPI.Domain.Entities
         public DateTime DeletedDate { get; set; }
 
         public File? File { get; set; }
-        public Store? Store { get; set; }
         public UserClaim? UserClaim { get; set; }
         public RefreshToken? RefreshToken { get; set; }
         public MailAuthentication? MailAuthentication { get; set; }

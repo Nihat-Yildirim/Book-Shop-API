@@ -12,7 +12,7 @@ namespace BookShopAPI.Domain.Entities
         public int UserId { get; set; }
         public bool IsCompleted { get; set; }
 
-        public ICollection<User>? User { get; set; }
+        public User? User { get; set; }
         public ICollection<BasketItem>? BasketItems { get; set; }
     }
 }

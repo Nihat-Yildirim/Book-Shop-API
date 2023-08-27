@@ -12,10 +12,9 @@ namespace BookShopAPI.Domain.Entities
         }
 
         public int PublisherId { get; set; }
-        public int StoreId { get; set; }
         public string? BookName { get; set; }
         public string? Language { get; set; }
-        public string? ISBM { get; set; }
+        public string? ISBN { get; set; }
         public string? PaperType { get; set; }
         public string? SkinType { get; set; }
         public string? Dimension { get; set; }
@@ -24,11 +23,10 @@ namespace BookShopAPI.Domain.Entities
         public int PageOfNumber { get; set; }
         public int Stock { get; set; }
         public float Price { get; set; }
-        public bool IsAuthorsComfirmed { get; set; }
         public DateTime DeletedDate { get; set; }
 
-        public Store Store { get; set; }
         public Publisher? Publisher { get; set; }
+        public ICollection<BasketItem> BasketItems { get; set; }
         public ICollection<Author> Authors { get; set; }
         public ICollection<BookPicture> BookPictures { get; set; }
         public ICollection<Category> Categories { get; set; }

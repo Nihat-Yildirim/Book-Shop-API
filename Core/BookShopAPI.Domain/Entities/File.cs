@@ -9,7 +9,6 @@ namespace BookShopAPI.Domain.Entities
         public string? FileExtension { get; set; }
 
         public User? User { get; set; }
-        public Store? Store { get; set; }
         public Author? Author { get; set; }
         public Publisher? Publisher { get; set; }
         public BookPicture? BookPicture { get; set; }
