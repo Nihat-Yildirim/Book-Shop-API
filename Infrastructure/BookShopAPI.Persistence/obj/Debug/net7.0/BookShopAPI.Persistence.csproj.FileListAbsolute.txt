@@ -1,0 +1,17 @@
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Persistence.deps.json
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Persistence.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Persistence.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Application.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Domain.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Application.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\bin\Debug\net7.0\BookShopAPI.Domain.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.csproj.AssemblyReference.cache
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.AssemblyInfoInputs.cache
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.AssemblyInfo.cs
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.csproj.CoreCompileInputs.cache
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.csproj.CopyComplete
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\refint\BookShopAPI.Persistence.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\BookShopAPI.Persistence.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Persistence\obj\Debug\net7.0\ref\BookShopAPI.Persistence.dll

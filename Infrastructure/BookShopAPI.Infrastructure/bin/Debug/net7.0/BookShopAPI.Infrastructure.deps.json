@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "BookShopAPI.Infrastructure/1.0.0": {
+        "dependencies": {
+          "BookShopAPI.Application": "1.0.0"
+        },
+        "runtime": {
+          "BookShopAPI.Infrastructure.dll": {}
+        }
+      },
+      "BookShopAPI.Application/1.0.0": {
+        "dependencies": {
+          "BookShopAPI.Domain": "1.0.0"
+        },
+        "runtime": {
+          "BookShopAPI.Application.dll": {}
+        }
+      },
+      "BookShopAPI.Domain/1.0.0": {
+        "runtime": {
+          "BookShopAPI.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BookShopAPI.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookShopAPI.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookShopAPI.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

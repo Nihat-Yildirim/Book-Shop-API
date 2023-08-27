@@ -1,0 +1,11 @@
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\bin\Debug\net7.0\BookShopAPI.Domain.deps.json
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\bin\Debug\net7.0\BookShopAPI.Domain.dll
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\bin\Debug\net7.0\BookShopAPI.Domain.pdb
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.AssemblyInfoInputs.cache
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.AssemblyInfo.cs
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.csproj.CoreCompileInputs.cache
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.dll
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\refint\BookShopAPI.Domain.dll
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.pdb
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\ref\BookShopAPI.Domain.dll

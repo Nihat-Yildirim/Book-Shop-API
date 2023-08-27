@@ -1,0 +1,17 @@
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Infrastructure.deps.json
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Infrastructure.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Infrastructure.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Application.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Domain.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Application.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\bin\Debug\net7.0\BookShopAPI.Domain.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.csproj.AssemblyReference.cache
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.AssemblyInfoInputs.cache
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.AssemblyInfo.cs
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.csproj.CopyComplete
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\refint\BookShopAPI.Infrastructure.dll
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\BookShopAPI.Infrastructure.pdb
+D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\obj\Debug\net7.0\ref\BookShopAPI.Infrastructure.dll
