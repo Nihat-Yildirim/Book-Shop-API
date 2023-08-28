@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NtRZsfInAalddgYgJ5IBUPvTgJwOm5hpTeIef1E9M2v9W39QgizLSPrYRhLL9ET2/Xxa0hng3VZZILfRdh10xg==",
+  "dgSpecHash": "kawcINhDGtuchSD7QSGm6ECg09HVtYH++vZxJGHeX8M0c5/z1Foe+eNygIKJB2OoVesRwgLWdAadfpsjkQ4dRg==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\BookShopAPI\\Infrastructure\\BookShopAPI.Infrastructure\\BookShopAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mimekit\\4.1.0\\mimekit.4.1.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\otp.net\\1.3.0\\otp.net.1.3.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.formats.asn1\\7.0.0\\system.formats.asn1.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.security.cryptography.pkcs\\7.0.2\\system.security.cryptography.pkcs.7.0.2.nupkg.sha512",
