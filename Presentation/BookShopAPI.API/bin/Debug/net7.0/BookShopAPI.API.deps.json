@@ -713,7 +713,8 @@
       },
       "BookShopAPI.Application/1.0.0": {
         "dependencies": {
-          "BookShopAPI.Domain": "1.0.0"
+          "BookShopAPI.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.10"
         },
         "runtime": {
           "BookShopAPI.Application.dll": {}

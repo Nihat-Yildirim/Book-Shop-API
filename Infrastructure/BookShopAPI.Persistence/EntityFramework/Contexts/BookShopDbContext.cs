@@ -1,7 +1,6 @@
-﻿using FileEntity = BookShopAPI.Domain.Entities.File;
+﻿using BookShopAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using BookShopAPI.Domain.Entities;
 
 namespace BookShopAPI.Persistence.EntityFramework.Contexts
 {

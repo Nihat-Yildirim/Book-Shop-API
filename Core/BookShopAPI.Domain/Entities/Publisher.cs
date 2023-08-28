@@ -8,7 +8,7 @@ namespace BookShopAPI.Domain.Entities
         public string? Name { get; set; }
         public DateTime? DeletedDate { get; set; }
 
-        public File? File { get; set; }
+        public FileEntity? File { get; set; }
         public ICollection<Book>? Books { get; set; }
     }
 }

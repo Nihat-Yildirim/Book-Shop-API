@@ -1,4 +1,4 @@
-﻿using FileEntity = BookShopAPI.Domain.Entities.File;
+﻿using BookShopAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using BookShopAPI.Domain.Constants;

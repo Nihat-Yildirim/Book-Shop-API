@@ -8,7 +8,7 @@ namespace BookShopAPI.Domain.Entities
         public int BookPictureFileId { get; set; }
         public int ShowOrder { get; set; }
 
-        public File? File { get; set; }
+        public FileEntity? File { get; set; }
         public Book? Book { get; set; }
     }
 }
