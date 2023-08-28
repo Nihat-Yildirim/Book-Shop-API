@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Core\BookShopAPI.Application\BookShopAPI.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BookShopAPI.Infrastructure\BookShopAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BookShopAPI.Persistence\BookShopAPI.Persistence.csproj" />

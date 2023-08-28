@@ -9,3 +9,4 @@ D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Dom
 D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\refint\BookShopAPI.Domain.dll
 D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.pdb
 D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\ref\BookShopAPI.Domain.dll
+D:\Projeler\BookShopAPI\Core\BookShopAPI.Domain\obj\Debug\net7.0\BookShopAPI.Domain.csproj.AssemblyReference.cache
