@@ -1,5 +1,6 @@
 using BookShopAPI.Application;
 using BookShopAPI.Persistence;
+using BookShopAPI.API.Extensions;
 using BookShopAPI.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.ConfigureValidationFilter();
 
 var app = builder.Build();
 
