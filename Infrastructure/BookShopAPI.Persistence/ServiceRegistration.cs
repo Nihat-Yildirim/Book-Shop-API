@@ -15,6 +15,7 @@ using BookShopAPI.Application.Repositories.PublisherRepositories;
 using BookShopAPI.Application.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Application.Repositories.UserClaimRepositories;
 using BookShopAPI.Application.Repositories.UserRepositories;
+using BookShopAPI.Application.UnitOfWork;
 using BookShopAPI.Persistence.EntityFramework.Contexts;
 using BookShopAPI.Persistence.EntityFramework.Repositories.AddressRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.AuthorRepositories;
@@ -33,6 +34,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.PublisherRepositories
 using BookShopAPI.Persistence.EntityFramework.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.UserClaimRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories;
+using BookShopAPI.Persistence.EntityFramework.UnitOfWork;
 using BookShopAPI.Persistence.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +46,8 @@ namespace BookShopAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<BookShopDbContext>(options => options.UseSqlServer(ConnectionStringHelper.GetSqlServerConnectionString()));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IAddressReadRepository, AddressReadRepository>();
             services.AddScoped<IAddressWriteRepository, AddressWriteRepository>();

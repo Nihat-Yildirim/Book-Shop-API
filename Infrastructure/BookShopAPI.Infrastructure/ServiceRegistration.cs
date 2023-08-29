@@ -1,8 +1,10 @@
 ﻿using BookShopAPI.Application.Mailing;
 using BookShopAPI.Application.OtpAuthenticator;
+using BookShopAPI.Application.Storage;
 using BookShopAPI.Application.Tokens;
 using BookShopAPI.Infrastructure.Mailing.MailKit;
 using BookShopAPI.Infrastructure.OtpAuthenticators;
+using BookShopAPI.Infrastructure.Storages;
 using BookShopAPI.Infrastructure.Tokens;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +17,8 @@ namespace BookShopAPI.Infrastructure
             services.AddScoped<IMailService, MailkitMailService>();
 
             services.AddScoped<IOtpAuthenticator, OtpNetAuthenticator>();
+
+            services.AddScoped<IStorage, LocalStorage>();
 
             services.AddScoped<IRefreshTokenService, RefreshTokenService>();
             services.AddScoped<IAccessTokenService, AccessTokenService>();
