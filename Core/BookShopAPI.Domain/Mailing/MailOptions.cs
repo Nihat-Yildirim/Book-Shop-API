@@ -1,6 +1,6 @@
 ﻿namespace BookShopAPI.Domain.Mailing
 {
-    public class MailSettings
+    public class MailOptions
     {
         public string? SenderEmail { get; set; }
         public string? SenderFullName { get; set; }

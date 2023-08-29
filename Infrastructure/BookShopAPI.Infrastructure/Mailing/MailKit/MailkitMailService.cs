@@ -8,11 +8,11 @@ namespace BookShopAPI.Infrastructure.Mailing.MailKit
 {
     public class MailkitMailService : IMailService
     {
-        private readonly MailSettings _settings;
+        private readonly MailOptions _settings;
 
         public MailkitMailService()
         {
-            _settings = MailSettingsHelper.GetMailSettings();
+            _settings = MailOptionsHelper.GetMailOptions();
         }
 
         public async Task SendAsync(Mail mail)

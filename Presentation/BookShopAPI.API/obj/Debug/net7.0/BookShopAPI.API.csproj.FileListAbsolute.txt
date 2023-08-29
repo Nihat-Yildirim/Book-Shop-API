@@ -23,7 +23,6 @@ D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAP
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.AssemblyInfoInputs.cache
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.AssemblyInfo.cs
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.csproj.CoreCompileInputs.cache
-D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.MvcApplicationPartsAssemblyInfo.cache
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\staticwebassets\msbuild.BookShopAPI.API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\staticwebassets\msbuild.build.BookShopAPI.API.props
