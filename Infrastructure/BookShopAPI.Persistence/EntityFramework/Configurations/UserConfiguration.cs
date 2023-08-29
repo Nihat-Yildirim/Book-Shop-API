@@ -33,10 +33,6 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasMaxLength(100)
                 .IsRequired();
 
-            builder.Property(x => x.IsComfirmed)
-                .HasColumnType(SqlServerColumnType.Bit)
-                .IsRequired();
-
             builder.Property(x => x.PasswordHash)
                 .HasColumnType(SqlServerColumnType.VarBinary)
                 .HasMaxLength(500)
@@ -48,7 +44,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .IsRequired();
 
             builder.Property(x => x.AuthenticatorType)
-                .HasColumnType(SqlServerColumnType.Char)
+                .HasColumnType(SqlServerColumnType.Int)
                 .HasDefaultValue(AuthenticatorType.None)
                 .HasMaxLength(1)
                 .IsRequired();

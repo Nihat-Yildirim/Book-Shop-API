@@ -8,6 +8,7 @@ using BookShopAPI.Application.Repositories.CategoryRepositories;
 using BookShopAPI.Application.Repositories.ClaimRepositories;
 using BookShopAPI.Application.Repositories.FileRepositories;
 using BookShopAPI.Application.Repositories.MailAuthenticationRepositories;
+using BookShopAPI.Application.Repositories.MailComfirmCodeRepositories;
 using BookShopAPI.Application.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Application.Repositories.OtpRecoveryCodeRepositories;
 using BookShopAPI.Application.Repositories.PhoneNumberRepositories;
@@ -27,6 +28,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.CategoryRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.ClaimRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.FileRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.MailAuthenticationRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.MailComfirmCodeRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpRecoveryCodeRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.PhoneNumberRepositories;
@@ -99,6 +101,9 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<IUserReadRepository, UserReadRepository>();
             services.AddScoped<IUserWriteRepository, UserWriteRepository>();
+
+            services.AddScoped<IMailComfirmCodeReadRepository,MailComfirmCodeReadRepository>();
+            services.AddScoped<IMailComfirmCodeWriteRepository, MailComfirmCodeWriteRepository>();
         }
     }
 }

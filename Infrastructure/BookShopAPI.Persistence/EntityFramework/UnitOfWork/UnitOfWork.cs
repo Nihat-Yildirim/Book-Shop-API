@@ -11,7 +11,7 @@ namespace BookShopAPI.Persistence.EntityFramework.UnitOfWork
             _context = context;
         }
 
-        public async Task<int> SaveChangeAsync()
+        public async Task<int> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync();
         }

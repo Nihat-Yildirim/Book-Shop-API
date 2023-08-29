@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -19,10 +20,6 @@
     <ProjectReference Include="..\..\Core\BookShopAPI.Application\BookShopAPI.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BookShopAPI.Infrastructure\BookShopAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BookShopAPI.Persistence\BookShopAPI.Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

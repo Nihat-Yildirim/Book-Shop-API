@@ -88,4 +88,8 @@ D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\MimeKit.dl
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\Otp.NET.dll
-D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\MediatR.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\MediatR.Contracts.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\AutoMapper.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

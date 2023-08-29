@@ -16,7 +16,6 @@ namespace BookShopAPI.Domain.Entities
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }
-        public bool IsComfirmed { get; set; }
         public byte[]? PasswordHash { get; set; }
         public byte[]? PasswordSalt { get; set; }
         public AuthenticatorType AuthenticatorType { get; set; }
@@ -25,8 +24,9 @@ namespace BookShopAPI.Domain.Entities
         public FileEntity? File { get; set; }
         public UserClaim? UserClaim { get; set; }
         public RefreshToken? RefreshToken { get; set; }
+        public MailComfirmCode? MailComfirmCode { get; set; }
         public MailAuthentication? MailAuthentication { get; set; }
-        public OtpAuthentication OtpAuthentication { get; set; }
+        public OtpAuthentication? OtpAuthentication { get; set; }
         public ICollection<Basket> Baskets { get; set; }
         public ICollection<Address> Addresses { get; set; }
         public ICollection<PhoneNumberEntity> PhoneNumbers { get; set; }

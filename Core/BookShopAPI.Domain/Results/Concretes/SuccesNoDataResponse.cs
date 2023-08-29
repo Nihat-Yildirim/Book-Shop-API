@@ -4,11 +4,11 @@ namespace BookShopAPI.Domain.Results.Concretes
 {
     public class SuccesNoDataResponse : BaseResponse
     {
-        public SuccesNoDataResponse(string message) : base(false, message)
+        public SuccesNoDataResponse(string message) : base(true, message)
         {
         }
 
-        public SuccesNoDataResponse() : base(false)
+        public SuccesNoDataResponse() : base(true)
         {
         }
     }
