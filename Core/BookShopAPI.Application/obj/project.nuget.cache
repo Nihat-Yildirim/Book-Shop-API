@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "2FY7PMk2SNsIV+wFMSQpCjzzmYEvnHCy4CFHdgkUsBwazlaG+YVzUI8XeXJgnQlF93jTRu29VCqxzxFm3epD5A==",
+  "dgSpecHash": "VAiGQlGWG4N8q2DdKqdFQIN8L7zUoHFfvo/HuMBD3tebwJz4yG8jr14fFe+nApYdPSFIIBjfS/ETBzafWPkgJA==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\BookShopAPI\\Core\\BookShopAPI.Application\\BookShopAPI.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nihat\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mailkit\\4.1.0\\mailkit.4.1.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

@@ -93,3 +93,7 @@ D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\MediatR.Co
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\AutoMapper.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\FluentValidation.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.MvcApplicationPartsAssemblyInfo.cs

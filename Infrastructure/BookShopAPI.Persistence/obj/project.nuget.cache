@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "n7PVvRV71wHfIjtS+pKAG/KOHsxDi0BhjTIO1SasgGAQ0gd1kiVpEvhJBnzQgC+ILTVz/Qkjf3/0By8iKHTCRw==",
+  "dgSpecHash": "AtIoFFB7/GMxMkY+0S0kBzix0VdjM8RY95lnSrfaR02Ag8zhQ6wDe4B7YmuOYFSzJZ3/UVxwkzvk9DBfy/p2qQ==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\BookShopAPI\\Infrastructure\\BookShopAPI.Persistence\\BookShopAPI.Persistence.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,9 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mailkit\\4.1.0\\mailkit.4.1.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
