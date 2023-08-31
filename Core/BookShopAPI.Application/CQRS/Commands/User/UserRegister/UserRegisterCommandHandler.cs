@@ -1,19 +1,17 @@
-﻿using BookShopAPI.Application.Mailing;
+﻿using AutoMapper;
+using BookShopAPI.Application.Helpers.Hashing;
+using BookShopAPI.Application.Helpers.RandomNumber;
+using BookShopAPI.Application.Mailing;
 using BookShopAPI.Application.Repositories.UserRepositories;
 using BookShopAPI.Application.UnitOfWork;
-using UserEntity = BookShopAPI.Domain.Entities.User;
+using BookShopAPI.Domain.Enums;
+using BookShopAPI.Domain.Mailing;
 using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
 using MediatR;
-using BookShopAPI.Application.Helpers.Hashing;
-using BookShopAPI.Domain.Enums;
-using BookShopAPI.Application.Repositories.MailComfirmCodeRepositories;
-using BookShopAPI.Domain.Mailing;
-using BookShopAPI.Application.Helpers.RandomNumber;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+using UserEntity = BookShopAPI.Domain.Entities.User;
 
-namespace BookShopAPI.Application.CQRS.Commands.User.UserRegister
+namespace BookShopAPI.Application.CQRS.Commands.User.CustomerRegister
 {
     public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommandRequest, BaseResponse>
     {
@@ -61,6 +59,12 @@ namespace BookShopAPI.Application.CQRS.Commands.User.UserRegister
             addedUser.PasswordHash = passwordHash;
             addedUser.PasswordSalt = passwordSalt;
             addedUser.AuthenticatorType = (int)AuthenticatorType.None;
+
+            addedUser.UserClaim = new()
+            {
+                ClaimId = (int)Claims.Customer
+            };
+
             addedUser.MailComfirmCode = new()
             {
                 ComfirmCode = comfirmCode,

@@ -1,4 +1,4 @@
-﻿using BookShopAPI.Application.CQRS.Commands.User.UserRegister;
+﻿using BookShopAPI.Application.CQRS.Commands.User.CustomerRegister;
 using FluentValidation;
 
 namespace BookShopAPI.Application.Validators.UserValidators

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using BookShopAPI.Application.CQRS.Commands.User.UserRegister;
+using BookShopAPI.Application.CQRS.Commands.User.CustomerRegister;
+using BookShopAPI.Application.DTOs.UserDTOs;
 using BookShopAPI.Domain.Entities;
 
 namespace BookShopAPI.Application.Mapping
@@ -9,6 +10,7 @@ namespace BookShopAPI.Application.Mapping
         public MapProfile()
         {
             CreateMap<UserRegisterCommandRequest, User>();
+            CreateMap<User,UserForAdminDto>();
         }
     }
 }

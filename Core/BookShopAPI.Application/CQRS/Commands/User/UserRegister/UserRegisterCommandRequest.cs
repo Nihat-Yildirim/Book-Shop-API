@@ -1,7 +1,7 @@
 ﻿using BookShopAPI.Domain.Results.Abstracts;
 using MediatR;
 
-namespace BookShopAPI.Application.CQRS.Commands.User.UserRegister
+namespace BookShopAPI.Application.CQRS.Commands.User.CustomerRegister
 {
     public class UserRegisterCommandRequest :IRequest<BaseResponse>
     {

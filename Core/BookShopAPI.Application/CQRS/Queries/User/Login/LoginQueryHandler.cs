@@ -71,6 +71,7 @@ namespace BookShopAPI.Application.CQRS.Queries.User.Login
             {
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
+                UserId = selectedUser.Id
             };
 
             return new SuccessDataResponse<ResultTokenDto>(resultToken);
