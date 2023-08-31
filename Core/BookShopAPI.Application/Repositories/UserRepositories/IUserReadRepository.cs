@@ -7,5 +7,6 @@ namespace BookShopAPI.Application.Repositories.UserRepositories
     public interface IUserReadRepository : IReadRepository<User>
     {
         Task<User> GetUserWithMailComfirmCode(Expression<Func<User, bool>> filter , bool tracing = true);
+        Task<User> GetUserWithUserAvatarFile(Expression<Func<User, bool>> filter, bool tracing = true);
     }
 }

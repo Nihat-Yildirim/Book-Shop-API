@@ -1,4 +1,6 @@
 ﻿using BookShopAPI.API.Controllers.Common;
+using BookShopAPI.Application.CQRS.Commands.User.AddUserAvatar;
+using BookShopAPI.Application.CQRS.Commands.User.DeleteUserAvatar;
 using BookShopAPI.Application.CQRS.Commands.User.UpdateUserProfile;
 using BookShopAPI.Application.CQRS.Queries.User.GetUsers;
 using MediatR;
@@ -15,13 +17,13 @@ namespace BookShopAPI.API.Controllers
         [HttpGet("GetUsers")]
         public async Task<IActionResult> GetUsers([FromQuery] GetUsersQueryRequest request)
         {
-            return await ActionDataResponse(request);
+            return await DataResponse(request);
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateUserProfile([FromQuery] UpdateUserProfileCommandRequest request)
         {
-            return await ActionNoDataResponse(request);
+            return await NoDataResponse(request);
         }
     }
 }

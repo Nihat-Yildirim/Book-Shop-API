@@ -17,7 +17,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .IsRequired();
 
             builder.Property(x => x.FilePath)
-                .HasColumnType(SqlServerColumnType.VarChar)
+                .HasColumnType(SqlServerColumnType.VarChar + "(MAX)")
                 .IsRequired();
 
             builder.Property(x => x.FileExtension)

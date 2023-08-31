@@ -22,4 +22,8 @@
     <ProjectReference Include="..\..\Infrastructure\BookShopAPI.Persistence\BookShopAPI.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\UserAvatars\" />
+  </ItemGroup>
+
 </Project>

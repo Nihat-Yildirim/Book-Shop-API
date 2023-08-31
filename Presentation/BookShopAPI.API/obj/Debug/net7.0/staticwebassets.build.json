@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "X7GkluKOZFx8aRINT33lsaS2ky/KVeaVDybRl4mPAYQ=",
+  "Hash": "JIfFtYOkqAQoTNfXZaor8MpMwfIwu5xHNDKQoObbRbI=",
   "Source": "BookShopAPI.API",
   "BasePath": "_content/BookShopAPI.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "BookShopAPI.API\\wwwroot",
+      "Source": "BookShopAPI.API",
+      "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg",
+      "SourceId": "BookShopAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI.API",
+      "RelativePath": "UserAvatars/c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserAvatars\\c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg"
+    }
+  ]
 }

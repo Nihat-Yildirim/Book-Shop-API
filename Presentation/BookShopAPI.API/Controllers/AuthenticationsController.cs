@@ -16,19 +16,19 @@ namespace BookShopAPI.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UserRegister([FromQuery] UserRegisterCommandRequest request)
         {
-            return await ActionNoDataResponse(request);
+            return await NoDataResponse(request);
         }
 
         [HttpPut]
         public async Task<IActionResult> VerifyMailComfirmCode([FromQuery] VerifyMailComfirmCodeCommandRequest request)
         {
-            return await ActionNoDataResponse(request);
+            return await NoDataResponse(request);
         }
 
         [HttpGet]
         public async Task<IActionResult> Login([FromQuery] LoginQueryRequest request)
         {
-            return await ActionDataResponse(request);
+            return await DataResponse(request);
         }
     }
 }

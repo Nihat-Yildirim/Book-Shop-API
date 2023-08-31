@@ -16,7 +16,7 @@ namespace BookShopAPI.API.Controllers.Common
         }
 
         [NonAction]
-        public async Task<IActionResult> ActionNoDataResponse(IRequest<BaseResponse> request)
+        public async Task<IActionResult> NoDataResponse(IRequest<BaseResponse> request)
         {
             var response = await _mediator.Send(request);
 
@@ -27,7 +27,7 @@ namespace BookShopAPI.API.Controllers.Common
         }
 
         [NonAction]
-        public async Task<IActionResult> ActionDataResponse<TResponseParameters>(IRequest<BaseDataResponse<TResponseParameters>> request)
+        public async Task<IActionResult> DataResponse<TResponseParameters>(IRequest<BaseDataResponse<TResponseParameters>> request)
             where TResponseParameters : class , new()
         {
             var response = await _mediator.Send(request);
