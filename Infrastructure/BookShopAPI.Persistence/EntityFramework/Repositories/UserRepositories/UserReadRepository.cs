@@ -13,6 +13,16 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
         {
         }
 
+        public async Task<User> GetUserWithAddress(Expression<Func<User, bool>> filter, bool tracing = true)
+        {
+            var query = Table.Include(x => x.Addresses);
+
+            if (!tracing)
+                query.AsNoTracking();
+
+            return await query.SingleOrDefaultAsync(filter);
+        }
+
         public async Task<User> GetUserWithMailComfirmCode(Expression<Func<User, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.MailComfirmCode);

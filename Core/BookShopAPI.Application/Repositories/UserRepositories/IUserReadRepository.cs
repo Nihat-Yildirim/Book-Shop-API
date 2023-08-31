@@ -8,5 +8,6 @@ namespace BookShopAPI.Application.Repositories.UserRepositories
     {
         Task<User> GetUserWithMailComfirmCode(Expression<Func<User, bool>> filter , bool tracing = true);
         Task<User> GetUserWithUserAvatarFile(Expression<Func<User, bool>> filter, bool tracing = true);
+        Task<User> GetUserWithAddress(Expression<Func<User, bool>> filter, bool tracing = true);
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShopAPI.Application.CQRS.Queries.User.Login
 {
-    public class LoginQueryHandler : IRequestHandler<LoginQueryRequest, BaseDataResponse<ResultTokenDto>>
+    public class LoginQueryHandler : IRequestHandler<LoginQueryRequest, BaseDataResponse<TokenDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAccessTokenService _accessTokenService;
@@ -27,7 +27,7 @@ namespace BookShopAPI.Application.CQRS.Queries.User.Login
             _userClaimReadRepository = userClaimReadRepository;
         }
 
-        public async Task<BaseDataResponse<ResultTokenDto>> Handle(LoginQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<TokenDto>> Handle(LoginQueryRequest request, CancellationToken cancellationToken)
         {
             var selectedUser = await _userReadRepository.Table
                                 .Include(x => x.RefreshToken)
@@ -35,18 +35,18 @@ namespace BookShopAPI.Application.CQRS.Queries.User.Login
                                 .SingleOrDefaultAsync(x => x.Email == request.Email);
 
             if (selectedUser == null)
-                return new FailDataResponse<ResultTokenDto>();
+                return new FailDataResponse<TokenDto>();
 
             if (!selectedUser.MailComfirmCode.IsComfirm)
-                return new FailDataResponse<ResultTokenDto>();
+                return new FailDataResponse<TokenDto>();
 
             if (selectedUser.DeletedDate != default)
-                return new FailDataResponse<ResultTokenDto>();
+                return new FailDataResponse<TokenDto>();
 
             var isVerify = HashingHelper.VerifyPasswordHash(request.Password, selectedUser.PasswordHash, selectedUser.PasswordSalt);
 
             if (!isVerify)
-                return new FailDataResponse<ResultTokenDto>();
+                return new FailDataResponse<TokenDto>();
 
             var userClaims = await _userClaimReadRepository.GetWhere(x => x.UserId == selectedUser.Id).Include(x => x.Claim).ToListAsync();
             var refreshToken = _refreshTokenService.CreateRefreshToken();
@@ -67,14 +67,14 @@ namespace BookShopAPI.Application.CQRS.Queries.User.Login
 
             await _unitOfWork.SaveChangesAsync();
 
-            ResultTokenDto resultToken = new()
+            TokenDto resultToken = new()
             {
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
                 UserId = selectedUser.Id
             };
 
-            return new SuccessDataResponse<ResultTokenDto>(resultToken);
+            return new SuccessDataResponse<TokenDto>(resultToken);
         }
     }
 }
