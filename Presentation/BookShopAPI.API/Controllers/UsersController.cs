@@ -1,6 +1,4 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.User.AddUserAvatar;
-using BookShopAPI.Application.CQRS.Commands.User.DeleteUserAvatar;
 using BookShopAPI.Application.CQRS.Commands.User.UpdateUserProfile;
 using BookShopAPI.Application.CQRS.Queries.User.GetUsers;
 using MediatR;

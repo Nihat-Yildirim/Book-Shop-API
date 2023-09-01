@@ -31,7 +31,7 @@ namespace BookShopAPI.Application.CQRS.Commands.Address.DeleteAddress
 
             selectedUser.Addresses.Remove(deletedAddress);
 
-            foreach(var address in selectedUser.Addresses)
+            foreach(var address in selectedUser.Addresses.ToList().OrderByDescending(x => x.UpdatedDate))
             {
                 address.Selected = true;
                 break;

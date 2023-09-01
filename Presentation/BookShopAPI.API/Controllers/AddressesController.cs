@@ -4,7 +4,6 @@ using BookShopAPI.Application.CQRS.Commands.Address.DeleteAddress;
 using BookShopAPI.Application.CQRS.Commands.Address.UpdateAddress;
 using BookShopAPI.Application.CQRS.Queries.Address.GetAllAddress;
 using BookShopAPI.Application.CQRS.Queries.Address.GetAllAddressByUserId;
-using BookShopAPI.Application.DTOs.AddressDTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -30,8 +30,8 @@ namespace BookShopAPI.Application.CQRS.Commands.Address.UpdateAddress
                 return new FailNoDataResponse();
 
             if (updatedAddress.Selected != request.Selected && updatedAddress.Selected == true)
-                foreach (var address in selectedUser.Addresses)
-                    if (address.Id != updatedAddress.Id)
+                foreach (var address in selectedUser.Addresses.ToList().OrderByDescending(x => x.UpdatedDate))
+                    if (address.Id != updatedAddress.Id && address.DeletedDate != null)
                     {
                         address.Selected = true;
                         break;
@@ -44,6 +44,9 @@ namespace BookShopAPI.Application.CQRS.Commands.Address.UpdateAddress
             updatedAddress.Neighbourhood = request.Neighbourhood;
             updatedAddress.OpenAddress = request.OpenAddress;
             updatedAddress.Selected = request.Selected;
+
+            if (selectedUser.Addresses.Count == 1)
+                updatedAddress.Selected = true;
 
             await _unitOfWork.SaveChangesAsync();
 

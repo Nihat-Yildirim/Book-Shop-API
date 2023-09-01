@@ -24,7 +24,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.Property(x => x.PhoneNumber)
                 .HasColumnType(SqlServerColumnType.Char)
-                .HasMaxLength(12)
+                .HasMaxLength(10)
                 .IsRequired();
 
             builder.Property(x => x.Selected)

@@ -8,7 +8,7 @@ namespace BookShopAPI.API.Controllers.Common
     [ApiController]
     public abstract class BaseController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        public readonly IMediator _mediator;
 
         public BaseController(IMediator mediator)
         {

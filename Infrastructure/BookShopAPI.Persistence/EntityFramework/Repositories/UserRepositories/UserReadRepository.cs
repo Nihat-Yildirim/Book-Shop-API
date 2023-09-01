@@ -33,6 +33,16 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
             return await query.SingleOrDefaultAsync(filter);
         }
 
+        public async Task<User> GetUserWithPhoneNumber(Expression<Func<User, bool>> filter, bool tracing = true)
+        {
+            var query = Table.Include(x => x.PhoneNumbers);
+
+            if (!tracing)
+                query.AsNoTracking();
+
+            return await query.SingleOrDefaultAsync(filter);
+        }
+
         public async Task<User> GetUserWithUserAvatarFile(Expression<Func<User, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.File);
