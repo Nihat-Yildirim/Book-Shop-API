@@ -32,7 +32,7 @@ namespace BookShopAPI.Application.CQRS.Commands.User.CustomerRegister
 
         public async Task<BaseResponse> Handle(UserRegisterCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedUser = await _userReadRepository.GetUserWithMailComfirmCode(x => x.Email == request.Email);
+            var selectedUser = await _userReadRepository.GetUserWithMailComfirmCodeAsync(x => x.Email == request.Email);
 
             if (selectedUser != null)
                 return new FailNoDataResponse();

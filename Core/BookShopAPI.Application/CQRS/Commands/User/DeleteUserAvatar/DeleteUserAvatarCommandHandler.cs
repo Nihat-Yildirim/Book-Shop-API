@@ -26,7 +26,7 @@ namespace BookShopAPI.Application.CQRS.Commands.User.DeleteUserAvatar
 
         public async Task<BaseResponse> Handle(DeleteUserAvatarCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedUser = await _userReadRepository.GetUserWithUserAvatarFile(x => x.Id == request.UserId);
+            var selectedUser = await _userReadRepository.GetUserWithUserAvatarFileAsync(x => x.Id == request.UserId);
 
             if (selectedUser == null)
                 return new FailNoDataResponse();

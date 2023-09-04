@@ -21,7 +21,7 @@ namespace BookShopAPI.Application.CQRS.Queries.PhoneNumber.GetPhoneNumbersByUser
 
         public async Task<BaseDataResponse<List<PhoneNumberDto>>> Handle(GetPhoneNumbersByUserIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var phoneNumbers = await _phoneNumberReadRepository.GetWhere(x => x.UserId == request.UserId).ToListAsync();
+            var phoneNumbers = await _phoneNumberReadRepository.GetWhere(x => x.UserId == request.UserId,false).ToListAsync();
         
             var responsePhoneNumbers = _mapper.Map<List<PhoneNumberDto>>(phoneNumbers);
 

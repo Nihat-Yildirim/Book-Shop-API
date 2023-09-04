@@ -1,8 +1,12 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg",
-      "PackagePath": "staticwebassets\\UserAvatars\\c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg"
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg",
+      "PackagePath": "staticwebassets\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg",
+      "PackagePath": "staticwebassets\\UserAvatars\\6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BookShopAPI.API.Microsoft.AspNetCore.StaticWebAssets.props",

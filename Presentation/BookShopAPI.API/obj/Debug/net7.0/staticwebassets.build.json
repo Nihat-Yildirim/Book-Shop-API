@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JIfFtYOkqAQoTNfXZaor8MpMwfIwu5xHNDKQoObbRbI=",
+  "Hash": "61PTN6ioTaFn2ghl4QQFz8CKlRaKcrNISStmcZeR7lg=",
   "Source": "BookShopAPI.API",
   "BasePath": "_content/BookShopAPI.API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "UserAvatars/c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg",
+      "RelativePath": "AuthorPictures/874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserAvatars\\c1f5dd7e-85c4-4e74-b163-a5ee61d179c6.jpg"
+      "OriginalItemSpec": "wwwroot\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg"
+    },
+    {
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg",
+      "SourceId": "BookShopAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
+      "BasePath": "_content/BookShopAPI.API",
+      "RelativePath": "UserAvatars/6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserAvatars\\6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg"
     }
   ]
 }

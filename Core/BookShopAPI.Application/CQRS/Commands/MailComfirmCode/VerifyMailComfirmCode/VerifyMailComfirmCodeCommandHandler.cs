@@ -18,7 +18,7 @@ namespace BookShopAPI.Application.CQRS.Commands.MailComfirmCode.VerifyMailComfir
 
         public async Task<BaseResponse> Handle(VerifyMailComfirmCodeCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedUser = await _userReadRepository.GetUserWithMailComfirmCode(x => x.Email == request.Email);
+            var selectedUser = await _userReadRepository.GetUserWithMailComfirmCodeAsync(x => x.Email == request.Email);
 
             if (selectedUser == null)
                 return new FailNoDataResponse();

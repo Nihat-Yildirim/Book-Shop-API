@@ -24,18 +24,18 @@ namespace BookShopAPI.Application.CQRS.Commands.User.AddUserAvatar
 
         public async Task<BaseResponse> Handle(AddUserAvatarCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedUser = await _userReadRepository.GetUserWithUserAvatarFile(x => x.Id == request.UserId);
+            var selectedUser = await _userReadRepository.GetUserWithUserAvatarFileAsync(x => x.Id == request.UserId);
 
             if (selectedUser == null)
                 return new FailNoDataResponse();
 
-            var resultFile = await _storage.UploadFileAsync(request.UserAvatar,Paths.UserAvatarPath);
+            var resultFile = await _storage.UploadFileAsync(request.UserAvatar, Paths.UserAvatarPath);
 
             selectedUser.File = new()
             {
                 FileName = resultFile.FileName,
-                FilePath = resultFile.FilePath, 
-                FileExtension = resultFile.FileExtension,   
+                FilePath = resultFile.FilePath,
+                FileExtension = resultFile.FileExtension,
             };
 
             await _unitOfWork.SaveChangesAsync();

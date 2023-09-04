@@ -18,7 +18,7 @@ namespace BookShopAPI.Application.CQRS.Commands.PhoneNumber.UpdatePhoneNumber
 
         public async Task<BaseResponse> Handle(UpdatePhoneNumberCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedUser = await _userReadRepository.GetUserWithPhoneNumber(x => x.Id == request.UserId);
+            var selectedUser = await _userReadRepository.GetUserWithPhoneNumberAsync(x => x.Id == request.UserId);
 
             if (selectedUser == null)
                 return new FailNoDataResponse();

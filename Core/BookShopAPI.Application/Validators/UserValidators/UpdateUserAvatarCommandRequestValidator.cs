@@ -1,5 +1,6 @@
 ﻿using BookShopAPI.Application.CQRS.Commands.User.UpdateUserAvatar;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 
 namespace BookShopAPI.Application.Validators.UserValidators
 {
@@ -16,7 +17,24 @@ namespace BookShopAPI.Application.Validators.UserValidators
                 .NotEmpty()
                 .NotNull()
                 .Must(x => x?.Length > 0)
-                    .WithMessage("Dosya boyutu 0 dan büyük olsun");
+                    .WithMessage("Dosya boyutu 0 dan büyük olsun")
+                .Must(CheckPictureExtension)
+                    .WithMessage("Lütfen geçerli bir resim uzantılı dosya yollayın");
+        }
+
+        private bool CheckPictureExtension(IFormFile file)
+        {
+            List<string> extensions = new()
+            {
+                ".jpg",
+                ".jpeg",
+                ".png",
+            };
+
+            if (extensions.Contains(Path.GetExtension(file.FileName)))
+                return true;
+
+            return false;
         }
     }
 }

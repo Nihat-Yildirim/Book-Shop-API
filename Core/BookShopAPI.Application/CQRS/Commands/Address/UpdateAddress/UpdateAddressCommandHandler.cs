@@ -19,7 +19,7 @@ namespace BookShopAPI.Application.CQRS.Commands.Address.UpdateAddress
 
         public async Task<BaseResponse> Handle(UpdateAddressCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedUser = await _userReadRepository.GetUserWithAddress(x => x.Id == request.UserId);
+            var selectedUser = await _userReadRepository.GetUserWithAddressAsync(x => x.Id == request.UserId);
 
             if (selectedUser == null)
                 return new FailNoDataResponse();

@@ -13,7 +13,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
         {
         }
 
-        public async Task<User> GetUserWithAddress(Expression<Func<User, bool>> filter, bool tracing = true)
+        public async Task<User> GetUserWithAddressAsync(Expression<Func<User, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.Addresses);
 
@@ -23,7 +23,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
             return await query.SingleOrDefaultAsync(filter);
         }
 
-        public async Task<User> GetUserWithMailComfirmCode(Expression<Func<User, bool>> filter, bool tracing = true)
+        public async Task<User> GetUserWithMailComfirmCodeAsync(Expression<Func<User, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.MailComfirmCode);
 
@@ -33,7 +33,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
             return await query.SingleOrDefaultAsync(filter);
         }
 
-        public async Task<User> GetUserWithPhoneNumber(Expression<Func<User, bool>> filter, bool tracing = true)
+        public async Task<User> GetUserWithPhoneNumberAsync(Expression<Func<User, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.PhoneNumbers);
 
@@ -43,7 +43,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
             return await query.SingleOrDefaultAsync(filter);
         }
 
-        public async Task<User> GetUserWithUserAvatarFile(Expression<Func<User, bool>> filter, bool tracing = true)
+        public async Task<User> GetUserWithUserAvatarFileAsync(Expression<Func<User, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.File);
 
