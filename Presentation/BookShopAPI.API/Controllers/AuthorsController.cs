@@ -1,11 +1,16 @@
 ﻿using BookShopAPI.API.Controllers.Common;
 using BookShopAPI.Application.CQRS.Commands.Author.AddAuthor;
+using BookShopAPI.Application.CQRS.Commands.Author.AddAuthorPicture;
 using BookShopAPI.Application.CQRS.Commands.Author.DeleteAuthor;
+using BookShopAPI.Application.CQRS.Commands.Author.DeleteAuthorPicture;
 using BookShopAPI.Application.CQRS.Commands.Author.UpdateAuthor;
+using BookShopAPI.Application.CQRS.Commands.Author.UpdateAuthorPicture;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAllAuthorForAdmin;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAllAuthors;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorById;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByIdForAdmin;
+using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPatternForAdmin;
+using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorsByPattern;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -55,6 +60,36 @@ namespace BookShopAPI.API.Controllers
 
         [HttpPut("UpdateAuthor")]
         public async Task<IActionResult> UpdateAuthor([FromQuery] UpdateAuthorCommandRequest request)
+        {
+            return await NoDataResponse(request);
+        }
+
+        [HttpGet("GetAuthorByPattern")]
+        public async Task<IActionResult> GetAuthorByPattern([FromQuery] GetAuthorsByPatternQueryRequest request)
+        {
+            return await DataResponse(request);
+        }
+
+        [HttpGet("GetAuthorByPatternForAdmin")]
+        public async Task<IActionResult> GetAuthorByPatternForAdmin([FromQuery] GetAuthorByPatternForAdminQueryRequest request)
+        {
+            return await DataResponse(request);
+        }
+
+        [HttpPost("AddAuthorPicture")]
+        public async Task<IActionResult> AddAuthorPicture([FromForm] AddAuthorPictureCommandRequest request)
+        {
+            return await NoDataResponse(request);
+        }
+
+        [HttpPut("UpdateAuthorPicture")]
+        public async Task<IActionResult> UpdateAuthorPicture([FromForm] UpdateAuthorPictureCommandRequest request)
+        {
+            return await NoDataResponse(request);
+        }
+
+        [HttpDelete("DeleteAuthorPicture")]
+        public async Task<IActionResult> DeleteAuthorPicture([FromForm] DeleteAuthorPictureCommandRequest request)
         {
             return await NoDataResponse(request);
         }

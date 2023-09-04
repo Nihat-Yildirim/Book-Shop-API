@@ -21,7 +21,10 @@ namespace BookShopAPI.Application.CQRS.Queries.User.GetUsers
 
         public async Task<BaseDataResponse<List<UserForAdminDto>>> Handle(GetUsersQueryRequest request, CancellationToken cancellationToken)
         {
-            var resultUsers = await _userReadRepository.GetAll(false).ToListAsync();
+            var resultUsers = await _userReadRepository
+                                .GetAll(false)
+                                .Include(x => x.File)
+                                .ToListAsync();
 
             var responseUsers = _mapper.Map<List<UserForAdminDto>>(resultUsers);
 

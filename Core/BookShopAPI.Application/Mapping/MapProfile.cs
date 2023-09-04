@@ -17,7 +17,6 @@ namespace BookShopAPI.Application.Mapping
         {
             CreateMap<UserRegisterCommandRequest, User>();
             CreateMap<AddAddressCommandRequest, Address>();
-            CreateMap<User, UserForAdminDto>();
             CreateMap<Address, GetAddressForAdminDto>();
             CreateMap<Address, GetAddressDto>();
             CreateMap<AddPhoneNumberCommandRequest, PhoneNumberEntity>();
