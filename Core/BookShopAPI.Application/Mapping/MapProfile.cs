@@ -5,6 +5,7 @@ using BookShopAPI.Application.CQRS.Commands.PhoneNumber.AddPhoneNumber;
 using BookShopAPI.Application.CQRS.Commands.User.CustomerRegister;
 using BookShopAPI.Application.DTOs.AddressDTOs;
 using BookShopAPI.Application.DTOs.AuthorsDTOs;
+using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.DTOs.PhoneNumberDTOs;
 using BookShopAPI.Application.DTOs.UserDTOs;
 using BookShopAPI.Domain.Entities;
@@ -23,6 +24,7 @@ namespace BookShopAPI.Application.Mapping
             CreateMap<PhoneNumberEntity, PhoneNumberForAdminDto>();
             CreateMap<PhoneNumberEntity, PhoneNumberDto>();
             CreateMap<AddAuthorCommandRequest, Author>();
+            CreateMap<Category, CategoryDto>();
         }
     }
 }
