@@ -11,11 +11,13 @@ using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorById;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByIdForAdmin;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPattern;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPatternForAdmin;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
+    [AuthenticationFilter("Admin")]
     public class AuthorsController : BaseController
     {
         public AuthorsController(IMediator mediator) : base(mediator)

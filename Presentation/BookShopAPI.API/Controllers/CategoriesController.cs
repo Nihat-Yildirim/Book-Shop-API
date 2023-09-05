@@ -5,11 +5,13 @@ using BookShopAPI.Application.CQRS.Commands.Category.UpdateCategory;
 using BookShopAPI.Application.CQRS.Queries.Category.GetAllCategories;
 using BookShopAPI.Application.CQRS.Queries.Category.GetCategoriesByParentId;
 using BookShopAPI.Application.CQRS.Queries.Category.GetCategoryById;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
+    [AuthenticationFilter("Admin")]
     public class CategoriesController : BaseController
     {
         public CategoriesController(IMediator mediator) : base(mediator)
