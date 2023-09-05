@@ -18,23 +18,8 @@ namespace BookShopAPI.Application.Validators.UserValidators
                 .NotNull()
                 .Must(x => x?.Length > 0)
                     .WithMessage("Dosya boyutu 0 dan büyük olsun")
-                .Must(CheckPictureExtension)
+                .Must(CommonRules.CheckPictureExtension)
                     .WithMessage("Lütfen geçerli bir resim uzantılı dosya yollayın");
-        }
-
-        private bool CheckPictureExtension(IFormFile file)
-        {
-            List<string> extensions = new()
-            {
-                ".jpg",
-                ".jpeg",
-                ".png",
-            };
-
-            if (extensions.Contains(Path.GetExtension(file.FileName)))
-                return true;
-
-            return false;
         }
     }
 }

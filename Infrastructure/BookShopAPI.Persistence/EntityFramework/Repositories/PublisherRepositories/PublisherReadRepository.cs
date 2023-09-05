@@ -2,6 +2,8 @@
 using BookShopAPI.Domain.Entities;
 using BookShopAPI.Persistence.EntityFramework.Contexts;
 using BookShopAPI.Persistence.EntityFramework.Repositories.Abstracts;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace BookShopAPI.Persistence.EntityFramework.Repositories.PublisherRepositories
 {
@@ -9,6 +11,16 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.PublisherReposito
     {
         public PublisherReadRepository(BookShopDbContext context) : base(context)
         {
+        }
+
+        public async Task<Publisher> GetPublisherByPublisherLogoFile(Expression<Func<Publisher, bool>> filter, bool tracing = true)
+        {
+            var query = Table.Include(x => x.File);
+
+            if (!tracing)
+                query.AsNoTracking();
+
+            return await query.SingleOrDefaultAsync(filter);
         }
     }
 }

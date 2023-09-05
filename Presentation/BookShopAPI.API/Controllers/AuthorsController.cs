@@ -9,8 +9,8 @@ using BookShopAPI.Application.CQRS.Queries.Author.GetAllAuthorForAdmin;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAllAuthors;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorById;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByIdForAdmin;
+using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPattern;
 using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPatternForAdmin;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorsByPattern;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -65,7 +65,7 @@ namespace BookShopAPI.API.Controllers
         }
 
         [HttpGet("GetAuthorByPattern")]
-        public async Task<IActionResult> GetAuthorByPattern([FromQuery] GetAuthorsByPatternQueryRequest request)
+        public async Task<IActionResult> GetAuthorByPattern([FromQuery] GetAuthorByPatternQueryRequest request)
         {
             return await DataResponse(request);
         }

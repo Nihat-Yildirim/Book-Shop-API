@@ -6,9 +6,9 @@ using BookShopAPI.Domain.Results.Concretes;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookShopAPI.Application.CQRS.Queries.Author.GetAuthorsByPattern
+namespace BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPattern
 {
-    public class GetAuthorByPatternQueryHandler : IRequestHandler<GetAuthorsByPatternQueryRequest, BaseDataResponse<List<AuthorDto>>>
+    public class GetAuthorByPatternQueryHandler : IRequestHandler<GetAuthorByPatternQueryRequest, BaseDataResponse<List<AuthorDto>>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorReadRepository _authorReadRepository;
@@ -19,7 +19,7 @@ namespace BookShopAPI.Application.CQRS.Queries.Author.GetAuthorsByPattern
             _mapper = mapper;
         }
 
-        public async Task<BaseDataResponse<List<AuthorDto>>> Handle(GetAuthorsByPatternQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<List<AuthorDto>>> Handle(GetAuthorByPatternQueryRequest request, CancellationToken cancellationToken)
         {
             var authors = await _authorReadRepository
                 .GetWhere(x => x.DeletedDate == null && x.FirstName.Contains(request.Pattern) || x.LastName.Contains(request.Pattern), false)

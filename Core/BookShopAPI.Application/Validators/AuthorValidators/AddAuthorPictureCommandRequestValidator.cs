@@ -18,23 +18,8 @@ namespace BookShopAPI.Application.Validators.AuthorValidators
                 .NotNull()
                 .Must(x => x.Length > 0)
                     .WithMessage("Lütfen bir dosya giriniz")
-                .Must(CheckPictureExtension)
+                .Must(CommonRules.CheckPictureExtension)
                     .WithMessage("Lütfen geçerli bir resim uzatısı giriniz");
-        }
-
-        private bool CheckPictureExtension(IFormFile file)
-        {
-            List<string> extensions = new()
-            {
-                ".jpg",
-                ".jpeg",
-                ".png",
-            };
-
-            if(extensions.Contains(Path.GetExtension(file.FileName)))
-                return true;
-
-            return false;
         }
     }
 }

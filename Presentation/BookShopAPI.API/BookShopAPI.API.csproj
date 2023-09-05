@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\AuthorPictures\" />
+    <Folder Include="wwwroot\PublisherLogos\" />
     <Folder Include="wwwroot\UserAvatars\" />
   </ItemGroup>
 

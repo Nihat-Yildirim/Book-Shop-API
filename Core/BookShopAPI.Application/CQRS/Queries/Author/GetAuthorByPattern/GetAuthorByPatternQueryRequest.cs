@@ -2,9 +2,9 @@
 using BookShopAPI.Domain.Results.Abstracts;
 using MediatR;
 
-namespace BookShopAPI.Application.CQRS.Queries.Author.GetAuthorsByPattern
+namespace BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPattern
 {
-    public class GetAuthorsByPatternQueryRequest : IRequest<BaseDataResponse<List<AuthorDto>>>
+    public class GetAuthorByPatternQueryRequest : IRequest<BaseDataResponse<List<AuthorDto>>>
     {
         public string? Pattern { get; set; }
     }
