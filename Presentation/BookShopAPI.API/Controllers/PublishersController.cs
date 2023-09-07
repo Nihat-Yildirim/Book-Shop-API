@@ -1,19 +1,19 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.Publisher.AddPublisher;
-using BookShopAPI.Application.CQRS.Commands.Publisher.DeletePublisher;
-using BookShopAPI.Application.CQRS.Commands.Publisher.UpdatePublisher;
-using BookShopAPI.Application.CQRS.Commands.Publisher.UpdatePublisherLogo;
-using BookShopAPI.Application.CQRS.Queries.Publisher.GetAllPublishers;
-using BookShopAPI.Application.CQRS.Queries.Publisher.GetPublisherById;
-using BookShopAPI.Application.CQRS.Queries.Publisher.GetPublisherByPattern;
-using BookShopAPI.Application.CQRS.Queries.Publisher.GetPublisherByPatternForAdmin;
+using BookShopAPI.Application.CQRS.Commands.PublisherCommands.AddPublisher;
+using BookShopAPI.Application.CQRS.Commands.PublisherCommands.DeletePublisher;
+using BookShopAPI.Application.CQRS.Commands.PublisherCommands.UpdatePublisher;
+using BookShopAPI.Application.CQRS.Commands.PublisherCommands.UpdatePublisherLogo;
+using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetAllPublishers;
+using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherById;
+using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherByPattern;
+using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherByPatternForAdmin;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
-    [AuthenticationFilter("Admin")]
+    [AuthorizationFilter("Admin")]
     public class PublishersController : BaseController
     {
         public PublishersController(IMediator mediator) : base(mediator)

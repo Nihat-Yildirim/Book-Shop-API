@@ -9,6 +9,38 @@
       "PackagePath": "staticwebassets\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg"
     },
     {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\1bb42ec9-57f6-4e0f-9988-9c283bb2ecc8.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\1bb42ec9-57f6-4e0f-9988-9c283bb2ecc8.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\212eded5-71b8-4dca-bdb7-b422a7385c6b.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\212eded5-71b8-4dca-bdb7-b422a7385c6b.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\26683817-8399-4511-89af-89a8223d8eef.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\26683817-8399-4511-89af-89a8223d8eef.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\486e326f-c900-458f-9e0f-9c78d74fbe18.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\486e326f-c900-458f-9e0f-9c78d74fbe18.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\895ff4b6-78c9-414b-a564-53c36de0fbe1.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\895ff4b6-78c9-414b-a564-53c36de0fbe1.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\b3ceb6ab-a079-4337-8a96-f0ef9cf6307b.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\b3ceb6ab-a079-4337-8a96-f0ef9cf6307b.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\c26d3c99-8b1e-4267-b505-574f11cfb2ad.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\c26d3c99-8b1e-4267-b505-574f11cfb2ad.jpg"
+    },
+    {
+      "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\d613d3f6-c98a-4d58-8378-18fe4b0e002c.jpg",
+      "PackagePath": "staticwebassets\\BookPictures\\d613d3f6-c98a-4d58-8378-18fe4b0e002c.jpg"
+    },
+    {
       "Id": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\1795b630-459d-4874-8563-52f1e07ed7e5.jpg",
       "PackagePath": "staticwebassets\\PublisherLogos\\1795b630-459d-4874-8563-52f1e07ed7e5.jpg"
     },

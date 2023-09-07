@@ -10,7 +10,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.Abstracts
         where TEntity : BaseEntity, new()
     {
         public DbSet<TEntity> Table { get; }
-        private readonly BookShopDbContext _context;
+        public readonly BookShopDbContext _context;
         public BaseReadRepository(BookShopDbContext context)
         {
             _context = context;
@@ -55,6 +55,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.Abstracts
                 query = query.AsNoTracking();
 
             return await query.SingleOrDefaultAsync(filter);
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter)
+        {
+            return await Table.AnyAsync(filter);
         }
     }
 }

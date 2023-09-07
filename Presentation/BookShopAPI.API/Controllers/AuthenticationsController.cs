@@ -1,9 +1,9 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.MailComfirmCode.VerifyMailComfirmCode;
-using BookShopAPI.Application.CQRS.Commands.User.CustomerRegister;
-using BookShopAPI.Application.CQRS.Commands.UserClaim.UpdateUserClaim;
-using BookShopAPI.Application.CQRS.Queries.User.Login;
-using BookShopAPI.Application.CQRS.Queries.User.RefreshTokenLogin;
+using BookShopAPI.Application.CQRS.Commands.MailComfirmCodeCommands.VerifyMailComfirmCode;
+using BookShopAPI.Application.CQRS.Commands.UserClaimCommands.UpdateUserClaim;
+using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
+using BookShopAPI.Application.CQRS.Queries.UserQueries.Login;
+using BookShopAPI.Application.CQRS.Queries.UserQueries.RefreshTokenLogin;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

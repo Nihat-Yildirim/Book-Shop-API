@@ -1,4 +1,5 @@
 ﻿using BookShopAPI.Domain.Entities.Common;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace BookShopAPI.Application.Repositories.Abstracts
@@ -10,5 +11,6 @@ namespace BookShopAPI.Application.Repositories.Abstracts
         IQueryable<TEntity> GetAll(bool tracing = true);
         Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> filter, bool tracing = true);
         Task<TEntity> GetByIdAsync(int id, bool tracing = true);
+        Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter);
     }
 }

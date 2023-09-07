@@ -39,6 +39,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Contexts
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<FileEntity> Files { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Language> Languages { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<UserClaim> UserClaims { get; set; }
         public DbSet<Publisher> Publishers { get; set; }

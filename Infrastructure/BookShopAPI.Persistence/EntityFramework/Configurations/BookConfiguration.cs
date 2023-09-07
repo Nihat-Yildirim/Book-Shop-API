@@ -22,11 +22,6 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasMaxLength(50)
                 .IsRequired();
 
-            builder.Property(x => x.Language)
-                .HasColumnType(SqlServerColumnType.VarChar)
-                .HasMaxLength(15)
-                .IsRequired();
-
             builder.Property(x => x.ISBN)
                 .HasColumnType(SqlServerColumnType.VarChar)
                 .HasMaxLength(50)

@@ -1,9 +1,9 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.Address.AddAddress;
-using BookShopAPI.Application.CQRS.Commands.Address.DeleteAddress;
-using BookShopAPI.Application.CQRS.Commands.Address.UpdateAddress;
-using BookShopAPI.Application.CQRS.Queries.Address.GetAllAddress;
-using BookShopAPI.Application.CQRS.Queries.Address.GetAllAddressByUserId;
+using BookShopAPI.Application.CQRS.Commands.AddressCommands.AddAddress;
+using BookShopAPI.Application.CQRS.Commands.AddressCommands.DeleteAddress;
+using BookShopAPI.Application.CQRS.Commands.AddressCommands.UpdateAddress;
+using BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddress;
+using BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddressByUserId;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -16,35 +16,35 @@ namespace BookShopAPI.API.Controllers
         {
         }
 
-        [AuthenticationFilter("User")]
+        [AuthorizationFilter("User")]
         [HttpPost]
         public async Task<IActionResult> AddAddress([FromQuery] AddAddressCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthenticationFilter("User")]
+        [AuthorizationFilter("User")]
         [HttpPut]
         public async Task<IActionResult> UpdateAddress([FromQuery] UpdateAddressCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthenticationFilter("User")]
+        [AuthorizationFilter("User")]
         [HttpDelete]
         public async Task<IActionResult> DeleteAddress([FromQuery] DeleteAddressCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthenticationFilter("Admin")]
+        [AuthorizationFilter("Admin")]
         [HttpGet]   
         public async Task<IActionResult> GetAllAddress([FromQuery] GetAllAddressQueryRequest request)
         {
             return await DataResponse(request);
         }
 
-        [AuthenticationFilter("User")]
+        [AuthorizationFilter("User")]
         [HttpGet("GetAllAddressByUserId")]
         public async Task<IActionResult> GetAllAddressByUserId([FromQuery] GetAllAddressByUserIdQueryRequest request)
         {

@@ -1,17 +1,17 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.Category.AddCategory;
-using BookShopAPI.Application.CQRS.Commands.Category.DeleteCategory;
-using BookShopAPI.Application.CQRS.Commands.Category.UpdateCategory;
-using BookShopAPI.Application.CQRS.Queries.Category.GetAllCategories;
-using BookShopAPI.Application.CQRS.Queries.Category.GetCategoriesByParentId;
-using BookShopAPI.Application.CQRS.Queries.Category.GetCategoryById;
+using BookShopAPI.Application.CQRS.Commands.CategoryCommands.AddCategory;
+using BookShopAPI.Application.CQRS.Commands.CategoryCommands.DeleteCategory;
+using BookShopAPI.Application.CQRS.Commands.CategoryCommands.UpdateCategory;
+using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetAllCategories;
+using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetCategoriesByParentId;
+using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetCategoryById;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
-    [AuthenticationFilter("Admin")]
+    [AuthorizationFilter("Admin")]
     public class CategoriesController : BaseController
     {
         public CategoriesController(IMediator mediator) : base(mediator)

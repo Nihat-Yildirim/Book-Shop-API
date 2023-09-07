@@ -6,6 +6,6 @@ namespace BookShopAPI.Application.Repositories.PublisherRepositories
 {
     public interface IPublisherReadRepository : IReadRepository<Publisher>
     {
-        Task<Publisher> GetPublisherByPublisherLogoFile(Expression<Func<Publisher, bool>> filter,bool tracing = true);
+        Task<Publisher> GetPublisherByPublisherLogoFileAsync(Expression<Func<Publisher, bool>> filter,bool tracing = true);
     }
 }

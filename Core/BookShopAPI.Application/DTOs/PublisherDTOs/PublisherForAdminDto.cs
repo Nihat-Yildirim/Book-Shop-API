@@ -1,5 +1,4 @@
 ﻿using BookShopAPI.Application.DTOs.Common;
-using BookShopAPI.Domain.Entities;
 
 namespace BookShopAPI.Application.DTOs.PublisherDTOs
 {

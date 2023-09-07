@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using BookShopAPI.Application.CQRS.Commands.Address.AddAddress;
-using BookShopAPI.Application.CQRS.Commands.Author.AddAuthor;
-using BookShopAPI.Application.CQRS.Commands.PhoneNumber.AddPhoneNumber;
-using BookShopAPI.Application.CQRS.Commands.User.CustomerRegister;
+using BookShopAPI.Application.CQRS.Commands.AddressCommands.AddAddress;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor;
+using BookShopAPI.Application.CQRS.Commands.PhoneNumberCommands.AddPhoneNumber;
+using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
 using BookShopAPI.Application.DTOs.AddressDTOs;
-using BookShopAPI.Application.DTOs.AuthorsDTOs;
 using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.DTOs.PhoneNumberDTOs;
-using BookShopAPI.Application.DTOs.UserDTOs;
 using BookShopAPI.Domain.Entities;
 
 namespace BookShopAPI.Application.Mapping

@@ -13,7 +13,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.PublisherReposito
         {
         }
 
-        public async Task<Publisher> GetPublisherByPublisherLogoFile(Expression<Func<Publisher, bool>> filter, bool tracing = true)
+        public async Task<Publisher> GetPublisherByPublisherLogoFileAsync(Expression<Func<Publisher, bool>> filter, bool tracing = true)
         {
             var query = Table.Include(x => x.File);
 

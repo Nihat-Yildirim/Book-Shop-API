@@ -1,23 +1,23 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.Author.AddAuthor;
-using BookShopAPI.Application.CQRS.Commands.Author.AddAuthorPicture;
-using BookShopAPI.Application.CQRS.Commands.Author.DeleteAuthor;
-using BookShopAPI.Application.CQRS.Commands.Author.DeleteAuthorPicture;
-using BookShopAPI.Application.CQRS.Commands.Author.UpdateAuthor;
-using BookShopAPI.Application.CQRS.Commands.Author.UpdateAuthorPicture;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAllAuthorForAdmin;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAllAuthors;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorById;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByIdForAdmin;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPattern;
-using BookShopAPI.Application.CQRS.Queries.Author.GetAuthorByPatternForAdmin;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthorPicture;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.DeleteAuthor;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.DeleteAuthorPicture;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.UpdateAuthor;
+using BookShopAPI.Application.CQRS.Commands.AuthorCommands.UpdateAuthorPicture;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthorForAdmin;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthors;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorById;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByIdForAdmin;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPattern;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPatternForAdmin;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
-    [AuthenticationFilter("Admin")]
+    [AuthorizationFilter("Admin")]
     public class AuthorsController : BaseController
     {
         public AuthorsController(IMediator mediator) : base(mediator)

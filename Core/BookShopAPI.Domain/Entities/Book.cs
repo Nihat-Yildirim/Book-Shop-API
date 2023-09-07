@@ -12,8 +12,8 @@ namespace BookShopAPI.Domain.Entities
         }
 
         public int PublisherId { get; set; }
+        public int LanguageId { get; set; }
         public string? BookName { get; set; }
-        public string? Language { get; set; }
         public string? ISBN { get; set; }
         public string? PaperType { get; set; }
         public string? SkinType { get; set; }
@@ -26,6 +26,7 @@ namespace BookShopAPI.Domain.Entities
         public DateTime? DeletedDate { get; set; }
 
         public Publisher? Publisher { get; set; }
+        public Language? Language { get; set; }
         public ICollection<Author> Authors { get; set; }
         public ICollection<Category> Categories { get; set; }
         public ICollection<BasketItem> BasketItems { get; set; }
