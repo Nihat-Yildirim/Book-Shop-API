@@ -18,6 +18,7 @@ using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByAuthorId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByLanguageId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByPublisherId;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,48 +30,56 @@ namespace BookShopAPI.API.Controllers
         {
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPost("AddBook")]
         public async Task<IActionResult> AddBook([FromQuery] AddBookCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPost("AddBookPictures")]
         public async Task<IActionResult> AddBookPictures([FromForm] AddBookPicturesCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPut("UpdateBook")]
         public async Task<IActionResult> UpdateBook([FromQuery] UpdateBookCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookAuthors")]
         public async Task<IActionResult> UpdateBookAuthors([FromQuery] UpdateBookAuthorsCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookCategories")]
         public async Task<IActionResult> UpdateBookCategories([FromQuery] UpdateBookCategoriesCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookPicture")]
         public async Task<IActionResult> UpdateBookPicture([FromForm] UpdateBookPictureCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpDelete("DeleteBook")]
         public async Task<IActionResult> DeleteBook([FromQuery] DeleteBookCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpDelete("DeleteBookPicture")]
         public async Task<IActionResult> DeleteBookPicture([FromQuery] DeleteBookPictureCommandRequest request)
         {
@@ -83,6 +92,7 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpGet("GetAllBookForAdmin")]
         public async Task<IActionResult> GetAllBookForAdmin([FromQuery] GetAllBookForAdminQueryRequest request)
         {
@@ -95,6 +105,7 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpGet("GetByIdForAdmin")]
         public async Task<IActionResult> GetByIdForAdmin([FromQuery] GetBookForAdminByIdQueryRequest request)
         {
@@ -107,6 +118,7 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpGet("GetBooksByNamePatternForAdmin")]
         public async Task<IActionResult> GetBooksByNamePatternForAdmin([FromQuery] GetBookByNamePatternForAdminQueryRequest request)
         {
