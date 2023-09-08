@@ -43,7 +43,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .IsRequired();
 
             builder.Property(x => x.Description)
-                .HasColumnType(SqlServerColumnType.VarChar)
+                .HasColumnType(SqlServerColumnType.VarChar +"(MAX)")
                 .HasMaxLength(250)
                 .IsRequired();
 

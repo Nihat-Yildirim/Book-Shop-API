@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Xiiie3Ty8qqPzW14lXC0mLZzhQnYqEXiMHHsCh6Kh3s=",
+  "Hash": "K9QqqJKusAd3NUPRhx4/kSGe7p4Nvvp8/r2l6WMzAQM=",
   "Source": "BookShopAPI.API",
   "BasePath": "_content/BookShopAPI.API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\29f7d980-225c-4494-ad4c-5dd815614b5d.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\2751dd9d-65e4-4bcc-b605-70f9246e531b.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "AuthorPictures/29f7d980-225c-4494-ad4c-5dd815614b5d.jpg",
+      "RelativePath": "AuthorPictures/2751dd9d-65e4-4bcc-b605-70f9246e531b.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,15 +31,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\AuthorPictures\\29f7d980-225c-4494-ad4c-5dd815614b5d.jpg"
+      "OriginalItemSpec": "wwwroot\\AuthorPictures\\2751dd9d-65e4-4bcc-b605-70f9246e531b.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\79bbe097-9776-4ed8-acd3-6990645c7c55.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "AuthorPictures/874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg",
+      "RelativePath": "AuthorPictures/79bbe097-9776-4ed8-acd3-6990645c7c55.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,15 +48,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\AuthorPictures\\874be4aa-6d67-475d-ac58-61ab8cf160cb.jpg"
+      "OriginalItemSpec": "wwwroot\\AuthorPictures\\79bbe097-9776-4ed8-acd3-6990645c7c55.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\1bb42ec9-57f6-4e0f-9988-9c283bb2ecc8.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\947c5535-130a-4522-bcd0-37780f4cd2d3.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/1bb42ec9-57f6-4e0f-9988-9c283bb2ecc8.jpg",
+      "RelativePath": "AuthorPictures/947c5535-130a-4522-bcd0-37780f4cd2d3.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,15 +65,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\1bb42ec9-57f6-4e0f-9988-9c283bb2ecc8.jpg"
+      "OriginalItemSpec": "wwwroot\\AuthorPictures\\947c5535-130a-4522-bcd0-37780f4cd2d3.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\212eded5-71b8-4dca-bdb7-b422a7385c6b.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\f09f4994-6bb8-4f29-b514-fbce8f2d2b80.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/212eded5-71b8-4dca-bdb7-b422a7385c6b.jpg",
+      "RelativePath": "AuthorPictures/f09f4994-6bb8-4f29-b514-fbce8f2d2b80.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,15 +82,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\212eded5-71b8-4dca-bdb7-b422a7385c6b.jpg"
+      "OriginalItemSpec": "wwwroot\\AuthorPictures\\f09f4994-6bb8-4f29-b514-fbce8f2d2b80.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\26683817-8399-4511-89af-89a8223d8eef.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\AuthorPictures\\f6be779c-5f1f-402b-b46b-4b747da2e087.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/26683817-8399-4511-89af-89a8223d8eef.jpg",
+      "RelativePath": "AuthorPictures/f6be779c-5f1f-402b-b46b-4b747da2e087.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\26683817-8399-4511-89af-89a8223d8eef.jpg"
+      "OriginalItemSpec": "wwwroot\\AuthorPictures\\f6be779c-5f1f-402b-b46b-4b747da2e087.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\486e326f-c900-458f-9e0f-9c78d74fbe18.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\46be9bd8-419b-4912-8f3a-f2631a7f652f.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/486e326f-c900-458f-9e0f-9c78d74fbe18.jpg",
+      "RelativePath": "BookPictures/46be9bd8-419b-4912-8f3a-f2631a7f652f.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\486e326f-c900-458f-9e0f-9c78d74fbe18.jpg"
+      "OriginalItemSpec": "wwwroot\\BookPictures\\46be9bd8-419b-4912-8f3a-f2631a7f652f.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\895ff4b6-78c9-414b-a564-53c36de0fbe1.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\6aa0be6d-06f3-48ef-9fb0-898338de5a2b.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/895ff4b6-78c9-414b-a564-53c36de0fbe1.jpg",
+      "RelativePath": "BookPictures/6aa0be6d-06f3-48ef-9fb0-898338de5a2b.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\895ff4b6-78c9-414b-a564-53c36de0fbe1.jpg"
+      "OriginalItemSpec": "wwwroot\\BookPictures\\6aa0be6d-06f3-48ef-9fb0-898338de5a2b.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\b3ceb6ab-a079-4337-8a96-f0ef9cf6307b.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\7c1e7af5-36b7-411a-861d-eb6b2b88c17e.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/b3ceb6ab-a079-4337-8a96-f0ef9cf6307b.jpg",
+      "RelativePath": "BookPictures/7c1e7af5-36b7-411a-861d-eb6b2b88c17e.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\b3ceb6ab-a079-4337-8a96-f0ef9cf6307b.jpg"
+      "OriginalItemSpec": "wwwroot\\BookPictures\\7c1e7af5-36b7-411a-861d-eb6b2b88c17e.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\c26d3c99-8b1e-4267-b505-574f11cfb2ad.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\9ba5cd1c-db7e-42ac-a16a-87c4d0f87eef.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/c26d3c99-8b1e-4267-b505-574f11cfb2ad.jpg",
+      "RelativePath": "BookPictures/9ba5cd1c-db7e-42ac-a16a-87c4d0f87eef.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\c26d3c99-8b1e-4267-b505-574f11cfb2ad.jpg"
+      "OriginalItemSpec": "wwwroot\\BookPictures\\9ba5cd1c-db7e-42ac-a16a-87c4d0f87eef.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\d613d3f6-c98a-4d58-8378-18fe4b0e002c.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\a414d60a-b2b0-488d-afba-857170628885.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "BookPictures/d613d3f6-c98a-4d58-8378-18fe4b0e002c.jpg",
+      "RelativePath": "BookPictures/a414d60a-b2b0-488d-afba-857170628885.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,15 +184,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\BookPictures\\d613d3f6-c98a-4d58-8378-18fe4b0e002c.jpg"
+      "OriginalItemSpec": "wwwroot\\BookPictures\\a414d60a-b2b0-488d-afba-857170628885.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\1795b630-459d-4874-8563-52f1e07ed7e5.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\BookPictures\\a6e658ca-4388-4115-85b7-4f6222652271.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "PublisherLogos/1795b630-459d-4874-8563-52f1e07ed7e5.jpg",
+      "RelativePath": "BookPictures/a6e658ca-4388-4115-85b7-4f6222652271.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,15 +201,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\PublisherLogos\\1795b630-459d-4874-8563-52f1e07ed7e5.jpg"
+      "OriginalItemSpec": "wwwroot\\BookPictures\\a6e658ca-4388-4115-85b7-4f6222652271.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\1c87939d-599a-438a-9de3-2ed7737714c4.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\8de2fe6f-44de-4238-9c66-cae33a5b96f8.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "PublisherLogos/1c87939d-599a-438a-9de3-2ed7737714c4.jpg",
+      "RelativePath": "PublisherLogos/8de2fe6f-44de-4238-9c66-cae33a5b96f8.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -218,15 +218,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\PublisherLogos\\1c87939d-599a-438a-9de3-2ed7737714c4.jpg"
+      "OriginalItemSpec": "wwwroot\\PublisherLogos\\8de2fe6f-44de-4238-9c66-cae33a5b96f8.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\4669cdf2-b257-4d91-94a6-e6a65aaee507.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\98af337e-bf9c-4315-9a61-30aae3585ba5.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "PublisherLogos/4669cdf2-b257-4d91-94a6-e6a65aaee507.jpg",
+      "RelativePath": "PublisherLogos/98af337e-bf9c-4315-9a61-30aae3585ba5.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,15 +235,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\PublisherLogos\\4669cdf2-b257-4d91-94a6-e6a65aaee507.jpg"
+      "OriginalItemSpec": "wwwroot\\PublisherLogos\\98af337e-bf9c-4315-9a61-30aae3585ba5.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\6b93a420-664b-4468-9890-3e063b5c05fc.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\9c8855b8-2ed9-42a3-a434-87ea7d8c2e9d.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "PublisherLogos/6b93a420-664b-4468-9890-3e063b5c05fc.jpg",
+      "RelativePath": "PublisherLogos/9c8855b8-2ed9-42a3-a434-87ea7d8c2e9d.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,15 +252,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\PublisherLogos\\6b93a420-664b-4468-9890-3e063b5c05fc.jpg"
+      "OriginalItemSpec": "wwwroot\\PublisherLogos\\9c8855b8-2ed9-42a3-a434-87ea7d8c2e9d.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\8730c3d2-ed47-499f-af94-6ed28f48e21c.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\bc2625e8-b736-43b5-a5d4-0ab464e01687.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "PublisherLogos/8730c3d2-ed47-499f-af94-6ed28f48e21c.jpg",
+      "RelativePath": "PublisherLogos/bc2625e8-b736-43b5-a5d4-0ab464e01687.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,15 +269,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\PublisherLogos\\8730c3d2-ed47-499f-af94-6ed28f48e21c.jpg"
+      "OriginalItemSpec": "wwwroot\\PublisherLogos\\bc2625e8-b736-43b5-a5d4-0ab464e01687.jpg"
     },
     {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\895e3a5b-6631-4086-8ed0-295a4aafa635.jpg",
+      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\PublisherLogos\\df9f0199-866a-43cb-bdee-cf002a476693.jpg",
       "SourceId": "BookShopAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
       "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "PublisherLogos/895e3a5b-6631-4086-8ed0-295a4aafa635.jpg",
+      "RelativePath": "PublisherLogos/df9f0199-866a-43cb-bdee-cf002a476693.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,41 +286,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\PublisherLogos\\895e3a5b-6631-4086-8ed0-295a4aafa635.jpg"
-    },
-    {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\63445659-c86f-4dc5-825e-4a3e5c1ffcdc.jpg",
-      "SourceId": "BookShopAPI.API",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
-      "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "UserAvatars/63445659-c86f-4dc5-825e-4a3e5c1ffcdc.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserAvatars\\63445659-c86f-4dc5-825e-4a3e5c1ffcdc.jpg"
-    },
-    {
-      "Identity": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\UserAvatars\\6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg",
-      "SourceId": "BookShopAPI.API",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projeler\\BookShopAPI\\Presentation\\BookShopAPI.API\\wwwroot\\",
-      "BasePath": "_content/BookShopAPI.API",
-      "RelativePath": "UserAvatars/6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserAvatars\\6e99574e-3f42-4caa-aaa3-c81ad801defa.jpg"
+      "OriginalItemSpec": "wwwroot\\PublisherLogos\\df9f0199-866a-43cb-bdee-cf002a476693.jpg"
     }
   ]
 }

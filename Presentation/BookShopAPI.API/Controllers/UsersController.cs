@@ -31,28 +31,28 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
-        [AuthorizationFilter("Admin/User")]
+        [AuthorizationFilter("Admin/Customer")]
         [HttpPut]
         public async Task<IActionResult> UpdateUserProfile([FromQuery] UpdateUserProfileCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("Admin/User")]
+        [AuthorizationFilter("Admin/Customer")]
         [HttpPost("AddUserAvatar")]
         public async Task<IActionResult> AddUserAvatar([FromForm] AddUserAvatarCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("Admin/User")]
+        [AuthorizationFilter("Admin/Customer")]
         [HttpDelete("DeleteUserAvatar")]
         public async Task<IActionResult> DeleteUserAvatar([FromQuery] DeleteUserAvatarCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("Admin/User")]
+        [AuthorizationFilter("Admin/Customer")]
         [HttpPut("UpdateUserAvatar")]
         public async Task<IActionResult> UpdateUserAvatar([FromForm] UpdateUserAvatarCommandRequest request)
         {

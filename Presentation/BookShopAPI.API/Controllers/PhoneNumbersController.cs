@@ -16,21 +16,21 @@ namespace BookShopAPI.API.Controllers
         {
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpPost]
         public async Task<IActionResult> AddPhoneNumber([FromQuery] AddPhoneNumberCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpPut]
         public async Task<IActionResult> UpdatePhoneNumber([FromQuery] UpdatePhoneNumberCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpDelete]
         public async Task<IActionResult> DeletePhoneNumber([FromQuery] DeletePhoneNumberCommandRequest request)
         {
@@ -44,7 +44,7 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpGet("GetUserPhoneNumbers")]
         public async Task<IActionResult> GetUserPhoneNumbers([FromQuery] GetPhoneNumbersByUserIdQueryRequest request)
         {

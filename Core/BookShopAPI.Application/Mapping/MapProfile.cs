@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookShopAPI.Application.CQRS.Commands.AddressCommands.AddAddress;
 using BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor;
+using BookShopAPI.Application.CQRS.Commands.BasketCommands.AddBasketItem;
 using BookShopAPI.Application.CQRS.Commands.PhoneNumberCommands.AddPhoneNumber;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
 using BookShopAPI.Application.DTOs.AddressDTOs;
@@ -23,6 +24,7 @@ namespace BookShopAPI.Application.Mapping
             CreateMap<PhoneNumberEntity, PhoneNumberDto>();
             CreateMap<AddAuthorCommandRequest, Author>();
             CreateMap<Category, CategoryDto>();
+            CreateMap<AddBasketItemCommandRequest, BasketItem>();
         }
     }
 }

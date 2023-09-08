@@ -16,21 +16,21 @@ namespace BookShopAPI.API.Controllers
         {
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpPost]
         public async Task<IActionResult> AddAddress([FromQuery] AddAddressCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpPut]
         public async Task<IActionResult> UpdateAddress([FromQuery] UpdateAddressCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpDelete]
         public async Task<IActionResult> DeleteAddress([FromQuery] DeleteAddressCommandRequest request)
         {
@@ -44,7 +44,7 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
-        [AuthorizationFilter("User")]
+        [AuthorizationFilter("Customer")]
         [HttpGet("GetAllAddressByUserId")]
         public async Task<IActionResult> GetAllAddressByUserId([FromQuery] GetAllAddressByUserIdQueryRequest request)
         {

@@ -60,18 +60,20 @@ namespace BookShopAPI.Application.CQRS.Commands.BookCommands.AddBookPictures
 
             await _fileWriteRepository.AddRangeAsync(files);
             await _unitOfWork.SaveChangesAsync();
-
-            files.ForEach(file =>
+            foreach(var file in files)
             {
-                BookPicture bookPicture = new()
-                {
-                    BookId = selectedBook.Id,
-                    BookPictureFileId = file.Id,
-                    ShowOrder = selectedBook.BookPictures.Max(x => x.ShowOrder) + 1
-                };
+                BookPicture bookPicture = new();
+                bookPicture.BookId = selectedBook.Id;
+                bookPicture.BookPictureFileId = file.Id;
+
+                if(selectedBook.BookPictures.Count == 0)
+                    bookPicture.ShowOrder = selectedBook.BookPictures.Count + 1;
+
+                if(selectedBook.BookPictures.Count > 0)
+                    bookPicture.ShowOrder = selectedBook.BookPictures.Max(x => x.ShowOrder) + 1;
 
                 selectedBook.BookPictures.Add(bookPicture);
-            });
+            };
 
             await _unitOfWork.SaveChangesAsync();
 

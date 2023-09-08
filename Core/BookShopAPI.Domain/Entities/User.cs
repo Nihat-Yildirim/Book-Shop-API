@@ -27,6 +27,7 @@ namespace BookShopAPI.Domain.Entities
         public MailComfirmCode? MailComfirmCode { get; set; }
         public MailAuthentication? MailAuthentication { get; set; }
         public OtpAuthentication? OtpAuthentication { get; set; }
+        public ICollection<Order> Orders { get; set; }
         public ICollection<Basket> Baskets { get; set; }
         public ICollection<Address> Addresses { get; set; }
         public ICollection<PhoneNumberEntity> PhoneNumbers { get; set; }

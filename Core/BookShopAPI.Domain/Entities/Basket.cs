@@ -10,9 +10,10 @@ namespace BookShopAPI.Domain.Entities
         }
 
         public int UserId { get; set; }
-        public bool IsCompleted { get; set; }
+        public bool? Visible { get; set; }
 
         public User? User { get; set; }
+        public Order? Order { get; set; }
         public ICollection<BasketItem>? BasketItems { get; set; }
     }
 }

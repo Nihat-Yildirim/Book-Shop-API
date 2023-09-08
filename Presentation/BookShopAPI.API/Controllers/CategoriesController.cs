@@ -11,25 +11,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
-    [AuthorizationFilter("Admin")]
     public class CategoriesController : BaseController
     {
         public CategoriesController(IMediator mediator) : base(mediator)
         {
         }
 
+        //[AuthorizationFilter("Admin")]
         [HttpPost("AddCategory")]
         public async Task<IActionResult> AddCategory([FromQuery] AddCategoryCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpPut("UpdateCategory")]
         public async Task<IActionResult> UpdateCategory([FromQuery] UpdateCategoryCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        [AuthorizationFilter("Admin")]
         [HttpDelete("DeleteCategory")]
         public async Task<IActionResult> DeleteCategory([FromQuery] DeleteCategoryCommandRequest request)
         {

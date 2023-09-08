@@ -63,7 +63,7 @@ namespace BookShopAPI.Infrastructure.Storages
             if (file.Length == 0)
                 return default;
 
-            if (Directory.Exists(path))
+            if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
             string extension = Path.GetExtension(file.FileName);

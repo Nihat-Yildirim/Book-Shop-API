@@ -24,10 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\AuthorPictures\" />
+    <Folder Include="wwwroot\" />
     <Folder Include="wwwroot\BookPictures\" />
-    <Folder Include="wwwroot\PublisherLogos\" />
-    <Folder Include="wwwroot\UserAvatars\" />
   </ItemGroup>
 
 </Project>

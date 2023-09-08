@@ -17,9 +17,9 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .WithMany(x => x.Baskets)
                 .HasForeignKey(x => x.UserId);
 
-            builder.Property(x => x.IsCompleted)
+            builder.Property(x => x.Visible)
                 .HasColumnType(SqlServerColumnType.Bit)
-                .HasDefaultValue(false)
+                .HasDefaultValue(true)
                 .IsRequired();
 
             builder.Property(x => x.CreatedDate)

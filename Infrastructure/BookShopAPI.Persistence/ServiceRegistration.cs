@@ -10,6 +10,7 @@ using BookShopAPI.Application.Repositories.FileRepositories;
 using BookShopAPI.Application.Repositories.LanguageRepositories;
 using BookShopAPI.Application.Repositories.MailAuthenticationRepositories;
 using BookShopAPI.Application.Repositories.MailComfirmCodeRepositories;
+using BookShopAPI.Application.Repositories.OrderRepositories;
 using BookShopAPI.Application.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Application.Repositories.OtpRecoveryCodeRepositories;
 using BookShopAPI.Application.Repositories.PhoneNumberRepositories;
@@ -31,6 +32,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.FileRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.LanguageRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.MailAuthenticationRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.MailComfirmCodeRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.OrderRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpRecoveryCodeRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.PhoneNumberRepositories;
@@ -109,6 +111,9 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<ILanguageReadRepository, LanguageReadRepository>();
             services.AddScoped<ILanguageWriteRepository, LanguageWriteRepository>();
+
+            services.AddScoped<IOrderReadRepository, OrderReadRepository>();
+            services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
         }
     }
 }

@@ -13,31 +13,34 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopAPI.API.Controllers
 {
-    [AuthorizationFilter("Admin")]
     public class PublishersController : BaseController
     {
         public PublishersController(IMediator mediator) : base(mediator)
         {
         }
 
+        //[AuthorizationFilter("Admin")]
         [HttpPost("AddPublisher")]
         public async Task<IActionResult> AddPublisher([FromForm] AddPublisherCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        //[AuthorizationFilter("Admin")]
         [HttpDelete("DeletePublisher")]
         public async Task<IActionResult> DeletePublisher([FromQuery] DeletePublisherCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        //[AuthorizationFilter("Admin")]
         [HttpPut("UpdatePublisherLogo")]
         public async Task<IActionResult> UpdatePublisherLogo([FromForm] UpdatePublisherLogoCommandRequest request)
         {
             return await NoDataResponse(request);
         }
 
+        //[AuthorizationFilter("Admin")]
         [HttpPut("UpdatePublisher")]
         public async Task<IActionResult> UpdatePublisher([FromQuery] UpdatePublisherCommandRequest request)
         {
@@ -62,6 +65,7 @@ namespace BookShopAPI.API.Controllers
             return await DataResponse(request);
         }
 
+        //[AuthorizationFilter("Admin")]
         [HttpGet("GetPublisherByPatternForAdmin")]
         public async Task<IActionResult> GetPublisherByPatternForAdmin([FromQuery] GetPublisherByPatternForAdminQueryRequest request)
         {

@@ -11,5 +11,6 @@ namespace BookShopAPI.Domain.Entities
         public DateTime? DeletedDate { get; set; }
 
         public User? User { get; set; }
+        public ICollection<Order>? Orders { get; set; }
     }
 }
