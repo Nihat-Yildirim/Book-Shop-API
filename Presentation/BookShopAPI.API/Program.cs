@@ -14,6 +14,7 @@ builder.Services.AddInfrastructureServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Host.ConfigureLogger(builder);
 builder.Services.ConfigureValidationFilter();
 builder.Services.ConfigureAuthentication(accesTokenOptions);
 
