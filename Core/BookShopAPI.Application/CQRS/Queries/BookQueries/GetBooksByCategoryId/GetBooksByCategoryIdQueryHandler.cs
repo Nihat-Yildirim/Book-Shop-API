@@ -29,11 +29,11 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryId
                                     .ThenInclude(x => x.BookPictures)
                                         .ThenInclude(x => x.File)
                                 .Include(x => x.Books)
-                                     .ThenInclude(x => x.Categories)
-                                 .Include(x => x.Books)
-                                     .ThenInclude(x => x.Publisher)
+                                    .ThenInclude(x => x.Categories)
                                 .Include(x => x.Books)
-                                     .ThenInclude(x => x.Language)
+                                    .ThenInclude(x => x.Publisher)
+                                .Include(x => x.Books)
+                                    .ThenInclude(x => x.Language)
                                 .Where(x => x.Id == request.Id)
                                 .ToListAsync();
 

@@ -3,7 +3,6 @@ using BookShopAPI.Application.DTOs.BookDTOs;
 using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.Helpers.FileUrl;
 using BookShopAPI.Application.Repositories.AuthorRepositories;
-using BookShopAPI.Domain.Entities;
 using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
 using MediatR;

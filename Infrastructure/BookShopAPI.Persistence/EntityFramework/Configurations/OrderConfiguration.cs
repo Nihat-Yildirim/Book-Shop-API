@@ -28,9 +28,10 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasForeignKey(x => x.AddressId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(x => x.PhoneNumbers)
+            builder.HasOne(x => x.PhoneNumber)
                 .WithMany(x => x.Orders)
-                .UsingEntity(join => join.ToTable("OrderPhoneNumber"));
+                .HasForeignKey(x => x.PhoneNumberId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.Pay)
                 .HasColumnType(SqlServerColumnType.Bit)

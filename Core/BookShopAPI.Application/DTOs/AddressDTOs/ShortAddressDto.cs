@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Application.DTOs.AddressDTOs
 {
-    public class GetAddressDto : IDto
+    public class ShortAddressDto : IDto
     {
         public int Id { get; set; }
         public string? AddressTitle { get; set; }
@@ -11,6 +11,5 @@ namespace BookShopAPI.Application.DTOs.AddressDTOs
         public string? District { get; set; }
         public string? Neighbourhood { get; set; }
         public string? OpenAddress { get; set; }
-        public bool Selected { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace BookShopAPI.Application.Validators.AddressValidators
             RuleFor(x => x.AddressTitle)
                 .NotEmpty()
                 .NotNull()
-                .MinimumLength(3)
+                .MinimumLength(2)
                 .MaximumLength(25);
 
             RuleFor(x => x.Description)

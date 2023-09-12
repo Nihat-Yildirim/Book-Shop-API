@@ -1,6 +1,8 @@
-﻿namespace BookShopAPI.Application.DTOs.AddressDTOs
+﻿using BookShopAPI.Application.DTOs.Common;
+
+namespace BookShopAPI.Application.DTOs.AddressDTOs
 {
-    public class GetAddressForAdminDto
+    public class AddressDto : IDto
     {
         public int Id { get; set; }
         public string? AddressTitle { get; set; }
@@ -10,8 +12,5 @@
         public string? Neighbourhood { get; set; }
         public string? OpenAddress { get; set; }
         public bool Selected { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public DateTime DeletedDate { get; set; }
     }
 }

@@ -20,40 +20,28 @@ namespace BookShopAPI.API.Controllers
         //[AuthorizationFilter("Admin")]
         [HttpPost("AddCategory")]
         public async Task<IActionResult> AddCategory([FromQuery] AddCategoryCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [AuthorizationFilter("Admin")]
         [HttpPut("UpdateCategory")]
         public async Task<IActionResult> UpdateCategory([FromQuery] UpdateCategoryCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [AuthorizationFilter("Admin")]
         [HttpDelete("DeleteCategory")]
         public async Task<IActionResult> DeleteCategory([FromQuery] DeleteCategoryCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [HttpGet("GetAllCategories")]
         public async Task<IActionResult> GetAllCategories([FromQuery] GetAllCategoriesQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
 
         [HttpGet("GetCategoryById")]
         public async Task<IActionResult> GetCategoryById([FromQuery] GetCategoryByIdQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
 
         [HttpGet("GetCategoriesByParentId")]
         public async Task<IActionResult> GetCategoriesByParentId([FromQuery] GetCategoriesByParentIdQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
     }
 }

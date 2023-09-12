@@ -20,43 +20,31 @@ namespace BookShopAPI.API.Controllers
         [AuthorizationFilter("Admin")]
         [HttpGet("GetUsers")]
         public async Task<IActionResult> GetUsers([FromQuery] GetUsersQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
 
         [AuthorizationFilter("Admin")]
         [HttpGet("GetUserByPattern")]
         public async Task<IActionResult> GetUserByPattern([FromQuery] GetUserByPatternQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
 
         [AuthorizationFilter("Admin/Customer")]
         [HttpPut]
         public async Task<IActionResult> UpdateUserProfile([FromQuery] UpdateUserProfileCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [AuthorizationFilter("Admin/Customer")]
         [HttpPost("AddUserAvatar")]
         public async Task<IActionResult> AddUserAvatar([FromForm] AddUserAvatarCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [AuthorizationFilter("Admin/Customer")]
         [HttpDelete("DeleteUserAvatar")]
         public async Task<IActionResult> DeleteUserAvatar([FromQuery] DeleteUserAvatarCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [AuthorizationFilter("Admin/Customer")]
         [HttpPut("UpdateUserAvatar")]
         public async Task<IActionResult> UpdateUserAvatar([FromForm] UpdateUserAvatarCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
     }
 }

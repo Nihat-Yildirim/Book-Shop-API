@@ -16,39 +16,29 @@ namespace BookShopAPI.API.Controllers
         {
         }
 
-        [AuthorizationFilter("Customer")]
+        //[AuthorizationFilter("Customer")]
         [HttpPost]
         public async Task<IActionResult> AddPhoneNumber([FromQuery] AddPhoneNumberCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
-        [AuthorizationFilter("Customer")]
+        //[AuthorizationFilter("Customer")]
         [HttpPut]
         public async Task<IActionResult> UpdatePhoneNumber([FromQuery] UpdatePhoneNumberCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
-        [AuthorizationFilter("Customer")]
+        //[AuthorizationFilter("Customer")]
         [HttpDelete]
         public async Task<IActionResult> DeletePhoneNumber([FromQuery] DeletePhoneNumberCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllPhoneNumbers([FromQuery] GetAllPhoneNumbersQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
 
-        [AuthorizationFilter("Customer")]
+        //[AuthorizationFilter("Customer")]
         [HttpGet("GetUserPhoneNumbers")]
         public async Task<IActionResult> GetUserPhoneNumbers([FromQuery] GetPhoneNumbersByUserIdQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
     }
 }

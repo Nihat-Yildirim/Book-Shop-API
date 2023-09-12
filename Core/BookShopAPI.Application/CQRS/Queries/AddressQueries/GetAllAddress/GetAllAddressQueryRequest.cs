@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddress
 {
-    public class GetAllAddressQueryRequest : IRequest<BaseDataResponse<List<GetAddressForAdminDto>>>
+    public class GetAllAddressQueryRequest : IRequest<BaseDataResponse<List<AddressForAdminDto>>>
     {
     }
 }

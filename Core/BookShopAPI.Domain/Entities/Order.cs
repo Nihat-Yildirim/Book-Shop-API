@@ -4,14 +4,10 @@ namespace BookShopAPI.Domain.Entities
 {
     public class Order : BaseEntity
     {
-        public Order()
-        {
-            PhoneNumbers = new HashSet<PhoneNumberEntity>();
-        }
-
         public int BasketId { get; set; }
         public int UserId { get; set; }
         public int AddressId { get; set; }
+        public int PhoneNumberId { get; set; }
         public float TotalPayment { get; set; }
         public bool Pay { get; set; }
         public DateTime? PaymentDate { get; set; }
@@ -23,6 +19,6 @@ namespace BookShopAPI.Domain.Entities
         public User? User { get; set; }
         public Basket? Basket { get; set; }
         public Address? Address { get; set; }
-        public  ICollection<PhoneNumberEntity>? PhoneNumbers { get; set; }
+        public  PhoneNumberEntity? PhoneNumber { get; set; }
     }
 }

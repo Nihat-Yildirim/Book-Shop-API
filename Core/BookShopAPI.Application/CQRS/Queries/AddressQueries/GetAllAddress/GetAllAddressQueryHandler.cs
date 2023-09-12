@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddress
 {
-    public class GetAllAddressQueryHandler : IRequestHandler<GetAllAddressQueryRequest, BaseDataResponse<List<GetAddressForAdminDto>>>
+    public class GetAllAddressQueryHandler : IRequestHandler<GetAllAddressQueryRequest, BaseDataResponse<List<AddressForAdminDto>>>
     {
         private readonly IMapper _mapper;
         private readonly IAddressReadRepository _addressReadRepository;
@@ -19,12 +19,12 @@ namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddress
             _addressReadRepository = addressReadRepository;
         }
 
-        public async Task<BaseDataResponse<List<GetAddressForAdminDto>>> Handle(GetAllAddressQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<List<AddressForAdminDto>>> Handle(GetAllAddressQueryRequest request, CancellationToken cancellationToken)
         {
             var resultAddresses = await _addressReadRepository.GetAll(false).ToListAsync();
-            var responseAddresses = _mapper.Map<List<GetAddressForAdminDto>>(resultAddresses);
+            var responseAddresses = _mapper.Map<List<AddressForAdminDto>>(resultAddresses);
 
-            return new SuccessDataResponse<List<GetAddressForAdminDto>>(responseAddresses);
+            return new SuccessDataResponse<List<AddressForAdminDto>>(responseAddresses);
         }
     }
 }

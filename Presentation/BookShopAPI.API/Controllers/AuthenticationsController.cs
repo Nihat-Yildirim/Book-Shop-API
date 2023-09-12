@@ -17,32 +17,22 @@ namespace BookShopAPI.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> UserRegister([FromQuery] UserRegisterCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [HttpPut]
         public async Task<IActionResult> VerifyMailComfirmCode([FromQuery] VerifyMailComfirmCodeCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [HttpPut("UpdateUserClaim")]
         public async Task<IActionResult> UpdateUserClaim([FromQuery] UpdateUserClaimCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         [HttpGet]
         public async Task<IActionResult> Login([FromQuery] LoginQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
 
         [HttpGet("RefreshTokenLogin")]
         public async Task<IActionResult> RefreshTokenLogin([FromQuery] RefreshTokenLoginQueryRequest request)
-        {
-            return await DataResponse(request);
-        }
+            => await DataResponse(request);
     }
 }
