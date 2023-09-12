@@ -15,5 +15,10 @@ namespace BookShopAPI.Infrastructure.Extensions
         {
             return claimsPrincipal?.Claims(ClaimTypes.Role);
         }
+
+        public static string GetName(this ClaimsPrincipal claimsPrincipal)
+        {
+            return claimsPrincipal?.Claims(ClaimTypes.Name).SingleOrDefault();
+        }
     }
 }

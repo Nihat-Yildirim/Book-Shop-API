@@ -12,3 +12,693 @@
 2023-09-12 12:50:59.144 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 15.7086ms
 2023-09-12 12:50:59.225 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
 2023-09-12 12:50:59.395 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 170.5230ms
+2023-09-12 13:08:40.527 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 13:08:40.748 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 13:08:40.749 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 13:08:40.751 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 13:08:40.751 +03:00 [INF] Hosting environment: Development
+2023-09-12 13:08:40.752 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 13:08:41.004 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 13:08:41.204 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 13:08:41.205 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 201.5024ms
+2023-09-12 13:08:41.216 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 11.4257ms
+2023-09-12 13:08:41.252 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 13:08:41.277 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.7514ms
+2023-09-12 13:08:41.370 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 13:08:41.533 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.0980ms
+2023-09-12 13:08:47.726 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Authors/GetAllAuthors - -
+2023-09-12 13:08:47.781 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.GetAllAuthors (BookShopAPI.API)'
+2023-09-12 13:08:47.802 +03:00 [INF] Route matched with {action = "GetAllAuthors", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAuthors(BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthors.GetAllAuthorsQueryRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 13:08:49.144 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorPictureFileId], [a].[Autobiography], [a].[CreatedDate], [a].[DeletedDate], [a].[FirstName], [a].[LastName], [a].[UpdatedDate], [f].[Id], [f].[CreatedDate], [f].[FileExtension], [f].[FileName], [f].[FilePath], [f].[UpdatedDate]
+FROM [Authors] AS [a]
+LEFT JOIN [Files] AS [f] ON [a].[AuthorPictureFileId] = [f].[Id]
+WHERE [a].[DeletedDate] IS NULL
+2023-09-12 13:08:49.189 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[System.Collections.Generic.List`1[[BookShopAPI.Application.DTOs.AuthorsDTOs.AuthorDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-09-12 13:08:49.202 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.GetAllAuthors (BookShopAPI.API) in 1396.3276ms
+2023-09-12 13:08:49.203 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.GetAllAuthors (BookShopAPI.API)'
+2023-09-12 13:08:49.211 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Authors/GetAllAuthors - - - 200 - application/json;+charset=utf-8 1485.2560ms
+2023-09-12 13:11:03.342 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 13:11:03.557 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 13:11:03.558 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 13:11:03.560 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 13:11:03.561 +03:00 [INF] Hosting environment: Development
+2023-09-12 13:11:03.561 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 13:11:04.006 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 13:11:04.201 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 13:11:04.203 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 196.9329ms
+2023-09-12 13:11:04.211 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 10.1096ms
+2023-09-12 13:11:04.241 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 13:11:04.263 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 22.2952ms
+2023-09-12 13:11:04.331 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 13:11:04.540 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 209.2541ms
+2023-09-12 13:11:14.795 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Authors/GetAllAuthors - -
+2023-09-12 13:11:17.009 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at BookShopAPI.Infrastructure.Extensions.ClaimsPrincipalExtensions.GetName(ClaimsPrincipal claimsPrincipal) in D:\Projeler\BookShopAPI\Infrastructure\BookShopAPI.Infrastructure\Extensions\ClaimsPrincipalExtensions.cs:line 21
+   at BookShopAPI.API.Middlewares.ApplicationUserHandlerMiddleware.Invoke(HttpContext context) in D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\Middlewares\ApplicationUserHandlerMiddleware.cs:line 17
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-09-12 13:11:17.097 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Authors/GetAllAuthors - - - 500 - text/plain;+charset=utf-8 2302.6283ms
+2023-09-12 13:12:22.483 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 13:12:22.720 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 13:12:22.721 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 13:12:22.723 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 13:12:22.723 +03:00 [INF] Hosting environment: Development
+2023-09-12 13:12:22.724 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 13:12:23.271 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 13:12:23.496 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 224.2682ms
+2023-09-12 13:12:23.497 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 13:12:23.504 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 6.7475ms
+2023-09-12 13:12:23.537 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 13:12:23.557 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.8889ms
+2023-09-12 13:12:23.640 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 13:12:23.842 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 202.1558ms
+2023-09-12 13:12:27.745 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Authors/GetAllAuthors - -
+2023-09-12 13:12:37.516 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.GetAllAuthors (BookShopAPI.API)'
+2023-09-12 13:12:37.536 +03:00 [INF] Route matched with {action = "GetAllAuthors", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAuthors(BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthors.GetAllAuthorsQueryRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 13:12:38.761 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorPictureFileId], [a].[Autobiography], [a].[CreatedDate], [a].[DeletedDate], [a].[FirstName], [a].[LastName], [a].[UpdatedDate], [f].[Id], [f].[CreatedDate], [f].[FileExtension], [f].[FileName], [f].[FilePath], [f].[UpdatedDate]
+FROM [Authors] AS [a]
+LEFT JOIN [Files] AS [f] ON [a].[AuthorPictureFileId] = [f].[Id]
+WHERE [a].[DeletedDate] IS NULL
+2023-09-12 13:12:38.810 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[System.Collections.Generic.List`1[[BookShopAPI.Application.DTOs.AuthorsDTOs.AuthorDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-09-12 13:12:38.824 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.GetAllAuthors (BookShopAPI.API) in 1283.0652ms
+2023-09-12 13:12:38.825 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.GetAllAuthors (BookShopAPI.API)'
+2023-09-12 13:12:40.967 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Authors/GetAllAuthors - - - 200 - application/json;+charset=utf-8 13222.0915ms
+2023-09-12 13:14:17.592 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Authentications - -
+2023-09-12 13:14:20.477 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:14:20.483 +03:00 [INF] Route matched with {action = "Login", controller = "Authentications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookShopAPI.Application.CQRS.Queries.UserQueries.Login.LoginQueryRequest) on controller BookShopAPI.API.Controllers.AuthenticationsController (BookShopAPI.API).
+2023-09-12 13:14:20.527 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 13:14:20.536 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API) in 51.0197ms
+2023-09-12 13:14:20.538 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:14:20.547 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Authentications - - - 400 - application/problem+json;+charset=utf-8 2956.1406ms
+2023-09-12 13:14:37.699 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7297/api/Authentications application/json 70
+2023-09-12 13:14:40.889 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:14:40.890 +03:00 [INF] Route matched with {action = "Login", controller = "Authentications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookShopAPI.Application.CQRS.Queries.UserQueries.Login.LoginQueryRequest) on controller BookShopAPI.API.Controllers.AuthenticationsController (BookShopAPI.API).
+2023-09-12 13:14:40.894 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 13:14:40.901 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API) in 8.8289ms
+2023-09-12 13:14:40.902 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:14:41.426 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7297/api/Authentications application/json 70 - 400 - application/problem+json;+charset=utf-8 3726.9395ms
+2023-09-12 13:32:14.652 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 13:32:14.887 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 13:32:14.888 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 13:32:14.890 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 13:32:14.890 +03:00 [INF] Hosting environment: Development
+2023-09-12 13:32:14.891 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 13:32:15.367 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 13:32:15.564 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 13:32:15.565 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 198.6826ms
+2023-09-12 13:32:15.571 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 6.9924ms
+2023-09-12 13:32:15.600 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 13:32:15.619 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.5038ms
+2023-09-12 13:32:15.708 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 13:32:15.982 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 274.3194ms
+2023-09-12 13:32:42.788 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7297/api/Authentications multipart/form-data;+boundary=--------------------------886003250912285635386551 299
+2023-09-12 13:32:46.952 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:32:46.973 +03:00 [INF] Route matched with {action = "Login", controller = "Authentications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookShopAPI.Application.CQRS.Queries.UserQueries.Login.LoginQueryRequest) on controller BookShopAPI.API.Controllers.AuthenticationsController (BookShopAPI.API).
+2023-09-12 13:32:47.042 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 13:32:47.051 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API) in 73.6259ms
+2023-09-12 13:32:47.053 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:32:47.074 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7297/api/Authentications multipart/form-data;+boundary=--------------------------886003250912285635386551 299 - 400 - application/problem+json;+charset=utf-8 4285.6415ms
+2023-09-12 13:33:04.965 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7297/api/Authentications multipart/form-data;+boundary=--------------------------113908207252034521497530 299
+2023-09-12 13:33:06.741 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:33:06.742 +03:00 [INF] Route matched with {action = "Login", controller = "Authentications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookShopAPI.Application.CQRS.Queries.UserQueries.Login.LoginQueryRequest) on controller BookShopAPI.API.Controllers.AuthenticationsController (BookShopAPI.API).
+2023-09-12 13:33:06.745 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 13:33:06.747 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API) in 4.4955ms
+2023-09-12 13:33:06.748 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:33:06.757 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7297/api/Authentications multipart/form-data;+boundary=--------------------------113908207252034521497530 299 - 400 - application/problem+json;+charset=utf-8 1792.2541ms
+2023-09-12 13:33:43.096 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7297/api/Authentications?Email=Nihat12345023@gmail.com&Password=123456789 - -
+2023-09-12 13:33:45.822 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:33:45.823 +03:00 [INF] Route matched with {action = "Login", controller = "Authentications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookShopAPI.Application.CQRS.Queries.UserQueries.Login.LoginQueryRequest) on controller BookShopAPI.API.Controllers.AuthenticationsController (BookShopAPI.API).
+2023-09-12 13:33:46.971 +03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__request_Email_0='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AuthenticatorType], [u].[CreatedDate], [u].[DeletedDate], [u].[Email], [u].[FirstName], [u].[LastName], [u].[PasswordHash], [u].[PasswordSalt], [u].[UpdatedDate], [u].[UserAvatarFileId], [r].[Id], [r].[CreatedDate], [r].[Expires], [r].[Token], [r].[UpdatedDate], [m].[Id], [m].[ComfirmCode], [m].[ComfirmDuration], [m].[CreatedDate], [m].[IsComfirm], [m].[UpdatedDate]
+FROM [Users] AS [u]
+LEFT JOIN [RefreshTokens] AS [r] ON [u].[Id] = [r].[Id]
+LEFT JOIN [MailComfirmCodes] AS [m] ON [u].[Id] = [m].[Id]
+WHERE [u].[Email] = @__request_Email_0
+2023-09-12 13:33:47.153 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@__selectedUser_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[ClaimId], [u].[CreatedDate], [u].[UpdatedDate], [u].[UserId], [c].[Id], [c].[CreatedDate], [c].[DeletedDate], [c].[Name], [c].[UpdatedDate]
+FROM [UserClaims] AS [u]
+INNER JOIN [Claims] AS [c] ON [u].[ClaimId] = [c].[Id]
+WHERE [u].[UserId] = @__selectedUser_Id_0
+2023-09-12 13:33:47.463 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 36) (DbType = AnsiStringFixedLength), @p2='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [RefreshTokens] SET [Expires] = @p0, [Token] = @p1, [UpdatedDate] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2023-09-12 13:33:47.478 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[BookShopAPI.Application.DTOs.TokenDTOs.TokenDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-09-12 13:33:47.488 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API) in 1664.1246ms
+2023-09-12 13:33:47.490 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.Login (BookShopAPI.API)'
+2023-09-12 13:33:47.539 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7297/api/Authentications?Email=Nihat12345023@gmail.com&Password=123456789 - - - 200 - application/json;+charset=utf-8 4443.7195ms
+2023-09-12 13:34:27.546 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 13:34:29.293 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 13:34:29.297 +03:00 [INF] Route matched with {action = "GetAllBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllBook(BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBook.GetAllBookQueryRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 13:34:29.391 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-09-12 13:34:29.394 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-09-12 13:34:29.446 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2023-09-12 13:34:29.496 +03:00 [INF] Executed DbCommand (37ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Id0], [t].[Name], [t].[Id1], [t].[Name0], [t].[BookName], [t].[ISBN], [t].[PaperType], [t].[SkinType], [t].[Dimension], [t].[Description], [t].[ReleaseDate], [t].[PageOfNumber], [t].[Stock], [t].[Price], [t0].[FilePath], [t0].[Id], [t0].[Id0], [t1].[Id], [t1].[Name], [t1].[AuthorsId], [t1].[BooksId], [t2].[Id], [t2].[CategoryName], [t2].[BooksId], [t2].[CategoriesId]
+FROM (
+    SELECT [b].[Id], [p].[Id] AS [Id0], [p].[Name], [l].[Id] AS [Id1], [l].[Name] AS [Name0], [b].[BookName], [b].[ISBN], [b].[PaperType], [b].[SkinType], [b].[Dimension], [b].[Description], [b].[ReleaseDate], [b].[PageOfNumber], [b].[Stock], [b].[Price]
+    FROM [Books] AS [b]
+    INNER JOIN [Publishers] AS [p] ON [b].[PublisherId] = [p].[Id]
+    INNER JOIN [Languages] AS [l] ON [b].[LanguageId] = [l].[Id]
+    WHERE [b].[DeletedDate] IS NULL
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [f].[FilePath], [b0].[Id], [f].[Id] AS [Id0], [b0].[BookId]
+    FROM [BookPictures] AS [b0]
+    INNER JOIN [Files] AS [f] ON [b0].[BookPictureFileId] = [f].[Id]
+) AS [t0] ON [t].[Id] = [t0].[BookId]
+LEFT JOIN (
+    SELECT [a0].[Id], ([a0].[FirstName] + ' ') + [a0].[LastName] AS [Name], [a].[AuthorsId], [a].[BooksId]
+    FROM [AuthorBook] AS [a]
+    INNER JOIN [Authors] AS [a0] ON [a].[AuthorsId] = [a0].[Id]
+) AS [t1] ON [t].[Id] = [t1].[BooksId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[CategoryName], [b1].[BooksId], [b1].[CategoriesId]
+    FROM [BookCategory] AS [b1]
+    INNER JOIN [Categories] AS [c] ON [b1].[CategoriesId] = [c].[Id]
+) AS [t2] ON [t].[Id] = [t2].[BooksId]
+ORDER BY [t].[Id], [t].[Id0], [t].[Id1], [t0].[Id], [t0].[Id0], [t1].[AuthorsId], [t1].[BooksId], [t1].[Id], [t2].[BooksId], [t2].[CategoriesId]
+2023-09-12 13:34:29.510 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[System.Collections.Generic.List`1[[BookShopAPI.Application.DTOs.BookDTOs.BookDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-09-12 13:34:29.534 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API) in 235.599ms
+2023-09-12 13:34:29.536 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 13:34:29.549 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - - - 200 - application/json;+charset=utf-8 2002.8526ms
+2023-09-12 13:35:47.261 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 13:35:55.179 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 13:35:55.180 +03:00 [INF] Route matched with {action = "GetAllBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllBook(BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBook.GetAllBookQueryRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 13:35:55.220 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Id0], [t].[Name], [t].[Id1], [t].[Name0], [t].[BookName], [t].[ISBN], [t].[PaperType], [t].[SkinType], [t].[Dimension], [t].[Description], [t].[ReleaseDate], [t].[PageOfNumber], [t].[Stock], [t].[Price], [t0].[FilePath], [t0].[Id], [t0].[Id0], [t1].[Id], [t1].[Name], [t1].[AuthorsId], [t1].[BooksId], [t2].[Id], [t2].[CategoryName], [t2].[BooksId], [t2].[CategoriesId]
+FROM (
+    SELECT [b].[Id], [p].[Id] AS [Id0], [p].[Name], [l].[Id] AS [Id1], [l].[Name] AS [Name0], [b].[BookName], [b].[ISBN], [b].[PaperType], [b].[SkinType], [b].[Dimension], [b].[Description], [b].[ReleaseDate], [b].[PageOfNumber], [b].[Stock], [b].[Price]
+    FROM [Books] AS [b]
+    INNER JOIN [Publishers] AS [p] ON [b].[PublisherId] = [p].[Id]
+    INNER JOIN [Languages] AS [l] ON [b].[LanguageId] = [l].[Id]
+    WHERE [b].[DeletedDate] IS NULL
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [f].[FilePath], [b0].[Id], [f].[Id] AS [Id0], [b0].[BookId]
+    FROM [BookPictures] AS [b0]
+    INNER JOIN [Files] AS [f] ON [b0].[BookPictureFileId] = [f].[Id]
+) AS [t0] ON [t].[Id] = [t0].[BookId]
+LEFT JOIN (
+    SELECT [a0].[Id], ([a0].[FirstName] + ' ') + [a0].[LastName] AS [Name], [a].[AuthorsId], [a].[BooksId]
+    FROM [AuthorBook] AS [a]
+    INNER JOIN [Authors] AS [a0] ON [a].[AuthorsId] = [a0].[Id]
+) AS [t1] ON [t].[Id] = [t1].[BooksId]
+LEFT JOIN (
+    SELECT [c].[Id], [c].[CategoryName], [b1].[BooksId], [b1].[CategoriesId]
+    FROM [BookCategory] AS [b1]
+    INNER JOIN [Categories] AS [c] ON [b1].[CategoriesId] = [c].[Id]
+) AS [t2] ON [t].[Id] = [t2].[BooksId]
+ORDER BY [t].[Id], [t].[Id0], [t].[Id1], [t0].[Id], [t0].[Id0], [t1].[AuthorsId], [t1].[BooksId], [t1].[Id], [t2].[BooksId], [t2].[CategoriesId]
+2023-09-12 13:35:55.223 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[System.Collections.Generic.List`1[[BookShopAPI.Application.DTOs.BookDTOs.BookDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-09-12 13:35:55.224 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API) in 39.4679ms
+2023-09-12 13:35:55.224 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 13:35:55.254 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7297/api/Books/GetAllBook - - - 200 - application/json;+charset=utf-8 7994.3603ms
+2023-09-12 14:08:14.519 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:08:14.867 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:08:15.091 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:08:15.092 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:08:15.094 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:08:15.094 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:08:15.095 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:08:15.510 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:08:15.728 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:08:15.729 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 219.5805ms
+2023-09-12 14:08:15.740 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 11.5024ms
+2023-09-12 14:08:15.772 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:08:15.804 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.8613ms
+2023-09-12 14:08:15.867 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:08:16.045 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 178.0509ms
+2023-09-12 14:11:06.974 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:11:07.183 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:11:07.316 +03:00 [FTL] Application startup exception
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'BookShopAPI.API.Middlewares.GlobalExceptionHandlerMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2023-09-12 14:11:25.235 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:11:25.442 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:11:25.553 +03:00 [FTL] Application startup exception
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'BookShopAPI.API.Middlewares.GlobalExceptionHandlerMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2023-09-12 14:14:47.507 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:14:47.710 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:14:47.817 +03:00 [FTL] Application startup exception
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'BookShopAPI.API.Middlewares.GlobalExceptionHandlerMiddleware'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_0.<UseMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2023-09-12 14:16:39.787 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:16:39.990 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:16:40.175 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:16:40.176 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:16:40.178 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:16:40.178 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:16:40.179 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:16:40.638 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:16:40.837 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:16:40.837 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 200.3597ms
+2023-09-12 14:16:40.845 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 8.1737ms
+2023-09-12 14:16:40.877 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:16:40.899 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 22.2664ms
+2023-09-12 14:16:40.969 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:16:41.135 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 165.7132ms
+2023-09-12 14:16:51.482 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 14:16:51.566 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to Invoke middleware 'BookShopAPI.API.Middlewares.GlobalExceptionHandlerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at BookShopAPI.API.Middlewares.ApplicationUserHandlerMiddleware.Invoke(HttpContext context) in D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\Middlewares\ApplicationUserHandlerMiddleware.cs:line 25
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-09-12 14:16:51.599 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - - - 500 - text/plain;+charset=utf-8 117.5528ms
+2023-09-12 14:23:40.819 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:23:41.021 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:23:41.200 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:23:41.202 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:23:41.203 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:23:41.204 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:23:41.205 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:23:41.775 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:23:41.977 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:23:41.977 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 205.8000ms
+2023-09-12 14:23:41.988 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 11.5791ms
+2023-09-12 14:23:42.017 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:23:42.036 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.7353ms
+2023-09-12 14:23:42.105 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:23:42.257 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 152.3143ms
+2023-09-12 14:23:49.310 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 14:23:49.408 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to Invoke middleware 'BookShopAPI.API.Middlewares.GlobalExceptionHandlerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at BookShopAPI.API.Middlewares.ApplicationUserHandlerMiddleware.Invoke(HttpContext context) in D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\Middlewares\ApplicationUserHandlerMiddleware.cs:line 25
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-09-12 14:23:49.444 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - - - 500 - text/plain;+charset=utf-8 133.9413ms
+2023-09-12 14:31:59.095 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:31:59.298 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:31:59.484 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:31:59.485 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:31:59.487 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:31:59.488 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:31:59.488 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:31:59.968 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:32:00.174 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:32:00.176 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 208.3123ms
+2023-09-12 14:32:00.184 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 10.1135ms
+2023-09-12 14:32:00.214 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:32:00.239 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 25.6620ms
+2023-09-12 14:32:00.323 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:32:00.532 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 208.4402ms
+2023-09-12 14:32:06.437 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 14:32:06.567 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 14:32:06.595 +03:00 [INF] Route matched with {action = "GetAllBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllBook(BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBook.GetAllBookQueryRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 14:32:06.711 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API) in 110.0695ms
+2023-09-12 14:32:06.714 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 14:32:06.768 +03:00 [FTL] The method or operation is not implemented.
+2023-09-12 14:32:06.772 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - - - 500 - application/json 334.9738ms
+2023-09-12 14:33:21.416 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:33:21.637 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:33:21.820 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:33:21.821 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:33:21.823 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:33:21.823 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:33:21.824 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:33:22.335 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:33:22.542 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:33:22.543 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 207.6312ms
+2023-09-12 14:33:22.549 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 6.9013ms
+2023-09-12 14:33:22.580 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:33:22.605 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 25.5555ms
+2023-09-12 14:33:22.676 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:33:22.905 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 229.5055ms
+2023-09-12 14:33:29.064 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 14:33:29.179 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 14:33:29.202 +03:00 [INF] Route matched with {action = "GetAllBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllBook(BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBook.GetAllBookQueryRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 14:33:29.295 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API) in 87.7356ms
+2023-09-12 14:33:29.298 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 14:33:29.350 +03:00 [FTL] The method or operation is not implemented.
+2023-09-12 14:33:29.352 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - - - 500 - application/json 288.1707ms
+2023-09-12 14:34:22.391 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:34:22.620 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:34:22.810 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:34:22.811 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:34:22.813 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:34:22.813 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:34:22.814 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:34:23.216 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:34:23.429 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:34:23.431 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 214.8957ms
+2023-09-12 14:34:23.440 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 10.8606ms
+2023-09-12 14:34:23.488 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:34:23.510 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 22.0362ms
+2023-09-12 14:34:23.574 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:34:23.766 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 191.9882ms
+2023-09-12 14:34:28.961 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - -
+2023-09-12 14:34:29.014 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 14:34:29.034 +03:00 [INF] Route matched with {action = "GetAllBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllBook(BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBook.GetAllBookQueryRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 14:34:29.130 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API) in 91.1669ms
+2023-09-12 14:34:29.133 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.GetAllBook (BookShopAPI.API)'
+2023-09-12 14:34:29.184 +03:00 [FTL] The method or operation is not implemented.
+2023-09-12 14:34:29.187 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Books/GetAllBook - - - 500 - application/json 225.5485ms
+2023-09-12 14:39:19.935 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:39:20.656 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:39:21.335 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:39:21.335 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:39:21.337 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:39:21.337 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:39:21.338 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:39:22.000 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:39:22.280 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 282.4675ms
+2023-09-12 14:39:22.321 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:39:22.321 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:39:22.335 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 13.7266ms
+2023-09-12 14:39:22.346 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 25.4466ms
+2023-09-12 14:39:22.403 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:39:22.566 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 162.4027ms
+2023-09-12 14:39:33.078 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:39:33.790 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:39:33.795 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:39:33.911 +03:00 [FTL] No service for type 'BookShopAPI.Infrastructure.Filters.ValidationFilter' has been registered.
+2023-09-12 14:39:33.915 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 500 - application/json 836.5292ms
+2023-09-12 14:41:29.691 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:41:29.898 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:41:30.091 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:41:30.092 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:41:30.093 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:41:30.094 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:41:30.095 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:41:30.488 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:41:30.688 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:41:30.688 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 201.4198ms
+2023-09-12 14:41:30.696 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 8.0025ms
+2023-09-12 14:41:30.721 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:41:30.739 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.1393ms
+2023-09-12 14:41:30.811 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:41:31.053 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 241.5973ms
+2023-09-12 14:41:36.737 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:41:36.792 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:41:36.815 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:41:36.922 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:41:36.932 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 110.2228ms
+2023-09-12 14:41:36.935 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:41:36.936 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 198.9331ms
+2023-09-12 14:42:01.734 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:42:01.744 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:42:01.747 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:42:01.750 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:42:01.751 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 2.9923ms
+2023-09-12 14:42:01.752 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:42:01.752 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 20.4735ms
+2023-09-12 14:42:25.584 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:42:25.589 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:42:25.590 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:42:25.593 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:42:25.594 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 2.8926ms
+2023-09-12 14:42:25.595 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:42:25.598 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 14.8176ms
+2023-09-12 14:43:19.702 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:43:19.707 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:43:19.708 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:43:19.710 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:43:19.711 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 1.5363ms
+2023-09-12 14:43:19.712 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:43:19.713 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 11.8957ms
+2023-09-12 14:44:59.596 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:44:59.810 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:45:00.008 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:45:00.009 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:45:00.011 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:45:00.012 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:45:00.012 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:45:00.277 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:45:00.492 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:45:00.493 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 217.1261ms
+2023-09-12 14:45:00.502 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 10.2840ms
+2023-09-12 14:45:00.550 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:45:00.567 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 17.7445ms
+2023-09-12 14:45:00.654 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:45:00.825 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 171.0571ms
+2023-09-12 14:45:06.925 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:06.977 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:07.000 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:07.065 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:07.076 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 71.548ms
+2023-09-12 14:45:07.078 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:07.079 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 154.1383ms
+2023-09-12 14:45:09.687 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:09.695 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:09.699 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:09.707 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:09.709 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 6.2292ms
+2023-09-12 14:45:09.710 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:09.710 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 23.3818ms
+2023-09-12 14:45:10.535 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:10.537 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:10.538 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:10.540 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:10.541 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 2.3132ms
+2023-09-12 14:45:10.541 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:10.542 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 7.7266ms
+2023-09-12 14:45:11.131 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:11.132 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:11.133 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:11.134 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:11.135 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 1.3578ms
+2023-09-12 14:45:11.136 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:11.137 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 6.5926ms
+2023-09-12 14:45:11.569 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:11.570 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:11.571 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:11.573 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:11.574 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 1.2951ms
+2023-09-12 14:45:11.575 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:11.576 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 7.1780ms
+2023-09-12 14:45:11.901 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:11.902 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:11.903 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:11.905 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:11.906 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 1.5177ms
+2023-09-12 14:45:11.907 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:11.908 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 6.2178ms
+2023-09-12 14:45:12.239 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:12.240 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:12.241 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:12.243 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:12.254 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 12.6779ms
+2023-09-12 14:45:12.256 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:12.263 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 23.8435ms
+2023-09-12 14:45:12.627 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:12.628 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:12.629 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:12.631 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:12.632 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 1.8602ms
+2023-09-12 14:45:12.633 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:12.635 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 8.2040ms
+2023-09-12 14:45:17.361 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:17.362 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:17.363 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:17.366 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:17.367 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 1.4232ms
+2023-09-12 14:45:17.368 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:17.372 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 10.9653ms
+2023-09-12 14:45:17.949 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:45:17.950 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:17.951 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:45:17.953 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-09-12 14:45:17.955 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 2.571ms
+2023-09-12 14:45:17.956 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:45:17.963 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/problem+json;+charset=utf-8 13.6773ms
+2023-09-12 14:47:20.961 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:47:21.183 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:47:21.364 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:47:21.365 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:47:21.367 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:47:21.368 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:47:21.368 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:47:21.737 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:47:21.938 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:47:21.939 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 203.2219ms
+2023-09-12 14:47:21.947 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 8.8226ms
+2023-09-12 14:47:21.975 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:47:22.003 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.8524ms
+2023-09-12 14:47:22.079 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:47:22.264 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 184.9988ms
+2023-09-12 14:47:30.376 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0
+2023-09-12 14:47:30.426 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:47:30.429 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:47:30.495 +03:00 [FTL] No service for type 'BookShopAPI.Infrastructure.Filters.ValidationFilter' has been registered.
+2023-09-12 14:47:30.498 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0 - 500 - application/json 122.3734ms
+2023-09-12 14:47:39.873 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0
+2023-09-12 14:47:39.879 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:47:39.881 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:47:39.898 +03:00 [FTL] No service for type 'BookShopAPI.Infrastructure.Filters.ValidationFilter' has been registered.
+2023-09-12 14:47:39.899 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0 - 500 - application/json 26.2902ms
+2023-09-12 14:47:40.625 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0
+2023-09-12 14:47:40.627 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:47:40.628 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:47:40.644 +03:00 [FTL] No service for type 'BookShopAPI.Infrastructure.Filters.ValidationFilter' has been registered.
+2023-09-12 14:47:40.644 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0 - 500 - application/json 19.2807ms
+2023-09-12 14:48:16.172 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:48:16.392 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:48:16.576 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:48:16.577 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:48:16.578 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:48:16.579 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:48:16.579 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:48:16.936 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:48:17.140 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:48:17.141 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 205.8300ms
+2023-09-12 14:48:17.150 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 9.6999ms
+2023-09-12 14:48:17.183 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:48:17.205 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 22.1565ms
+2023-09-12 14:48:17.280 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:48:17.457 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 177.6853ms
+2023-09-12 14:48:24.264 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0
+2023-09-12 14:48:24.314 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:48:24.337 +03:00 [INF] Route matched with {action = "AddBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBook(BookShopAPI.Application.CQRS.Commands.BookCommands.AddBook.AddBookCommandRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 14:48:29.033 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][]'.
+2023-09-12 14:48:29.047 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API) in 4705.6078ms
+2023-09-12 14:48:29.050 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:48:29.050 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0 - 400 - application/json;+charset=utf-8 4786.4257ms
+2023-09-12 14:50:00.789 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:50:01.047 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:50:01.235 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:50:01.236 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:50:01.238 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:50:01.239 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:50:01.239 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:50:01.783 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:50:01.995 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:50:01.995 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 212.1348ms
+2023-09-12 14:50:02.005 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 10.5972ms
+2023-09-12 14:50:02.036 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:50:02.056 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 20.1466ms
+2023-09-12 14:50:02.127 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:50:02.295 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 168.5490ms
+2023-09-12 14:50:34.298 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:50:34.520 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:50:34.713 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:50:34.714 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:50:34.715 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:50:34.716 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:50:34.716 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:50:35.185 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:50:35.401 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 216.2161ms
+2023-09-12 14:50:35.435 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:50:35.435 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:50:35.454 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 19.0481ms
+2023-09-12 14:50:35.464 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.1940ms
+2023-09-12 14:50:35.536 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:50:35.783 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 247.4269ms
+2023-09-12 14:50:41.147 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Baskets/AddBasket - 0
+2023-09-12 14:50:41.199 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BasketsController.AddBasket (BookShopAPI.API)'
+2023-09-12 14:50:41.221 +03:00 [INF] Route matched with {action = "AddBasket", controller = "Baskets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBasket(BookShopAPI.Application.CQRS.Commands.BasketCommands.AddBasket.AddBasketCommandRequest) on controller BookShopAPI.API.Controllers.BasketsController (BookShopAPI.API).
+2023-09-12 14:50:44.668 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Net.HttpStatusCode, System.Net.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2023-09-12 14:50:44.690 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BasketsController.AddBasket (BookShopAPI.API) in 3463.6654ms
+2023-09-12 14:50:44.693 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BasketsController.AddBasket (BookShopAPI.API)'
+2023-09-12 14:50:44.694 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Baskets/AddBasket - 0 - 400 - application/json;+charset=utf-8 3546.6033ms
+2023-09-12 14:51:07.499 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0
+2023-09-12 14:51:07.504 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:51:07.509 +03:00 [INF] Route matched with {action = "AddBook", controller = "Books"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddBook(BookShopAPI.Application.CQRS.Commands.BookCommands.AddBook.AddBookCommandRequest) on controller BookShopAPI.API.Controllers.BooksController (BookShopAPI.API).
+2023-09-12 14:51:10.401 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Net.HttpStatusCode, System.Net.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2023-09-12 14:51:10.404 +03:00 [INF] Executed action BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API) in 2892.0146ms
+2023-09-12 14:51:10.406 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.BooksController.AddBook (BookShopAPI.API)'
+2023-09-12 14:51:10.408 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Books/AddBook - 0 - 400 - application/json;+charset=utf-8 2908.5798ms
+2023-09-12 14:59:00.842 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 14:59:01.117 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 14:59:01.312 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 14:59:01.313 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 14:59:01.315 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 14:59:01.315 +03:00 [INF] Hosting environment: Development
+2023-09-12 14:59:01.316 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 14:59:01.571 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 14:59:01.792 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 14:59:01.795 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 224.6678ms
+2023-09-12 14:59:01.803 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 10.7367ms
+2023-09-12 14:59:01.835 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 14:59:01.854 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.1385ms
+2023-09-12 14:59:01.938 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 14:59:02.119 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 181.2889ms
+2023-09-12 14:59:08.515 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 14:59:08.573 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:59:08.595 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 14:59:08.663 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Net.HttpStatusCode, System.Net.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2023-09-12 14:59:08.690 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 89.6476ms
+2023-09-12 14:59:08.693 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 14:59:08.694 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/json;+charset=utf-8 178.6826ms
+2023-09-12 15:21:25.063 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 15:21:25.410 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 15:21:25.707 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 15:21:25.709 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 15:21:25.711 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 15:21:25.712 +03:00 [INF] Hosting environment: Development
+2023-09-12 15:21:25.712 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 15:21:26.611 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 15:21:26.860 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 15:21:26.862 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 255.2151ms
+2023-09-12 15:21:26.871 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 11.1944ms
+2023-09-12 15:21:26.924 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 15:21:26.983 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.9948ms
+2023-09-12 15:21:27.168 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 15:21:27.349 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 180.4828ms
+2023-09-12 15:21:39.300 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authentications - 0
+2023-09-12 15:21:39.363 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.UserRegister (BookShopAPI.API)'
+2023-09-12 15:21:39.367 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.UserRegister (BookShopAPI.API)'
+2023-09-12 15:21:39.431 +03:00 [FTL] No service for type 'BookShopAPI.Infrastructure.Filters.ValidationFilter' has been registered.
+2023-09-12 15:21:39.435 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authentications - 0 - 500 - application/json 135.0768ms
+2023-09-12 15:21:43.295 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authentications - 0
+2023-09-12 15:21:43.298 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.UserRegister (BookShopAPI.API)'
+2023-09-12 15:21:43.301 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthenticationsController.UserRegister (BookShopAPI.API)'
+2023-09-12 15:21:43.316 +03:00 [FTL] No service for type 'BookShopAPI.Infrastructure.Filters.ValidationFilter' has been registered.
+2023-09-12 15:21:43.317 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authentications - 0 - 500 - application/json 22.1862ms
+2023-09-12 15:22:38.116 +03:00 [INF] Uygulama çalışmaya başladı
+2023-09-12 15:22:38.408 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-09-12 15:22:38.639 +03:00 [INF] Now listening on: https://localhost:7297
+2023-09-12 15:22:38.639 +03:00 [INF] Now listening on: http://localhost:5145
+2023-09-12 15:22:38.641 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-09-12 15:22:38.642 +03:00 [INF] Hosting environment: Development
+2023-09-12 15:22:38.642 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-09-12 15:22:38.928 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-09-12 15:22:39.157 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-09-12 15:22:39.158 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 232.4173ms
+2023-09-12 15:22:39.164 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 7.1614ms
+2023-09-12 15:22:39.199 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-09-12 15:22:39.239 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.5910ms
+2023-09-12 15:22:39.438 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-09-12 15:22:39.618 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 179.9188ms
+2023-09-12 15:22:42.775 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0
+2023-09-12 15:22:42.827 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 15:22:42.849 +03:00 [INF] Route matched with {action = "AddAuthor", controller = "Authors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddAuthor(BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor.AddAuthorCommandRequest) on controller BookShopAPI.API.Controllers.AuthorsController (BookShopAPI.API).
+2023-09-12 15:22:45.236 +03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Net.HttpStatusCode, System.Net.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a]]'.
+2023-09-12 15:22:45.258 +03:00 [INF] Executed action BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API) in 2404.0629ms
+2023-09-12 15:22:45.260 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.AuthorsController.AddAuthor (BookShopAPI.API)'
+2023-09-12 15:22:45.260 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7297/api/Authors/AddAuthor - 0 - 400 - application/json;+charset=utf-8 2484.9825ms

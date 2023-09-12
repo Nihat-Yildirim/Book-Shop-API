@@ -110,3 +110,4 @@ D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\runtimes\u
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\Logs\ImportantLogs\important.json

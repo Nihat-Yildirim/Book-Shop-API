@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OhzFBpMOo3qDrhLjIjSL4mfa02e3sEZ7CJk0XwDTD06C7C9c7B8cM2FMJhoZKCNIwp/eKcbdTID8Mqw1/62jTQ==",
+  "dgSpecHash": "wIaIAWM99N4m/y6k+QORTgGNIqKG9TBRn223I8a9w+v8hJSWGv5QuoFALCFfclJgfKsQfe9p2omfz6752Ck/WQ==",
   "success": true,
   "projectFilePath": "D:\\Projeler\\BookShopAPI\\Infrastructure\\BookShopAPI.Infrastructure\\BookShopAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\Nihat\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\mimekit\\4.1.0\\mimekit.4.1.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\otp.net\\1.3.0\\otp.net.1.3.0.nupkg.sha512",
+    "C:\\Users\\Nihat\\.nuget\\packages\\serilog\\3.0.1\\serilog.3.0.1.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.formats.asn1\\7.0.0\\system.formats.asn1.7.0.0.nupkg.sha512",
     "C:\\Users\\Nihat\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.32.2\\system.identitymodel.tokens.jwt.6.32.2.nupkg.sha512",

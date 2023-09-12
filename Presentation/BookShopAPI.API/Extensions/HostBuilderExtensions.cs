@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BookShopAPI.API.Extensions
 {
-    public static class ConfigureLoggerExtension
+    public static class HostBuilderExtensions
     {
         public static void ConfigureLogger(this IHostBuilder host, WebApplicationBuilder application)
         {
@@ -32,13 +32,14 @@ namespace BookShopAPI.API.Extensions
 
             Logger logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                .WriteTo.File(new JsonFormatter(),$"Logs/ImportantLogs/important.json",restrictedToMinimumLevel : LogEventLevel.Warning)
-                .WriteTo.File($"Logs/AllLogs/all-.log",rollingInterval : RollingInterval.Day)
+                .WriteTo.File(new JsonFormatter(), $"Logs/ImportantLogs/important.json", restrictedToMinimumLevel: LogEventLevel.Warning)
+                .WriteTo.File($"Logs/AllLogs/all-.log", rollingInterval: RollingInterval.Day)
                 .WriteTo.MSSqlServer(application.Configuration.GetConnectionString("SQLConnection"), sinkOptions: sinkOptions, columnOptions: columnOptions)
                 .MinimumLevel.Information()
                 .Enrich.FromLogContext()
                 .CreateLogger();
 
+            logger.Information("Uygulama çalışmaya başladı");
             host.UseSerilog(logger);
         }
     }

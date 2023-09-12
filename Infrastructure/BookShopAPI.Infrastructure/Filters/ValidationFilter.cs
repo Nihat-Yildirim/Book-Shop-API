@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Net;
 
 namespace BookShopAPI.Infrastructure.Filters
 {
@@ -13,7 +14,13 @@ namespace BookShopAPI.Infrastructure.Filters
                     .ToDictionary(errors => errors.Key, errors => errors.Value.Errors.Select(error => error.ErrorMessage))
                     .ToArray();
 
-                context.Result = new BadRequestObjectResult(errors);
+                context.Result = new BadRequestObjectResult(new
+                {
+                    Title = "Validasyon Hatası",
+                    Errors = errors,
+                    StatusCode = HttpStatusCode.BadRequest
+                });
+
                 return;
             }
 
