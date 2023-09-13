@@ -22,10 +22,4 @@
     <ProjectReference Include="..\BookShopAPI.Domain\BookShopAPI.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CQRS\Commands\MailAuthenticationCommands\AddMailAuthentication\" />
-    <Folder Include="CQRS\Commands\MailAuthenticationCommands\ActivateMailAuthentication\" />
-    <Folder Include="CQRS\Commands\MailAuthenticationCommands\DisableMailAuthentication\" />
-  </ItemGroup>
-
 </Project>

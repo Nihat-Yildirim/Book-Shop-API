@@ -27,8 +27,7 @@ namespace BookShopAPI.Application.CQRS.Queries.UserQueries.Login
         private readonly IUserReadRepository _userReadRepository;
         private readonly IUserClaimReadRepository _userClaimReadRepository;
         private readonly IMailAuthenticationReadRepository _mailAuthenticationReadRepository;
-        private readonly IMailAuthenticationWriteRepository _mailAuthenticationWriteRepository;
-        public LoginQueryHandler(IAccessTokenService accessTokenService, IRefreshTokenService refreshTokenService, IUserReadRepository userReadRepository, IUserClaimReadRepository userClaimReadRepository, IUnitOfWork unitOfWork, IMailService mailService)
+        public LoginQueryHandler(IAccessTokenService accessTokenService, IRefreshTokenService refreshTokenService, IUserReadRepository userReadRepository, IUserClaimReadRepository userClaimReadRepository, IUnitOfWork unitOfWork, IMailService mailService,IMailAuthenticationReadRepository mailAuthenticationReadRepository)
         {
             _unitOfWork = unitOfWork;
             _mailService = mailService;
@@ -36,6 +35,7 @@ namespace BookShopAPI.Application.CQRS.Queries.UserQueries.Login
             _refreshTokenService = refreshTokenService;
             _userReadRepository = userReadRepository;
             _userClaimReadRepository = userClaimReadRepository;
+            _mailAuthenticationReadRepository = mailAuthenticationReadRepository;
         }
 
         public async Task<BaseDataResponse<LoginResultDto>> Handle(LoginQueryRequest request, CancellationToken cancellationToken)

@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace BookShopAPI.Persistence.EntityFramework.Repositories.CommendRepositories
 {
-    public class CommentReadRepository : BaseReadRepository<CommentEntity>, ICommentReadRepository
+    public sealed class CommentReadRepository : BaseReadRepository<CommentEntity>, ICommentReadRepository
     {
         public CommentReadRepository(BookShopDbContext context) : base(context)
         {

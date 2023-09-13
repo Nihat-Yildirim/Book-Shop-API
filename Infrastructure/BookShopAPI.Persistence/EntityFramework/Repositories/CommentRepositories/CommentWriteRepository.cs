@@ -5,7 +5,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.Abstracts;
 
 namespace BookShopAPI.Persistence.EntityFramework.Repositories.CommendRepositories
 {
-    public class CommentWriteRepository : BaseWriteRepository<CommentEntity>, ICommentWriteRepository
+    public sealed class CommentWriteRepository : BaseWriteRepository<CommentEntity>, ICommentWriteRepository
     {
         public CommentWriteRepository(BookShopDbContext context) : base(context)
         {

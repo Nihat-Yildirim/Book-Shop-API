@@ -5,7 +5,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.Abstracts;
 
 namespace BookShopAPI.Persistence.EntityFramework.Repositories.MailComfirmCodeRepositories
 {
-    public class MailComfirmCodeWriteRepository : BaseWriteRepository<MailComfirmCode>, IMailComfirmCodeWriteRepository
+    public sealed class MailComfirmCodeWriteRepository : BaseWriteRepository<MailComfirmCode>, IMailComfirmCodeWriteRepository
     {
         public MailComfirmCodeWriteRepository(BookShopDbContext context) : base(context)
         {

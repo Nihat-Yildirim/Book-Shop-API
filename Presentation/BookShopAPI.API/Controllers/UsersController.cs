@@ -4,6 +4,7 @@ using BookShopAPI.Application.CQRS.Commands.UserCommands.DeleteUserAvatar;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.UpdateUserAvatar;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.UpdateUserProfile;
 using BookShopAPI.Application.CQRS.Queries.UserQueries.GetUserByPattern;
+using BookShopAPI.Application.CQRS.Queries.UserQueries.GetUserProfile;
 using BookShopAPI.Application.CQRS.Queries.UserQueries.GetUsers;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
@@ -46,5 +47,10 @@ namespace BookShopAPI.API.Controllers
         [HttpPut("UpdateUserAvatar")]
         public async Task<IActionResult> UpdateUserAvatar([FromForm] UpdateUserAvatarCommandRequest request)
             => await NoDataResponse(request);
+
+        //[AuthorizationFilter("Admin/Customer")]
+        [HttpGet("GetUserProfile")]
+        public async Task<IActionResult> GetUserProfile([FromQuery] GetUserProfileQueryRequest request)
+            => await DataResponse(request);
     }
 }

@@ -1,4 +1,8 @@
 ﻿using BookShopAPI.API.Controllers.Common;
+using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.ActivateMailAuthentication;
+using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.AddMailAuthentication;
+using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.DisableMailAuthentication;
+using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.SendDisableMailAuthenticationCode;
 using BookShopAPI.Application.CQRS.Commands.MailComfirmCodeCommands.VerifyMailComfirmCode;
 using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.ActivateOtpAuthentication;
 using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.AddOtpAuthentication;
@@ -7,6 +11,7 @@ using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.SaveOtpAut
 using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.VerifySaveOtpAuthenticationCode;
 using BookShopAPI.Application.CQRS.Commands.UserClaimCommands.UpdateUserClaim;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
+using BookShopAPI.Application.CQRS.Queries.MailAuthenticationQueries.MailAuthenticationLogin;
 using BookShopAPI.Application.CQRS.Queries.OtpAuthenticationQueries.OtpAuthenticationLogin;
 using BookShopAPI.Application.CQRS.Queries.UserQueries.Login;
 using BookShopAPI.Application.CQRS.Queries.UserQueries.RefreshTokenLogin;
@@ -29,6 +34,10 @@ namespace BookShopAPI.API.Controllers
         public async Task<IActionResult> AddOtpAuthentication([FromQuery] AddOtpAuthenticationCommandRequest request)
             => await DataResponse(request);
 
+        [HttpPost("AddMailAuthenticaiton")]
+        public async Task<IActionResult> AddMailAuthenticaiton([FromQuery] AddMailAuthenticaitonCommandRequest request)
+            => await NoDataResponse(request);
+
         [HttpPut("VerifyMailComfirmCode")]
         public async Task<IActionResult> VerifyMailComfirmCode([FromQuery] VerifyMailComfirmCodeCommandRequest request)
             => await NoDataResponse(request);
@@ -49,6 +58,18 @@ namespace BookShopAPI.API.Controllers
         public async Task<IActionResult> DisableOtpAuthentication([FromQuery] DisableOtpAuthenticationCommandRequest request)
             => await NoDataResponse(request);
 
+        [HttpPut("ActivateMailAuthentication")]
+        public async Task<IActionResult> ActivateMailAuthentication([FromQuery] ActivateMailAuthenticationCommandRequest request)
+            => await NoDataResponse(request);
+
+        [HttpPost("SendDisableMailAuthenticationCode")]
+        public async Task<IActionResult> SendDisableMailAuthenticationCode([FromQuery] SendDisableMailAuthenticationCodeCommandRequest request)
+            => await NoDataResponse(request);
+
+        [HttpDelete("DisableMailAuthentication")]
+        public async Task<IActionResult> DisableMailAuthentication([FromQuery] DisableMailAuthenticationCommandRequest request)
+            => await NoDataResponse(request);
+
         [HttpPut("UpdateUserClaim")]
         public async Task<IActionResult> UpdateUserClaim([FromQuery] UpdateUserClaimCommandRequest request)
             => await NoDataResponse(request);
@@ -63,6 +84,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpGet("OtpAuthenticationLogin")]
         public async Task<IActionResult> OtpAuthenticationLogin([FromQuery] OtpAuthenticationLoginQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("MailAuthenticationLogin")]
+        public async Task<IActionResult> MailAuthenticationLogin([FromQuery] MailAuthenticationLoginQueryRequest request)
             => await DataResponse(request);
     }
 }
