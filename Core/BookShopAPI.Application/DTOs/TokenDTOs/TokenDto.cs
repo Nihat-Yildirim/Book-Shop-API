@@ -7,6 +7,5 @@ namespace BookShopAPI.Application.DTOs.TokenDTOs
     {
         public AccessToken? AccessToken { get; set; }
         public RefreshToken? RefreshToken { get; set; }
-        public int UserId { get; set; }
     }
 }

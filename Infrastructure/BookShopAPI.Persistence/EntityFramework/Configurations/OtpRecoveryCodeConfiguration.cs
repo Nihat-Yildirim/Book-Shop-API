@@ -15,16 +15,12 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.HasOne(x => x.OtpAuthentication)
                 .WithMany(x => x.OtpRecoveryCodes)
-                .HasForeignKey(x => x.OtpAuthenticationId);
+                .HasForeignKey(x => x.OtpAuthenticationId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.Code)
                 .HasColumnType(SqlServerColumnType.Char)
                 .HasMaxLength(6)
-                .IsRequired();
-
-            builder.Property(x => x.IsUse)
-                .HasColumnType(SqlServerColumnType.Bit)
-                .HasDefaultValue(false)
                 .IsRequired();
 
             builder.Property(x => x.CreatedDate)

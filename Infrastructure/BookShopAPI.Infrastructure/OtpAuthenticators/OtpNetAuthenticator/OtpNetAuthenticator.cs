@@ -7,35 +7,35 @@ namespace BookShopAPI.Infrastructure.OtpAuthenticators
     public sealed class OtpNetAuthenticator : IOtpAuthenticator
     {
 
-        public Task<string> ConvertSecretKeyToStringAsync(byte[] sharedKey)
+        public string ConvertSecretKeyToString(byte[] sharedKey)
         {
             string base32String = Base32Encoding.ToString(sharedKey);
 
-            return Task.FromResult(base32String);
+            return base32String;
         }
 
-        public Task<byte[]> CreateSecretKeyAsync()
+        public byte[] CreateSecretKey()
         {
             byte[] key = KeyGeneration.GenerateRandomKey(20);
 
-            return Task.FromResult(key);
+            return key;
         }
 
-        public Task<string> GenerateQrCodeUri(string sharedKey, string title, User user)
+        public string GenerateQrCodeUri(string sharedKey, string title, User user)
         {
             var qrCodeUri = $"otpauth://totp/{title}:{user.Email}?secret={sharedKey}&issuer={title}";
         
-            return Task.FromResult(qrCodeUri);
+            return qrCodeUri;
         }
 
-        public Task<bool> VerifyCodeAsync(byte[] sharedKey, string code)
+        public bool VerifyCode(byte[] sharedKey, string code)
         {
             Totp totp = new(sharedKey);
 
             string totpCode = totp.ComputeTotp(DateTime.UtcNow);
             bool result = totpCode == code;
 
-            return Task.FromResult(result);
+            return result;
         }
     }
 }
