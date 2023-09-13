@@ -3,6 +3,7 @@ using BookShopAPI.Application.UnitOfWork;
 using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShopAPI.Application.CQRS.Commands.CategoryCommands.AddCategory
 {
@@ -34,6 +35,13 @@ namespace BookShopAPI.Application.CQRS.Commands.CategoryCommands.AddCategory
                 var parentCategories = _categoryReadRepository.GetWhere(x => x.ParentId == 0, false);
 
                 if(parentCategories.Select(x => x.CategoryName).Contains(request.Name))
+                    return new FailNoDataResponse();
+            }
+
+            if(request.ParentId != 0)
+            {
+                var childCategories = await _categoryReadRepository.GetWhere(x => x.ParentId == request.ParentId).ToListAsync();
+                if(childCategories.Select(x => x.CategoryName).Contains(request.Name))
                     return new FailNoDataResponse();
             }
 

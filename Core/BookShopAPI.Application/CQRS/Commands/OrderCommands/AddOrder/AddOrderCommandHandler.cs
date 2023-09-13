@@ -76,6 +76,12 @@ namespace BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder
                 Visible = true,
             };
 
+            selectedBasket?.BasketItems?.ToList().ForEach(basketItem =>
+            {
+                if (basketItem.Book != null)
+                    basketItem.Book.Stock = basketItem.Book.Stock + basketItem.Quantity;
+            });
+
             selectedBasket.Visible = false;
             await _basketWriteRepository.AddAsync(addedBasket);
             await _orderWriteRepository.AddAsync(addedOrder);

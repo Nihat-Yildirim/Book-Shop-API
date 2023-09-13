@@ -36,22 +36,22 @@ namespace BookShopAPI.API.Controllers
         public async Task<IActionResult> GetAuthorById([FromQuery] GetAuthorByIdQueryRequest request)
             => await DataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpGet("GetAllAuthorForAdmin")]
         public async Task<IActionResult> GetAllAuthorForAdmin([FromQuery] GetAllAuthorsForAdminQueryRequest request)
             => await DataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpGet("GetAuthorByIdForAdmin")]
         public async Task<IActionResult> GetAuthorByIdForAdmin([FromQuery] GetAuthorByIdForAdminQueryRequest request)
             => await DataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpDelete("DeleteAuthor")]
         public async Task<IActionResult> DeleteAuthor([FromQuery] DeleteAuthorCommandRequest request)
             => await NoDataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateAuthor")]
         public async Task<IActionResult> UpdateAuthor([FromQuery] UpdateAuthorCommandRequest request)
             => await NoDataResponse(request);
@@ -60,7 +60,7 @@ namespace BookShopAPI.API.Controllers
         public async Task<IActionResult> GetAuthorByPattern([FromQuery] GetAuthorByPatternQueryRequest request)
             => await DataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpGet("GetAuthorByPatternForAdmin")]
         public async Task<IActionResult> GetAuthorByPatternForAdmin([FromQuery] GetAuthorByPatternForAdminQueryRequest request)
             => await DataResponse(request);
@@ -72,12 +72,12 @@ namespace BookShopAPI.API.Controllers
             return await NoDataResponse(request);
         }
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateAuthorPicture")]
         public async Task<IActionResult> UpdateAuthorPicture([FromForm] UpdateAuthorPictureCommandRequest request)
             => await NoDataResponse(request);
 
-        [AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Admin")]
         [HttpDelete("DeleteAuthorPicture")]
         public async Task<IActionResult> DeleteAuthorPicture([FromForm] DeleteAuthorPictureCommandRequest request)
             => await NoDataResponse(request);

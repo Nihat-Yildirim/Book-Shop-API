@@ -32,7 +32,6 @@
     <Folder Include="Logs\AllLogs\" />
     <Folder Include="Logs\ImportantLogs\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\BookPictures\" />
   </ItemGroup>
 
 </Project>

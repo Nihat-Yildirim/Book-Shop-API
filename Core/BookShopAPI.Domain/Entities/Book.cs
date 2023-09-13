@@ -31,5 +31,6 @@ namespace BookShopAPI.Domain.Entities
         public ICollection<Category> Categories { get; set; }
         public ICollection<BasketItem> BasketItems { get; set; }
         public ICollection<BookPicture> BookPictures { get; set; }
+        public ICollection<CommentEntity> Comments { get; set; }
     }
 }

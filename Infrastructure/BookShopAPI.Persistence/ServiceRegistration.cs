@@ -6,6 +6,8 @@ using BookShopAPI.Application.Repositories.BookPictureRepositories;
 using BookShopAPI.Application.Repositories.BookRepositories;
 using BookShopAPI.Application.Repositories.CategoryRepositories;
 using BookShopAPI.Application.Repositories.ClaimRepositories;
+using BookShopAPI.Application.Repositories.CommentRatingRepositories;
+using BookShopAPI.Application.Repositories.CommentRepositories;
 using BookShopAPI.Application.Repositories.FileRepositories;
 using BookShopAPI.Application.Repositories.LanguageRepositories;
 using BookShopAPI.Application.Repositories.MailAuthenticationRepositories;
@@ -28,6 +30,8 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.BookPictureRepositori
 using BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.CategoryRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.ClaimRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.CommendRatingRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.CommendRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.FileRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.LanguageRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.MailAuthenticationRepositories;
@@ -114,6 +118,12 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+
+            services.AddScoped<ICommentReadRepository, CommentReadRepository>();
+            services.AddScoped<ICommentWriteRepository, CommentWriteRepository>();
+
+            services.AddScoped<ICommentRatingReadRepository, CommentRatingReadRepository>();
+            services.AddScoped<ICommentRatingWriteRepository, CommentRatingWriteRepository>();
         }
     }
 }
