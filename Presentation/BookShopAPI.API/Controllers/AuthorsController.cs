@@ -68,9 +68,7 @@ namespace BookShopAPI.API.Controllers
         //[AuthorizationFilter("Admin")]
         [HttpPost("AddAuthorPicture")]
         public async Task<IActionResult> AddAuthorPicture([FromForm] AddAuthorPictureCommandRequest request)
-        {
-            return await NoDataResponse(request);
-        }
+            => await NoDataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateAuthorPicture")]

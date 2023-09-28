@@ -20,7 +20,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.HasOne(x => x.Book)
                 .WithMany(x => x.Comments)
-                .HasForeignKey(x => x.UserId)
+                .HasForeignKey(x => x.BookId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.ParentCommentId)

@@ -38,8 +38,6 @@ namespace BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister
                 return new FailNoDataResponse();
 
             if(selectedUser != null && selectedUser.MailComfirmCode.IsComfirm == false)
-            {
-
                 if(selectedUser.MailComfirmCode.ComfirmDuration < DateTime.Now)
                 {
                     _userWriteRepository.Remove(selectedUser);
@@ -49,7 +47,6 @@ namespace BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister
                 {
                     return new FailNoDataResponse();
                 }
-            }
 
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(request.Password, out passwordHash, out passwordSalt);
@@ -80,7 +77,7 @@ namespace BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister
                 ToEmail = request.Email,
                 ToFullName = request.FirstName + " " + request.LastName,
                 Subject ="Doğrulama Kodu",
-                HtmlBody = $"<h5>{comfirmCode}</h5>"
+                HtmlBody = $"<h2>{comfirmCode}</h2>"
             };
             
             await _mailService.SendAsync(mail);

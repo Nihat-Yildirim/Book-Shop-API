@@ -46,7 +46,7 @@ namespace BookShopAPI.Application.Validators.BookValidators
             RuleFor(x => x.Dimension)
                 .NotEmpty()
                 .NotNull()
-                .MaximumLength(10);
+                .MaximumLength(20);
 
             RuleFor(x => x.Description)
                 .NotEmpty()

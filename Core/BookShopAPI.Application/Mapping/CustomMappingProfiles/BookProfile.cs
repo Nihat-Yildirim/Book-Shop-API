@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookShopAPI.Application.CQRS.Commands.BookCommands.AddBook;
+using BookShopAPI.Application.DTOs.BookDTOs;
 using BookShopAPI.Domain.Entities;
 
 namespace BookShopAPI.Application.Mapping.CustomMappingProfiles
@@ -23,6 +24,11 @@ namespace BookShopAPI.Application.Mapping.CustomMappingProfiles
                 .ForMember(d => d.Price, o => o.MapFrom(s => s.Price))
                 .ForMember(d => d.Authors,o => o.Ignore())
                 .ForMember(d => d.Categories,o => o.Ignore());
+
+            CreateMap<Book, ShortBookDto>()
+                .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
+                .ForMember(d => d.Name, o => o.MapFrom(s => s.BookName));
+
         }
     }
 }

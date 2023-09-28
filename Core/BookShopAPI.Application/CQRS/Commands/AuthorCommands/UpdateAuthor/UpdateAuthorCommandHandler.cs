@@ -28,8 +28,7 @@ namespace BookShopAPI.Application.CQRS.Commands.AuthorCommands.UpdateAuthor
                 return new FailNoDataResponse();
 
             selectedAuthor.Autobiography = request.Autobiography;
-            selectedAuthor.FirstName = request.FirstName;
-            selectedAuthor.LastName = request.LastName;
+            selectedAuthor.Name = request.Name;
 
             await _unitOfWork.SaveChangesAsync();
 

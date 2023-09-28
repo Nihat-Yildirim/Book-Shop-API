@@ -19,7 +19,6 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryId
             _categoryReadRepository = categoryReadRepository;
         }
 
-        //TODO burada yazılan işlemlerin tamamını bir view ile yapabilisin sonra yap !
         public async Task<BaseDataResponse<List<BookDto>>> Handle(GetBooksByCategoryIdQueryRequest request, CancellationToken cancellationToken)
         {
             var resultDatas = await _categoryReadRepository.Table
@@ -66,11 +65,11 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryId
                         PageOfNumber = book.PageOfNumber,
                         Stock = book.Stock,
                         Price = book.Price,
-                        BookPictureUrls = book.BookPictures?.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
+                        PictureUrls = book.BookPictures?.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
                         Authors = book.Authors.Select(x => new ShortAuthorDto
                         {
                             Id = x.Id,
-                            Name = x.FirstName + " " + x.LastName
+                            Name = x.Name
                         }).ToList(),
                         Categories = book.Categories.Select(x => new ShortCategoryDto
                         {

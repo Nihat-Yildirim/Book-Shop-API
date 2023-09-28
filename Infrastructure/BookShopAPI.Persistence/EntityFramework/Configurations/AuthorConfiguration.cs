@@ -17,14 +17,9 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .WithOne(x => x.Author)
                 .HasForeignKey<Author>(x => x.AuthorPictureFileId);
 
-            builder.Property(x => x.FirstName)
+            builder.Property(x => x.Name)
                 .HasColumnType(SqlServerColumnType.VarChar)
-                .HasMaxLength(25)
-                .IsRequired();
-
-            builder.Property(x => x.LastName)
-                .HasColumnType(SqlServerColumnType.VarChar)
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(x => x.Autobiography)

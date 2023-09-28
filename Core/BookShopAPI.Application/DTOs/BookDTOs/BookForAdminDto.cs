@@ -25,7 +25,7 @@ namespace BookShopAPI.Application.DTOs.BookDTOs
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public DateTime? DeletedDate { get; set; }
-        public List<BookPictureDto>? BookPictureUrls { get; set; }
+        public List<BookPictureDto>? PictureUrls { get; set; }
         public List<ShortCategoryDto>? Categories { get; set; }
         public List<ShortAuthorDto>? Authors { get; set; }
 

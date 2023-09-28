@@ -2,6 +2,7 @@
 using BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder;
 using BookShopAPI.Application.CQRS.Commands.OrderCommands.UpdateOrder;
 using BookShopAPI.Application.CQRS.Queries.OrderQueries.GetAllOrder;
+using BookShopAPI.Application.CQRS.Queries.OrderQueries.GetOrderCountByBookId;
 using BookShopAPI.Application.CQRS.Queries.OrderQueries.GetOrdersByUserId;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
@@ -33,6 +34,10 @@ namespace BookShopAPI.API.Controllers
         //[AuthorizationFilter("Customer")]
         [HttpGet("GetOrdersByUserId")]
         public async Task<IActionResult> GetOrdersByUserId([FromQuery] GetOrdersByUserIdQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("GetOrderCountByBookId")]
+        public async Task<IActionResult> GetOrderCountByBookId([FromQuery] GetOrderCountByBookIdQueryRequest request)
             => await DataResponse(request);
     }
 }

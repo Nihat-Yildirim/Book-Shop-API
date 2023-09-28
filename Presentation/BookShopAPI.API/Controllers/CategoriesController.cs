@@ -5,6 +5,7 @@ using BookShopAPI.Application.CQRS.Commands.CategoryCommands.UpdateCategory;
 using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetAllCategories;
 using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetCategoriesByParentId;
 using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetCategoryById;
+using BookShopAPI.Application.CQRS.Queries.CategoryQueries.GetParentCategories;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpGet("GetAllCategories")]
         public async Task<IActionResult> GetAllCategories([FromQuery] GetAllCategoriesQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("GetParentCategories")]
+        public async Task<IActionResult> GetParentCategories([FromQuery] GetParentCategoriesQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetCategoryById")]

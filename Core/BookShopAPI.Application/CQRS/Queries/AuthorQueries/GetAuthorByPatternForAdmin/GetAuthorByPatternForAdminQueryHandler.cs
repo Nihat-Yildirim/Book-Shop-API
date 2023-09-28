@@ -22,7 +22,7 @@ namespace BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPatternF
         public async Task<BaseDataResponse<List<AuthorForAdminDto>>> Handle(GetAuthorByPatternForAdminQueryRequest request, CancellationToken cancellationToken)
         {
             var authors = await _authorReadRepository
-                .GetWhere(x => x.FirstName.Contains(request.Pattern) || x.LastName.Contains(request.Pattern), false)
+                .GetWhere(x => x.Name.Contains(request.Pattern), false)
                 .Include(x => x.File)
                 .ToListAsync();
             var responseAuthors = _mapper.Map<List<AuthorForAdminDto>>(authors);

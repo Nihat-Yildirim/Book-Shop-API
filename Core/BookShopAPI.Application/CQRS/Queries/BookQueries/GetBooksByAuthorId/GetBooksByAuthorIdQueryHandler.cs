@@ -66,11 +66,11 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByAuthorId
                         PageOfNumber = book.PageOfNumber,
                         Stock = book.Stock,
                         Price = book.Price,
-                        BookPictureUrls = book.BookPictures?.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
+                        PictureUrls = book.BookPictures?.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
                         Authors = book.Authors.Select(x => new ShortAuthorDto
                         {
                             Id = x.Id,
-                            Name = x.FirstName + " " + x.LastName
+                            Name = x.Name
                         }).ToList(),
                         Categories = book.Categories.Select(x => new ShortCategoryDto
                         {

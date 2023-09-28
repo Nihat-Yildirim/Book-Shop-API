@@ -61,12 +61,13 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetAllOrder
                         BasketId = order.Basket.Id,
                         BasketItems = order.Basket?.BasketItems?.ToList().Select(basketItem => new BasketItemDto
                         {
+                            PublisherId = basketItem.Book.PublisherId,
                             BasketItemId = basketItem.Id,
                             BookId = basketItem.Book.Id,
                             BookName = basketItem.Book.BookName,
                             Quantity = basketItem.Quantity,
                             BookPictureUrl = FileUrlHelper.Generate(basketItem.Book.BookPictures.SingleOrDefault(x => x.ShowOrder == 1).File.FilePath),
-                            TotalPrice = basketItem.Book.Price * basketItem.Quantity,
+                            Price = basketItem.Book.Price,
                         }).ToList(),
                     },
                     TotalPayment = (float)order.Basket?.BasketItems?.ToList().Select(basketItem => new {

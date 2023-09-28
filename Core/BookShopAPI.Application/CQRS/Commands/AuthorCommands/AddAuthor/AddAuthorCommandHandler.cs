@@ -25,7 +25,7 @@ namespace BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor
 
         public async Task<BaseResponse> Handle(AddAuthorCommandRequest request, CancellationToken cancellationToken)
         {
-            var selectedAuthor = await _authorReadRepository.GetSingleAsync(x => x.FirstName == request.FirstName && x.LastName == request.LastName && x.DeletedDate == null);
+            var selectedAuthor = await _authorReadRepository.GetSingleAsync(x => x.Name == request.Name&& x.DeletedDate == null);
 
             if (selectedAuthor != null)
                 return new FailNoDataResponse();

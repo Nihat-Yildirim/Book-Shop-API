@@ -8,7 +8,8 @@ namespace BookShopAPI.Application.DTOs.UserDTOs
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }
-        public string? UserAvatarUrl { get; set; }
+        public string? PictureUrl { get; set; }
+        public int BasketId { get; set; }
         public AuthenticatorType AuthenticatorType { get; set; }
     }
 }

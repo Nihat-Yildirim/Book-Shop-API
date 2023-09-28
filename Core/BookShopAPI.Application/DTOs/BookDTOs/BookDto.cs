@@ -21,7 +21,7 @@ namespace BookShopAPI.Application.DTOs.BookDTOs
         public int PageOfNumber { get; set; }
         public int Stock { get; set; }
         public float Price { get; set; }
-        public List<string>? BookPictureUrls { get; set; }
+        public List<string>? PictureUrls { get; set; }
         public List<ShortAuthorDto>? Authors { get; set; }
         public List<ShortCategoryDto>? Categories { get; set; }
     }

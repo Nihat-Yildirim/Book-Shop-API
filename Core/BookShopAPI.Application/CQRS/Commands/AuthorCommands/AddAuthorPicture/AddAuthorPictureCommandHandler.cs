@@ -25,6 +25,9 @@ namespace BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthorPicture
         {
             var selectedAuthor = await _authorReadRepository.GetAuthorByAuthorPictureFileAsync(x => x.Id == request.AuthorId);
 
+            if (selectedAuthor.AuthorPictureFileId != null)
+                return new FailNoDataResponse();
+
             if (selectedAuthor == null)
                 return new FailNoDataResponse();
 

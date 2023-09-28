@@ -15,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Host.ConfigureLogger(builder);
+builder.Services.ConfiguraCQRS();
 builder.Services.ConfigureValidationFilter();
 builder.Services.ConfigureAuthentication(accesTokenOptions);
 
@@ -26,6 +27,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors();
 
 app.UseStaticFiles();
 

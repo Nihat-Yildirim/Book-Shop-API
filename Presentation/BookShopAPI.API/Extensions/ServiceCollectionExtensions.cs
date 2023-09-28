@@ -35,5 +35,18 @@ namespace BookShopAPI.API.Extensions
                 options.SuppressModelStateInvalidFilter = true;
             });
         }
+
+        public static void ConfiguraCQRS(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
+        }
     }
 }

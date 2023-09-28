@@ -20,6 +20,7 @@ namespace BookShopAPI.Application.CQRS.Queries.UserQueries.GetUserProfile
         public async Task<BaseDataResponse<UserProfileDto>> Handle(GetUserProfileQueryRequest request, CancellationToken cancellationToken)
         {
             var selectedUser = await _userReadRepository.Table
+                                    .Include(x => x.Baskets)
                                     .Include(x => x.File)
                                     .SingleOrDefaultAsync(x => x.Id == request.UserId && x.DeletedDate == null);
 
@@ -34,8 +35,13 @@ namespace BookShopAPI.Application.CQRS.Queries.UserQueries.GetUserProfile
                 Email = selectedUser.Email,
             };
 
+            if (selectedUser.Baskets.Count == 0 || selectedUser.Baskets.SingleOrDefault(x => x.Visible == true) == null)
+                userProfile.BasketId = 0;
+            else
+                userProfile.BasketId = selectedUser.Baskets.SingleOrDefault(x => x.Visible == true).Id;
+
             if (selectedUser.File != null)
-                userProfile.UserAvatarUrl = FileUrlHelper.Generate(selectedUser.File.FilePath);
+                userProfile.PictureUrl = FileUrlHelper.Generate(selectedUser.File.FilePath);
 
             return new SuccessDataResponse<UserProfileDto>(userProfile);
         }

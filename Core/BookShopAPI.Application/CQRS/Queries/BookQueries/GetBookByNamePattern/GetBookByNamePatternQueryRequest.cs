@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookByNamePattern
 {
-    public class GetBookByNamePatternQueryRequest : IRequest<BaseDataResponse<List<BookDto>>>
+    public class GetBookByNamePatternQueryRequest : IRequest<BaseDataResponse<List<ShortBookDto>>>
     {
         public int Page { get; set; } = 0;
         public int Size { get; set; } = 5;

@@ -3,6 +3,7 @@ using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.ActivateM
 using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.AddMailAuthentication;
 using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.DisableMailAuthentication;
 using BookShopAPI.Application.CQRS.Commands.MailAuthenticationCommands.SendDisableMailAuthenticationCode;
+using BookShopAPI.Application.CQRS.Commands.MailComfirmCodeCommands.NewMailComfirmCode;
 using BookShopAPI.Application.CQRS.Commands.MailComfirmCodeCommands.VerifyMailComfirmCode;
 using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.ActivateOtpAuthentication;
 using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.AddOtpAuthentication;
@@ -40,6 +41,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpPut("VerifyMailComfirmCode")]
         public async Task<IActionResult> VerifyMailComfirmCode([FromQuery] VerifyMailComfirmCodeCommandRequest request)
+            => await DataResponse(request);
+
+        [HttpPut("NewMailComfirmCode")]
+        public async Task<IActionResult> NewMailComfirmCode([FromQuery] NewMailComfirmCodeCommandRequest request)
             => await NoDataResponse(request);
 
         [HttpPut("SaveOtpAuthentication")]

@@ -10,11 +10,13 @@ namespace BookShopAPI.Application.CQRS.Commands.CommentCommands.DeleteCommentRat
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICommentRatingReadRepository _commentRatingReadRepository;
+        private readonly ICommentRatingWriteRepository _commentRatingWriteRepository;
 
-        public DeleteCommentRatingCommandHandler(IUnitOfWork unitOfWork, ICommentRatingReadRepository commentRatingReadRepository)
+        public DeleteCommentRatingCommandHandler(IUnitOfWork unitOfWork, ICommentRatingReadRepository commentRatingReadRepository, ICommentRatingWriteRepository commentRatingWriteRepository)
         {
             _unitOfWork = unitOfWork;
             _commentRatingReadRepository = commentRatingReadRepository;
+            _commentRatingWriteRepository = commentRatingWriteRepository;
         }
 
         public async Task<BaseResponse> Handle(DeleteCommentRatingCommandRequest request, CancellationToken cancellationToken)
@@ -23,7 +25,7 @@ namespace BookShopAPI.Application.CQRS.Commands.CommentCommands.DeleteCommentRat
             if (selectedCommentRating == null)
                 return new FailNoDataResponse();
 
-            selectedCommentRating.DeletedDate = DateTime.Now;
+            _commentRatingWriteRepository.Remove(selectedCommentRating);
             await _unitOfWork.SaveChangesAsync();
 
             return new SuccesNoDataResponse();

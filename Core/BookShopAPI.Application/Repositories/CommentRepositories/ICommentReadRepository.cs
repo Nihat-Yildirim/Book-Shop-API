@@ -8,7 +8,7 @@ namespace BookShopAPI.Application.Repositories.CommentRepositories
 {
     public interface ICommentReadRepository : IReadRepository<CommentEntity>
     {
-        Task<List<CommentDto>> GetCommentDtosAsync(Expression<Func<CommentEntity, bool>> filter = null);
+        Task<List<CommentDto>> GetCommentDtosAsync(Pagination pagination, int userId,Expression<Func<CommentEntity, bool>> filter = null);
         Task<List<CommentForAdminDto>> GetCommentForAdminDtosAsync(Pagination pagination,Expression<Func<CommentEntity, bool>> filter = null);
     }
 }
