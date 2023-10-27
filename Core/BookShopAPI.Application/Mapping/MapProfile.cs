@@ -8,7 +8,10 @@ using BookShopAPI.Application.CQRS.Commands.PhoneNumberCommands.AddPhoneNumber;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
 using BookShopAPI.Application.DTOs.AddressDTOs;
 using BookShopAPI.Application.DTOs.CategoryDTOs;
+using BookShopAPI.Application.DTOs.DistrictDTOs;
+using BookShopAPI.Application.DTOs.NeighbourhoodDTOs;
 using BookShopAPI.Application.DTOs.PhoneNumberDTOs;
+using BookShopAPI.Application.DTOs.ProvinceDTOs;
 using BookShopAPI.Domain.Entities;
 
 namespace BookShopAPI.Application.Mapping
@@ -18,6 +21,9 @@ namespace BookShopAPI.Application.Mapping
         public MapProfile()
         {
             CreateMap<UserRegisterCommandRequest, User>();
+            CreateMap<Province , ProvinceDto>();
+            CreateMap<District, DistrictDto>();
+            CreateMap<Neighbourhood, NeighbourhoodDto>();
             CreateMap<AddAddressCommandRequest, Address>();
             CreateMap<Address, AddressForAdminDto>();
             CreateMap<Address, AddressDto>();
@@ -26,7 +32,7 @@ namespace BookShopAPI.Application.Mapping
             CreateMap<PhoneNumberEntity, PhoneNumberDto>();
             CreateMap<AddAuthorCommandRequest, Author>();
             CreateMap<Category, CategoryDto>();
-            CreateMap<AddCommentCommandRequest,CommentEntity>();
+            CreateMap<AddCommentCommandRequest, CommentEntity>();
             CreateMap<AddBasketItemCommandRequest, BasketItem>();
             CreateMap<AddCommentRatingCommandRequest, CommentRating>();
         }

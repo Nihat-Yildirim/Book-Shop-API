@@ -37,11 +37,6 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasMaxLength(25)
                 .IsRequired();
 
-            builder.Property(x => x.Neighbourhood)
-                .HasColumnType(SqlServerColumnType.VarChar)
-                .HasMaxLength(50)
-                .IsRequired();
-
             builder.Property(x => x.OpenAddress)
                 .HasColumnType(SqlServerColumnType.VarChar)
                 .HasMaxLength(250)

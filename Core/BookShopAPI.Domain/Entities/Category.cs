@@ -8,6 +8,6 @@ namespace BookShopAPI.Domain.Entities
         public string? CategoryName { get; set; }
         public DateTime? DeletedDate { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        public ICollection<Book>? Books { get; set; }
     }
 }

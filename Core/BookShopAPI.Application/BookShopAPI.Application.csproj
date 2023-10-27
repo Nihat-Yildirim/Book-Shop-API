@@ -22,4 +22,12 @@
     <ProjectReference Include="..\BookShopAPI.Domain\BookShopAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CQRS\Commands\AddressCommands\DeleteAddress\" />
+    <Folder Include="CQRS\Commands\AddressCommands\UpdateAddress\" />
+    <Folder Include="CQRS\Queries\AddressQueries\GetAllAddressByUserId\" />
+    <Folder Include="CQRS\Queries\AddressQueries\GetAllAddress\" />
+    <Folder Include="Validators\AddressValidators\" />
+  </ItemGroup>
+
 </Project>

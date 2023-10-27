@@ -7,7 +7,6 @@
         public string? Description { get; set; }
         public string? Province { get; set; }
         public string? District { get; set; }
-        public string? Neighbourhood { get; set; }
         public string? OpenAddress { get; set; }
         public bool Selected { get; set; }
         public DateTime CreatedDate { get; set; }

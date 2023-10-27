@@ -41,7 +41,6 @@ namespace BookShopAPI.Application.CQRS.Commands.AddressCommands.UpdateAddress
             updatedAddress.Description = request.Description;
             updatedAddress.Province = request.Province;
             updatedAddress.District = request.District;
-            updatedAddress.Neighbourhood = request.Neighbourhood;
             updatedAddress.OpenAddress = request.OpenAddress;
             updatedAddress.Selected = request.Selected;
 

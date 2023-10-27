@@ -52,9 +52,6 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetOrdersByUserId
                         Id = order.Address.Id,
                         AddressTitle = order.Address.AddressTitle,
                         Description = order.Address.Description,
-                        Province = order.Address.Province,
-                        District = order.Address.District,
-                        Neighbourhood = order.Address.Neighbourhood,
                         OpenAddress = order.Address.OpenAddress,
                     },
                     Basket = new()

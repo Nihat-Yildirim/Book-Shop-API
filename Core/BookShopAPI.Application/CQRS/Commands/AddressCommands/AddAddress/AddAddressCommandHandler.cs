@@ -28,12 +28,12 @@ namespace BookShopAPI.Application.CQRS.Commands.AddressCommands.AddAddress
             if (selectedUser == null)
                 return new FailNoDataResponse();
 
-            if(selectedUser.Addresses.Count == 5)
+            if (selectedUser.Addresses.Count == 5)
                 return new FailNoDataResponse();
 
             var addedAddress = _mapper.Map<Address>(request);
 
-            if(selectedUser.Addresses.Count == 0)
+            if (selectedUser.Addresses.Count == 0)
                 addedAddress.Selected = true;
 
             selectedUser.Addresses.Add(addedAddress);

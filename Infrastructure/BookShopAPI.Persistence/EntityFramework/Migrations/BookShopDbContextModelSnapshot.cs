@@ -68,7 +68,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 381, DateTimeKind.Local).AddTicks(7542));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 552, DateTimeKind.Local).AddTicks(6623));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -81,11 +81,6 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<string>("District")
                         .IsRequired()
                         .HasMaxLength(25)
-                        .HasColumnType("VarChar");
-
-                    b.Property<string>("Neighbourhood")
-                        .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("VarChar");
 
                     b.Property<string>("OpenAddress")
@@ -134,7 +129,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 382, DateTimeKind.Local).AddTicks(3255));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 553, DateTimeKind.Local).AddTicks(2973));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -167,7 +162,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 382, DateTimeKind.Local).AddTicks(6839));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 553, DateTimeKind.Local).AddTicks(7763));
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("DateTime2");
@@ -205,7 +200,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 383, DateTimeKind.Local).AddTicks(1122));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 554, DateTimeKind.Local).AddTicks(3172));
 
                     b.Property<byte>("Quantity")
                         .HasColumnType("TinyInt");
@@ -238,7 +233,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 383, DateTimeKind.Local).AddTicks(5125));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 554, DateTimeKind.Local).AddTicks(8630));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -317,7 +312,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 384, DateTimeKind.Local).AddTicks(1111));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 555, DateTimeKind.Local).AddTicks(7105));
 
                     b.Property<byte>("ShowOrder")
                         .HasColumnType("TinyInt");
@@ -351,7 +346,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 384, DateTimeKind.Local).AddTicks(2715));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 555, DateTimeKind.Local).AddTicks(9116));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -492,7 +487,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 384, DateTimeKind.Local).AddTicks(4126));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 556, DateTimeKind.Local).AddTicks(813));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -543,7 +538,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 385, DateTimeKind.Local).AddTicks(87));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 556, DateTimeKind.Local).AddTicks(6731));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -561,6 +556,8 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.HasIndex("UserId");
 
@@ -581,7 +578,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 385, DateTimeKind.Local).AddTicks(4382));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 557, DateTimeKind.Local).AddTicks(2485));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -604,6 +601,40 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.ToTable("CommentRatings", (string)null);
                 });
 
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.District", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime2")
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 557, DateTimeKind.Local).AddTicks(7280));
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("DateTime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("VarChar");
+
+                    b.Property<int>("ProvinceId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("DateTime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProvinceId");
+
+                    b.ToTable("Districts", (string)null);
+                });
+
             modelBuilder.Entity("BookShopAPI.Domain.Entities.FileEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -615,7 +646,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 385, DateTimeKind.Local).AddTicks(6666));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 558, DateTimeKind.Local).AddTicks(14));
 
                     b.Property<string>("FileExtension")
                         .IsRequired()
@@ -650,7 +681,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 385, DateTimeKind.Local).AddTicks(9181));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 558, DateTimeKind.Local).AddTicks(3111));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -695,7 +726,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 386, DateTimeKind.Local).AddTicks(4041));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 558, DateTimeKind.Local).AddTicks(9193));
 
                     b.Property<bool>("IsVerified")
                         .HasColumnType("bit");
@@ -724,7 +755,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 386, DateTimeKind.Local).AddTicks(9403));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 559, DateTimeKind.Local).AddTicks(6030));
 
                     b.Property<bool>("IsComfirm")
                         .ValueGeneratedOnAdd()
@@ -737,6 +768,40 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MailComfirmCodes", (string)null);
+                });
+
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.Neighbourhood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime2")
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 560, DateTimeKind.Local).AddTicks(825));
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("DateTime2");
+
+                    b.Property<int>("DistrictId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VarChar");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("DateTime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DistrictId");
+
+                    b.ToTable("Neighbourhoods", (string)null);
                 });
 
             modelBuilder.Entity("BookShopAPI.Domain.Entities.Order", b =>
@@ -764,7 +829,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 387, DateTimeKind.Local).AddTicks(7036));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 561, DateTimeKind.Local).AddTicks(520));
 
                     b.Property<bool>("Pay")
                         .ValueGeneratedOnAdd()
@@ -816,7 +881,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 388, DateTimeKind.Local).AddTicks(2266));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 561, DateTimeKind.Local).AddTicks(6827));
 
                     b.Property<bool>("IsVerified")
                         .ValueGeneratedOnAdd()
@@ -852,7 +917,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 388, DateTimeKind.Local).AddTicks(5346));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 562, DateTimeKind.Local).AddTicks(594));
 
                     b.Property<int>("OtpAuthenticationId")
                         .HasColumnType("int");
@@ -878,7 +943,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 388, DateTimeKind.Local).AddTicks(8847));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 562, DateTimeKind.Local).AddTicks(5077));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -910,6 +975,35 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.ToTable("PhoneNumbers", (string)null);
                 });
 
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.Province", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime2")
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 562, DateTimeKind.Local).AddTicks(7703));
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("DateTime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("VarChar");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("DateTime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Provinces", (string)null);
+                });
+
             modelBuilder.Entity("BookShopAPI.Domain.Entities.Publisher", b =>
                 {
                     b.Property<int>("Id")
@@ -921,7 +1015,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 389, DateTimeKind.Local).AddTicks(7208));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 563, DateTimeKind.Local).AddTicks(8186));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -953,7 +1047,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 390, DateTimeKind.Local).AddTicks(1903));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 564, DateTimeKind.Local).AddTicks(4157));
 
                     b.Property<DateTime>("Expires")
                         .HasColumnType("DateTime2");
@@ -988,7 +1082,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 392, DateTimeKind.Local).AddTicks(162));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 566, DateTimeKind.Local).AddTicks(955));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("DateTime2");
@@ -1037,12 +1131,12 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                         {
                             Id = 1,
                             AuthenticatorType = 0,
-                            CreatedDate = new DateTime(2023, 9, 21, 13, 9, 10, 392, DateTimeKind.Local).AddTicks(2376),
+                            CreatedDate = new DateTime(2023, 10, 27, 18, 6, 4, 566, DateTimeKind.Local).AddTicks(3602),
                             Email = "BookShopAdmin@gmail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
-                            PasswordHash = new byte[] { 223, 194, 180, 152, 11, 128, 22, 99, 114, 65, 17, 23, 82, 196, 135, 191, 136, 110, 245, 254, 175, 254, 109, 68, 52, 197, 102, 64, 255, 222, 231, 84, 108, 49, 200, 83, 30, 233, 32, 49, 180, 183, 25, 183, 41, 91, 220, 147, 241, 192, 82, 72, 178, 189, 117, 0, 135, 18, 200, 178, 160, 83, 97, 135 },
-                            PasswordSalt = new byte[] { 99, 28, 236, 101, 157, 248, 66, 106, 252, 9, 180, 2, 55, 158, 239, 139, 179, 196, 228, 27, 13, 152, 132, 94, 72, 92, 52, 160, 125, 34, 153, 230, 57, 231, 219, 65, 113, 5, 44, 243, 53, 53, 18, 16, 48, 197, 2, 13, 179, 96, 144, 74, 239, 167, 153, 15, 52, 175, 224, 0, 18, 219, 187, 152, 128, 240, 99, 100, 83, 104, 51, 216, 148, 195, 83, 48, 42, 58, 209, 84, 126, 56, 83, 225, 153, 103, 52, 46, 110, 204, 219, 170, 43, 76, 240, 221, 200, 21, 138, 149, 198, 213, 228, 6, 41, 164, 79, 46, 23, 56, 20, 227, 159, 145, 229, 160, 229, 169, 62, 89, 96, 56, 2, 50, 61, 112, 50, 115 }
+                            PasswordHash = new byte[] { 3, 85, 244, 230, 24, 93, 54, 68, 60, 10, 48, 99, 111, 66, 73, 60, 18, 241, 87, 249, 47, 91, 234, 4, 84, 191, 234, 24, 208, 86, 210, 215, 24, 176, 67, 126, 7, 169, 9, 240, 42, 70, 7, 194, 139, 114, 188, 205, 63, 66, 115, 244, 7, 50, 240, 133, 58, 209, 27, 182, 122, 111, 194, 202 },
+                            PasswordSalt = new byte[] { 196, 92, 71, 81, 38, 146, 22, 141, 243, 220, 124, 234, 151, 201, 49, 61, 116, 139, 170, 3, 119, 223, 151, 208, 228, 69, 239, 152, 68, 70, 246, 48, 42, 88, 203, 217, 128, 143, 235, 65, 88, 15, 106, 156, 124, 190, 66, 143, 100, 47, 110, 187, 122, 121, 103, 160, 11, 229, 252, 132, 3, 64, 9, 102, 1, 175, 18, 237, 216, 20, 40, 170, 76, 243, 133, 63, 70, 160, 205, 93, 210, 102, 49, 190, 211, 105, 254, 200, 110, 198, 100, 246, 153, 116, 183, 120, 40, 113, 117, 244, 128, 38, 13, 149, 232, 121, 31, 134, 0, 15, 33, 80, 26, 93, 36, 197, 108, 167, 41, 105, 3, 99, 12, 215, 30, 235, 72, 53 }
                         });
                 });
 
@@ -1060,7 +1154,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime2")
-                        .HasDefaultValue(new DateTime(2023, 9, 21, 13, 9, 10, 390, DateTimeKind.Local).AddTicks(4839));
+                        .HasDefaultValue(new DateTime(2023, 10, 27, 18, 6, 4, 564, DateTimeKind.Local).AddTicks(8454));
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("DateTime2");
@@ -1082,7 +1176,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                         {
                             Id = 1,
                             ClaimId = 2,
-                            CreatedDate = new DateTime(2023, 9, 21, 13, 9, 10, 392, DateTimeKind.Local).AddTicks(1633),
+                            CreatedDate = new DateTime(2023, 10, 27, 18, 6, 4, 566, DateTimeKind.Local).AddTicks(2759),
                             UserId = 1
                         });
                 });
@@ -1209,7 +1303,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                 {
                     b.HasOne("BookShopAPI.Domain.Entities.Book", "Book")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -1243,6 +1337,17 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.District", b =>
+                {
+                    b.HasOne("BookShopAPI.Domain.Entities.Province", "Province")
+                        .WithMany("Districts")
+                        .HasForeignKey("ProvinceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Province");
+                });
+
             modelBuilder.Entity("BookShopAPI.Domain.Entities.MailAuthentication", b =>
                 {
                     b.HasOne("BookShopAPI.Domain.Entities.User", "User")
@@ -1263,6 +1368,17 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.Neighbourhood", b =>
+                {
+                    b.HasOne("BookShopAPI.Domain.Entities.District", "District")
+                        .WithMany("Neighbourhoods")
+                        .HasForeignKey("DistrictId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("District");
                 });
 
             modelBuilder.Entity("BookShopAPI.Domain.Entities.Order", b =>
@@ -1414,6 +1530,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
                     b.Navigation("CommentRatings");
                 });
 
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.District", b =>
+                {
+                    b.Navigation("Neighbourhoods");
+                });
+
             modelBuilder.Entity("BookShopAPI.Domain.Entities.FileEntity", b =>
                 {
                     b.Navigation("Author");
@@ -1438,6 +1559,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Migrations
             modelBuilder.Entity("BookShopAPI.Domain.Entities.PhoneNumberEntity", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("BookShopAPI.Domain.Entities.Province", b =>
+                {
+                    b.Navigation("Districts");
                 });
 
             modelBuilder.Entity("BookShopAPI.Domain.Entities.Publisher", b =>

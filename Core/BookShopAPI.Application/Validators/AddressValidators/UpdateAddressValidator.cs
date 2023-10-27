@@ -41,12 +41,6 @@ namespace BookShopAPI.Application.Validators.AddressValidators
                 .MinimumLength(5)
                 .MaximumLength(25);
 
-            RuleFor(x => x.Neighbourhood)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(10)
-                .MaximumLength(50);
-
             RuleFor(x => x.OpenAddress)
                 .NotEmpty()
                 .NotNull()

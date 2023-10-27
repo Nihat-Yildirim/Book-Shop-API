@@ -12,6 +12,7 @@ using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.SaveOtpAut
 using BookShopAPI.Application.CQRS.Commands.OtpAuthenticationCommands.VerifySaveOtpAuthenticationCode;
 using BookShopAPI.Application.CQRS.Commands.UserClaimCommands.UpdateUserClaim;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
+using BookShopAPI.Application.CQRS.Commands.UserCommands.UpdatePassword;
 using BookShopAPI.Application.CQRS.Queries.MailAuthenticationQueries.MailAuthenticationLogin;
 using BookShopAPI.Application.CQRS.Queries.OtpAuthenticationQueries.OtpAuthenticationLogin;
 using BookShopAPI.Application.CQRS.Queries.UserQueries.Login;
@@ -29,6 +30,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpPost("UserRegister")]
         public async Task<IActionResult> UserRegister([FromQuery] UserRegisterCommandRequest request)
+            => await NoDataResponse(request);
+
+        [HttpPut("UpdatePassword")]
+        public async Task<IActionResult> UpdatePassword([FromQuery] UpdatePasswordCommandRequest request)
             => await NoDataResponse(request);
 
         [HttpPost("AddOtpAuthentication")]

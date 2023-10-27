@@ -41,6 +41,8 @@ namespace BookShopAPI.Persistence.EntityFramework.Contexts
         public DbSet<FileEntity> Files { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<Province> Provinces { get; set; }
+        public DbSet<District> Districts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<UserClaim> UserClaims { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
@@ -49,6 +51,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Contexts
         public DbSet<BookPicture> BookPictures { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<CommentRating> CommentRatings { get; set; }
+        public DbSet<Neighbourhood> Neighbourhoods { get; set; }
         public DbSet<PhoneNumberEntity> PhoneNumbers { get; set; }
         public DbSet<OtpRecoveryCode> OtpRecoveryCodes { get; set; }
         public DbSet<MailComfirmCode> MailComfirmCodes { get; set; }
