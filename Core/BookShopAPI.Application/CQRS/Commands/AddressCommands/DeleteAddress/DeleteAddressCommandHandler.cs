@@ -25,7 +25,6 @@ namespace BookShopAPI.Application.CQRS.Commands.AddressCommands.DeleteAddress
                 return new FailNoDataResponse();
 
             var deletedAddress = selectedUser.Addresses.SingleOrDefault(x => x.Id == request.AddressId);
-
             if (deletedAddress == null)
                 return new FailNoDataResponse();
 

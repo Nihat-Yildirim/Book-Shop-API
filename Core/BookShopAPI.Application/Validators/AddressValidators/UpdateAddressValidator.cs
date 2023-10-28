@@ -17,6 +17,21 @@ namespace BookShopAPI.Application.Validators.AddressValidators
                 .NotNull()
                 .GreaterThan(0);
 
+            RuleFor(x => x.ProvinceId)
+                .NotEmpty()
+                .NotNull()
+                .GreaterThan(0);
+
+            RuleFor(x => x.DistrictId)
+                .NotEmpty()
+                .NotNull()
+                .GreaterThan(0);
+
+            RuleFor(x => x.NeighbourhoodId)
+                .NotEmpty()
+                .NotNull()
+                .GreaterThan(0);
+
             RuleFor(x => x.AddressTitle)
                 .NotEmpty()
                 .NotNull()
@@ -28,18 +43,6 @@ namespace BookShopAPI.Application.Validators.AddressValidators
                 .NotNull()
                 .MinimumLength(3)
                 .MaximumLength(125);
-
-            RuleFor(x => x.Province)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(3)
-                .MaximumLength(15);
-
-            RuleFor(x => x.District)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(5)
-                .MaximumLength(25);
 
             RuleFor(x => x.OpenAddress)
                 .NotEmpty()

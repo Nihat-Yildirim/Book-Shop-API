@@ -14,6 +14,7 @@ namespace BookShopAPI.Domain.Entities
         public DateTime? DeletedDate { get; set; }
 
         public Province? Province { get; set; }
+        public ICollection<Address>? Addresses { get; set; }
         public ICollection<Neighbourhood> Neighbourhoods { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace BookShopAPI.Domain.Entities
         public DateTime? DeletedDate { get; set; }
 
         public ICollection<District> Districts { get; set; }
+        public ICollection<Address>? Addresses { get; set; }
     }
 }

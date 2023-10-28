@@ -15,7 +15,23 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
 
             builder.HasOne(x => x.User)
                 .WithMany(x => x.Addresses)
-                .HasForeignKey(x => x.UserId);
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Province)
+                .WithMany(x => x.Addresses)
+                .HasForeignKey(x => x.ProvinceId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.District)
+                .WithMany(x => x.Addresses)
+                .HasForeignKey(x => x.DistrictId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Neighbourhood)
+                .WithMany(x => x.Addresses)
+                .HasForeignKey(x => x.NeighbourhoodId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.AddressTitle)
                 .HasColumnType(SqlServerColumnType.VarChar)
@@ -25,16 +41,6 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
             builder.Property(x => x.Description)
                 .HasColumnType(SqlServerColumnType.VarChar)
                 .HasMaxLength(125)
-                .IsRequired();
-
-            builder.Property(x => x.Province)
-                .HasColumnType(SqlServerColumnType.VarChar)
-                .HasMaxLength(15)
-                .IsRequired();
-
-            builder.Property(x => x.District)
-                .HasColumnType(SqlServerColumnType.VarChar)
-                .HasMaxLength(25)
                 .IsRequired();
 
             builder.Property(x => x.OpenAddress)

@@ -1,0 +1,388 @@
+2023-10-28 16:48:48.873 +03:00 [INF] Uygulama çalışmaya başladı
+2023-10-28 16:48:49.804 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-28 16:48:50.600 +03:00 [INF] Now listening on: https://localhost:7297
+2023-10-28 16:48:50.601 +03:00 [INF] Now listening on: http://localhost:5145
+2023-10-28 16:48:50.603 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-28 16:48:50.604 +03:00 [INF] Hosting environment: Development
+2023-10-28 16:48:50.605 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-10-28 16:49:09.459 +03:00 [INF] Uygulama çalışmaya başladı
+2023-10-28 16:49:09.687 +03:00 [INF] User profile is available. Using 'C:\Users\Nihat\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-28 16:49:09.899 +03:00 [INF] Now listening on: https://localhost:7297
+2023-10-28 16:49:09.900 +03:00 [INF] Now listening on: http://localhost:5145
+2023-10-28 16:49:09.901 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-28 16:49:09.902 +03:00 [INF] Hosting environment: Development
+2023-10-28 16:49:09.903 +03:00 [INF] Content root path: D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API
+2023-10-28 16:49:10.724 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/index.html - -
+2023-10-28 16:49:11.077 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/index.html - - - 200 - text/html;charset=utf-8 355.1961ms
+2023-10-28 16:49:11.130 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - -
+2023-10-28 16:49:11.130 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/_vs/browserLink - -
+2023-10-28 16:49:11.151 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_framework/aspnetcore-browser-refresh.js - - - 200 12362 application/javascript;+charset=utf-8 20.1429ms
+2023-10-28 16:49:11.191 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.0163ms
+2023-10-28 16:49:11.326 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - -
+2023-10-28 16:49:11.750 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 423.8931ms
+2023-10-28 16:49:25.785 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Districts/GetAllDistrict - -
+2023-10-28 16:49:26.506 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.DistrictsController.GetAllDistrict (BookShopAPI.API)'
+2023-10-28 16:49:26.530 +03:00 [INF] Route matched with {action = "GetAllDistrict", controller = "Districts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDistrict(BookShopAPI.Application.CQRS.Queries.DistrictQueries.GetAllDistrict.GetAllDistrictQueryRequest) on controller BookShopAPI.API.Controllers.DistrictsController (BookShopAPI.API).
+2023-10-28 16:49:28.088 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedDate], [d].[DeletedDate], [d].[Name], [d].[ProvinceId], [d].[UpdatedDate]
+FROM [Districts] AS [d]
+WHERE [d].[DeletedDate] IS NULL
+2023-10-28 16:49:28.144 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[System.Collections.Generic.List`1[[BookShopAPI.Application.DTOs.DistrictDTOs.DistrictDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-28 16:49:28.160 +03:00 [INF] Executed action BookShopAPI.API.Controllers.DistrictsController.GetAllDistrict (BookShopAPI.API) in 1623.2973ms
+2023-10-28 16:49:28.161 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.DistrictsController.GetAllDistrict (BookShopAPI.API)'
+2023-10-28 16:49:28.171 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Districts/GetAllDistrict - - - 200 - application/json;+charset=utf-8 2385.7490ms
+2023-10-28 16:49:45.973 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7297/api/Neighbourhoods/GetAllNeighbourhood - -
+2023-10-28 16:49:45.977 +03:00 [INF] Executing endpoint 'BookShopAPI.API.Controllers.NeighbourhoodsController.GetAllNeighbourhood (BookShopAPI.API)'
+2023-10-28 16:49:45.984 +03:00 [INF] Route matched with {action = "GetAllNeighbourhood", controller = "Neighbourhoods"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNeighbourhood(BookShopAPI.Application.CQRS.Queries.NeighbourhoodQueries.GetAllNeighbourhood.GetAllNeighbourhoodQueryRequest) on controller BookShopAPI.API.Controllers.NeighbourhoodsController (BookShopAPI.API).
+2023-10-28 16:49:46.122 +03:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedDate], [n].[DeletedDate], [n].[DistrictId], [n].[Name], [n].[UpdatedDate]
+FROM [Neighbourhoods] AS [n]
+WHERE [n].[DeletedDate] IS NULL
+2023-10-28 16:49:46.308 +03:00 [INF] Executing OkObjectResult, writing value of type 'BookShopAPI.Domain.Results.Concretes.SuccessDataResponse`1[[System.Collections.Generic.List`1[[BookShopAPI.Application.DTOs.NeighbourhoodDTOs.NeighbourhoodDto, BookShopAPI.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-28 16:49:46.383 +03:00 [INF] Executed action BookShopAPI.API.Controllers.NeighbourhoodsController.GetAllNeighbourhood (BookShopAPI.API) in 396.8721ms
+2023-10-28 16:49:46.384 +03:00 [INF] Executed endpoint 'BookShopAPI.API.Controllers.NeighbourhoodsController.GetAllNeighbourhood (BookShopAPI.API)'
+2023-10-28 16:49:46.385 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7297/api/Neighbourhoods/GetAllNeighbourhood - - - 200 - application/json;+charset=utf-8 412.1577ms
+2023-10-28 16:53:20.450 +03:00 [INF] Uygulama çalışmaya başladı
+2023-10-28 16:53:29.319 +03:00 [INF] Uygulama çalışmaya başladı
+2023-10-28 16:53:30.178 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-28 16:53:30.193 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-28 16:53:30.194 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-28 16:53:30.195 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-28 16:53:30.207 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-28 16:53:30.217 +03:00 [INF] Applying migration '20231028135321_mig_2'.
+2023-10-28 16:53:30.311 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] DROP CONSTRAINT [FK_Addresses_Users_UserId];
+2023-10-28 16:53:30.325 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Addresses]') AND [c].[name] = N'District');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Addresses] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Addresses] DROP COLUMN [District];
+2023-10-28 16:53:30.337 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Addresses]') AND [c].[name] = N'Province');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Addresses] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Addresses] DROP COLUMN [Province];
+2023-10-28 16:53:30.351 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var2 sysname;
+SELECT @var2 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'CreatedDate');
+IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var2 + '];');
+ALTER TABLE [Users] ADD DEFAULT '2023-10-28T16:53:21.3137616+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.365 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var3 sysname;
+SELECT @var3 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[UserClaims]') AND [c].[name] = N'CreatedDate');
+IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [UserClaims] DROP CONSTRAINT [' + @var3 + '];');
+ALTER TABLE [UserClaims] ADD DEFAULT '2023-10-28T16:53:21.3125271+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.378 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var4 sysname;
+SELECT @var4 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[RefreshTokens]') AND [c].[name] = N'CreatedDate');
+IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [RefreshTokens] DROP CONSTRAINT [' + @var4 + '];');
+ALTER TABLE [RefreshTokens] ADD DEFAULT '2023-10-28T16:53:21.3122030+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.391 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var5 sysname;
+SELECT @var5 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Publishers]') AND [c].[name] = N'CreatedDate');
+IF @var5 IS NOT NULL EXEC(N'ALTER TABLE [Publishers] DROP CONSTRAINT [' + @var5 + '];');
+ALTER TABLE [Publishers] ADD DEFAULT '2023-10-28T16:53:21.3116411+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.404 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var6 sysname;
+SELECT @var6 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Provinces]') AND [c].[name] = N'CreatedDate');
+IF @var6 IS NOT NULL EXEC(N'ALTER TABLE [Provinces] DROP CONSTRAINT [' + @var6 + '];');
+ALTER TABLE [Provinces] ADD DEFAULT '2023-10-28T16:53:21.3107365+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.592 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var7 sysname;
+SELECT @var7 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[PhoneNumbers]') AND [c].[name] = N'CreatedDate');
+IF @var7 IS NOT NULL EXEC(N'ALTER TABLE [PhoneNumbers] DROP CONSTRAINT [' + @var7 + '];');
+ALTER TABLE [PhoneNumbers] ADD DEFAULT '2023-10-28T16:53:21.3105131+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.605 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var8 sysname;
+SELECT @var8 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[OtpRecoveryCodes]') AND [c].[name] = N'CreatedDate');
+IF @var8 IS NOT NULL EXEC(N'ALTER TABLE [OtpRecoveryCodes] DROP CONSTRAINT [' + @var8 + '];');
+ALTER TABLE [OtpRecoveryCodes] ADD DEFAULT '2023-10-28T16:53:21.3101421+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.620 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var9 sysname;
+SELECT @var9 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[OtpAuthentications]') AND [c].[name] = N'CreatedDate');
+IF @var9 IS NOT NULL EXEC(N'ALTER TABLE [OtpAuthentications] DROP CONSTRAINT [' + @var9 + '];');
+ALTER TABLE [OtpAuthentications] ADD DEFAULT '2023-10-28T16:53:21.3098065+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.633 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var10 sysname;
+SELECT @var10 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Orders]') AND [c].[name] = N'CreatedDate');
+IF @var10 IS NOT NULL EXEC(N'ALTER TABLE [Orders] DROP CONSTRAINT [' + @var10 + '];');
+ALTER TABLE [Orders] ADD DEFAULT '2023-10-28T16:53:21.3092030+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.648 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var11 sysname;
+SELECT @var11 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Neighbourhoods]') AND [c].[name] = N'CreatedDate');
+IF @var11 IS NOT NULL EXEC(N'ALTER TABLE [Neighbourhoods] DROP CONSTRAINT [' + @var11 + '];');
+ALTER TABLE [Neighbourhoods] ADD DEFAULT '2023-10-28T16:53:21.3083174+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.672 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var12 sysname;
+SELECT @var12 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[MailComfirmCodes]') AND [c].[name] = N'CreatedDate');
+IF @var12 IS NOT NULL EXEC(N'ALTER TABLE [MailComfirmCodes] DROP CONSTRAINT [' + @var12 + '];');
+ALTER TABLE [MailComfirmCodes] ADD DEFAULT '2023-10-28T16:53:21.3079083+03:00' FOR [CreatedDate];
+2023-10-28 16:53:30.688 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var13 sysname;
+SELECT @var13 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[MailAuthentications]') AND [c].[name] = N'CreatedDate');
+IF @var13 IS NOT NULL EXEC(N'ALTER TABLE [MailAuthentications] DROP CONSTRAINT [' + @var13 + '];');
+ALTER TABLE [MailAuthentications] ADD DEFAULT '2023-10-28T16:53:21.3071507+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.376 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var14 sysname;
+SELECT @var14 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Languages]') AND [c].[name] = N'CreatedDate');
+IF @var14 IS NOT NULL EXEC(N'ALTER TABLE [Languages] DROP CONSTRAINT [' + @var14 + '];');
+ALTER TABLE [Languages] ADD DEFAULT '2023-10-28T16:53:21.3065188+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.388 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var15 sysname;
+SELECT @var15 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Files]') AND [c].[name] = N'CreatedDate');
+IF @var15 IS NOT NULL EXEC(N'ALTER TABLE [Files] DROP CONSTRAINT [' + @var15 + '];');
+ALTER TABLE [Files] ADD DEFAULT '2023-10-28T16:53:21.3062137+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.401 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var16 sysname;
+SELECT @var16 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Districts]') AND [c].[name] = N'CreatedDate');
+IF @var16 IS NOT NULL EXEC(N'ALTER TABLE [Districts] DROP CONSTRAINT [' + @var16 + '];');
+ALTER TABLE [Districts] ADD DEFAULT '2023-10-28T16:53:21.3059241+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.414 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var17 sysname;
+SELECT @var17 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Comments]') AND [c].[name] = N'CreatedDate');
+IF @var17 IS NOT NULL EXEC(N'ALTER TABLE [Comments] DROP CONSTRAINT [' + @var17 + '];');
+ALTER TABLE [Comments] ADD DEFAULT '2023-10-28T16:53:21.3049056+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.427 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var18 sysname;
+SELECT @var18 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[CommentRatings]') AND [c].[name] = N'CreatedDate');
+IF @var18 IS NOT NULL EXEC(N'ALTER TABLE [CommentRatings] DROP CONSTRAINT [' + @var18 + '];');
+ALTER TABLE [CommentRatings] ADD DEFAULT '2023-10-28T16:53:21.3054530+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.441 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var19 sysname;
+SELECT @var19 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Claims]') AND [c].[name] = N'CreatedDate');
+IF @var19 IS NOT NULL EXEC(N'ALTER TABLE [Claims] DROP CONSTRAINT [' + @var19 + '];');
+ALTER TABLE [Claims] ADD DEFAULT '2023-10-28T16:53:21.3042946+03:00' FOR [CreatedDate];
+2023-10-28 16:53:32.454 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var20 sysname;
+SELECT @var20 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Categories]') AND [c].[name] = N'CreatedDate');
+IF @var20 IS NOT NULL EXEC(N'ALTER TABLE [Categories] DROP CONSTRAINT [' + @var20 + '];');
+ALTER TABLE [Categories] ADD DEFAULT '2023-10-28T16:53:21.3041262+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.163 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var21 sysname;
+SELECT @var21 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Books]') AND [c].[name] = N'CreatedDate');
+IF @var21 IS NOT NULL EXEC(N'ALTER TABLE [Books] DROP CONSTRAINT [' + @var21 + '];');
+ALTER TABLE [Books] ADD DEFAULT '2023-10-28T16:53:21.3032383+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.180 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var22 sysname;
+SELECT @var22 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[BookPictures]') AND [c].[name] = N'CreatedDate');
+IF @var22 IS NOT NULL EXEC(N'ALTER TABLE [BookPictures] DROP CONSTRAINT [' + @var22 + '];');
+ALTER TABLE [BookPictures] ADD DEFAULT '2023-10-28T16:53:21.3039240+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.193 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var23 sysname;
+SELECT @var23 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Baskets]') AND [c].[name] = N'CreatedDate');
+IF @var23 IS NOT NULL EXEC(N'ALTER TABLE [Baskets] DROP CONSTRAINT [' + @var23 + '];');
+ALTER TABLE [Baskets] ADD DEFAULT '2023-10-28T16:53:21.3020629+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.206 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var24 sysname;
+SELECT @var24 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[BasketItems]') AND [c].[name] = N'CreatedDate');
+IF @var24 IS NOT NULL EXEC(N'ALTER TABLE [BasketItems] DROP CONSTRAINT [' + @var24 + '];');
+ALTER TABLE [BasketItems] ADD DEFAULT '2023-10-28T16:53:21.3027604+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.221 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var25 sysname;
+SELECT @var25 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Authors]') AND [c].[name] = N'CreatedDate');
+IF @var25 IS NOT NULL EXEC(N'ALTER TABLE [Authors] DROP CONSTRAINT [' + @var25 + '];');
+ALTER TABLE [Authors] ADD DEFAULT '2023-10-28T16:53:21.3016669+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.246 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var26 sysname;
+SELECT @var26 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Addresses]') AND [c].[name] = N'CreatedDate');
+IF @var26 IS NOT NULL EXEC(N'ALTER TABLE [Addresses] DROP CONSTRAINT [' + @var26 + '];');
+ALTER TABLE [Addresses] ADD DEFAULT '2023-10-28T16:53:21.3011136+03:00' FOR [CreatedDate];
+2023-10-28 16:53:34.249 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD [DistrictId] int NOT NULL DEFAULT 0;
+2023-10-28 16:53:34.250 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD [NeighbourhoodId] int NOT NULL DEFAULT 0;
+2023-10-28 16:53:34.250 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD [ProvinceId] int NOT NULL DEFAULT 0;
+2023-10-28 16:53:35.875 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.878 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.879 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 3;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.881 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 4;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.883 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 5;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.884 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 6;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.887 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 7;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.888 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 8;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.889 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 9;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.890 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 10;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.891 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 11;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.891 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 12;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.892 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 13;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.893 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 14;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.893 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 15;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.894 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Categories] SET [CreatedDate] = '2023-10-28T16:53:21.3041262+03:00'
+WHERE [Id] = 16;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.898 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Claims] SET [CreatedDate] = '2023-10-28T16:53:21.3042946+03:00'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.899 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Claims] SET [CreatedDate] = '2023-10-28T16:53:21.3042946+03:00'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:35.904 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Languages] SET [CreatedDate] = '2023-10-28T16:53:21.3065188+03:00'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:37.581 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Languages] SET [CreatedDate] = '2023-10-28T16:53:21.3065188+03:00'
+WHERE [Id] = 2;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:37.594 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [UserClaims] SET [CreatedDate] = '2023-10-28T16:53:21.3139122+03:00'
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:37.598 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [CreatedDate] = '2023-10-28T16:53:21.3139951+03:00', [PasswordHash] = 0x6B656BA9D7E933D5826A6E1876BCBD7619AF8468598B069302582229057D1C08922CB0581EE08915FE343C525354DFF265CF62211DB789B8D2BEB1A75680B280, [PasswordSalt] = 0x531FF1201085BD25447D2466F2A93274F8D4A7DC7966B7337254BF6F3333DA3CF5D2C6D1ADB32858395EFBD8D3B06952D81E69D04E0C2E005A5FFE8EBA22372DC8C135CFEAE2A89AE85C7C79A6A25EE18004ABD90B8252AC064F6F4A396E08780F53799933C618270EBD41FF7AA09D6B0422B59271DDE893689B36097B062470
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2023-10-28 16:53:37.599 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Addresses_DistrictId] ON [Addresses] ([DistrictId]);
+2023-10-28 16:53:37.599 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Addresses_NeighbourhoodId] ON [Addresses] ([NeighbourhoodId]);
+2023-10-28 16:53:37.600 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Addresses_ProvinceId] ON [Addresses] ([ProvinceId]);
+2023-10-28 16:53:37.601 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD CONSTRAINT [FK_Addresses_Districts_DistrictId] FOREIGN KEY ([DistrictId]) REFERENCES [Districts] ([Id]) ON DELETE NO ACTION;
+2023-10-28 16:53:37.601 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD CONSTRAINT [FK_Addresses_Neighbourhoods_NeighbourhoodId] FOREIGN KEY ([NeighbourhoodId]) REFERENCES [Neighbourhoods] ([Id]) ON DELETE NO ACTION;
+2023-10-28 16:53:37.603 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD CONSTRAINT [FK_Addresses_Provinces_ProvinceId] FOREIGN KEY ([ProvinceId]) REFERENCES [Provinces] ([Id]) ON DELETE NO ACTION;
+2023-10-28 16:53:37.604 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Addresses] ADD CONSTRAINT [FK_Addresses_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION;
+2023-10-28 16:53:37.605 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231028135321_mig_2', N'7.0.10');

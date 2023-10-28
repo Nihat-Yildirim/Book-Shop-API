@@ -25,8 +25,6 @@ namespace BookShopAPI.Application.Mapping
             CreateMap<District, DistrictDto>();
             CreateMap<Neighbourhood, NeighbourhoodDto>();
             CreateMap<AddAddressCommandRequest, Address>();
-            CreateMap<Address, AddressForAdminDto>();
-            CreateMap<Address, AddressDto>();
             CreateMap<AddPhoneNumberCommandRequest, PhoneNumberEntity>();
             CreateMap<PhoneNumberEntity, PhoneNumberForAdminDto>();
             CreateMap<PhoneNumberEntity, PhoneNumberDto>();

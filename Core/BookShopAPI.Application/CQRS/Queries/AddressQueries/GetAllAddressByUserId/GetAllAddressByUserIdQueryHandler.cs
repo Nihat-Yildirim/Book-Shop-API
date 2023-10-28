@@ -10,21 +10,52 @@ namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddressByUse
 {
     public class GetAllAddressByUserIdQueryHandler : IRequestHandler<GetAllAddressByUserIdQueryRequest, BaseDataResponse<List<AddressDto>>>
     {
-        private readonly IMapper _mapper;
         private readonly IAddressReadRepository _addressReadRepository;
 
-        public GetAllAddressByUserIdQueryHandler(IAddressReadRepository addressReadRepository, IMapper mapper)
+        public GetAllAddressByUserIdQueryHandler(IAddressReadRepository addressReadRepository)
         {
-            _mapper = mapper;
             _addressReadRepository = addressReadRepository;
         }
 
         public async Task<BaseDataResponse<List<AddressDto>>> Handle(GetAllAddressByUserIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var addresses = await _addressReadRepository.GetWhere(x => x.UserId == request.UserId && x.DeletedDate == null , false).ToListAsync();
-            var responseAddresses = _mapper.Map<List<AddressDto>>(addresses);
+            var addresses = await _addressReadRepository.Table.Include(x => x.Province)
+                                                              .Include(x => x.District)
+                                                              .Include(x => x.Neighbourhood)
+                                                              .Where(x => x.UserId == request.UserId && x.DeletedDate == null)
+                                                              .AsNoTracking()
+                                                              .ToListAsync();
 
-            return new SuccessDataResponse<List<AddressDto>>(responseAddresses);
+            List<AddressDto> response = new();
+            foreach (var address in addresses) 
+            {
+                AddressDto addressDto = new();
+                addressDto.Id = address.Id;
+                addressDto.AddressTitle = address.AddressTitle;
+                addressDto.Description = address.Description;
+                addressDto.OpenAddress = address.OpenAddress;
+                addressDto.Selected = address.Selected;
+                addressDto.Province = new()
+                {
+                    Id = address.Province.Id,
+                    Name = address.Province.Name,
+                };
+                addressDto.District = new()
+                {
+                    Id = address.District.Id,
+                    Name=address.District.Name, 
+                };
+                addressDto.Neighbourhood = new()
+                {
+                    Id = address.Neighbourhood.Id,
+                    Name = address.Neighbourhood.Name,
+                };
+
+                response.Add(addressDto);
+            }
+
+            return new SuccessDataResponse<List<AddressDto>>(response);
+
         }
     }
 }
