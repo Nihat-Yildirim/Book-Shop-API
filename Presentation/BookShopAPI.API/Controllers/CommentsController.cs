@@ -55,7 +55,7 @@ namespace BookShopAPI.API.Controllers
         public async Task<IActionResult> GetAllComment([FromQuery] GetAllCommentQueryRequest request)
             => await DataResponse(request);
 
-        //[AuthorizationFilter("Admin")]
+        //[AuthorizationFilter("Customer")]
         [HttpGet("GetCommentsByUserId")]
         public async Task<IActionResult> GetCommentsByUserId([FromQuery] GetCommentsByUserIdQueryRequest request)
             => await DataResponse(request);

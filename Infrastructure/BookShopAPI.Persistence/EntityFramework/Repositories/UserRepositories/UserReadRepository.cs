@@ -15,7 +15,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories
 
         public async Task<User> GetUserWithAddressAsync(Expression<Func<User, bool>> filter, bool tracing = true)
         {
-            var query = Table.Include(x => x.Addresses);
+            var query = Table.Include(x => x.Addresses.Where(x => x.DeletedDate == null));
 
             if (!tracing)
                 query.AsNoTracking();

@@ -1,4 +1,5 @@
-﻿using BookShopAPI.Application.DTOs.BasketDTOs;
+﻿using BookShopAPI.Application.DTOs.AuthorsDTOs;
+using BookShopAPI.Application.DTOs.BasketDTOs;
 using BookShopAPI.Application.DTOs.BasketItemDTOs;
 using BookShopAPI.Application.Helpers.FileUrl;
 using BookShopAPI.Application.Repositories.BasketRepositories;
@@ -21,21 +22,32 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BasketRepositorie
             IQueryable<BasketDto> query;
             query = from user in _context.Users
                     join userClaim in _context.UserClaims
-                        on user.Id equals userClaim.UserId
+                    on user.Id equals userClaim.UserId
                     where user.Id == userId && userClaim.ClaimId == (int)Claims.Customer
                     join basket in _context.Baskets
                     .Include(x => x.BasketItems)
                     .ThenInclude(x => x.Book)
                     .ThenInclude(x => x.BookPictures)
                     .ThenInclude(x => x.File)
-                        on user.Id equals basket.UserId
+                    .Include(x => x.BasketItems)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Publisher)
+                    .Include(x => x.BasketItems)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Authors)
+                    on user.Id equals basket.UserId
                     select new BasketDto
                     {
                         UserId = user.Id,
                         BasketId = basket.Id,
                         BasketItems = basket.BasketItems.ToList().Select(basketItem => new BasketItemDto
                         {
-                            PublisherId = basketItem.Book.PublisherId,
+                            Publisher = new()
+                            {
+                                Id = basketItem.Book.Publisher.Id,
+                                Name = basketItem.Book.Publisher.Name
+                            },
+                            Authors = GetAuthors(basketItem.Book.Authors),
                             BasketItemId = basketItem.Id,
                             BookId = basketItem.BookId,
                             BookName = basketItem.Book.BookName,
@@ -53,21 +65,32 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BasketRepositorie
             IQueryable<BasketForAdminDto> query;
             query = from user in _context.Users
                     join userClaim in _context.UserClaims
-                        on user.Id equals userClaim.UserId
+                    on user.Id equals userClaim.UserId
                     where userClaim.ClaimId == (int)Claims.Customer
                     join basket in _context.Baskets
                     .Include(x => x.BasketItems)
                     .ThenInclude(x => x.Book)
                     .ThenInclude(x => x.BookPictures)
                     .ThenInclude(x => x.File)
-                        on user.Id equals basket.UserId
+                    .Include(x => x.BasketItems)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Publisher)
+                    .Include(x => x.BasketItems)
+                    .ThenInclude(x => x.Book)
+                    .ThenInclude(x => x.Authors)
+                    on user.Id equals basket.UserId
                     select new BasketForAdminDto
                     {
                         UserId = user.Id,
                         BasketId = basket.Id,
                         BasketItems = basket.BasketItems.ToList().Select(basketItem => new BasketItemDto
                         {
-                            PublisherId = basketItem.Book.PublisherId,
+                            Publisher = new()
+                            {
+                                Id = basketItem.Book.Publisher.Id,
+                                Name = basketItem.Book.Publisher.Name
+                            },
+                            Authors = GetAuthors(basketItem.Book.Authors),
                             BasketItemId = basketItem.Id,
                             BookId = basketItem.BookId,
                             BookName = basketItem.Book.BookName,
@@ -80,6 +103,20 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BasketRepositorie
                     };
 
             return await query.ToListAsync();
+        }
+
+        private static List<ShortAuthorDto> GetAuthors(ICollection<Author> authors)
+        {
+            List<ShortAuthorDto> results = new();
+            foreach(var author in authors)
+            {
+                ShortAuthorDto shortAuthorDto = new();
+                shortAuthorDto.Id = author.Id;
+                shortAuthorDto.Name = author.Name;
+                results.Add(shortAuthorDto);
+            }
+
+            return results;
         }
     }
 }

@@ -43,11 +43,13 @@ namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddressByUse
                 addressDto.District = new()
                 {
                     Id = address.District.Id,
+                    ProvinceId = address.District.ProvinceId,
                     Name=address.District.Name, 
                 };
                 addressDto.Neighbourhood = new()
                 {
                     Id = address.Neighbourhood.Id,
+                    DistrictId = address.Neighbourhood.DistrictId,
                     Name = address.Neighbourhood.Name,
                 };
 

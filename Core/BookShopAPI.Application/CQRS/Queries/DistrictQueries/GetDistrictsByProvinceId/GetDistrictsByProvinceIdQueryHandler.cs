@@ -28,7 +28,7 @@ namespace BookShopAPI.Application.CQRS.Queries.DistrictQueries.GetDistrictsByPro
             if(!provinceExists)
                 return new FailDataResponse<List<DistrictDto>>();
 
-            var districts = await _districtReadRepository.GetWhere(x => x.DeletedDate == null, false).ToListAsync();
+            var districts = await _districtReadRepository.GetWhere(x => x.DeletedDate == null && x.ProvinceId == request.ProvinceId, false).ToListAsync();
             var response = _mapper.Map<List<DistrictDto>>(districts);
 
             return new SuccessDataResponse<List<DistrictDto>>(response);

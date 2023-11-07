@@ -9,9 +9,9 @@ namespace BookShopAPI.Application.DTOs.AddressDTOs
     {
         public int Id { get; set; }
         public string? AddressTitle { get; set; }
-        public ShortProvinceDto? Province { get; set; }
-        public ShortDistrictDto? District { get; set; }
-        public ShortNeighbourhoodDto? Neighbourhood { get; set; }
+        public ProvinceDto? Province { get; set; }
+        public DistrictDto? District { get; set; }
+        public NeighbourhoodDto? Neighbourhood { get; set; }
         public string? OpenAddress { get; set; }
         public string? Description { get; set; }
         public bool Selected { get; set; }

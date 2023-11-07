@@ -27,7 +27,6 @@
     <Folder Include="CQRS\Commands\AddressCommands\UpdateAddress\" />
     <Folder Include="CQRS\Queries\AddressQueries\GetAllAddressByUserId\" />
     <Folder Include="CQRS\Queries\AddressQueries\GetAllAddress\" />
-    <Folder Include="Validators\AddressValidators\" />
   </ItemGroup>
 
 </Project>

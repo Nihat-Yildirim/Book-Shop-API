@@ -28,9 +28,10 @@ namespace BookShopAPI.Application.CQRS.Commands.AddressCommands.DeleteAddress
             if (deletedAddress == null)
                 return new FailNoDataResponse();
 
-            selectedUser.Addresses.Remove(deletedAddress);
+            deletedAddress.DeletedDate = DateTime.Now;
+            deletedAddress.Selected = false;
 
-            foreach(var address in selectedUser.Addresses.ToList().OrderByDescending(x => x.UpdatedDate))
+            foreach(var address in selectedUser.Addresses.Where(x => x.DeletedDate == null).ToList().OrderByDescending(x => x.UpdatedDate))
             {
                 address.Selected = true;
                 break;

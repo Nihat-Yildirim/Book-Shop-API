@@ -24,10 +24,10 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetAllOrder
                               .Include(x => x.PhoneNumber)
                               .Include(x => x.Address)
                               .Include(x => x.Basket)
-                                  .ThenInclude(x => x.BasketItems)
-                                      .ThenInclude(x => x.Book)
-                                         .ThenInclude(x => x.BookPictures)
-                                            .ThenInclude(x => x.File)
+                              .ThenInclude(x => x.BasketItems)
+                              .ThenInclude(x => x.Book)
+                              .ThenInclude(x => x.BookPictures)
+                              .ThenInclude(x => x.File)
                               .ToListAsync();
 
             if (resultOrders.Count == 0)
@@ -56,8 +56,9 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetAllOrder
                     Basket = new()
                     {
                         BasketId = order.Basket.Id,
-                        BasketItems = order.Basket?.BasketItems?.ToList().Select(basketItem => new BasketItemDto
+                        BasketItems = order.Basket?.BasketItems?.ToList().Select(basketItem => new ShortBasketItemDto
                         {
+                            
                             PublisherId = basketItem.Book.PublisherId,
                             BasketItemId = basketItem.Id,
                             BookId = basketItem.Book.Id,

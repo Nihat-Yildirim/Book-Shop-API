@@ -6,6 +6,6 @@ namespace BookShopAPI.Application.DTOs.BasketDTOs
     public class ShortBasketDto : IDto
     {
         public int BasketId { get; set; }
-        public List<BasketItemDto>? BasketItems { get; set; }
+        public List<ShortBasketItemDto>? BasketItems { get; set; }
     }
 }
