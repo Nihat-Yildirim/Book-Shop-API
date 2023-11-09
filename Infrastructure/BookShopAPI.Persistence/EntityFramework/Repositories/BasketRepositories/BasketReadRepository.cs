@@ -53,7 +53,8 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BasketRepositorie
                             BookName = basketItem.Book.BookName,
                             Quantity = basketItem.Quantity,
                             Price = basketItem.Book.Price,
-                            BookPictureUrl = FileUrlHelper.Generate(basketItem.Book.BookPictures.SingleOrDefault(x => x.ShowOrder == 1).File.FilePath)
+                            BookPictureUrl = FileUrlHelper.Generate(basketItem.Book.BookPictures.SingleOrDefault(x => x.ShowOrder == 1).File.FilePath),
+                            Selected = basketItem.Selected,
                         }).ToList()
                     };
 
@@ -96,7 +97,8 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BasketRepositorie
                             BookName = basketItem.Book.BookName,
                             Quantity = basketItem.Quantity,
                             Price = basketItem.Book.Price,
-                            BookPictureUrl = FileUrlHelper.Generate(basketItem.Book.BookPictures.SingleOrDefault(x => x.ShowOrder == 1).File.FilePath)
+                            BookPictureUrl = FileUrlHelper.Generate(basketItem.Book.BookPictures.SingleOrDefault(x => x.ShowOrder == 1).File.FilePath),
+                            Selected = basketItem.Selected,
                         }).ToList(),
                         CreatedDate = basket.CreatedDate,
                         UpdatedDate = basket.UpdatedDate

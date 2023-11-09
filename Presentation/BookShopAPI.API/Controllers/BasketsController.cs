@@ -3,6 +3,7 @@ using BookShopAPI.Application.CQRS.Commands.BasketCommands.AddBasket;
 using BookShopAPI.Application.CQRS.Commands.BasketCommands.AddBasketItem;
 using BookShopAPI.Application.CQRS.Commands.BasketCommands.DeleteBasketItem;
 using BookShopAPI.Application.CQRS.Commands.BasketCommands.UpdateBasketItem;
+using BookShopAPI.Application.CQRS.Commands.BasketCommands.UpdateBasketItemSelectedValue;
 using BookShopAPI.Application.CQRS.Queries.BasketQueries.GetAllBasket;
 using BookShopAPI.Application.CQRS.Queries.BasketQueries.GetBasketByUserId;
 using BookShopAPI.Application.CQRS.Queries.BasketQueries.GetSelectedBookBasketCount;
@@ -30,6 +31,11 @@ namespace BookShopAPI.API.Controllers
         //[AuthorizationFilter("Customer")]
         [HttpPut("UpdateBasketItem")]
         public async Task<IActionResult> UpdateBasketItem([FromQuery] UpdateBasketItemCommandRequest request)
+            => await NoDataResponse(request);
+
+        //[AuthorizationFilter("Customer")]
+        [HttpPut("UpdateBasketItemSelectedValue")]
+        public async Task<IActionResult> UpdateBasketItemSelectedValue([FromQuery] UpdateBasketItemSelectedValueCommandRequest request)
             => await NoDataResponse(request);
 
         //[AuthorizationFilter("Customer")]

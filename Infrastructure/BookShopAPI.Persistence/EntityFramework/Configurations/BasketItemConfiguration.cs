@@ -25,6 +25,10 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasColumnType(SqlServerColumnType.TinyInt)
                 .IsRequired();
 
+            builder.Property(x => x.Selected)
+                .HasColumnType(SqlServerColumnType.Bit)
+                .HasDefaultValue(false);
+
             builder.Property(x => x.CreatedDate)
                 .HasColumnType(SqlServerColumnType.DateTime2)
                 .HasDefaultValue(DateTime.Now)

@@ -11,5 +11,6 @@ namespace BookShopAPI.Application.DTOs.BasketItemDTOs
         public int Quantity { get; set; }
         public float Price { get; set; }
         public string? BookPictureUrl { get; set; }
+        public bool Selected { get; set; }
     }
 }

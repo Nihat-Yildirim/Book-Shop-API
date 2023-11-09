@@ -1,4 +1,5 @@
 ﻿using BookShopAPI.Application.Repositories.AddressRepositories;
+using BookShopAPI.Application.Repositories.BasketItemRepositories;
 using BookShopAPI.Application.Repositories.BasketRepositories;
 using BookShopAPI.Application.Repositories.OrderRepositories;
 using BookShopAPI.Application.Repositories.PhoneNumberRepositories;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder
 {
+    //TODO Hata Düzeltmeleri yapılacak !
     public class AddOrderCommandHandler : IRequestHandler<AddOrderCommandRequest, BaseResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -20,9 +22,10 @@ namespace BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder
         private readonly IOrderWriteRepository _orderWriteRepository;
         private readonly IBasketWriteRepository _basketWriteRepository;
         private readonly IAddressReadRepository _addressReadRepository;
+        private readonly IBasketItemWriteRepository _basketItemWriteRepository;
         private readonly IPhoneNumberReadRepository _phoneNumberReadRepository;
 
-        public AddOrderCommandHandler(IUnitOfWork unitOfWork, IUserReadRepository userReadRepository, IBasketReadRepository basketReadRepository, IOrderWriteRepository orderWriteRepository, IBasketWriteRepository basketWriteRepository, IAddressReadRepository addressReadRepository, IPhoneNumberReadRepository phoneNumberReadRepository)
+        public AddOrderCommandHandler(IUnitOfWork unitOfWork, IUserReadRepository userReadRepository, IBasketReadRepository basketReadRepository, IOrderWriteRepository orderWriteRepository, IBasketWriteRepository basketWriteRepository, IAddressReadRepository addressReadRepository, IPhoneNumberReadRepository phoneNumberReadRepository, IBasketItemWriteRepository basketItemWriteRepository)
         {
             _unitOfWork = unitOfWork;
             _userReadRepository = userReadRepository;
@@ -31,6 +34,7 @@ namespace BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder
             _basketWriteRepository = basketWriteRepository;
             _addressReadRepository = addressReadRepository;
             _phoneNumberReadRepository = phoneNumberReadRepository;
+            _basketItemWriteRepository = basketItemWriteRepository;
         }
 
         public async Task<BaseResponse> Handle(AddOrderCommandRequest request, CancellationToken cancellationToken)
@@ -56,10 +60,13 @@ namespace BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder
                 return new FailNoDataResponse();
 
             float totalPayment = 0;
-            selectedBasket.BasketItems?.ToList().ForEach(x => { totalPayment = totalPayment + x.Quantity * x.Book.Price; });
+            selectedBasket.BasketItems?.Where(x => x.Selected == true).ToList().ForEach(x => { totalPayment = totalPayment + x.Quantity * x.Book.Price; });
             
             if(totalPayment != request.TotalPayment)
                 return new FailNoDataResponse();
+
+            var notSelectedBasketItems = selectedBasket.BasketItems.Where(x => x.Selected == false).ToList();
+            _basketItemWriteRepository.RemoveRange(notSelectedBasketItems);
 
             Order addedOrder = new(){
                 BasketId = selectedBasket.Id,
@@ -85,6 +92,9 @@ namespace BookShopAPI.Application.CQRS.Commands.OrderCommands.AddOrder
             selectedBasket.Visible = false;
             await _basketWriteRepository.AddAsync(addedBasket);
             await _orderWriteRepository.AddAsync(addedOrder);
+            await _unitOfWork.SaveChangesAsync();
+
+            notSelectedBasketItems.ForEach(x => x.BasketId = addedBasket.Id);
             await _unitOfWork.SaveChangesAsync();
 
             return new SuccesNoDataResponse();

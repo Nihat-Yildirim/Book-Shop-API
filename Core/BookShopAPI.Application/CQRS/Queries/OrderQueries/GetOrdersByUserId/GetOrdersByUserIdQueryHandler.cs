@@ -66,6 +66,7 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetOrdersByUserId
                             Quantity = basketItem.Quantity,
                             BookPictureUrl = FileUrlHelper.Generate(basketItem.Book.BookPictures.SingleOrDefault(x => x.ShowOrder == 1).File.FilePath),
                             Price = basketItem.Book.Price,
+                            Selected = basketItem.Selected,
                         }).ToList(),
                     },
                     TotalPayment = (float)order.Basket?.BasketItems?.ToList().Select(basketItem => new {
