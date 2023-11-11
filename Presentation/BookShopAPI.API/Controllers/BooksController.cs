@@ -16,6 +16,7 @@ using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookByNamePatternForAd
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookForAdminById;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByAuthorId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByBasketCount;
+using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAndAuthorId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCommentCount;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByLanguageId;
@@ -125,6 +126,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpGet("GetBooksByBasketCount")]
         public async Task<IActionResult> GetBooksByBasketCount([FromQuery] GetBooksByBasketCountQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("GetBooksByCategoryAndAuthorId")]
+        public async Task<IActionResult> GetBooksByCategoryAndAuthorId([FromQuery] GetBooksByCategoryAndAuthorIdQueryRequest request)
             => await DataResponse(request);
     }
 }

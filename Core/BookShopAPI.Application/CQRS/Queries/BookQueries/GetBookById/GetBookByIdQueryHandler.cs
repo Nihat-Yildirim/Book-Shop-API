@@ -6,7 +6,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookById
 {
-    public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQueryRequest, BaseDataResponse<BookDto>>
+    public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQueryRequest, BaseDataResponse<BookDetailDto>>
     {
         private readonly IBookReadRepository _bookReadRepository;
 
@@ -15,10 +15,10 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookById
             _bookReadRepository = bookReadRepository;
         }
 
-        public async Task<BaseDataResponse<BookDto>> Handle(GetBookByIdQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<BookDetailDto>> Handle(GetBookByIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var responseData = await _bookReadRepository.GetSingleBookDtoAsync(x => x.Id == request.Id);
-            return new SuccessDataResponse<BookDto>(responseData);
+            var responseData = await _bookReadRepository.GetSingleBookBookDetailDtoAsync(x => x.Id == request.Id);
+            return new SuccessDataResponse<BookDetailDto>(responseData);
         }
     }
 }

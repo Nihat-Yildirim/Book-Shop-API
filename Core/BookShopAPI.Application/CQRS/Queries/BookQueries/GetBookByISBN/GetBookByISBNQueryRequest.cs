@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookByISBN
 {
-    public class GetBookByISBNQueryRequest : IRequest<BaseDataResponse<BookDto>>
+    public class GetBookByISBNQueryRequest : IRequest<BaseDataResponse<BookDetailDto>>
     {
         public string? ISBN { get; set; }
     }

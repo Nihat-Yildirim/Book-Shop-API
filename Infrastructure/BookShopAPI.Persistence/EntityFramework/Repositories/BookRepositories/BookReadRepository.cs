@@ -24,27 +24,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
             IQueryable<BookDto> query;
 
             query = from book in _context.Books
-                    .Include(x => x.Authors)
-                    .Include(x => x.Categories)
                     .Include(x => x.BookPictures).ThenInclude(x => x.File)
                     where book.DeletedDate == null
-                    join publisher in _context.Publishers
-                        on book.PublisherId equals publisher.Id
-                    join language in _context.Languages
-                        on book.LanguageId equals language.Id
                     select new BookDto
                     {
                         Id = book.Id,
-                        Publisher = new()
-                        {
-                            Id = publisher.Id,
-                            Name = publisher.Name
-                        },
-                        Language = new()
-                        {
-                            Id = language.Id,
-                            Name = language.Name
-                        },
                         BookName = book.BookName,
                         ISBN = book.ISBN,
                         PaperType = book.PaperType,
@@ -55,17 +39,12 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                         PageOfNumber = book.PageOfNumber,
                         Stock = book.Stock,
                         Price = book.Price,
-                        PictureUrls = book.BookPictures.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
-                        Authors = book.Authors.Select(x => new ShortAuthorDto
+                        PictureUrls = book.BookPictures.ToList().Select(x => new BookPictureDto
                         {
                             Id = x.Id,
-                            Name = x.Name
+                            ShowOrder = x.ShowOrder,
+                            PictureUrl = FileUrlHelper.Generate(x.File.FilePath)
                         }).ToList(),
-                        Categories = book.Categories.Select(x => new ShortCategoryDto
-                        {
-                            Id = x.Id,
-                            CategoryName = x.CategoryName,
-                        }).ToList()
                     };
 
             if(filter != null)
@@ -73,11 +52,13 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                         .Where(filter)
                         .Skip(pagination.Page * pagination.Size)
                         .Take(pagination.Size)
+                        .AsNoTracking()
                         .ToListAsync();
 
             return await query.AsNoTracking()
                         .Skip(pagination.Page * pagination.Size)
                         .Take(pagination.Size)
+                        .AsNoTracking()
                         .ToListAsync();
         }
 
@@ -122,6 +103,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                         PictureUrls = book.BookPictures.ToList().Select(x => new BookPictureDto
                         {
                             Id = x.Id,
+                            ShowOrder = x.ShowOrder,
                             PictureUrl = FileUrlHelper.Generate(x.File.FilePath)
                         }).ToList(),
                         Authors = book.Authors.Select(x => new ShortAuthorDto
@@ -141,17 +123,19 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                         .Where(filter)
                         .Skip(pagination.Page * pagination.Size)
                         .Take(pagination.Size)
+                        .AsNoTracking()
                         .ToListAsync();
 
             return await query.AsNoTracking()
                         .Skip(pagination.Page * pagination.Size)
                         .Take(pagination.Size)
+                        .AsNoTracking()
                         .ToListAsync();
         }
 
-        public async Task<BookDto> GetSingleBookDtoAsync(Expression<Func<BookDto, bool>> filter)
+        public async Task<BookDetailDto> GetSingleBookBookDetailDtoAsync(Expression<Func<BookDetailDto, bool>> filter)
         {
-            IQueryable<BookDto> query;
+            IQueryable<BookDetailDto> query;
             query = from book in _context.Books
                    .Include(x => x.Authors)
                    .Include(x => x.Categories)
@@ -161,7 +145,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                          on book.PublisherId equals publisher.Id
                     join language in _context.Languages
                          on book.LanguageId equals language.Id
-                    select new BookDto
+                    select new BookDetailDto
                     {
                         Id = book.Id,
                         Publisher = new()
@@ -184,7 +168,12 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                         PageOfNumber = book.PageOfNumber,
                         Stock = book.Stock,
                         Price = book.Price,
-                        PictureUrls = book.BookPictures.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
+                        PictureUrls = book.BookPictures.ToList().Select(x => new BookPictureDto
+                        {
+                            Id = x.Id,
+                            ShowOrder = x.ShowOrder,
+                            PictureUrl = FileUrlHelper.Generate(x.File.FilePath)
+                        }).ToList(),
                         Authors = book.Authors.Select(x => new ShortAuthorDto
                         {
                             Id = x.Id,
@@ -196,7 +185,8 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                             CategoryName = x.CategoryName,
                         }).ToList()
                     };
-            return await query.AsNoTracking().SingleOrDefaultAsync(filter);
+            return await query.AsNoTracking()
+                    .SingleOrDefaultAsync(filter);
         }
 
         public async Task<BookForAdminDto> GetSingleBookForAdminDtoAsync(Expression<Func<BookForAdminDto, bool>> filter)
@@ -240,6 +230,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories
                         PictureUrls = book.BookPictures.ToList().Select(x => new BookPictureDto
                         {
                             Id = x.Id,
+                            ShowOrder = x.ShowOrder,
                             PictureUrl = FileUrlHelper.Generate(x.File.FilePath)
                         }).ToList(),
                         Authors = book.Authors.Select(x => new ShortAuthorDto

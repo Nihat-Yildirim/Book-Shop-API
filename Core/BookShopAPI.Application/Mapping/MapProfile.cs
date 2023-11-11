@@ -7,6 +7,7 @@ using BookShopAPI.Application.CQRS.Commands.CommentCommands.AddCommentRating;
 using BookShopAPI.Application.CQRS.Commands.PhoneNumberCommands.AddPhoneNumber;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
 using BookShopAPI.Application.DTOs.AddressDTOs;
+using BookShopAPI.Application.DTOs.BookDTOs;
 using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.DTOs.DistrictDTOs;
 using BookShopAPI.Application.DTOs.NeighbourhoodDTOs;

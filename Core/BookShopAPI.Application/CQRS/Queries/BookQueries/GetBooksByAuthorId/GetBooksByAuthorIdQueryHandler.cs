@@ -1,8 +1,12 @@
-﻿using BookShopAPI.Application.DTOs.AuthorsDTOs;
+﻿using AutoMapper;
+using BookShopAPI.Application.DTOs.AuthorsDTOs;
 using BookShopAPI.Application.DTOs.BookDTOs;
+using BookShopAPI.Application.DTOs.BookPictureDTOs;
 using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.Helpers.FileUrl;
 using BookShopAPI.Application.Repositories.AuthorRepositories;
+using BookShopAPI.Application.Repositories.BookRepositories;
+using BookShopAPI.Domain.RequestParameters;
 using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
 using MediatR;
@@ -12,77 +16,52 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByAuthorId
 {
     public class GetBooksByAuthorIdQueryHandler : IRequestHandler<GetBooksByAuthorIdQueryRequest, BaseDataResponse<List<BookDto>>>
     {
-        private readonly IAuthorReadRepository _authorReadRepository;
-
-        public GetBooksByAuthorIdQueryHandler(IAuthorReadRepository authorReadRepository)
+        private readonly IMapper _mapper;
+        private readonly IBookReadRepository _bookReadRepository;
+        public GetBooksByAuthorIdQueryHandler(IBookReadRepository bookReadRepository, IMapper mapper)
         {
-            _authorReadRepository = authorReadRepository;
+            _bookReadRepository = bookReadRepository;
+            _mapper = mapper;
         }
 
-        //TODO burada yazılan işlemlerin tamamını bir view ile yapabilisin sonra yap !
         public async Task<BaseDataResponse<List<BookDto>>> Handle(GetBooksByAuthorIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var resultDatas = await _authorReadRepository.Table
-                        .Include(x => x.Books)
-                            .ThenInclude(x => x.Authors)
-                        .Include(x => x.Books.Where(x => x.DeletedDate == null).Skip(request.Page * request.Size).Take(request.Size))
-                            .ThenInclude(x => x.BookPictures)
-                                .ThenInclude(x => x.File)
-                        .Include(x => x.Books)
-                            .ThenInclude(x => x.Categories)
-                        .Include(x => x.Books)
-                            .ThenInclude(x => x.Publisher)
-                        .Include(x => x.Books)
-                            .ThenInclude(x => x.Language)
-                        .Where(x => x.Id == request.Id)
-                        .ToListAsync();
+            var bookDatas = await _bookReadRepository.Table
+                                  .Include(x => x.Authors)
+                                  .Include(x => x.BookPictures)
+                                  .ThenInclude(x => x.File)
+                                  .Where(x => x.Authors.Any(x => x.Id == request.Id))
+                                  .Take(request.Size)
+                                  .Skip(request.Size * request.Page)
+                                  .AsNoTracking()
+                                  .ToListAsync();
 
             List<BookDto> responseDatas = new();
-
-            resultDatas.ForEach(data =>
+            foreach(var book in bookDatas)
             {
-                data.Books.ToList().ForEach(book =>
+                BookDto bookDto = new()
                 {
-                    BookDto bookDto = new()
+                    Id = book.Id,
+                    BookName = book.BookName,
+                    Description = book.Description,
+                    Dimension = book.Dimension, 
+                    ISBN = book.ISBN,
+                    PageOfNumber = book.PageOfNumber,
+                    PaperType = book.PaperType,
+                    Price = book.Price,
+                    ReleaseDate = book.ReleaseDate,
+                    SkinType = book.SkinType,
+                    Stock = book.Stock,
+                    PictureUrls = book.BookPictures.ToList().Select(x => new BookPictureDto
                     {
-                        Id = book.Id,
-                        Publisher = new()
-                        {
-                            Id = book.Publisher.Id,
-                            Name = book.Publisher.Name
-                        },
-                        Language = new()
-                        {
-                            Id = book.Language.Id,
-                            Name = book.Language.Name
-                        },
-                        BookName = book.BookName,
-                        ISBN = book.ISBN,
-                        PaperType = book.PaperType,
-                        SkinType = book.SkinType,
-                        Dimension = book.Dimension,
-                        Description = book.Description,
-                        ReleaseDate = book.ReleaseDate,
-                        PageOfNumber = book.PageOfNumber,
-                        Stock = book.Stock,
-                        Price = book.Price,
-                        PictureUrls = book.BookPictures?.ToList().Select(x => FileUrlHelper.Generate(x.File.FilePath)).ToList(),
-                        Authors = book.Authors.Select(x => new ShortAuthorDto
-                        {
-                            Id = x.Id,
-                            Name = x.Name
-                        }).ToList(),
-                        Categories = book.Categories.Select(x => new ShortCategoryDto
-                        {
-                            Id = x.Id,
-                            CategoryName = x.CategoryName,
-                        }).ToList()
-                    };
+                        Id = x.Id,
+                        ShowOrder = x.ShowOrder,
+                        PictureUrl = FileUrlHelper.Generate(x.File.FilePath)
+                    }).ToList(),
+                };
 
-                    responseDatas.Add(bookDto);
-                });
-            });
-
+                responseDatas.Add(bookDto);
+            }
             return new SuccessDataResponse<List<BookDto>>(responseDatas);
         }
     }
