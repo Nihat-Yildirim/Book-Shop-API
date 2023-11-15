@@ -7,10 +7,11 @@ using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAndAuthorId
 {
-    public class GetBooksByCategoryAndAuthorIdQueryHandler : IRequestHandler<GetBooksByCategoryAndAuthorIdQueryRequest, BaseDataResponse<List<BookDto>>>
+    public class GetBooksByCategoryAndAuthorIdQueryHandler : IRequestHandler<GetBooksByCategoryAndAuthorIdQueryRequest, BaseDataResponse<List<BookDto>>> 
     {
         private readonly IBookReadRepository _bookReadRepository;
 
@@ -22,33 +23,34 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAnd
         public async Task<BaseDataResponse<List<BookDto>>> Handle(GetBooksByCategoryAndAuthorIdQueryRequest request, CancellationToken cancellationToken)
         {
             List<List<Book>> bookDatas = new();
-            var basketBooks = await _bookReadRepository.Table
+            var authorBooks = await _bookReadRepository.Table
                                .Include(x => x.Authors)
                                .Include(x => x.BasketItems)
                                .ThenInclude(x => x.Basket)
                                .Include(x => x.BookPictures)
                                .ThenInclude(x => x.File)
-                               .Where(x => x.Id != request.BookId && x.Authors.Any(x => x.Id == request.AuthorId) == true)
+                               .Where(x => x.Id != request.BookId)
+                               .Where(x => x.Authors.Any(y => request.AuthorIds.Any(z => z == y.Id)))
                                .OrderByDescending(x => x.BasketItems.Where(x => x.Basket.Visible == true).Sum(x => x.Quantity))
-                               .Take(15)
+                               .Take(20)
                                .AsNoTracking()
                                .ToListAsync();
-            bookDatas.Add(basketBooks);
+            bookDatas.Add(authorBooks);
 
             int bookQuantity = 0;
-            if(basketBooks.Count != 20)
-                bookQuantity = 20 - basketBooks.Count;
+            if(authorBooks.Count != 20)
+                bookQuantity = 40 - authorBooks.Count;
 
-            if (basketBooks.Count == 20)
+            if (authorBooks.Count == 20)
                 bookQuantity = 20;
 
-            var categoryBooks = await _bookReadRepository.Table
+           var categoryBooks = await _bookReadRepository.Table
                                 .Include(x => x.Categories)
                                 .Include(x => x.BasketItems)
                                 .ThenInclude(x => x.Basket)
                                 .Include(x => x.BookPictures)
                                 .ThenInclude(x => x.File)
-                                .Where(x => x.Id != request.BookId && basketBooks.Any(y => y.Id == x.Id) == false && x.Categories.Any(x => x.Id == request.CategoryId) == true)
+                                .Where(x => x.Id != request.BookId && x.Categories.Any(y => request.CategoryIds.Any(z => z == y.Id)) && !authorBooks.Contains(x))
                                 .OrderByDescending(x => x.BasketItems.Where(x => x.Basket.Visible == true).Sum(x => x.Quantity))
                                 .Take(bookQuantity) 
                                 .AsNoTracking()
@@ -86,5 +88,20 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAnd
 
             return new SuccessDataResponse<List<BookDto>>(response);
         }
+        
+        private static bool CheckCategoryIds(Book book, int[] ids)
+        {
+            foreach(var categories in book.Categories)
+            {
+                foreach (var id in ids)
+                {
+                    if (id == categories.Id)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+    
     }
 }

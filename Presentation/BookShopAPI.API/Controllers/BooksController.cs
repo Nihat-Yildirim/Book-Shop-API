@@ -129,7 +129,16 @@ namespace BookShopAPI.API.Controllers
             => await DataResponse(request);
 
         [HttpGet("GetBooksByCategoryAndAuthorId")]
-        public async Task<IActionResult> GetBooksByCategoryAndAuthorId([FromQuery] GetBooksByCategoryAndAuthorIdQueryRequest request)
-            => await DataResponse(request);
+        public async Task<IActionResult> GetBooksByCategoryAndAuthorId([FromQuery(Name = "BookId")] int BookId, [FromQuery(Name = "CategoryIds[]")] int[] CategoryIds, [FromQuery(Name = "AuthorIds[]")] int[] AuthorIds)
+        {
+            GetBooksByCategoryAndAuthorIdQueryRequest request = new()
+            {
+                BookId = BookId,
+                AuthorIds = AuthorIds,
+                CategoryIds = CategoryIds,
+            };
+
+            return await DataResponse(request);
+        }
     }
 }

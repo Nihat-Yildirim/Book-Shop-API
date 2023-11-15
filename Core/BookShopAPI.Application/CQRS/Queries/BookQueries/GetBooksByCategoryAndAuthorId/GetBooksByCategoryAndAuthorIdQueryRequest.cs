@@ -7,7 +7,7 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAnd
     public class GetBooksByCategoryAndAuthorIdQueryRequest : IRequest<BaseDataResponse<List<BookDto>>>
     {
         public int BookId { get; set; }
-        public int CategoryId { get; set; }
-        public int AuthorId { get; set; }
+        public int[]? CategoryIds { get; set; }
+        public int[]? AuthorIds { get; set; }
     }
 }
