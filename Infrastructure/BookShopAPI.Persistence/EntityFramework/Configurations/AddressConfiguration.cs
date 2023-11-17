@@ -38,6 +38,11 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasMaxLength(25)
                 .IsRequired();
 
+            builder.Property(x => x.PhoneNumber)
+                .HasColumnType(SqlServerColumnType.Char)
+                .HasMaxLength(10)
+                .IsRequired();
+
             builder.Property(x => x.Description)
                 .HasColumnType(SqlServerColumnType.VarChar)
                 .HasMaxLength(125)

@@ -4,14 +4,10 @@ using BookShopAPI.Application.CQRS.Commands.AuthorCommands.AddAuthor;
 using BookShopAPI.Application.CQRS.Commands.BasketCommands.AddBasketItem;
 using BookShopAPI.Application.CQRS.Commands.CommentCommands.AddComment;
 using BookShopAPI.Application.CQRS.Commands.CommentCommands.AddCommentRating;
-using BookShopAPI.Application.CQRS.Commands.PhoneNumberCommands.AddPhoneNumber;
 using BookShopAPI.Application.CQRS.Commands.UserCommands.CustomerRegister;
-using BookShopAPI.Application.DTOs.AddressDTOs;
-using BookShopAPI.Application.DTOs.BookDTOs;
 using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.DTOs.DistrictDTOs;
 using BookShopAPI.Application.DTOs.NeighbourhoodDTOs;
-using BookShopAPI.Application.DTOs.PhoneNumberDTOs;
 using BookShopAPI.Application.DTOs.ProvinceDTOs;
 using BookShopAPI.Domain.Entities;
 
@@ -26,9 +22,6 @@ namespace BookShopAPI.Application.Mapping
             CreateMap<District, DistrictDto>();
             CreateMap<Neighbourhood, NeighbourhoodDto>();
             CreateMap<AddAddressCommandRequest, Address>();
-            CreateMap<AddPhoneNumberCommandRequest, PhoneNumberEntity>();
-            CreateMap<PhoneNumberEntity, PhoneNumberForAdminDto>();
-            CreateMap<PhoneNumberEntity, PhoneNumberDto>();
             CreateMap<AddAuthorCommandRequest, Author>();
             CreateMap<Category, CategoryDto>();
             CreateMap<AddCommentCommandRequest, CommentEntity>();

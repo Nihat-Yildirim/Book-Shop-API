@@ -57,6 +57,7 @@ namespace BookShopAPI.Application.CQRS.Commands.AddressCommands.UpdateAddress
                         break;
                     }
 
+            updatedAddress.PhoneNumber = request.PhoneNumber;
             updatedAddress.AddressTitle = request.AddressTitle;
             updatedAddress.Description = request.Description;
             updatedAddress.ProvinceId = request.ProvinceId;

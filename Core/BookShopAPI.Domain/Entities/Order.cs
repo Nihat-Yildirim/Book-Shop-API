@@ -19,6 +19,5 @@ namespace BookShopAPI.Domain.Entities
         public User? User { get; set; }
         public Basket? Basket { get; set; }
         public Address? Address { get; set; }
-        public  PhoneNumberEntity? PhoneNumber { get; set; }
     }
 }

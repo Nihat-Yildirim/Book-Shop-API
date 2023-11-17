@@ -12,6 +12,7 @@ namespace BookShopAPI.Application.DTOs.AddressDTOs
         public ProvinceDto? Province { get; set; }
         public DistrictDto? District { get; set; }
         public NeighbourhoodDto? Neighbourhood { get; set; }
+        public string? PhoneNumber { get; set; }
         public string? OpenAddress { get; set; }
         public string? Description { get; set; }
         public bool Selected { get; set; }

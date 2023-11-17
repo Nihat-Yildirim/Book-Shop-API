@@ -9,7 +9,6 @@ namespace BookShopAPI.Domain.Entities
         {
             Baskets = new HashSet<Basket>();
             Addresses = new HashSet<Address>();
-            PhoneNumbers = new HashSet<PhoneNumberEntity>();
             Comments = new HashSet<CommentEntity>();
             CommentRatings = new HashSet<CommentRating>();
         }
@@ -34,6 +33,5 @@ namespace BookShopAPI.Domain.Entities
         public ICollection<Address> Addresses { get; set; }
         public ICollection<CommentEntity> Comments { get; set; }
         public ICollection<CommentRating> CommentRatings { get; set; }
-        public ICollection<PhoneNumberEntity> PhoneNumbers { get; set; }
     }
 }

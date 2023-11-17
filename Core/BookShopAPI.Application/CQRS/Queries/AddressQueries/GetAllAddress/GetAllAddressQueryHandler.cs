@@ -30,6 +30,7 @@ namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddress
             {
                 AddressForAdminDto addressForAdmin = new();
                 addressForAdmin.Id = address.Id;
+                addressForAdmin.PhoneNumber = address.PhoneNumber;
                 addressForAdmin.AddressTitle = address.AddressTitle;
                 addressForAdmin.OpenAddress = address.OpenAddress;
                 addressForAdmin.Description = address.Description;

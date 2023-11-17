@@ -44,6 +44,11 @@ namespace BookShopAPI.Application.Validators.AddressValidators
                 .NotNull()
                 .MinimumLength(30)
                 .MaximumLength(250);
+
+            RuleFor(x => x.PhoneNumber)
+                .NotEmpty()
+                .NotNull()
+                .Length(10);
         }
     }
 }

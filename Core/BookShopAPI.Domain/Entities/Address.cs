@@ -7,6 +7,7 @@ namespace BookShopAPI.Domain.Entities
         public int UserId { get; set; }
         public int ProvinceId { get; set; }
         public int DistrictId { get; set; }
+        public string? PhoneNumber { get; set; }
         public int NeighbourhoodId { get; set; }
         public string? AddressTitle { get; set; }
         public string? Description { get; set; }

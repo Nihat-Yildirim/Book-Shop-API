@@ -9,6 +9,7 @@ namespace BookShopAPI.Application.CQRS.Commands.AddressCommands.AddAddress
         public int ProvinceId { get; set; }
         public int DistrictId { get; set; }
         public int NeighbourhoodId { get; set; }
+        public string? PhoneNumber { get; set; }
         public string? AddressTitle { get; set; }
         public string? Description { get; set; }
         public string? OpenAddress { get; set; }

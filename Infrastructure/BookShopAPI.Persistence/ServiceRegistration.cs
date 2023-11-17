@@ -17,7 +17,6 @@ using BookShopAPI.Application.Repositories.NeighbourhoodRepositories;
 using BookShopAPI.Application.Repositories.OrderRepositories;
 using BookShopAPI.Application.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Application.Repositories.OtpRecoveryCodeRepositories;
-using BookShopAPI.Application.Repositories.PhoneNumberRepositories;
 using BookShopAPI.Application.Repositories.ProvinceRepositories;
 using BookShopAPI.Application.Repositories.PublisherRepositories;
 using BookShopAPI.Application.Repositories.RefreshTokenRepositories;
@@ -44,7 +43,6 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.NeighbourhoodReposito
 using BookShopAPI.Persistence.EntityFramework.Repositories.OrderRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpRecoveryCodeRepositories;
-using BookShopAPI.Persistence.EntityFramework.Repositories.PhoneNumberRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.ProvinceRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.PublisherRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.RefreshTokenRepositories;
@@ -100,9 +98,6 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<IOtpRecoveryCodeReadRepository, OtpRecoveryCodeReadRepository>();
             services.AddScoped<IOtpRecoveryCodeWriteRepository, OtpRecoveryCodeWriteRepository>();
-
-            services.AddScoped<IPhoneNumberReadRepository, PhoneNumberReadRepository>();
-            services.AddScoped<IPhoneNumberWriteRepository, PhoneNumberWriteRepository>();
 
             services.AddScoped<IPublisherReadRepository, PublisherReadRepository>();
             services.AddScoped<IPublisherWriteRepository, PublisherWriteRepository>();

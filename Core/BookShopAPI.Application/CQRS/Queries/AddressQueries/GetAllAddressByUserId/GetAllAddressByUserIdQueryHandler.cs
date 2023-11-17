@@ -31,6 +31,7 @@ namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAllAddressByUse
             {
                 AddressDto addressDto = new();
                 addressDto.Id = address.Id;
+                addressDto.PhoneNumber = address.PhoneNumber;
                 addressDto.AddressTitle = address.AddressTitle;
                 addressDto.Description = address.Description;
                 addressDto.OpenAddress = address.OpenAddress;

@@ -28,11 +28,6 @@ namespace BookShopAPI.Persistence.EntityFramework.Configurations
                 .HasForeignKey(x => x.AddressId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(x => x.PhoneNumber)
-                .WithMany(x => x.Orders)
-                .HasForeignKey(x => x.PhoneNumberId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.Property(x => x.Pay)
                 .HasColumnType(SqlServerColumnType.Bit)
                 .HasDefaultValue(false)

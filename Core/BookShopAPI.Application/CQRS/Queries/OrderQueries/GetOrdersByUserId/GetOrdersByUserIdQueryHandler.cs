@@ -21,7 +21,6 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetOrdersByUserId
         public async Task<BaseDataResponse<List<OrderDto>>> Handle(GetOrdersByUserIdQueryRequest request, CancellationToken cancellationToken)
         {
             var resultOrders = await _orderReadRepository.Table
-                              .Include(x => x.PhoneNumber)
                               .Include(x => x.Address)
                               .Include(x => x.Basket)
                               .ThenInclude(x => x.BasketItems)
@@ -42,11 +41,6 @@ namespace BookShopAPI.Application.CQRS.Queries.OrderQueries.GetOrdersByUserId
                 {
                     OrderId = order.Id,
                     UserId = request.UserId,
-                    PhoneNumber = new()
-                    {
-                        Id = order.PhoneNumber.Id,
-                        PhoneNumber = order.PhoneNumber.PhoneNumber
-                    },
                     Address = new()
                     {
                         Id = order.Address.Id,

@@ -33,6 +33,7 @@ namespace BookShopAPI.Application.CQRS.Queries.AddressQueries.GetAddressByUserAn
                 AddressTitle = selectedAddress.AddressTitle,
                 Description = selectedAddress.Description,
                 Selected = selectedAddress.Selected,
+                PhoneNumber = selectedAddress.PhoneNumber,
                 District = new()
                 {
                     Id = selectedAddress.District.Id,
