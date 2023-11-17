@@ -1,4 +1,5 @@
-﻿using BookShopAPI.Application.Repositories.AddressRepositories;
+﻿using BookShopAPI.Application.Cache;
+using BookShopAPI.Application.Repositories.AddressRepositories;
 using BookShopAPI.Application.Repositories.AuthorRepositories;
 using BookShopAPI.Application.Repositories.BasketItemRepositories;
 using BookShopAPI.Application.Repositories.BasketRepositories;
@@ -23,6 +24,7 @@ using BookShopAPI.Application.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Application.Repositories.UserClaimRepositories;
 using BookShopAPI.Application.Repositories.UserRepositories;
 using BookShopAPI.Application.UnitOfWork;
+using BookShopAPI.Persistence.Cache;
 using BookShopAPI.Persistence.EntityFramework.Contexts;
 using BookShopAPI.Persistence.EntityFramework.Repositories.AddressRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.AuthorRepositories;
@@ -60,8 +62,10 @@ namespace BookShopAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<BookShopDbContext>(options => options.UseSqlServer(ConnectionStringHelper.GetSqlServerConnectionString()));
+            services.AddStackExchangeRedisCache(options => options.Configuration = "localhost:6985");
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICacheService, RedisCacheService>();
 
             services.AddScoped<IAddressReadRepository, AddressReadRepository>();
             services.AddScoped<IAddressWriteRepository, AddressWriteRepository>();
