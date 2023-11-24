@@ -34,18 +34,22 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAllCategories")]
+        [CacheFilter(15, 5)]
         public async Task<IActionResult> GetAllCategories([FromQuery] GetAllCategoriesQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetParentCategories")]
+        [CacheFilter(15, 5)]
         public async Task<IActionResult> GetParentCategories([FromQuery] GetParentCategoriesQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetCategoryById")]
+        [CacheFilter(10, 2)]
         public async Task<IActionResult> GetCategoryById([FromQuery] GetCategoryByIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetCategoriesByParentId")]
+        [CacheFilter(15, 5)]
         public async Task<IActionResult> GetCategoriesByParentId([FromQuery] GetCategoriesByParentIdQueryRequest request)
             => await DataResponse(request);
     }

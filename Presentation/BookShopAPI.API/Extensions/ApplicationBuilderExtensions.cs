@@ -1,5 +1,4 @@
 ﻿using BookShopAPI.API.Middlewares;
-using Serilog.Core;
 
 namespace BookShopAPI.API.Extensions
 {

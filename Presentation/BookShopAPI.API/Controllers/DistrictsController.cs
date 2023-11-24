@@ -5,6 +5,7 @@ using BookShopAPI.Application.CQRS.Commands.DistrictCommands.UpdateDistrict;
 using BookShopAPI.Application.CQRS.Queries.DistrictQueries.GetAllDistrict;
 using BookShopAPI.Application.CQRS.Queries.DistrictQueries.GetDistrictById;
 using BookShopAPI.Application.CQRS.Queries.DistrictQueries.GetDistrictsByProvinceId;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,14 +33,17 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAllDistrict")]
+        [CacheFilter(72, 24)]
         public async Task<IActionResult> GetAllDistrict([FromQuery] GetAllDistrictQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetDistrictById")]
+        [CacheFilter(24, 12)]
         public async Task<IActionResult> GetDistrictById([FromQuery] GetDistrictByIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetDistrictsByProvinceId")]
+        [CacheFilter(24, 12)]
         public async Task<IActionResult> GetDistrictsByProvinceId([FromQuery] GetDistrictsByProvinceIdQueryRequest request)
             => await DataResponse(request);
     }

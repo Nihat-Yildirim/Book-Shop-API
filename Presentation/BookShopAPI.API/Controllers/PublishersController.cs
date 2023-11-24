@@ -40,19 +40,23 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAllPublisher")]
+        [CacheFilter(10, 2)]
         public async Task<IActionResult> GetAllPublisher([FromQuery] GetAllPublisherQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetPublisherById")]
+        [CacheFilter(10, 2)]
         public async Task<IActionResult> GetPublisherById([FromQuery] GetPublisherByIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetPublisherByPattern")]
+        [CacheFilter(10, 2)]
         public async Task<IActionResult> GetPublisherByPattern([FromQuery] GetPublisherByPatternQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetPublisherByPatternForAdmin")]
+        [CacheFilter(10, 2)]
         public async Task<IActionResult> GetPublisherByPatternForAdmin([FromQuery] GetPublisherByPatternForAdminQueryRequest request)
             => await DataResponse(request);
     }

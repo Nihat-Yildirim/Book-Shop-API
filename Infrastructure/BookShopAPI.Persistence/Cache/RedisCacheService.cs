@@ -14,7 +14,7 @@ namespace BookShopAPI.Persistence.Cache
             _distributedCache = distributedCache;
         }
 
-        public async Task CreateEntryAsync(string key, object value, int absoluteExpiration, int slidingExpiration = 0)
+        public async Task CreateEntryAsync(string key, object value, double absoluteExpiration, double slidingExpiration = 0)
         {
             if (key == null)
                 throw new Exception("Key is not null or default");
@@ -26,10 +26,10 @@ namespace BookShopAPI.Persistence.Cache
                 throw new Exception("Not AbsoluteExpiration Equals 0 !");
 
             DistributedCacheEntryOptions options = new();
-            options.AbsoluteExpiration = DateTime.Now.AddHours(absoluteExpiration);
+            options.AbsoluteExpiration = DateTime.Now.AddMinutes(60 * absoluteExpiration);
 
             if (slidingExpiration > 0)
-                options.SlidingExpiration = TimeSpan.FromHours(slidingExpiration);
+                options.SlidingExpiration = TimeSpan.FromMinutes(60 * slidingExpiration);
 
             await _distributedCache.SetAsync(key, binaryValue, options);
         }
@@ -54,7 +54,19 @@ namespace BookShopAPI.Persistence.Cache
             await _distributedCache.RemoveAsync(key);
         }
 
-        public async Task<TValueType> TryGetValueAsync<TValueType>(string key)
+        public async Task<string> TryGetJsonValue(string key)
+        {
+            if (key == null)
+                throw new Exception("Key is not null or default");
+
+            Byte[] binaryValue = await _distributedCache.GetAsync(key);
+            if (binaryValue == null)
+                return default;
+
+            return Encoding.UTF8.GetString(binaryValue);
+        }
+
+        public async Task<object> TryGetValueAsync(string key)
         {
             if (key == null)
                 throw new Exception("Key is not null or default");
@@ -64,7 +76,7 @@ namespace BookShopAPI.Persistence.Cache
                 return default;
 
             string jsonValue = Encoding.UTF8.GetString(binaryValue);
-            var value = JsonConvert.DeserializeObject<TValueType>(jsonValue);
+            var value = JsonConvert.DeserializeObject(jsonValue);
 
             return value;
         }

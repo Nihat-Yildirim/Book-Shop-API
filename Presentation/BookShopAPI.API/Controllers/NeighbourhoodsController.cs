@@ -5,6 +5,7 @@ using BookShopAPI.Application.CQRS.Commands.NeighbourhoodCommands.UpdateNeighbou
 using BookShopAPI.Application.CQRS.Queries.NeighbourhoodQueries.GetAllNeighbourhood;
 using BookShopAPI.Application.CQRS.Queries.NeighbourhoodQueries.GetNeighbourhoodById;
 using BookShopAPI.Application.CQRS.Queries.NeighbourhoodQueries.GetNeighbourhoodsByDistrictId;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,14 +33,17 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAllNeighbourhood")]
+        [CacheFilter(72, 24)]
         public async Task<IActionResult> GetAllNeighbourhood([FromQuery] GetAllNeighbourhoodQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetNeighbourhoodById")]
+        [CacheFilter(25, 5)]
         public async Task<IActionResult> GetNeighbourhoodById([FromQuery] GetNeighbourhoodByIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetNeighbourhoodByDistrictId")]
+        [CacheFilter(48, 12)]
         public async Task<IActionResult> GetNeighbourhoodByDistrictId([FromQuery] GetNeighbourhoodsByDistrictIdQueryRequest request)
             => await DataResponse(request);
     }

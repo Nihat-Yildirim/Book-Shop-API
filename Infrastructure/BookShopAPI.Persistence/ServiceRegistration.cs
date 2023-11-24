@@ -62,7 +62,7 @@ namespace BookShopAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<BookShopDbContext>(options => options.UseSqlServer(ConnectionStringHelper.GetSqlServerConnectionString()));
-            services.AddStackExchangeRedisCache(options => options.Configuration = "localhost:6985");
+            services.AddStackExchangeRedisCache(options => options.Configuration = ConnectionStringHelper.GetRedisConnectionString());
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICacheService, RedisCacheService>();

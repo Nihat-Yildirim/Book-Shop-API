@@ -4,6 +4,7 @@ using BookShopAPI.Application.CQRS.Commands.ProvinceCommands.DeleteProvince;
 using BookShopAPI.Application.CQRS.Commands.ProvinceCommands.UpdateProvince;
 using BookShopAPI.Application.CQRS.Queries.ProvinceQueries.GetAllProvince;
 using BookShopAPI.Application.CQRS.Queries.ProvinceQueries.GetProvinceById;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,10 +32,12 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAll")]
+        [CacheFilter(25, 5)]
         public async Task<IActionResult> GetAll([FromQuery] GetAllProvinceQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetProvinceById")]
+        [CacheFilter(25, 5)]
         public async Task<IActionResult> GetProvinceById([FromQuery] GetProvinceByIdQueryRequest request)
             => await DataResponse(request);
     }

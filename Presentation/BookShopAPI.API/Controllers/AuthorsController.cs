@@ -29,20 +29,24 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAllAuthors")]
+        [CacheFilter(15, 1)]
         public async Task<IActionResult> GetAllAuthors([FromQuery] GetAllAuthorsQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetAuthorById")]
+        [CacheFilter(15, 1)]
         public async Task<IActionResult> GetAuthorById([FromQuery] GetAuthorByIdQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetAllAuthorForAdmin")]
+        [CacheFilter(15, 1)]
         public async Task<IActionResult> GetAllAuthorForAdmin([FromQuery] GetAllAuthorsForAdminQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetAuthorByIdForAdmin")]
+        [CacheFilter(15, 1)]
         public async Task<IActionResult> GetAuthorByIdForAdmin([FromQuery] GetAuthorByIdForAdminQueryRequest request)
             => await DataResponse(request);
 
@@ -57,11 +61,13 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAuthorByPattern")]
+        [CacheFilter(15, 1)]
         public async Task<IActionResult> GetAuthorByPattern([FromQuery] GetAuthorByPatternQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetAuthorByPatternForAdmin")]
+        [CacheFilter(15, 1)]
         public async Task<IActionResult> GetAuthorByPatternForAdmin([FromQuery] GetAuthorByPatternForAdminQueryRequest request)
             => await DataResponse(request);
 

@@ -74,57 +74,70 @@ namespace BookShopAPI.API.Controllers
             => await NoDataResponse(request);
 
         [HttpGet("GetAllBook")]
+        [CacheFilter(5, 1)]
         public async Task<IActionResult> GetAllBook([FromQuery] GetAllBookQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetAllBookForAdmin")]
+        [CacheFilter(5, 1)]
         public async Task<IActionResult> GetAllBookForAdmin([FromQuery] GetAllBookForAdminQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetById")]
+        [CacheFilter(2, 0.5)]
         public async Task<IActionResult> GetById([FromQuery] GetBookByIdQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetByIdForAdmin")]
+        [CacheFilter(2, 0.5)]
         public async Task<IActionResult> GetByIdForAdmin([FromQuery] GetBookForAdminByIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByNamePattern")]
+        [CacheFilter(1, 0.5)]
         public async Task<IActionResult> GetBooksByNamePattern([FromQuery] GetBookByNamePatternQueryRequest request)
             => await DataResponse(request);
 
         //[AuthorizationFilter("Admin")]
         [HttpGet("GetBooksByNamePatternForAdmin")]
+        [CacheFilter(1, 0.5)]
         public async Task<IActionResult> GetBooksByNamePatternForAdmin([FromQuery] GetBookByNamePatternForAdminQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByPublisherId")]
+        [CacheFilter(2, 1)]
         public async Task<IActionResult> GetBooksByPublisherId([FromQuery] GetBooksByPublisherIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByAuthorId")]
+        [CacheFilter(2, 1)]
         public async Task<IActionResult> GetBooksByAuthorId([FromQuery] GetBooksByAuthorIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBookByISBN")]
+        [CacheFilter(2, 1)]
         public async Task<IActionResult> GetBookByISBN([FromQuery] GetBookByISBNQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByLanguageId")]
+        [CacheFilter(1, 0.5)]
         public async Task<IActionResult> GetBooksByLanguageId([FromQuery] GetBooksByLanguageIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByCategoryId")]
+        [CacheFilter(2, 1)]
         public async Task<IActionResult> GetBooksByCategoryId([FromQuery] GetBooksByCategoryIdQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByCommentCount")]
+        [CacheFilter(1, 0.5)]
         public async Task<IActionResult> GetBooksByCommentCount([FromQuery] GetBooksByCommentCountQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByBasketCount")]
+        [CacheFilter(1, 0.5)]
         public async Task<IActionResult> GetBooksByBasketCount([FromQuery] GetBooksByBasketCountQueryRequest request)
             => await DataResponse(request);
 
