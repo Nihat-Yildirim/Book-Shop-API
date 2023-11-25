@@ -142,6 +142,7 @@ namespace BookShopAPI.API.Controllers
             => await DataResponse(request);
 
         [HttpGet("GetBooksByCategoryAndAuthorId")]
+        [CacheFilter(2, 1)]
         public async Task<IActionResult> GetBooksByCategoryAndAuthorId([FromQuery(Name = "BookId")] int BookId, [FromQuery(Name = "CategoryIds[]")] int[] CategoryIds, [FromQuery(Name = "AuthorIds[]")] int[] AuthorIds)
         {
             GetBooksByCategoryAndAuthorIdQueryRequest request = new()

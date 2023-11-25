@@ -33,7 +33,7 @@ namespace BookShopAPI.Infrastructure.Filters
             var methodName = context.HttpContext.Request.Path.ToString();
             methodName = methodName.Remove(0, methodName.LastIndexOf("/") + 1);
 
-            cacheKey = $"{controllerName}.{methodName}";
+            cacheKey = $"{controllerName}.{methodName}.Params=";
             var parameters = context.ActionArguments;
 
             if(parameters != null && parameters.Count == 1)
@@ -46,8 +46,7 @@ namespace BookShopAPI.Infrastructure.Filters
                                         Value = x.GetValue(parameters.Values.FirstOrDefault())
                                     }).ToList();
 
-                cacheKey += $".Params=";
-                if (requestParams.Count == 0)
+                if (requestParams?.Count == 0)
                     cacheKey += "Null";
 
                 foreach (var requestParam in requestParams)
@@ -56,7 +55,29 @@ namespace BookShopAPI.Infrastructure.Filters
 
             if(parameters != null && parameters.Count > 1)
             {
-                // TODO
+                for(int i = 0; i< parameters.Count; i++)
+                {
+                    var requestParam = parameters.ToList()[i];
+
+                    if (!requestParam.Value.GetType().IsArray)
+                        cacheKey += requestParam.Key + ":" + requestParam.Value;
+
+                    if (requestParam.Value.GetType().IsArray)
+                    {
+                        int elementIndex = 0;
+                        cacheKey += requestParam.Key + ":[";
+                        var values = requestParam.Value as Array;
+                        foreach (var value in values)
+                        {
+                            elementIndex++;
+                            cacheKey += value + ",";
+                            if (values.Length == elementIndex)
+                                cacheKey += "]";
+                        }
+                    }
+
+                    cacheKey += ",";
+                }
             }
 
             var jsonCacheValue = await cacheService.TryGetJsonValue(cacheKey);
