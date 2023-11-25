@@ -1,6 +1,7 @@
 ﻿using BookShopAPI.Application.Cache;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Text;
 
 namespace BookShopAPI.Persistence.Cache
@@ -19,7 +20,10 @@ namespace BookShopAPI.Persistence.Cache
             if (key == null)
                 throw new Exception("Key is not null or default");
 
-            string jsonValue = JsonConvert.SerializeObject(value);
+            var serializerSettings = new JsonSerializerSettings();
+            serializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            string jsonValue = JsonConvert.SerializeObject(value, serializerSettings);
             Byte[] binaryValue = Encoding.UTF8.GetBytes(jsonValue);
 
             if (absoluteExpiration < 0)

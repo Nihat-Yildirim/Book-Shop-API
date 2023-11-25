@@ -82,7 +82,7 @@ namespace BookShopAPI.Infrastructure.Filters
 
             var jsonCacheValue = await cacheService.TryGetJsonValue(cacheKey);
             if(jsonCacheValue != null)
-            { 
+            {
                 context.HttpContext.Response.ContentType = "application/json";
                 await context.HttpContext.Response.WriteAsync(jsonCacheValue);
                 return;
