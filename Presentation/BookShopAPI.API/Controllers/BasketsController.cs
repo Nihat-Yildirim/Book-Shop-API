@@ -7,6 +7,7 @@ using BookShopAPI.Application.CQRS.Commands.BasketCommands.UpdateBasketItemSelec
 using BookShopAPI.Application.CQRS.Queries.BasketQueries.GetAllBasket;
 using BookShopAPI.Application.CQRS.Queries.BasketQueries.GetBasketByUserId;
 using BookShopAPI.Application.CQRS.Queries.BasketQueries.GetSelectedBookBasketCount;
+using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,6 +55,7 @@ namespace BookShopAPI.API.Controllers
             => await DataResponse(request);
 
         [HttpGet("GetSelectedBookBasketCount")]
+        [CacheFilter(5,1)]
         public async Task<IActionResult> GetSelectedBookBasketCount([FromQuery] GetSelectedBookBasketCountQueryRequest request)
             => await DataResponse(request);
     }

@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Publisher : BaseEntity
+    public class Publisher : Entity
     {
         public int PublisherLogoFileId { get; set; }
         public string? Name { get; set; }

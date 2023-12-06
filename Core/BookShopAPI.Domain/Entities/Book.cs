@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Book : BaseEntity
+    public class Book : Entity
     {
         public Book()
         {
@@ -27,6 +27,7 @@ namespace BookShopAPI.Domain.Entities
 
         public Publisher? Publisher { get; set; }
         public Language? Language { get; set; }
+        public ICollection<View> Views { get; set; }
         public ICollection<Author> Authors { get; set; }
         public ICollection<Category> Categories { get; set; }
         public ICollection<BasketItem> BasketItems { get; set; }

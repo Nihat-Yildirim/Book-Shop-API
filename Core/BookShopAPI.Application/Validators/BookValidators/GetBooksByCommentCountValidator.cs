@@ -12,6 +12,7 @@ namespace BookShopAPI.Application.Validators.BookValidators
 
             RuleFor(x => x.Page)
                 .GreaterThanOrEqualTo(0);
+
         }
     }
 }

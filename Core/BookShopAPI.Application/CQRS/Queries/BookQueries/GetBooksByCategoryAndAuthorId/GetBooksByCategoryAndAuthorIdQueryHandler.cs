@@ -88,20 +88,5 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAnd
 
             return new SuccessDataResponse<List<BookDto>>(response);
         }
-        
-        private static bool CheckCategoryIds(Book book, int[] ids)
-        {
-            foreach(var categories in book.Categories)
-            {
-                foreach (var id in ids)
-                {
-                    if (id == categories.Id)
-                        return true;
-                }
-            }
-
-            return false;
-        }
-    
     }
 }

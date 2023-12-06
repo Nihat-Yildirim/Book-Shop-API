@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class OtpAuthentication : BaseEntity
+    public class OtpAuthentication : Entity
     {
         public OtpAuthentication()
         {

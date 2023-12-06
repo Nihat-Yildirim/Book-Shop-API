@@ -3,7 +3,7 @@ using BookShopAPI.Domain.Enums;
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class User : BaseEntity
+    public class User : Entity
     {
         public User()
         {

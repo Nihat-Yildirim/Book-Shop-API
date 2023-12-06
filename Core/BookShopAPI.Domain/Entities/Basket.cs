@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Basket : BaseEntity
+    public class Basket : Entity
     {
         public Basket()
         {

@@ -18,22 +18,30 @@ namespace BookShopAPI.Persistence.EntityFramework.Contexts
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var entries = ChangeTracker.Entries<BaseEntity>();
+            var baseEntityEntries = ChangeTracker.Entries<BaseEntity>()
+                .Where(x => x.Entity.GetType().BaseType == typeof(BaseEntity));
 
-            foreach(var entry in entries)
+            var entityEntries = ChangeTracker.Entries<Entity>();
+
+            foreach(var entry in entityEntries)
             {
                 if(entry.State == EntityState.Added)
-                    entry.Entity.CreatedDate = DateTime.Now;    
+                    entry.Entity.CreatedDate = DateTime.Now;
 
                 if(entry.State == EntityState.Modified)
                     entry.Entity.UpdatedDate = DateTime.Now;
             }
+
+            foreach (var entry in baseEntityEntries)
+                if (entry.State == EntityState.Added)
+                    entry.Entity.CreatedDate = DateTime.Now;
 
             return base.SaveChangesAsync(cancellationToken);
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<View> Views { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Claim> Claims { get; set; }
         public DbSet<Author> Authors { get; set; }

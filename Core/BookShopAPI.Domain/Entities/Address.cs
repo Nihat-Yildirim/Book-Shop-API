@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Address : BaseEntity
+    public class Address : Entity
     {
         public int UserId { get; set; }
         public int ProvinceId { get; set; }

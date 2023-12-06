@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Category : BaseEntity
+    public class Category : Entity
     {
         public int? ParentId { get; set; }
         public string? CategoryName { get; set; }

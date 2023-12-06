@@ -23,6 +23,7 @@ using BookShopAPI.Application.Repositories.PublisherRepositories;
 using BookShopAPI.Application.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Application.Repositories.UserClaimRepositories;
 using BookShopAPI.Application.Repositories.UserRepositories;
+using BookShopAPI.Application.Repositories.ViewRepositories;
 using BookShopAPI.Application.UnitOfWork;
 using BookShopAPI.Persistence.Cache;
 using BookShopAPI.Persistence.EntityFramework.Contexts;
@@ -50,6 +51,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.PublisherRepositories
 using BookShopAPI.Persistence.EntityFramework.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.UserClaimRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.ViewRepositories;
 using BookShopAPI.Persistence.EntityFramework.UnitOfWork;
 using BookShopAPI.Persistence.Helpers;
 using Microsoft.EntityFrameworkCore;
@@ -138,6 +140,9 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<INeighbourhoodReadRepository, NeighbourhoodReadRepository>();
             services.AddScoped<INeighbourhoodWriteRepository,NeighbourhoodWriteRepository>();
+
+            services.AddScoped<IViewReadRepository, ViewReadRepository>();
+            services.AddScoped<IViewWriteRepository, ViewWriteRepository>();
         }
     }
 }

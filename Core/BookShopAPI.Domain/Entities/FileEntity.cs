@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class FileEntity : BaseEntity
+    public class FileEntity : Entity
     {
         public string? FileName { get; set; }
         public string? FilePath { get; set; }

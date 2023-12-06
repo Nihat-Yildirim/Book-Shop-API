@@ -34,7 +34,7 @@ namespace BookShopAPI.Application.CQRS.Queries.OtpAuthenticationQueries.OtpAuthe
         {
             var selectedUser = await _userReadRepository.Table
                                 .Include(x => x.UserClaim)
-                                    .ThenInclude(x => x.Claim)
+                                .ThenInclude(x => x.Claim)
                                 .Include(x => x.OtpAuthentication)
                                 .Include(x => x.RefreshToken)
                                 .SingleOrDefaultAsync(x => x.Email == request.Email && x.AuthenticatorType == AuthenticatorType.Otp && x.DeletedDate == null);
@@ -71,6 +71,7 @@ namespace BookShopAPI.Application.CQRS.Queries.OtpAuthenticationQueries.OtpAuthe
             token.RefreshToken = refreshToken;
 
             LoginResultDto loginResult = new();
+            loginResult.IsAdmin = claims.Any(x => x.Name == "Admin");
             loginResult.Authenticator = selectedUser.AuthenticatorType;
             loginResult.UserId = selectedUser.Id;
             loginResult.Token = token;

@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class OtpRecoveryCode : BaseEntity
+    public class OtpRecoveryCode : Entity
     {
         public int OtpAuthenticationId { get; set; }
         public string? Code { get; set; }

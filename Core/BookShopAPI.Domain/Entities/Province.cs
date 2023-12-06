@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Province : BaseEntity
+    public class Province : Entity
     {
         public Province()
         {

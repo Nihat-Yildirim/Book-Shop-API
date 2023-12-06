@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class BasketItem : BaseEntity
+    public class BasketItem : Entity
     {
         public int BasketId { get; set; }
         public int BookId { get; set; }

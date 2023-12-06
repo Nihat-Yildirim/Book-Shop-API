@@ -94,6 +94,7 @@ namespace BookShopAPI.Application.CQRS.Queries.UserQueries.Login
             };
 
             LoginResultDto loginResult = new();
+            loginResult.IsAdmin = userClaims.Select(x => x.Claim).ToList().Any(x => x.Name == "Admin");
             loginResult.Token = resultToken;
             loginResult.UserId = selectedUser.Id;
             loginResult.Authenticator = AuthenticatorType.None;

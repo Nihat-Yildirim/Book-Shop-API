@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Neighbourhood : BaseEntity
+    public class Neighbourhood : Entity
     {
         public int DistrictId { get; set; }
         public string? Name { get; set; }

@@ -1,5 +1,4 @@
 ﻿using BookShopAPI.Domain.Entities.Common;
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace BookShopAPI.Application.Repositories.Abstracts

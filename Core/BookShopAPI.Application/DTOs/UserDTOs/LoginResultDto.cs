@@ -8,6 +8,7 @@ namespace BookShopAPI.Application.DTOs.UserDTOs
     {
         public AuthenticatorType Authenticator { get; set; }
         public int UserId { get; set; }
+        public bool IsAdmin { get; set; }
         public TokenDto? Token { get; set; }
     }
 }

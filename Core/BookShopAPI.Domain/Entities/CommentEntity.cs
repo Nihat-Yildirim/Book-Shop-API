@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class CommentEntity : BaseEntity
+    public class CommentEntity : Entity
     {
         public int BookId { get; set; }
         public int UserId { get; set; }

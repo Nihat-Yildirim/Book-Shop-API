@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class RefreshToken : BaseEntity
+    public class RefreshToken : Entity
     {
         public string? Token { get; set; }
         public DateTime Expires { get; set; }

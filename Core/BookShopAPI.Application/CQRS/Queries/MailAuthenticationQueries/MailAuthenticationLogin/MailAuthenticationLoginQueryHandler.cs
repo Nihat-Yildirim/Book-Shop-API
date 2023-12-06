@@ -101,6 +101,7 @@ namespace BookShopAPI.Application.CQRS.Queries.MailAuthenticationQueries.MailAut
             token.RefreshToken = refreshToken;
 
             LoginResultDto loginResult = new();
+            loginResult.IsAdmin = claims.Any(x => x.Name == "Admin");
             loginResult.Authenticator = selectedUser.AuthenticatorType;
             loginResult.UserId = selectedUser.Id;
             loginResult.Token = token;

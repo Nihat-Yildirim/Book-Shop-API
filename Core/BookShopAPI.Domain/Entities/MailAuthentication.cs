@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class MailAuthentication : BaseEntity
+    public class MailAuthentication : Entity
     {
         public string? ActivationKey { get; set; }
         public bool IsVerified { get; set; }

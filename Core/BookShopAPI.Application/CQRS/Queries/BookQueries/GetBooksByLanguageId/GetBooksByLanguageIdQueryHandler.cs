@@ -21,8 +21,15 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByLanguageId
 
         public async Task<BaseDataResponse<List<BookDto>>> Handle(GetBooksByLanguageIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var bookDatas = await _bookReadRepository.GetWhere(x => x.LanguageId == request.Id && x.DeletedDate == null, false).ToListAsync();
-            
+            var bookDatas = await _bookReadRepository.Table
+                                  .Include(x => x.BookPictures)
+                                  .ThenInclude(x => x.File)
+                                  .Where(x => x.LanguageId == request.Id && x.DeletedDate == null)
+                                  .AsNoTracking()
+                                  .Take(request.Size)
+                                  .Skip(request.Size * request.Page)
+                                  .ToListAsync();
+
             List<BookDto> responseDatas = new();
             bookDatas.ForEach(book =>
             {

@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Claim : BaseEntity
+    public class Claim : Entity
     {
         public Claim()
         {

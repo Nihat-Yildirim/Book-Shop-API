@@ -19,6 +19,7 @@ namespace BookShopAPI.Application.Validators.BookValidators
                 .NotEmpty()
                 .NotNull()
                 .GreaterThan(0);
+
         }
     }
 }

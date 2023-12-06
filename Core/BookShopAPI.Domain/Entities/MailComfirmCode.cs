@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class MailComfirmCode : BaseEntity
+    public class MailComfirmCode : Entity
     {
         public string? ComfirmCode { get; set; }
         public bool IsComfirm { get; set; }

@@ -6,6 +6,7 @@ using BookShopAPI.Application.DTOs.CategoryDTOs;
 using BookShopAPI.Application.Helpers.FileUrl;
 using BookShopAPI.Application.Repositories.AuthorRepositories;
 using BookShopAPI.Application.Repositories.BookRepositories;
+using BookShopAPI.Domain.Entities;
 using BookShopAPI.Domain.RequestParameters;
 using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
@@ -16,12 +17,10 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByAuthorId
 {
     public class GetBooksByAuthorIdQueryHandler : IRequestHandler<GetBooksByAuthorIdQueryRequest, BaseDataResponse<List<BookDto>>>
     {
-        private readonly IMapper _mapper;
         private readonly IBookReadRepository _bookReadRepository;
-        public GetBooksByAuthorIdQueryHandler(IBookReadRepository bookReadRepository, IMapper mapper)
+        public GetBooksByAuthorIdQueryHandler(IBookReadRepository bookReadRepository)
         {
             _bookReadRepository = bookReadRepository;
-            _mapper = mapper;
         }
 
         public async Task<BaseDataResponse<List<BookDto>>> Handle(GetBooksByAuthorIdQueryRequest request, CancellationToken cancellationToken)

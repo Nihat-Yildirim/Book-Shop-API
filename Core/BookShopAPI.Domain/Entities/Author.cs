@@ -2,7 +2,7 @@
 
 namespace BookShopAPI.Domain.Entities
 {
-    public class Author : BaseEntity
+    public class Author : Entity
     {
         public int? AuthorPictureFileId { get; set; }
         public string? Name { get; set; }
