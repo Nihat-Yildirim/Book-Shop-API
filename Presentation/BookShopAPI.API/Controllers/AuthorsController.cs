@@ -6,6 +6,7 @@ using BookShopAPI.Application.CQRS.Commands.AuthorCommands.DeleteAuthorPicture;
 using BookShopAPI.Application.CQRS.Commands.AuthorCommands.UpdateAuthor;
 using BookShopAPI.Application.CQRS.Commands.AuthorCommands.UpdateAuthorPicture;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthorForAdmin;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthorName;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAllAuthors;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorById;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByIdForAdmin;
@@ -85,5 +86,11 @@ namespace BookShopAPI.API.Controllers
         [HttpDelete("DeleteAuthorPicture")]
         public async Task<IActionResult> DeleteAuthorPicture([FromForm] DeleteAuthorPictureCommandRequest request)
             => await NoDataResponse(request);
+
+        //[AuthorizationFilter("Admin")]
+        [HttpGet("GetAllAuthorName")]
+        [CacheFilter(15,7.5)]
+        public async Task<IActionResult> GetAllAuthorName([FromQuery] GetAllAuthorNameQueryRequest request)
+            => await DataResponse(request);
     }
 }

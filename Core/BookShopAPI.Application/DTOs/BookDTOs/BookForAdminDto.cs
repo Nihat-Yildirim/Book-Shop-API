@@ -9,25 +9,8 @@ namespace BookShopAPI.Application.DTOs.BookDTOs
 {
     public class BookForAdminDto : IDto
     {
-        public int Id { get; set; }
-        public ShortPublisherDto? Publisher { get; set; }
-        public ShortLanguageDto? Language { get; set; }
-        public string? BookName { get; set; }
-        public string? ISBN { get; set; }
-        public string? PaperType { get; set; }
-        public string? SkinType { get; set; }
-        public string? Dimension { get; set; }
-        public string? Description { get; set; }
-        public string? ReleaseDate { get; set; }
-        public int PageOfNumber { get; set; }
-        public int Stock { get; set; }
-        public float Price { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public DateTime? DeletedDate { get; set; }
-        public List<BookPictureDto>? PictureUrls { get; set; }
-        public List<ShortCategoryDto>? Categories { get; set; }
-        public List<ShortAuthorDto>? Authors { get; set; }
+        public List<BookDto>? Books { get; set; }
+        public int BookCount { get; set; }
 
     }
 }

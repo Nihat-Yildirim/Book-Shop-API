@@ -3,6 +3,7 @@ using BookShopAPI.Application.CQRS.Commands.PublisherCommands.AddPublisher;
 using BookShopAPI.Application.CQRS.Commands.PublisherCommands.DeletePublisher;
 using BookShopAPI.Application.CQRS.Commands.PublisherCommands.UpdatePublisher;
 using BookShopAPI.Application.CQRS.Commands.PublisherCommands.UpdatePublisherLogo;
+using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetAllPublisherName;
 using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetAllPublishers;
 using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherById;
 using BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherByPattern;
@@ -58,6 +59,12 @@ namespace BookShopAPI.API.Controllers
         [HttpGet("GetPublisherByPatternForAdmin")]
         [CacheFilter(10, 2)]
         public async Task<IActionResult> GetPublisherByPatternForAdmin([FromQuery] GetPublisherByPatternForAdminQueryRequest request)
+            => await DataResponse(request);
+
+        //[AuthorizationFilter("Admin")]
+        [HttpGet("GetAllPublisherName")]
+        [CacheFilter(10, 2)]
+        public async Task<IActionResult> GetAllPublisherName([FromQuery] GetAllPublisherNameQueryRequest request)
             => await DataResponse(request);
     }
 }

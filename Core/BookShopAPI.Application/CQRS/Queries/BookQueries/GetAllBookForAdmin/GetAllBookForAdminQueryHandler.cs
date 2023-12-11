@@ -7,7 +7,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBookForAdmin
 {
-    public class GetAllBookForAdminQueryHandler : IRequestHandler<GetAllBookForAdminQueryRequest, BaseDataResponse<List<BookForAdminDto>>>
+    public class GetAllBookForAdminQueryHandler : IRequestHandler<GetAllBookForAdminQueryRequest, BaseDataResponse<BookForAdminDto>>
     {
         private readonly IBookReadRepository _bookReadRepository;
 
@@ -16,10 +16,16 @@ namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBookForAdmin
             _bookReadRepository = bookReadRepository;
         }
 
-        public async Task<BaseDataResponse<List<BookForAdminDto>>> Handle(GetAllBookForAdminQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<BookForAdminDto>> Handle(GetAllBookForAdminQueryRequest request, CancellationToken cancellationToken)
         {
-            var responseDatas = await _bookReadRepository.GetBookForAdminDtosAsync(new Pagination { Page = request.Page, Size = request.Size });
-            return new SuccessDataResponse<List<BookForAdminDto>>(responseDatas);
+            int bookCount = _bookReadRepository.GetWhere(x => x.DeletedDate == null).Count();
+            var paginationDatas = await _bookReadRepository.GetBookDtosAsync(new Pagination { Page = request.Page, Size = request.Size });
+
+            BookForAdminDto bookForAdminDto = new();
+            bookForAdminDto.Books = paginationDatas;
+            bookForAdminDto.BookCount = bookCount;
+
+            return new SuccessDataResponse<BookForAdminDto>(bookForAdminDto);
         }
     }
 }

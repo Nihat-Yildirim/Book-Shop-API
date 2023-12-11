@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBookForAdmin
 {
-    public class GetAllBookForAdminQueryRequest : IRequest<BaseDataResponse<List<BookForAdminDto>>>
+    public class GetAllBookForAdminQueryRequest : IRequest<BaseDataResponse<BookForAdminDto>>
     {
         public int Page { get; set; } = 0;
         public int Size { get; set; } = 5;

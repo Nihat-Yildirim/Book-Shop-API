@@ -12,8 +12,6 @@ using BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBookForAdmin;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookById;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookByISBN;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookByNamePattern;
-using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookByNamePatternForAdmin;
-using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBookForAdminById;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByAuthorId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByBasketCount;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryAndAuthorId;
@@ -89,21 +87,9 @@ namespace BookShopAPI.API.Controllers
         public async Task<IActionResult> GetById([FromQuery] GetBookByIdQueryRequest request)
             => await DataResponse(request);
 
-        //[AuthorizationFilter("Admin")]
-        [HttpGet("GetByIdForAdmin")]
-        [CacheFilter(2, 0.5)]
-        public async Task<IActionResult> GetByIdForAdmin([FromQuery] GetBookForAdminByIdQueryRequest request)
-            => await DataResponse(request);
-
         [HttpGet("GetBooksByNamePattern")]
         [CacheFilter(1, 0.5)]
         public async Task<IActionResult> GetBooksByNamePattern([FromQuery] GetBookByNamePatternQueryRequest request)
-            => await DataResponse(request);
-
-        //[AuthorizationFilter("Admin")]
-        [HttpGet("GetBooksByNamePatternForAdmin")]
-        [CacheFilter(1, 0.5)]
-        public async Task<IActionResult> GetBooksByNamePatternForAdmin([FromQuery] GetBookByNamePatternForAdminQueryRequest request)
             => await DataResponse(request);
 
         [HttpGet("GetBooksByPublisherId")]

@@ -11,7 +11,7 @@ namespace BookShopAPI.Application.DTOs.BookDTOs
     {
         public int Id { get; set; }
         public ShortPublisherDto? Publisher { get; set; }
-        public ShortLanguageDto? Language { get; set; }
+        public LanguageDto? Language { get; set; }
         public string? BookName { get; set; }
         public string? ISBN { get; set; }
         public string? PaperType { get; set; }
