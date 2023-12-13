@@ -8,6 +8,7 @@ using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetAllComment;
 using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetCommentCountByBookId;
 using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetCommentsByBookId;
 using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetCommentsByUserId;
+using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetSelectedBookCommentDatasForDays;
 using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetSelectedBookUserComment;
 using BookShopAPI.Application.CQRS.Queries.CommentQueries.GetSelectedCommentRating;
 using MediatR;
@@ -70,6 +71,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpGet("GetSelectedCommentRating")]
         public async Task<IActionResult> GetSelectedCommentRating([FromQuery] GetSelectedCommentRatingQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("GetSelectedBookCommentDatasForDays")]
+        public async Task<IActionResult> GetSelectedBookCommentDatasForDays([FromQuery] GetSelectedBookCommentDatasForDaysQueryRequest request)
             => await DataResponse(request);
     }
 }

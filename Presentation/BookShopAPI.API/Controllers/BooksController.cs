@@ -48,8 +48,14 @@ namespace BookShopAPI.API.Controllers
 
         //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookAuthors")]
-        public async Task<IActionResult> UpdateBookAuthors([FromQuery] UpdateBookAuthorsCommandRequest request)
-            => await NoDataResponse(request);
+        public async Task<IActionResult> UpdateBookAuthors([FromQuery(Name = "BookId")] int BookId, [FromQuery(Name = "AuthorIds[]")] int[] AuthorIds)
+        {
+            UpdateBookAuthorsCommandRequest request = new();
+            request.BookId = BookId;
+            request.AuthorIds = AuthorIds.ToList();
+
+            return await NoDataResponse(request);
+        }
 
         //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookCategories")]
@@ -83,7 +89,6 @@ namespace BookShopAPI.API.Controllers
             => await DataResponse(request);
 
         [HttpGet("GetById")]
-        [CacheFilter(2, 0.5)]
         public async Task<IActionResult> GetById([FromQuery] GetBookByIdQueryRequest request)
             => await DataResponse(request);
 

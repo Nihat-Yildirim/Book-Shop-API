@@ -56,8 +56,7 @@ namespace BookShopAPI.Application.Validators.BookValidators
             RuleFor(x => x.ReleaseDate)
                 .NotEmpty()
                 .NotNull()
-                .Must(x => x < DateTime.Now)
-                    .WithMessage("Lütfen geçerli bir yayınlanma tarihi giriniz");
+                .MaximumLength(10);
 
             RuleFor(x => x.PageOfNumber)
                 .NotEmpty()
