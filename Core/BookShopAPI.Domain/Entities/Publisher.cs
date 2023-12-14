@@ -10,5 +10,6 @@ namespace BookShopAPI.Domain.Entities
 
         public FileEntity? File { get; set; }
         public ICollection<Book>? Books { get; set; }
+        public ICollection<PublisherSearchData>? PublisherSearchDatas { get; set; }
     }
 }

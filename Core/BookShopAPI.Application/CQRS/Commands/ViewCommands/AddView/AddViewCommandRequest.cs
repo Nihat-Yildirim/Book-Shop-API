@@ -1,7 +1,7 @@
 ﻿using BookShopAPI.Domain.Results.Abstracts;
 using MediatR;
 
-namespace BookShopAPI.Application.CQRS.Commands.ViewCommands
+namespace BookShopAPI.Application.CQRS.Commands.ViewCommands.AddView
 {
     public class AddViewCommandRequest : IRequest<BaseResponse>
     {

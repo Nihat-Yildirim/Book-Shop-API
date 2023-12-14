@@ -1,4 +1,4 @@
-﻿using BookShopAPI.Application.CQRS.Commands.ViewCommands;
+﻿using BookShopAPI.Application.CQRS.Commands.ViewCommands.AddView;
 using FluentValidation;
 
 namespace BookShopAPI.Application.Validators.ViewValidators

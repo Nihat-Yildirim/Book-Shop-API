@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPattern
 {
-    public class GetAuthorByPatternQueryHandler : IRequestHandler<GetAuthorByPatternQueryRequest, BaseDataResponse<List<AuthorDto>>>
+    public class GetAuthorByPatternQueryHandler : IRequestHandler<GetAuthorByPatternQueryRequest, BaseDataResponse<List<ShortAuthorDto>>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorReadRepository _authorReadRepository;
@@ -19,15 +19,17 @@ namespace BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPattern
             _mapper = mapper;
         }
 
-        public async Task<BaseDataResponse<List<AuthorDto>>> Handle(GetAuthorByPatternQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<List<ShortAuthorDto>>> Handle(GetAuthorByPatternQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorReadRepository
-                .GetWhere(x => x.DeletedDate == null && x.Name.Contains(request.Pattern), false)
-                .Include(x => x.File)
-                .ToListAsync();
-            var responseAuthors = _mapper.Map<List<AuthorDto>>(authors);
+            var response = await _authorReadRepository
+                          .GetWhere(x => x.DeletedDate == null && x.Name.ToUpper().StartsWith(request.Pattern.ToUpper()), false)
+                          .Select(x => new ShortAuthorDto{
+                             Id = x.Id,
+                             Name = x.Name,
+                          })
+                          .ToListAsync();
 
-            return new SuccessDataResponse<List<AuthorDto>>(responseAuthors);
+            return new SuccessDataResponse<List<ShortAuthorDto>>(response);
         }
     }
 }

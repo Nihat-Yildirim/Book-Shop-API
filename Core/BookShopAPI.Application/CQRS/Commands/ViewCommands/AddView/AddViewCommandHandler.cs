@@ -6,7 +6,7 @@ using BookShopAPI.Domain.Results.Abstracts;
 using BookShopAPI.Domain.Results.Concretes;
 using MediatR;
 
-namespace BookShopAPI.Application.CQRS.Commands.ViewCommands
+namespace BookShopAPI.Application.CQRS.Commands.ViewCommands.AddView
 {
     public class AddViewCommandHandler : IRequestHandler<AddViewCommandRequest, BaseResponse>
     {

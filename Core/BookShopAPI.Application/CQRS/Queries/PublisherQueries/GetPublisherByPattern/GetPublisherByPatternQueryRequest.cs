@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherByPattern
 {
-    public class GetPublisherByPatternQueryRequest : IRequest<BaseDataResponse<List<PublisherDto>>>
+    public class GetPublisherByPatternQueryRequest : IRequest<BaseDataResponse<List<ShortPublisherDto>>>
     {
         public string? Pattern { get; set; }
     }

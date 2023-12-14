@@ -1,10 +1,12 @@
 ﻿using BookShopAPI.Application.Cache;
 using BookShopAPI.Application.Repositories.AddressRepositories;
 using BookShopAPI.Application.Repositories.AuthorRepositories;
+using BookShopAPI.Application.Repositories.AuthorSearchDataRepositories;
 using BookShopAPI.Application.Repositories.BasketItemRepositories;
 using BookShopAPI.Application.Repositories.BasketRepositories;
 using BookShopAPI.Application.Repositories.BookPictureRepositories;
 using BookShopAPI.Application.Repositories.BookRepositories;
+using BookShopAPI.Application.Repositories.BookSearchDataRepositories;
 using BookShopAPI.Application.Repositories.CategoryRepositories;
 using BookShopAPI.Application.Repositories.ClaimRepositories;
 using BookShopAPI.Application.Repositories.CommentRatingRepositories;
@@ -20,6 +22,7 @@ using BookShopAPI.Application.Repositories.OtpAuthenticationRepositories;
 using BookShopAPI.Application.Repositories.OtpRecoveryCodeRepositories;
 using BookShopAPI.Application.Repositories.ProvinceRepositories;
 using BookShopAPI.Application.Repositories.PublisherRepositories;
+using BookShopAPI.Application.Repositories.PublisherSearchDataRepositories;
 using BookShopAPI.Application.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Application.Repositories.UserClaimRepositories;
 using BookShopAPI.Application.Repositories.UserRepositories;
@@ -29,10 +32,12 @@ using BookShopAPI.Persistence.Cache;
 using BookShopAPI.Persistence.EntityFramework.Contexts;
 using BookShopAPI.Persistence.EntityFramework.Repositories.AddressRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.AuthorRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.AuthorSearchDataRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.BasketItemRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.BasketRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.BookPictureRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.BookRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.BookSearchDataRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.CategoryRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.ClaimRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.CommendRatingRepositories;
@@ -48,6 +53,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.OtpAuthenticationRepo
 using BookShopAPI.Persistence.EntityFramework.Repositories.OtpRecoveryCodeRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.ProvinceRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.PublisherRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.PublisherSearchDataRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.RefreshTokenRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.UserClaimRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.UserRepositories;
@@ -143,6 +149,15 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<IViewReadRepository, ViewReadRepository>();
             services.AddScoped<IViewWriteRepository, ViewWriteRepository>();
+
+            services.AddScoped<IBookSearchDataReadRepository, BookSearchDataReadRepository>();
+            services.AddScoped<IBookSearchDataWriteRepository,BookSearchDataWriteRepository>();
+
+            services.AddScoped<IAuthorSearchDataReadRepository, AuthorSearchDataReadRepository>();
+            services.AddScoped<IAuthorSearchDataWriteRepository, AuthorSearchDataWriteRepository>();
+
+            services.AddScoped<IPublisherSearchDataReadRepository, PublisherSearchDataReadRepository>();
+            services.AddScoped<IPublisherSearchDataWriteRepository, PublisherSearchDataWriteRepository>();
         }
     }
 }

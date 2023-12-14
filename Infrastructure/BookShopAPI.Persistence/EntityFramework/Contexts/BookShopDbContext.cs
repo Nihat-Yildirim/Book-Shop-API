@@ -60,9 +60,12 @@ namespace BookShopAPI.Persistence.EntityFramework.Contexts
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<CommentRating> CommentRatings { get; set; }
         public DbSet<Neighbourhood> Neighbourhoods { get; set; }
+        public DbSet<BookSearchData> BookSearchDatas { get; set; }
         public DbSet<OtpRecoveryCode> OtpRecoveryCodes { get; set; }
         public DbSet<MailComfirmCode> MailComfirmCodes { get; set; }
+        public DbSet<AuthorSearchData> AuthorSearchDatas { get; set; }
         public DbSet<OtpAuthentication> OtpAuthentications { get; set; }
         public DbSet<MailAuthentication> MailAuthentications { get; set; }
+        public DbSet<PublisherSearchData> PublisherSearchDatas { get; set; }
     }
 }

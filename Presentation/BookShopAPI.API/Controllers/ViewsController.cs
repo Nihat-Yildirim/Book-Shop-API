@@ -1,5 +1,5 @@
 ﻿using BookShopAPI.API.Controllers.Common;
-using BookShopAPI.Application.CQRS.Commands.ViewCommands;
+using BookShopAPI.Application.CQRS.Commands.ViewCommands.AddView;
 using BookShopAPI.Application.CQRS.Queries.ViewQueries.GetSelectedBookViewDatasForDays;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherByPattern
 {
-    public class GetPublisherByPatternQueryHandler : IRequestHandler<GetPublisherByPatternQueryRequest, BaseDataResponse<List<PublisherDto>>>
+    public class GetPublisherByPatternQueryHandler : IRequestHandler<GetPublisherByPatternQueryRequest, BaseDataResponse<List<ShortPublisherDto>>>
     {
         private readonly IMapper _mapper;
         private readonly IPublisherReadRepository _publisherReadRepository;
@@ -19,15 +19,18 @@ namespace BookShopAPI.Application.CQRS.Queries.PublisherQueries.GetPublisherByPa
             _publisherReadRepository = publisherReadRepository;
         }
 
-        public async Task<BaseDataResponse<List<PublisherDto>>> Handle(GetPublisherByPatternQueryRequest request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<List<ShortPublisherDto>>> Handle(GetPublisherByPatternQueryRequest request, CancellationToken cancellationToken)
         {
-            var resultPublisher = await _publisherReadRepository
+            var response = await _publisherReadRepository
                     .GetWhere(x => x.Name.Contains(request.Pattern), false)
-                    .Include(x => x.File)
+                    .Select(x => new ShortPublisherDto
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                    })
                     .ToListAsync();
-            var responsePublisher = _mapper.Map<List<PublisherDto>>(resultPublisher);
 
-            return new SuccessDataResponse<List<PublisherDto>>(responsePublisher);
+            return new SuccessDataResponse<List<ShortPublisherDto>>(response);
         }
     }
 }

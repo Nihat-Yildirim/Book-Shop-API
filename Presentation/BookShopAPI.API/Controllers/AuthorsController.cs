@@ -12,6 +12,7 @@ using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorById;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByIdForAdmin;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPattern;
 using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetAuthorByPatternForAdmin;
+using BookShopAPI.Application.CQRS.Queries.AuthorQueries.GetRecommendAuthorsForSearch;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -91,6 +92,10 @@ namespace BookShopAPI.API.Controllers
         [HttpGet("GetAllAuthorName")]
         [CacheFilter(15,7.5)]
         public async Task<IActionResult> GetAllAuthorName([FromQuery] GetAllAuthorNameQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("GetRecommendAuthorsForSearch")]
+        public async Task<IActionResult> GetRecommendAuthorsForSearch([FromQuery] GetRecommendAuthorsForSearchQueryRequest request)
             => await DataResponse(request);
     }
 }

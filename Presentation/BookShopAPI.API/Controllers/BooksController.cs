@@ -19,6 +19,7 @@ using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCategoryId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByCommentCount;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByLanguageId;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetBooksByPublisherId;
+using BookShopAPI.Application.CQRS.Queries.BookQueries.GetRecommendBooksForSearch;
 using BookShopAPI.Infrastructure.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -145,5 +146,9 @@ namespace BookShopAPI.API.Controllers
 
             return await DataResponse(request);
         }
+
+        [HttpGet("GetRecommendBooksForSearch")]
+        public async Task<IActionResult> GetRecommendBooksForSearch([FromQuery] GetRecommendBooksForSearchQueryRequest request)
+            => await DataResponse(request);
     }
 }
