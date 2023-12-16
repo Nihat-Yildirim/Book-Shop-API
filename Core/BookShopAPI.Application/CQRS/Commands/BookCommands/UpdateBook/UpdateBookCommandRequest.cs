@@ -13,7 +13,6 @@ namespace BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBook
         public string? PaperType { get; set; }
         public string? SkinType { get; set; }
         public string? Dimension { get; set; }
-        public string? Description { get; set; }
         public string? ReleaseDate { get; set; }
         public int PageOfNumber { get; set; }
         public int Stock { get; set; }

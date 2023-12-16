@@ -52,7 +52,6 @@ namespace BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBook
             selectedBook.PaperType = request.PaperType;
             selectedBook.SkinType = request.SkinType;
             selectedBook.Dimension = request.Dimension;
-            selectedBook.Description = request.Description;
             selectedBook.ReleaseDate = request.ReleaseDate;
             selectedBook.PageOfNumber = request.PageOfNumber;
             selectedBook.Stock = request.Stock;

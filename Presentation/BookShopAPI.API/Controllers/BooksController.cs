@@ -6,6 +6,7 @@ using BookShopAPI.Application.CQRS.Commands.BookCommands.DeleteBookPicture;
 using BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBook;
 using BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBookAuthors;
 using BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBookCategories;
+using BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBookDescription;
 using BookShopAPI.Application.CQRS.Commands.BookCommands.UpdateBookPicture;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBook;
 using BookShopAPI.Application.CQRS.Queries.BookQueries.GetAllBookForAdmin;
@@ -60,12 +61,23 @@ namespace BookShopAPI.API.Controllers
 
         //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookCategories")]
-        public async Task<IActionResult> UpdateBookCategories([FromQuery] UpdateBookCategoriesCommandRequest request)
-            => await NoDataResponse(request);
+        public async Task<IActionResult> UpdateBookCategories([FromQuery(Name = "BookId")] int BookId, [FromQuery(Name = "CategoryIds[]")] int[] CategoryIds)
+        {
+            UpdateBookCategoriesCommandRequest request = new();
+            request.BookId = BookId;
+            request.CategoryIds = CategoryIds.ToList(); 
+
+            return await NoDataResponse(request);
+        }
 
         //[AuthorizationFilter("Admin")]
         [HttpPut("UpdateBookPicture")]
         public async Task<IActionResult> UpdateBookPicture([FromForm] UpdateBookPictureCommandRequest request)
+            => await NoDataResponse(request);
+
+        //[AuthorizationFilter("Admin")]
+        [HttpPut("UpdateBookDescription")]
+        public async Task<IActionResult> UpdateBookDescription([FromQuery] UpdateBookDescriptionCommandRequest request)
             => await NoDataResponse(request);
 
         //[AuthorizationFilter("Admin")]

@@ -48,11 +48,6 @@ namespace BookShopAPI.Application.Validators.BookValidators
                 .NotNull()
                 .MaximumLength(20);
 
-            RuleFor(x => x.Description)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(25);
-
             RuleFor(x => x.ReleaseDate)
                 .NotEmpty()
                 .NotNull()
