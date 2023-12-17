@@ -71,6 +71,8 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.CommendRepositori
         {
             IQueryable<CommentEntity> query;
             query = Table.Include(x => x.CommentRatings)
+                    .Include(x => x.User)
+                    .ThenInclude(x => x.File)
                     .Skip(pagination.Page * pagination.Size)
                     .Take(pagination.Size);
 
@@ -88,16 +90,16 @@ namespace BookShopAPI.Persistence.EntityFramework.Repositories.CommendRepositori
                 CommentForAdminDto commentForAdminDto = new()
                 {
                     BookId = data.BookId,
+                    UserFirstName = data.User.FirstName,
+                    UserLastName = data.User.LastName,
+                    PictureUrl = FileUrlHelper.Generate(data.User.File.FilePath),
                     ParentCommentId = data.ParentCommentId,
                     CommentId = data.Id,
                     UserId = data.UserId,
                     Comment = data.Comment,
                     CreatedDate = data.CreatedDate,
-                    DeletedDate = data.DeletedDate,
-                    UpdatedDate = data.UpdatedDate,
-                    TotalRating = data.CommentRatings.Where(x => x.DeletedDate == null).Count(),
-                    TotalNotUsefulRating = data.CommentRatings.Where(x => x.Useful == false && x.DeletedDate == null).Count(),
-                    TotalUsefulRating = data.CommentRatings.Where(x => x.Useful == true && x.DeletedDate == null).Count()
+                    NotUsefulRating = data.CommentRatings.Where(x => x.Useful == false && x.DeletedDate == null).Count(),
+                    UsefulRating = data.CommentRatings.Where(x => x.Useful == true && x.DeletedDate == null).Count()
                 };
 
                 responseDatas.Add(commentForAdminDto);

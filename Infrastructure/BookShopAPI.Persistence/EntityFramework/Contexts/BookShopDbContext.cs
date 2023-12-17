@@ -58,6 +58,7 @@ namespace BookShopAPI.Persistence.EntityFramework.Contexts
         public DbSet<CommentEntity> Comments { get; set; }
         public DbSet<BookPicture> BookPictures { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<FavoriteBook> FavoriteBooks { get; set; }
         public DbSet<CommentRating> CommentRatings { get; set; }
         public DbSet<Neighbourhood> Neighbourhoods { get; set; }
         public DbSet<BookSearchData> BookSearchDatas { get; set; }

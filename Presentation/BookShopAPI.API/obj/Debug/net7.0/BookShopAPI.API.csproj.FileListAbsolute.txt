@@ -91,7 +91,6 @@ D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\AutoMapper
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\FluentValidation.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
-D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\obj\Debug\net7.0\BookShopAPI.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\BookShopAPI.API.staticwebassets.runtime.json
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Projeler\BookShopAPI\Presentation\BookShopAPI.API\bin\Debug\net7.0\Serilog.dll

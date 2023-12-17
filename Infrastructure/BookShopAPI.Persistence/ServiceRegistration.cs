@@ -12,6 +12,7 @@ using BookShopAPI.Application.Repositories.ClaimRepositories;
 using BookShopAPI.Application.Repositories.CommentRatingRepositories;
 using BookShopAPI.Application.Repositories.CommentRepositories;
 using BookShopAPI.Application.Repositories.DistrictRepository;
+using BookShopAPI.Application.Repositories.FavoriteBookRepositories;
 using BookShopAPI.Application.Repositories.FileRepositories;
 using BookShopAPI.Application.Repositories.LanguageRepositories;
 using BookShopAPI.Application.Repositories.MailAuthenticationRepositories;
@@ -43,6 +44,7 @@ using BookShopAPI.Persistence.EntityFramework.Repositories.ClaimRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.CommendRatingRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.CommendRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.DistrictRepositories;
+using BookShopAPI.Persistence.EntityFramework.Repositories.FavoriteBookRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.FileRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.LanguageRepositories;
 using BookShopAPI.Persistence.EntityFramework.Repositories.MailAuthenticationRepositories;
@@ -158,6 +160,9 @@ namespace BookShopAPI.Persistence
 
             services.AddScoped<IPublisherSearchDataReadRepository, PublisherSearchDataReadRepository>();
             services.AddScoped<IPublisherSearchDataWriteRepository, PublisherSearchDataWriteRepository>();
+
+            services.AddScoped<IFavoriteBookReadRepository, FavoriteBookReadRepository>();
+            services.AddScoped<IFavoriteBookWriteRepository,FavoriteBookWriteRepository>();
         }
     }
 }

@@ -33,6 +33,7 @@ namespace BookShopAPI.Domain.Entities
         public ICollection<CommentEntity> Comments { get; set; }
         public ICollection<BasketItem> BasketItems { get; set; }
         public ICollection<BookPicture> BookPictures { get; set; }
+        public ICollection<FavoriteBook> FavoriteBooks { get; set; }
         public ICollection<BookSearchData> BookSearchDatas { get; set; }
     }
 }
