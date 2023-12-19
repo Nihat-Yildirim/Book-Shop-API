@@ -1,6 +1,7 @@
 ﻿using BookShopAPI.API.Controllers.Common;
 using BookShopAPI.Application.CQRS.Commands.FavoriteBookCommands.AddFavoriteBook;
 using BookShopAPI.Application.CQRS.Commands.FavoriteBookCommands.DeleteFavoriteBook;
+using BookShopAPI.Application.CQRS.Queries.FavoriteBookQueries.GetSelectedBookFavoriteDatasForDays;
 using BookShopAPI.Application.CQRS.Queries.FavoriteBookQueries.GetUserFavoriteBooks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,10 @@ namespace BookShopAPI.API.Controllers
 
         [HttpGet("GetUserFavoriteBooks")]
         public async Task<IActionResult> GetUserFavoriteBooks([FromQuery] GetUserFavoriteBooksQueryRequest request)
+            => await DataResponse(request);
+
+        [HttpGet("GetSelectedBookFavoriteDatasForDays")]
+        public async Task<IActionResult> GetSelectedBookFavoriteDatasForDays([FromQuery] GetSelectedBookFavoriteDatasForDaysQueryRequest request)
             => await DataResponse(request);
     }
 }
